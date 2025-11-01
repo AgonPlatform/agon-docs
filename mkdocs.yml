@@ -65,6 +65,7 @@ nav:
     - 'Start here': index.md
     - 'FAQ': FAQ.md
     - 'Theory of operation': Theory-of-operation.md
+    - 'Programming': programming.md
   - 'MOS':
       - 'Overview': MOS.md
       - 'Command line': mos/Star-Commands.md
