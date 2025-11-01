@@ -104,6 +104,8 @@ From VDP 2.15 onwards calling this command will set the ["last character read"](
 
 This command will return the colour of the pixel at the graphics coordinate position to MOS.  The corresponding [MOS sysvars](../mos/API.md#sysvars) will be updated to reflect the read pixel colour.
 
+From VDP 2.15 onwards calling this command will set the various ["last colour"](./VDP-Variables.md#last-colour) VDP variables to the coordinates used for this command and to the colour that was read.  It will set the colour values to zero if the pixel could not be read.  A "read pixel" event will also be triggered allowing [callbacks](./Buffered-Commands-API.md#command-80) to potentially modify the data being sent to MOS.
+
 ## `VDU 23, 0, &85, channel, command, <args>`: Audio commands
 
 Sends a command to the [VDP Enhanced Audio API](Enhanced-Audio-API.md) **
@@ -315,6 +317,8 @@ Any other colour value will not be recognise, and no response sent.
 
 It should be noted that before Console8 VDP 2.7.0 when reading palette entries for the current text and graphics colours, the data packet returned would reflect back the colour number `n` sent to this command, rather than responding with the actual palette colour number for that colour.  As of Console8 VDP 2.7.0 the actual palette colour number is returned.
 
+From VDP 2.15 onwards calling this command will set the ["last colour"](./VDP-Variables.md#last-colour) VDP variables to the colour that was read, or set it to zero if the pixel could not be read.  The last colour X and Y coordinate variables will be set to 32768.
+
 ## `VDU 23, 0, &95, <command>, [<args>]`: Font management commands §§§§§
 
 This command is used to manage fonts on your system.  For more information please see the [Font API documentation](Font-API.md).
@@ -456,7 +460,7 @@ The line pattern can be set using `VDU 23, 6, n1, n2, n3, n4, n5, n6, n7, n8`, w
 
 Support for this command was added in Console8 VDP 2.7.0.
 
-## `VDU 23, 0, &F8, variableId; value;`: Set a VDP Variable §§§§§§
+## `VDU 23, 0, &F8, variableId; value;`: Set a VDP Variable §§§§§§ {#vdp-var-set}
 
 This command is used to set a [VDP variable](VDP-Variables.md).  VDP variables are used to control various features of the VDP, including enabling new functionality that may not quite be ready for general use and/or have an API that may change in the future.  They may also allow for changing various aspects of the VDP's behaviour.
 
@@ -504,7 +508,7 @@ Suspending terminal mode temporarily restores VDU command processing.  (Keyboard
 
 Data sent from the VDP to the eZ80's UART0 is sent as a packet in the following format:
 
-- `cmd`: The packet command, with bit 7 set
+- `cmd`: The packet type, with bit 7 set
 - `len`: Number of data bytes
 - `data`: The data byte(s)
 
@@ -541,13 +545,19 @@ MOS VDP Protocol flag bits:
 | 5 | RTC data |
 | 6 | Mouse status |
 
+### VDP Protocol events
 
-### Keyboard
+As of VDP 2.15.0, [events](./Buffered-Commands-API.md#command-80) will be fired in the VDP before and after each packet is sent, and the values sent in VDP protocol packets will reflect the [VDP variables](VDP-Variables.md) that hold the same information.  This allows programs to potentially intercept and modify this data before it is sent to MOS using buffered command sequences, or even to prevent VDP protocol packets from being sent.
+
+
+### Keyboard packet data
 
 When a key is pressed, a packet is sent with the following data:
+
 - cmd: 0x01
 - keycode: The ASCII value of the key pressed
 - modifiers: A byte with the following bits set (1 = pressed):
+
 ```
 0. CTRL
 1. SHIFT
@@ -558,8 +568,8 @@ When a key is pressed, a packet is sent with the following data:
 6. SCROLL LOCK
 7. GUI
 ```
+
 From VDP 1.03, the following key data is also returned
-- vkey: The FabGL virtual keycode
+
+- vkey: The FabGL/vdp-gl virtual keycode
 - keydown: 1 if the key is down, 0 if the key is up
-
-

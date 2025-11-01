@@ -2,7 +2,7 @@
 
 VDP variables provide a way to both read and change the state of the VDP.  They can be used to enable an experimental feature, read or change the current state of the VDP, or store information for use in a [buffered command](./Buffered-Commands-API.md) sequence.
 
-VDU variables are natively 16-bit values, although some variables may only use the lower 8 bits.
+VDU variables are 16-bit values, although some variables may only use the lower 8 bits.  Whilst natively variables are stored as unsigned values, the VDP will interpret them as signed values where appropriate; for instance graphics coordinates can be negative, and the VDP will interpret them as such.
 
 Variables are currently split into three general categories: test flags, system settings, and VDU variables.  In the future we will add more variables to expose the state of the audio system.  These categorites are given some broad ranges of variable IDs to allow for future expansion, and to allow for easy identification of the type of variable.
 
@@ -16,12 +16,14 @@ The VDP variables system was added in Console8 VDP 2.9.0, and was initially used
 
 The Console8 VDP 2.12.0 release has added many new variables that expose the state of the VDP, and allow for changes to be made to that state.  It is also now possible to use VDP variables in buffered commands.  This allows for conditional commands to be used to check against a variable, and the contents of a variable to be read into a buffer.
 
+Further extensions to the VDP variables system were made in VDP 2.15.0, exposing more information, and functionality related to [VDP events](./Buffered-Commands-API.md#command-80).
+
 
 ## Variable APIs
 
 There are just two API calls to directly work with VDP variables, one to set a variable, and another to clear it.  As of VDP 2.12.0 the buffered command API also allows for the reading of variables into a buffer, and for conditional commands to be used to perform their checks against a variable.
 
-The commands to set and clear variables are documented in the [system commands](./System-Commands.md) documentation.  Briefly they are:
+The commands to set and clear variables are documented in the [system commands](./System-Commands.md#vdp-var-set) documentation.  Briefly they are:
 
 * `VDU 23, 0, &F8, variableId; value;`: Set a VDP Variable
 * `VDU 23, 0, &F9, variableId;`: Clear a VDP Variable
@@ -82,11 +84,14 @@ The sub-ranges within system variables are broadly as follows:
 | 0x0220-0x022F | [Keyboard settings](#keyboard-vars) |
 | 0x0230-0x023F | [Context management](#context-vars) |
 | 0x0240-0x024F | [Mouse settings](#mouse-vars) * |
+| 0x0250-0x025F | [Keyboard event info](#key-event) |
 | 0x0250-0x02FF | Reserved for future use |
 | 0x0300-0x03FF | [Graphical system enhancement settings/flags](#graphics-settings) |
 | 0x0400-0x04FF | [Bitmap/Sprite system control settings](#bitmap-sprite-settings) |
 | 0x0500-0x05FF | [Last value variables](#response-vars) |
-| 0x0600-0x0FFF | Reserved for future use |
+| 0x0600-0x07FF | Reserved for future use |
+| 0x0800-0x08FF | [Keyboard map](#key-map) |
+| 0x0900-0x0FFF | Reserved for future use |
 
 \* The mouse settings variables were added to this range in VDP 2.15.0, as these represent global settings for the mouse system.
 
@@ -100,7 +105,10 @@ As of Console8 VDP 2.12.0 the following system variables are supported:
 | ------- | ----- | --- | --- | ----------- |
 | 0x0101 | 0/1 | | X | Full duplex UART hardware flow control flag. This is intended for internal use by MOS. NB setting this flag will break communications with MOS unless a suitable version of MOS that supports full duplex flow control.  The first version of MOS to support this is MOS 3.0 alpha 3 |
 | 0x0102 | n/a | | X | Reserved for future use (Buffer size on MOS for VDP protocol packets) |
+| 0x0103 | | | X | Suppress the next VDP protocol packet. This variable is automatically cleared after the next attempt to send a VDP protocol packet (added in VDP 2.15.0) |
 | 0x0110 | 0/1 | | X | Reserved for future use (Echo back received data, for redirect/spool, with a suitable version of MOS that supports this feature) |
+
+Setting variable 0x0103 to any value will cause the next VDP protocol packet that would be sent to MOS to be suppressed and discarded.  This can be used to prevent specific events from sending data to MOS, which could be useful in some circumstances.  For example a VDP-resident "mouse-keys" implementation that intercepts keyboard events to move the mouse cursor could use this to prevent applicable keyboard events from being sent to MOS.
 
 ### Real-time clock data {#rtc-vars}
 
@@ -130,6 +138,12 @@ As of Console8 VDP 2.12.0 the following system variables are supported:
 | ------- | ----- | --- | --- | ----------- |
 | 0x0220 | 0-17 | | | Keyboard layout (setting to an invalid number will set to zero) |
 | 0x0221 | 0/1 | | | Control keys on/off (setting to any non-zero value sets to 1) |
+| 0x0222 | 240-1000 | | | Keyboard repeat delay (milliseconds, rounded to nearest 250) |
+| 0x0223 | 33-500 | | | Keyboard repeat rate (characters per second) |
+| 0x0224 | 0-7 | | | Keyboard LED status (bitmask, combined values of NumLock, CapsLock and ScrollLock) |
+| 0x0225 | 0/1 | | | Keyboard NumLock LED status (1=on, 0=off) |
+| 0x0226 | 0/1 | | | Keyboard CapsLock LED status (1=on, 0=off) |
+| 0x0227 | 0/1 | | | Keyboard ScrollLock LED status (1=on, 0=off) |
 
 ### Context management {#context-vars}
 
@@ -157,6 +171,43 @@ Support for mouse settings in this range was added in VDP 2.15.
 | 0x024B | 0/1 | | X | Mouse cursor visible |
 
 \* Setting the mouse cursor ID to a valid cursor ID will (as of VDP 2.15) always show the mouse cursor, and setting to an invalid ID will hide it, but not change the stored value.  Clearing the value will reset the mouse cursor ID to the default (0) and hide the cursor.  This will also affect the "mouse cursor visible" variable accordingly.
+
+### Keyboard event info {#key-event}
+
+Support for keyboard event/state info in this range was added in VDP 2.15.
+
+Values in this range provide information on the last keyboard event that occurred.  This includes all the data sent to MOS when a key is pressed, plus some more information.
+
+| Variable ID | Value | Read-only | Clearable | Description |
+| ------- | ----- | --- | --- | ----------- |
+| 0x0250 | | X | | Lower byte last ASCII keycode value sent to MOS *<br>Upper byte raw ASCII value from latest key event |
+| 0x0251 | | X | | FabGL Virtual keycode |
+| 0x0252 | | X | | Key down flag (1) or up (0) |
+| 0x0253 | | X | | Key modifiers byte (Shift, Ctrl, Alt, etc) |
+| 0x0254 | | X | | CTRL key state (1=pressed, 0=not pressed) |
+| 0x0255 | | X | | SHIFT key state (1=pressed, 0=not pressed) |
+| 0x0256 | | X | | LEFT ALT key state (1=pressed, 0=not pressed) |
+| 0x0257 | | X | | RIGHT ALT key state (1=pressed, 0=not pressed) |
+| 0x0258 | | X | | CAPSLOCK key state (1=pressed, 0=not pressed) |
+| 0x0259 | | X | | NUMLOCK key state (1=pressed, 0=not pressed) |
+| 0x025A | | X | | SCROLLLOCK key state (1=pressed, 0=not pressed) |
+| 0x025B | | X | | GUI key state (1=pressed, 0=not pressed) |
+| 0x025C | | X | | Raw PS/2 key scancode value, bytes 1 and 2 |
+| 0x025D | | X | | Scancode bytes 3 and 4 |
+| 0x025E | | X | | Scancode bytes 5 and 6 |
+| 0x025F | | X | | Scancode bytes 7 and 8 |
+
+\* The Agon VDP makes some minor adjustments to the keycode value it sends to MOS; it sets specific values for all four arrow keys, plus the tab and backspace keys.  The raw value before these adjustments were made is available in the upper byte of this variable.  Reading the two bytes stored in this variable separately is possible using the [read VDP variable](./Buffered-Commands-API.md#command-48) command.  If you request the variable as an 8-bit value in big-endian order, it will read the upper byte containing the raw value.  Reading as an 8-bit value in little-endian order then you will return the lower byte containing the adjusted value.
+
+### General Poll byte
+
+Support for the general poll byte variable was added in VDP 2.15.
+
+| Variable ID | Value | Read-only | Clearable | Description |
+| ------- | ----- | --- | --- | ----------- |
+| 0x0280 | 0-255 | | X | General poll byte. This will be the last byte value received with the [general poll command](./System-Commands.md#vdu-23-0-80), and/or as returned back to MOS in the corresponding VDP protocol response packet |
+
+In most circumstances setting this variable will have no effect.  However, a [callback event handler](./Buffered-Commands-API.md#command-80) listening for event `0x100` will see this variable as the value that was received as part of the general poll command, and can modify the value before it is sent back to MOS.  This potentially means that an inventive programmer could use the "general poll" command as a way to send data from the VDP to MOS, one byte at a time...
 
 ### Graphical system enhancement settings/flags {#graphics-settings}
 
@@ -188,18 +239,30 @@ When any of these commands are successfully executed the corresponding variables
 
 | Variable ID | Value | Read-only | Clearable | Description |
 | ------- | ----- | --- | --- | ----------- |
-| 0x0500 | 0-255 | | | Last character value read {#last-char} |
-| 0x0510 | 0-255 | | | Last colour red value {#last-colour} |
-| 0x0511 | 0-255 | | | Last colour green value |
-| 0x0512 | 0-255 | | | Last colour blue value |
-| 0x0513 | 0-63 | | | Last colour logical colour value (it's palette index) |
-| 0x0514 | 0-63 | | | Last colour physical colour value (RGB222 equivalent of variables 0x0510-0x0512) |
+| 0x0500 | 0-255 | | X | Last character value read {#last-char} |
+| 0x0510 | 0-255 | | X | Last colour red value {#last-colour} |
+| 0x0511 | 0-255 | | X | Last colour green value |
+| 0x0512 | 0-255 | | X | Last colour blue value |
+| 0x0513 | 0-63 | | X | Last colour logical colour value (it's palette index) |
+| 0x0514 | 0-63 | | X | Last colour physical colour value (RGB222 equivalent of variables 0x0510-0x0512) |
+| 0x0515 | | | X | X coordinate of the last colour (graphics coordinates) |
+| 0x0516 | | | X | Y coordinate of the last colour (graphics coordinates, ) |
 
 In the case of the command to [read a colour palette entry](./System-Commands.md#vdu-23-0-94), the palette can already be read from [VDU variables](#palette-entries), but that will only provide you with the physical colour value for a palette entry.  The command can also read the currently selected text and graphics foreground and background colours, which are otherwise only available as their [logical colour values](#logical-col).
 
 Palette changes from [`VDU 19`](./VDU-Commands.md#vdu-19) or [`VDU 20`](./VDU-Commands.md#vdu-20) will update the last colour variables and also perform any [callbacks](./Buffered-Commands-API.md#command-80) looking for a "palette change" event.  In the case of a palette reset, the last colour variable values for red, green, and blue will all be set to 0, and the logical and physical colour values will be set to 255.  As those are not valid values for logical or physical colours this can be used to detect a palette reset.
 
+Command that read or set palette entries will set the last colour X and Y coordinate variables to 32768.
+
 Setting a palette entry by directly changing the corresponding [VDU variable](#palette-entries) will cause the palette to be updated correctly, but will not update the last colour variables, or cause a palette change event.
+
+### Keyboard map {#key-map}
+
+Variables from ID `0x0800` onwards for a total of 259 variables contain a map of values that relate to the keyboard.  The index into this range is the FabGL virtual keycode value.  It should be noted that this is _not_ the ASCII value of a key.
+
+Within this range, the variable's lower-byte is a boolean that will indicate whether that virtual key is currently pressed/down (1) or not (0).  The upper byte provides the the current ASCII equivalent to the virtual keycode, if applicable.  This value may be adjusted by a modifier key being pressed such as the Ctrl key.  Keycodes that do not have an ASCII equivalent, such as modifier keys, function keys, or keys that are not mapped in your currently selected keyboard layout, will have the upper byte set to 0.
+
+All of the values in this range are read-only.
 
 
 ## VDU Variables

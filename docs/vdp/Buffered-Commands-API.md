@@ -391,7 +391,7 @@ Jumping to an offset that is beyond the end of the buffer is equivalent to jumpi
 
 ## Command 10: Conditional jump to an offset in a buffer {#command-10}
 
-`VDU 23, 0, &A0, bufferId; 10, offset; offsetHighByte, [blockNumber;] [arguments]`
+`VDU 23, 0, &A0, bufferId; 10, offset; offsetHighByte, [blockNumber;] operation, <checkBufferId; checkOffset; | vduVariableId;> [arguments]`
 
 A conditional jump with an offset works in a similar manner to the "Conditional call a buffer" command (command 6), except that it will jump to the given offset in the buffer if the condition operation passes.
 
@@ -405,7 +405,7 @@ Works just like "Call a buffer" (command 1), except that it also accepts an adva
 
 ## Command 12: Conditional call buffer with an offset
 
-`VDU 23, 0, &A0, bufferId; 12, offset; offsetHighByte, [blockNumber;] [arguments]`
+`VDU 23, 0, &A0, bufferId; 12, offset; offsetHighByte, [blockNumber;] operation, <checkBufferId; checkOffset; | vduVariableId;> [arguments]`
 
 Works just like the "Conditional call a buffer" command (command 6), except that it also accepts an advanced offset.
 
@@ -753,17 +753,20 @@ It should be noted that since it is only the coordinates that are transformed, t
 
 `VDU 23, 0, &A0, bufferId; 48, options, offset; variableId; [default[;]]`
 
-This command will copy the current value read from a [VDP variable](VDP-Variables.md) with the given `variableId;` into a buffer at the given offset.  Support for this command was added in VDP 2.12.0.
+This command will copy the current value read from a [VDP variable](VDP-Variables.md) with the given `variableId;` into a buffer at the given offset.  Support for this command was added in VDP 2.12.0, and extended in VDP 2.15.0.
 
 The `options` argument is an 8-bit value that can have bits set to modify the behaviour of this command.  The following bits are defined:
 
 | Bit value | Description |
 | --- | ----------- |
+| &01 | Read value as big-endian (added in VDP 2.15.0) |
 | &10 | Use advanced offsets |
 | &40 | Use provided default value if no variable of the given ID is set |
 | &80 | Use 16-bit values |
 
 The value size for this command will, by default, be a single byte.  VDP Variables are however stored as 16-bit values, and so bit `&80` in the `options` byte can be set to indicate that the value should be read as a 16-bit value.  Such values are stored in little-endian order.
+
+If you wish to read only the upper byte of a 16-bit value then you can set bit `&01` in the `options` byte.  This will swap the order of the bytes in the read value around, so therefore if you are reading an 8-bit value it will return the upper byte from the variable's 16-bit value.  This can be useful for reading a VDP variable that stores two 8-bit values in a single 16-bit variable, such as the keyboard event [keycode variable](./VDP-Variables.md#key-event).
 
 If the variable does not exist, then the buffer will not be changed unless the `&40` bit has been set in the options byte, and a default value is provided.  The size of the default value sent must match the size of the value being read from the variable (as determined by bit `&80`).
 
@@ -821,32 +824,54 @@ When a buffer is used for mapping data, that buffer must exist, and must contain
 
 ## Command 80: Set a buffer to be used for a callback {#command-80}
 
-`VDU 23, 0, &A0, bufferId; 80, type;`
+`VDU 23, 0, &A0, bufferId; 80, eventType;`
 
 Sets a buffer to be used as a callback when a certain event is triggered in the VDP.
 
-Support for callbacks was added in VDP 2.12.0.
+Support for callbacks was added in VDP 2.12.0, and expanded in VDP 2.15.0.
 
-The `type;` argument is a 16-bit value that specifies which type of callback the buffer is to be used for.  The following types are supported:
+The `eventType;` argument is a 16-bit value that specifies which event type a callback buffer is to be used for.  The following types are supported:
 
 | Type | Event | Caused by |
 | ---- | ----------- | ----------------- |
 | 0 | VSYNC | A new video frame has been displayed |
 | 1 | Mode change | The screen mode has been changed |
+| 2 | Keyboard update * | A key has been pressed or released |
 | 3 | Mouse update * | A mouse change has been detected (movement or button press) |
 | 4 | Palette change * | A palette entry has been changed using [`VDU 19`](./VDU-Commands.md#vdu-19) |
+| 5 | Read pixel * | A pixel has been read from the screen using [`VDU 23, 0, &84, x; y;`](./System-Commands.md#vdu-23-0-84) |
+| &100-&17F | VDP Protocol - about to send packet * | Indicates that a VDP Protocol packet is about to be sent to MOS |
+| &180-&1FF | VDP Protocol - packet sent * | A VDP Protocol packet has just been sent to MOS |
 
-\* Support for mouse and palette change events were added in VDP 2.15.0.
+\* Support for keyboard, mouse, palette change, and VDP protocol events were added in VDP 2.15.0.
 
-When a callback is triggered, the buffer will be run as if a "buffer call" command has been performed.  A buffer can be set to be used as a callback for events, and an event can have multiple buffers set to be called as callbacks when the event occurs.  Adding the same buffer as a callback for the same event type multiple times will have no effect; it will only be called once when the event happens.
-
-Any VSYNC callbacks that may have been set will be cleared after any mode change.  If you wish to automatically restore VSYNC callbacks after a mode change then you should set a mode change callback with commands to set up your VSYNC callback.
-
-If you are using a palette change event callback in order to derive other palette entries you should note that calling [`VDU 19`](./VDU-Commands.md#vdu-19) from within your callback routine will also trigger your callback, creating an infinite loop.  There are several ways this can be avoided.  The simplest way is to set your derived palette using their corresponding [palette entry variables](./VDP-Variables.md#palette-entries).  This will not trigger the callback, or update the ["last colour" VDP variables](./VDP-Variables.md#last-colour).  There are other methods that can be used which would allow the use of `VDU 19` without causing an infinite loop; this is left as an exercise for the reader.
+When an event occurs that has one or more buffers set as callbacks, those buffers will be executed in the order they were added as callbacks for that event type.  Adding the same buffer as a callback for the same event type multiple times will have no effect; it will only be called once when the event happens.
 
 A buffer will remain as a callback until it is removed or the buffer deleted.  If you wish to have a "one-shot" callback then you should remove the buffer from the callback after it has been triggered.
 
 Additional callback event types will be added in later versions of the VDP.  These are likely to include callbacks for audio system events.
+
+Callbacks registered for VSYNC events will be cleared after any mode change.  To ensure that your VSYNC callbacks remain active after a mode change you will need to re-register them after the mode change has occurred.  You can do this with a buffer registered to respond to mode change events.
+
+Keyboard, mouse, and read pixel callbacks are all triggered when the VDP processes those events, before it attempts to send data to MOS.  This allows the callback to potentially modify the data before it is sent.
+
+### Palette change event callbacks
+
+If you are using a palette change event callback in order to derive other palette entries you should note that calling [`VDU 19`](./VDU-Commands.md#vdu-19) from within your callback routine will also trigger your callback, creating an infinite loop.  There are several ways this can be avoided.  The simplest way is to set your derived palette using their corresponding [palette entry variables](./VDP-Variables.md#palette-entries).  This will not trigger the callback, or update the ["last colour" VDP variables](./VDP-Variables.md#last-colour).  There are other methods that can be used which would allow the use of `VDU 19` without causing an infinite loop; this is left as an exercise for the reader.
+
+### VDP Protocol event callbacks
+
+Events in the range &100-&1FF relate to the [VDP Protocol](./System-Commands.md#vdp-serial-protocol).  The lower half of this range (&100-&17F) will be triggered before a VDP protocol packet is sent to MOS, and the upper half &180-&1FF are triggered after a VDP protocol packet has been received from MOS.  The bottom 7 bits of the event type correspond to the VDP protocol packet type.
+
+These callbacks can be used to modify the state of VDP variables before and after a VDP protocol packet is sent.
+
+NB these VDP protocol event callbacks will occur no matter what the [current output stream is set to](#command-4).  Even if the output stream has been disabled (set to `-1`), the VDP protocol event callbacks will still be triggered when a VDP protocol packet is sent.  It should be noted though that as the command to [set the output stream](#command-4) only applies within the context of a buffer call this command cannot be used by callbacks to prevent that VDP protocol packets from being sent as the output stream will be restored when the callback buffer call ends.
+
+One can however suppress sending a VDP protocol packet from within a "before send" VDP protocol event callback by setting VDP variable &103 to any value, for example:
+
+`VDU 23, 0, &F8, &103; 0;`
+
+If a packet is suppressed in this way the corresponding "packet sent" event callback will not be triggered.
 
 ## Command 81: Remove buffer from a callback
 
