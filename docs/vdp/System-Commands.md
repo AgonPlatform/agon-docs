@@ -90,7 +90,7 @@ Any other value will be interpreted as UK.
 
 This command will return the current text cursor position to MOS.  Once the cursor position has been returned the text cursor position data inside MOS's [system state variables](../mos/API.md#sysvars) will be updated to reflect the current cursor position.
 
-## `VDU 23, 0, &83, x; y;`: Get ASCII code of character at character position x, y
+## `VDU 23, 0, &83, x; y;`: Get ASCII code of character at character position x, y {#vdu-23-0-83}
 
 This command will return the ASCII code of the character at the given character position to MOS.  There is a corresponding command `VDU 23, 0, &93, x; y;` that works in the graphics coordinate system.
 
@@ -98,9 +98,13 @@ This command works by comparing pixels on the screen at the given position to th
 
 This command will not recognise characters that have been mapped to bitmaps using `VDU 23, 0, &92, char, bitmapId;`.
 
-## `VDU 23, 0, &84, x; y;`: Get colour of pixel at pixel position x, y
+From VDP 2.15 onwards calling this command will set the ["last character read"](./VDP-Variables.md#last-char) system variable to the character that was read, or set it to zero if the character could not be read.
 
-This command will return the colour of the pixel at the given pixel position to MOS.  The corresponding [MOS sysvars](../mos/API.md#sysvars) will be updated to reflect the read pixel colour.
+## `VDU 23, 0, &84, x; y;`: Get colour of pixel at graphics coordinate x, y {#vdu-23-0-84}
+
+This command will return the colour of the pixel at the graphics coordinate position to MOS.  The corresponding [MOS sysvars](../mos/API.md#sysvars) will be updated to reflect the read pixel colour.
+
+From VDP 2.15 onwards calling this command will set the various ["last colour"](./VDP-Variables.md#last-colour) VDP variables to the coordinates used for this command and to the colour that was read.  It will set the colour values to zero if the pixel could not be read.  A "read pixel" event will also be triggered allowing [callbacks](./Buffered-Commands-API.md#command-80) to potentially modify the data being sent to MOS.
 
 ## `VDU 23, 0, &85, channel, command, <args>`: Audio commands
 
@@ -142,9 +146,11 @@ The LED value is a bit mask that controls the state of the keyboard LEDs.  The f
 
 Commands beginning with `VDU 23, 0, &89` are reserved for mouse control, and are implemented from VDP 1.04 onwards.
 
-### `VDU 23, 0, &89, 0`: Enable the mouse
+### `VDU 23, 0, &89, 0`: Enable the mouse {#enable-mouse}
 
-Enables the mouse cursor, and will start sending mouse data packets to MOS.
+Enables the mouse.
+
+If this command is successful then the currently selected mouse cursor will be shown on the screen, and mouse movements will result in mouse update information being sent to MOS.  On first enabling the mouse the default mouse cursor will be shown.
 
 If there is no mouse connected then this command will have no effect.
 
@@ -152,19 +158,25 @@ If there is no mouse connected then this command will have no effect.
 
 Disables the mouse cursor, and will stop sending mouse data packets to MOS.
 
-### `VDU 23, 0, &89, 2`: Reset the mouse
+### `VDU 23, 0, &89, 2`: Reset the mouse {#reset-mouse}
 
 Resets the mouse system restoring default settings.
 
-### `VDU 23, 0, &89, 3, cursorId;`: Set mouse cursor
+NB this command does not reset the selected mouse cursor.  If a reset is successful the mouse will be enabled and the mouse cursor will be shown.
 
-Sets the mouse cursor to the given cursor ID.
+### `VDU 23, 0, &89, 3, cursorId;`: Select a mouse cursor {#select-mouse-cursor}
 
-There are several built-in mouse cursors that are available for use.  These have been inherited from fab-gl and are numbered from 0-18.  The "Cursor" column in the table below shows the fab-gl name for the cursor.
+Changes the mouse cursor to the given cursor ID.
+
+NB This command will only work if the mouse has been successfully [enabled](#enable-mouse).
+
+If you attempt to select an invalid cursor ID (i.e. the cursor not exist) then the mouse cursor will be hidden, but the system will keep track of the previously selected cursor.  The previous cursor be re-shown if you call the [enable](#enable-mouse) or [reset](#reset-mouse) command.  As the system supports [user-defined cursors](./Bitmaps-API.md#mouse-cursor), to explicitly hide the mouse cursor you should use a cursor ID of `65535`.
+
+There are several system mouse cursors available for use.  These have been inherited from FabGL and are numbered from 0-18.  The "Cursor" column in the table below shows the FabGL name for the cursor.
 
 | ID | Cursor | Description |
 | -- | ------ | ----------- |
-| 0  | PointerAmigaLike | 11x11 Amiga like colored mouse pointer |
+| 0  | PointerAmigaLike | 11x11 Amiga like colored mouse pointer (default) |
 | 1  | PointerSimpleReduced | 10x15 mouse pointer |
 | 2  | PointerSimple | 11x19 mouse pointer |
 | 3  | PointerShadowed | 11x19 shadowed mouse pointer |
@@ -184,11 +196,15 @@ There are several built-in mouse cursors that are available for use.  These have
 | 17 | Resize4 | 17x11 resize orientation 4 |
 | 18 | TextInput | 7x15 text input |
 
-Additional cursors can be defined using the `VDU 23, 27, &40, hotX, hotY` command.  For details of that command see the [Bitmaps API](Bitmaps-API.md) documentation.  Using that API it is possible to define a custom mouse cursor using a bitmap, which can then be selected using this command passing in the 16-bit bitmapId in place of a cursorId.
+Additional cursors can be added using [`VDU 23, 27, &40, hotX, hotY`](./Bitmaps-API.md#mouse-cursor) which will allow you to create a custom mouse cursor using a bitmap.  Once your new cursor has been defined you will be able to select it using this command.  Please note the inbuilt system mouse cursors cannot be overridden.
+
+Whilst this command will only work if the mouse has been successfully [enabled](#enable-mouse), it is possible to display a mouse cursor without a mouse being connected/enabled by setting the equivalent [VDP Variable](./VDP-Variables.md#mouse-vars) to the desired cursor ID.
 
 ### `VDU 23, 0, &89, 4, x; y;`: Set mouse cursor position
 
 Explicitly moves the mouse cursor to a given position on the screen.
+
+This command works whether the mouse is enabled or not, and will even work if the mouse is not visible.
 
 ### `VDU 23, 0, &89, 5, x1; y1; x2; y2;`: Reserved
 
@@ -276,7 +292,7 @@ That last point is important.  It means that if you use a bitmap that is larger 
 
 Bitmaps mapped to characters in this way are plotted using the current foreground GCOL paint mode.
 
-## `VDU 23, 0, &93, x; y;`: Get ASCII code of character at graphics position x, y §§§§§
+## `VDU 23, 0, &93, x; y;`: Get ASCII code of character at graphics position x, y §§§§§ {#vdu-23-0-93}
 
 This command will return the ASCII code of the character at the given graphics position to MOS.  This command is similar to `VDU 23, 0, &83, x; y;`, but uses coordinates from the currently selected graphics coordinate system.  The position is for the top left of the character.
 
@@ -284,7 +300,7 @@ This command works by comparing pixels on the screen at the given position to th
 
 This command will not recognise characters that have been mapped to bitmaps using `VDU 23, 0, &92, char, bitmapId;`.
 
-## `VDU 23, 0, &94, n`: Read colour palette entry n (returns a pixel colour data packet) §§
+## `VDU 23, 0, &94, n`: Read colour palette entry n (returns a pixel colour data packet) §§ {#vdu-23-0-94}
 
 This command will return the colour of the given palette entry to MOS.  This data is sent using a "screen pixel" data packet.  The corresponding [MOS sysvars](../mos/API.md#sysvars) related to screen pixel colour will be updated to reflect the read palette entry.
 
@@ -300,6 +316,8 @@ The Agon VDP system supports a 64 colour palette, so values in the range of 0-63
 Any other colour value will not be recognise, and no response sent.
 
 It should be noted that before Console8 VDP 2.7.0 when reading palette entries for the current text and graphics colours, the data packet returned would reflect back the colour number `n` sent to this command, rather than responding with the actual palette colour number for that colour.  As of Console8 VDP 2.7.0 the actual palette colour number is returned.
+
+From VDP 2.15 onwards calling this command will set the ["last colour"](./VDP-Variables.md#last-colour) VDP variables to the colour that was read, or set it to zero if the pixel could not be read.  The last colour X and Y coordinate variables will be set to 32768.
 
 ## `VDU 23, 0, &95, <command>, [<args>]`: Font management commands §§§§§
 
@@ -344,7 +362,7 @@ From Console8 VDP 2.6.0 onwards, the control keys can be turned off, which may h
 
 ## `VDU 23, 0, &99, virtualKey`: Request updated keyboard data for a key §§§§§§§
 
-This command will send an updated keycode data packet to MOS with the current state of the given key, using a vdp-gl/fab-gl virtual key code.  Usually you should not have to use this command, as the keyboard data packets are sent automatically whenever a key is pressed or released.
+This command will send an updated keycode data packet to MOS with the current state of the given key, using a vdp-gl/FabGL virtual key code.  Usually you should not have to use this command, as the keyboard data packets are sent automatically whenever a key is pressed or released.
 
 (This command is used by MOS 3.0 at boot time to determine if the left shift key is pressed to signals that the boot file should not be run from the SD card.)
 
@@ -442,7 +460,7 @@ The line pattern can be set using `VDU 23, 6, n1, n2, n3, n4, n5, n6, n7, n8`, w
 
 Support for this command was added in Console8 VDP 2.7.0.
 
-## `VDU 23, 0, &F8, variableId; value;`: Set a VDP Variable §§§§§§
+## `VDU 23, 0, &F8, variableId; value;`: Set a VDP Variable §§§§§§ {#vdp-var-set}
 
 This command is used to set a [VDP variable](VDP-Variables.md).  VDP variables are used to control various features of the VDP, including enabling new functionality that may not quite be ready for general use and/or have an API that may change in the future.  They may also allow for changing various aspects of the VDP's behaviour.
 
@@ -490,7 +508,7 @@ Suspending terminal mode temporarily restores VDU command processing.  (Keyboard
 
 Data sent from the VDP to the eZ80's UART0 is sent as a packet in the following format:
 
-- `cmd`: The packet command, with bit 7 set
+- `cmd`: The packet type, with bit 7 set
 - `len`: Number of data bytes
 - `data`: The data byte(s)
 
@@ -527,13 +545,19 @@ MOS VDP Protocol flag bits:
 | 5 | RTC data |
 | 6 | Mouse status |
 
+### VDP Protocol events
 
-### Keyboard
+As of VDP 2.15.0, [events](./Buffered-Commands-API.md#command-80) will be fired in the VDP before and after each packet is sent, and the values sent in VDP protocol packets will reflect the [VDP variables](VDP-Variables.md) that hold the same information.  This allows programs to potentially intercept and modify this data before it is sent to MOS using buffered command sequences, or even to prevent VDP protocol packets from being sent.
+
+
+### Keyboard packet data
 
 When a key is pressed, a packet is sent with the following data:
+
 - cmd: 0x01
 - keycode: The ASCII value of the key pressed
 - modifiers: A byte with the following bits set (1 = pressed):
+
 ```
 0. CTRL
 1. SHIFT
@@ -544,8 +568,8 @@ When a key is pressed, a packet is sent with the following data:
 6. SCROLL LOCK
 7. GUI
 ```
+
 From VDP 1.03, the following key data is also returned
-- vkey: The FabGL virtual keycode
+
+- vkey: The FabGL/vdp-gl virtual keycode
 - keydown: 1 if the key is down, 0 if the key is up
-
-

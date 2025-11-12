@@ -29,7 +29,7 @@ Storing bitmaps in buffers allows for their data to be manipulated using the buf
 
 The commands to manage bitmaps are as follows:
 
-### `VDU 23, 27, 0, n`: Select bitmap n
+### `VDU 23, 27, 0, n`: Select bitmap n {#select-bitmap-8bit}
 
 This selects the bitmap with the given 8-bit ID as being the currently "active" bitmap for subsequent bitmap commands.
 
@@ -297,10 +297,10 @@ As these limtiations are complex with many factors, the VDP does not set any exp
 
 ## Mouse cursor
 
-### `VDU 23, 27, &40, hotX, hotY`: Setup a mouse cursor
+### `VDU 23, 27, &40, hotX, hotY`: Setup a new mouse cursor {#mouse-cursor}
 
-Sets up a new mouse cursor using the currently selected bitmap, with a hotspot at hotX, hotY.
+Set up a new mouse cursor using the currently selected bitmap, with its hotspot position at `hotX`, `hotY`.  The `cursorId` of the newly created cursor will be the same as the 16-bit ID of the currently selected bitmap, therefore if you have [selected a bitmap using an 8-bit ID](#select-bitmap-8bit) then the `cursorId` will be `64000 + n`, where `n` is the 8-bit ID of the bitmap.
 
-Once a mouse cursor has been set up in this way, it can be selected for display using `VDU 23, 0, &89, 3, bitmapId;`.  Please note that this is a 16-bit ID, therefore if a bitmap had been selected using an 8-bit identifier you will need to add 64000 to the ID to get the 16-bit ID.
+Once a mouse cursor has been set up in this way, it can be selected for display using [`VDU 23, 0, &89, 3, bitmapId;`](./System-Commands.md#select-mouse-cursor).
 
-Care should be taken to avoid using bitmapIds from 0-18, as those conflict with existing cursor Ids.
+Please note that mouse cursor IDs from 0-18 are reserved for the system mouse cursors, and these cannot be overridden.

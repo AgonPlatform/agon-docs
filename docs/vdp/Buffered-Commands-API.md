@@ -21,7 +21,7 @@ Many of the commands accept an offset within a buffer.  An offset is typically a
 
 At this time the VDP Buffered Commands API does not send any messages back to MOS to indicate the status of a command, or support a mechanism for sending contents of buffers back to MOS.  This will likely change in the future, but that will require changes to agon-mos to support it.
 
-## Command 0: Write block to a buffer
+## Command 0: Write block to a buffer {#command-0}
 
 `VDU 23, 0 &A0, bufferId; 0, length; <buffer-data>`
 
@@ -119,7 +119,7 @@ Care should be taken when using this command within a buffer, as it is possible 
 
 Using a `bufferId` of -1 (65535) will cause the current buffer to be executed.  This can be useful for creating loops within a buffer.  It will be ignored if used outside of a buffered command sequence.
 
-## Command 2: Clear a buffer
+## Command 2: Clear a buffer {#command-2}
 
 `VDU 23, 0 &A0, bufferId; 2`
 
@@ -129,47 +129,52 @@ Please note that this clears out all of the blocks sent to a buffer via command 
 
 Calling this command with a `bufferId` value of -1 (65535) will clear out all buffers.
 
-## Command 3: Create a writeable buffer
+## Command 3: Create a writeable buffer {#create-buffer}
 
 `VDU 23, 0 &A0, bufferId; 3, length;`
 
-This command will create a new writeable buffer with the given ID.  If a buffer with the given ID already exists then this command will do nothing.  This command is primarily intended for use to create a buffer that can be used to capture output using the "set output stream" command (see below), or to store data that can be used for other commands.
+NB it is quite rare that you will want to use this command.  In general, new buffers are best created using the [write buffer](#command-0) command.  You do not need to use this command to create a buffer before using the [write buffer](#command-0) command; doing so will usually lead to errors as you will end up with _two_ blocks in the buffer, the first of which will be empty.  The use of this command to create a buffer in which to store reference data can largely be replaced through the use of [VDP Variables](./VDP-Variables.md).
 
-It is generally quite rare that you will want to use this command.  Typically you will instead want to use command 0 to write data to a buffer.  It is not necessary to use this command before using command 0, and indeed doing so will lead to errors as you will end up with _two_ blocks in the buffer, the first of which will be empty.  If you _do_ wish to use this command to create a buffer for data and then write to it, you would need to use operation 2 of command 5, the "set" operation in the "buffer adjust" command, to set a sequence of bytes in the buffer to the data you want to write.  This is not recommended, as it is much easier to just use command 0 to write a data block to a buffer.
+This command will create a new writeable buffer with the given ID.  If a buffer with the given ID already exists then this command will do nothing; you may therefore wish to [clear the buffer](#command-2) first before using this command.  This command was primarily intended for use to create a buffer that can be used to capture output using the ["set output stream"](#command-4) command, or to store data that can be used for other commands.
+
+If you do wish to use this command to create a buffer to store program data, after using this command you will typically use the "set" operation in the ["buffer adjust"](#command-5) command to change the buffer's contents.  As the [buffer adjust](#command-5) command does not require a "writeable buffer" this is not recommended; it is generally easier to use command 0 to write a data block to a buffer.
 
 This new buffer will be a single empty single block upon creation, containing zeros.
 
 The `length` parameter is a 16-bit integer that specifies the maximum size of the buffer.  This is the maximum number of bytes that can be stored in the buffer.  If the buffer is full then no more data can be written to it, and subsequent writes will be ignored.
 
-After creating a buffer with this command it is possible to use command 0 to write further blocks to the buffer, however this is _probably_ not advisable.
+After creating a buffer with this command it is possible to use the [write buffer](#command-0) command to write further blocks to the buffer, however this is _probably_ not advisable.
 
-A `bufferId` of -1 (65535) and 0 will be ignored, as these values have special meanings for writable buffers.  See command 4.
+Using this command with a `bufferId` of `65535` (-1) and `0` will be ignored, as these values have special meanings for writable buffers.  See [command 4](#command-4).
 
-## Command 4: Set output stream to a buffer
+## Command 4: Set output stream to a buffer {#command-4}
 
 `VDU 23, 0 &A0, bufferId; 4`
 
-NB as of VDP 2.12.0, with the introduction of [VDP Variables](VDP-Variables.md), the primary use case of this command is arguably obsolete, as that provides different mechanisms for buffered command sequences to determine the VDP state.  You are therefore strongly advised to use VDP Variables instead of this command.
+NB: The original intent of this command was to provide a way for buffered command sequences to access to VDP state information.  In general this is no longer necessary, as most of this data can now be accessed via [VDP Variables](./VDP-Variables.md).  As of VDP 2.15, the primary use case for this command is to temporarily prevent the VDP from sending data to MOS when certain commands are being executed.
 
-Sets then current output stream to the buffer with the given ID.  With two exceptions, noted below, this needs to be a writable buffer created with command 3.  If the buffer does not exist, or the first block within the buffer is not writable, then this command will do nothing.
+This command changes the current output stream of the VDP, allowing [VDP protocol](./System-Commands.md#vdp-serial-protocol) data packets to be send to a buffer, or prevented from being sent, instead of being sent to MOS.
 
-By capturing responses to commands, a buffered command sequence can interogate the state of the VDP, using the same commands that programs running on MOS can use, and make decisions based on that state.
+The default output stream for the main VDU command processor is the communications channel from the VDP to MOS running on the eZ80.
 
-Following this command, any subsequent VDU commands that send response packets will have those packets written to the specified output buffer.  This allows the user to capture the response packets from a command sent to the VDP.
+Changes made with this command apply to the current command stream, and any other buffered command sequences that are called from within that sequence.  Once the buffered command sequence has completed, the output stream will be reset to its original value.  (Please note that from VDP 2.8 until 2.14 a bug meant that this behaviour was not observed, and any changes to the output stream applied globally and permanently.  This has been fixed in VDP 2.15.)
 
-By default, the output stream (for the main VDU command processor) is the communications channel from the VDP to MOS running on the eZ80.
+The target buffer must be a writable buffer created with [command 3](#create-buffer), or one of two special buffer IDs.  If the buffer does not exist, or the first block within the target buffer is not writable, then this command will do nothing.
 
-Passing a buffer ID of -1 (65535) to this command will remove/detach the output buffer.  From that point onwards, any subsequent VDU commands that send response packets will have those responses discarded/ignored.
+The two special buffer IDs are:
 
-Passing a buffer ID of 0 to this command will set the output buffer back to its original value for the current command stream.  Typically that will be the communications channel from the VDP to MOS running on the eZ80, but this may not be the case if a nested call has been made.
+- `65535` (-1): This removes/detaches the output stream.  Any subsequent interactions that cause VDP protocol packets to be sent will have those responses discarded/ignored.
+    * This includes both responses from VDU commands and user interactions such as keyboard or mouse update events.
+- `0`: This will set the output stream back to its original value for the current command stream.  Typically that will be the communications channel from the VDP to MOS running on the eZ80, but this may not be the case if a nested call has been made.
+    * NB From VDP 2.8 until 2.14 setting the output stream to 0 would always set the output stream back to the MOS communication channel.  This was a bug that has been fixed in VDP 2.15.
 
-When used inside a buffered command sequence, this command will only affect the output stream for that sequence of commands, and any other buffered command sequences that are called from within that sequence.  Once the buffered command sequence has completed, the output stream will effectively be reset to its original value.
+It should be noted that writable buffers can only be written to until the end of the buffer has been reached; once that happens no more data will be written to the buffer.  It is not currently possible to "rewind" an output stream.  If you are using the command to capture VDP protocol pavkets you should ensure that the buffer is large enough to capture all of the data that is expected to be written to it.  The only current way to "rewind" an output stream would be to clear the buffer and create a new one, and then call set output stream again with the newly created buffer.
 
-It is strongly recommended to only use this command from within a buffered command sequence.  Whilst it is possible to use this command from within a normal VDU command sequence, it is not recommended as it may cause unexpected behaviour.  If you _do_ use it in that context, it is very important to remember to restore the original output channel using `VDU 23, 0, &A0, 0; 4`.  (In the future, this command may be disabled from being used outside of a buffered command sequence.)
+This command should be used with care, as it can cause unexpected behaviour if used incorrectly.  It is strongly recommended to only use this command from within a buffered command sequence.  If you do use it outside of a buffered command sequence, it is important to remember to restore the original output channel using `VDU 23, 0, &A0, 0; 4`.  Failing to do this will mean VDP will stop communicating with MOS, and so basic information such as key presses won't be sent across, effectively causing your Agon to hang.
 
-At present, writable buffers can only be written to until the end of the buffer has been reached; once that happens no more data will be written to the buffer.  It is not currently possible to "rewind" an output stream.  It is therefore advisable to ensure that the buffer is large enough to capture all of the data that is expected to be written to it.  The only current way to "rewind" an output stream would be to clear the buffer and create a new one, and then call set output stream again with the newly created buffer.
+As of VDP 2.15 when this command is used outside of a buffered command sequence the change will be temporary, protecting you from the hanging scenario that has just been described.  As soon as the VDP detects that the current command stream has completed (i.e. there are no pending commands, and a screen refresh has been performed) the output stream will be restored to communicate with MOS.  This can be useful for performing some operations that will set [VDP Variables](./VDP-Variables.md) without having to worry about them also sending data back to MOS.
 
-## Command 5: Adjust buffer contents
+## Command 5: Adjust buffer contents {#command-5}
 
 `VDU 23, 0, &A0, bufferId; 5, operation, offset; [count;] <operand>, [arguments]`
 
@@ -276,7 +281,7 @@ VDU 23, 0, &A0, 3; 5, &C4, 12; 5; 42; 0; 0  : REM 5 bytes; a 40-bit integer
 Take note of how the operand value is padded out with zeros to match the size of the target value.  `42;` is used as a base to send a 16-bit value, with zeros added of either 8-bit or 16-bits to pad it out to the required size.  The "carry" value will be stored at the next offset in the target buffer after the complete target value.  So for a 16-bit value, the carry will be stored at offset 14, for a 24-bit value it will be stored at offset 15, and so on.
 
 
-## Command 6: Conditionally call a buffer
+## Command 6: Conditionally call a buffer {#command-6}
 
 `VDU 23, 0, &A0, bufferId; 6, operation, <checkBufferId; checkOffset; | vduVariableId;> [arguments]`
 
@@ -354,7 +359,7 @@ Call buffer 5 if the value in buffer 2 at offset 7 is less than the value in buf
 VDU 23, 0, &A0, 5; 6, &24, 2; 7; 2; 8;
 ```
 
-## Command 7: Jump to a buffer
+## Command 7: Jump to a buffer {#command-7}
 
 `VDU 23, 0, &A0, bufferId; 7`
 
@@ -364,7 +369,7 @@ This essentially works the same as the call command (command 1), except that it 
 
 Using this command to jump to buffer 65535 (buffer ID -1) is treated as a "jump to end of current buffer".  This will return execution to the caller, and can be useful for exiting a loop.
 
-## Command 8: Conditional Jump to a buffer
+## Command 8: Conditional Jump to a buffer {#command-8}
 
 `VDU 23, 0, &A0, bufferId; 8, operation, checkBufferId; checkOffset; [arguments]`
 
@@ -384,9 +389,9 @@ When jumping to an offset, using buffer ID 65535 is treated as meaning "jump wit
 
 Jumping to an offset that is beyond the end of the buffer is equivalent to jumping to the end of the buffer.
 
-## Command 10: Conditional jump to an offset in a buffer
+## Command 10: Conditional jump to an offset in a buffer {#command-10}
 
-`VDU 23, 0, &A0, bufferId; 10, offset; offsetHighByte, [blockNumber;] [arguments]`
+`VDU 23, 0, &A0, bufferId; 10, offset; offsetHighByte, [blockNumber;] operation, <checkBufferId; checkOffset; | vduVariableId;> [arguments]`
 
 A conditional jump with an offset works in a similar manner to the "Conditional call a buffer" command (command 6), except that it will jump to the given offset in the buffer if the condition operation passes.
 
@@ -400,7 +405,7 @@ Works just like "Call a buffer" (command 1), except that it also accepts an adva
 
 ## Command 12: Conditional call buffer with an offset
 
-`VDU 23, 0, &A0, bufferId; 12, offset; offsetHighByte, [blockNumber;] [arguments]`
+`VDU 23, 0, &A0, bufferId; 12, offset; offsetHighByte, [blockNumber;] operation, <checkBufferId; checkOffset; | vduVariableId;> [arguments]`
 
 Works just like the "Conditional call a buffer" command (command 6), except that it also accepts an advanced offset.
 
@@ -506,19 +511,19 @@ Reverses the order of the blocks in a buffer.
 
 `VDU 23, 0, &A0, bufferId; 24, options, [valueSize;] [chunkSize;]`
 
-Reverses the order of the data within the blocks of a buffer.  The `options` parameter is an 8-bit value that can have bits set to modify the behaviour of the operation.  The following bits are defined:
+Reverses the order of the data within the blocks of a buffer.  The `options` parameter is an 8-bit value where the bits set in that byte determine the operation's behavior.  The following bits are defined:
 
 | Bit value | Description |
 | --- | ----------- |
 | 1   | Values are 16-bits in size |
 | 2   | Values are 32-bits in size |
-| 3 (1+2) | If both value size bits are set, then the value size is sent as a 16-bit value |
-| 4   | Reverse data of the value size within chunk of data of the specified size, sent as a 16-bit value |
+| 3 (1+2) | If both value size bits are set, then a `valueSize;` argument must be sent as a 16-bit value |
+| 4   | Reverse data of the chosen value size within chunks of data, using a `chunkSize;` sent as a 16-bit value |
 | 8   | Reverse blocks |
 
-These modifiers can be combined together to modify the behaviour of the operation.
+If no value size is set in the options byte (i.e. the bottom two bits are both zero) then the value size is assumed to be 8-bits.
 
-If no value size is set in the options (i.e. the value of the bottom two bits of the options is zero) then the value size is assumed to be 8-bits.
+To be clear, the table above documents how the bits are used inside the `options` byte.  These can be combined, so using a value of `6` for the options would indicate 32-bit values (bit 2) and reversing within chunks (bit 4), and a `chunkSize;` argument must be sent as a 16-bit value.
 
 It is probably easiest to understand what this operation is capable of by going through some examples of how it can be used to manipulate bitmaps.  The VDP supports two different formats of color bitmap, either RGBA8888 which uses 4-bytes per pixel, i.e. 32-bit values, or RGBA2222 which uses a single byte per pixel.
 
@@ -532,25 +537,27 @@ Rotating an RGBA8888 bitmap by 180 degrees is in principle a little more complex
 VDU 23, 0, &A0, bufferId; 24, 2
 ```
 
-Mirroring a bitmap around the x-axis is a matter of reversing the order of rows of pixels.  To do this we can set a custom value size that corresponds to our bitmap width.  For an RGBA2222 bitmap we can just set a custom value size to our bitmap width:
+Mirroring a bitmap around the x-axis is a matter of reversing the order of rows of pixels.  This can be done by setting a custom value size that corresponds to our bitmap width.  As can be seen from the table above, setting the bottom two bits of the `options` byte, which will be a value of `3`, will indicate that we are using a custom value size, so we will need to follow that with a `valueSize;` argument as a 16-bit value.  Therefore the following command will mirror an RGBA2222 bitmap around the x-axis:
 ```
-VDU 23, 0, &A0, bufferId; 24, 3, width
-```
-
-As an RGBA8888 bitmap uses 4 bytes per pixel we need to multiply our width by 4:
-```
-VDU 23, 0, &A0, bufferId; 24, 3, width * 4
+VDU 23, 0, &A0, bufferId; 24, 3, width;
 ```
 
-To mirror a bitmap around the y-axis, we need to reverse the order of pixels within each row.  For an RGBA2222 bitmap we can just set a custom chunk size to our bitmap width:
+As an RGBA8888 bitmap uses 4 bytes per pixel we'd need to multiply our width by 4:
 ```
-VDU 23, 0, &A0, bufferId; 24, 4, width
+VDU 23, 0, &A0, bufferId; 24, 3, width * 4;
+```
+
+To mirror a bitmap around the y-axis, we need to reverse the order of pixels within each row.  That is achieved by setting the "reverse within chunks" bit in the options byte.  So if we send an options value of `4` we will need to send a `chunkSize;` argument to indicate the width of each row.  Therefore the following command will mirror an RGBA2222 bitmap around the y-axis:
+```
+VDU 23, 0, &A0, bufferId; 24, 4, width;
 ```
 
 For an RGBA8888 bitmap we need to set our options to indicate 32-bit values as well as a custom chunk size:
 ```
-VDU 23, 0, &A0, bufferId; 24, 6, width * 4
+VDU 23, 0, &A0, bufferId; 24, 6, width * 4;
 ```
+
+NB in these last two examples our options indicate that we are only sending a `chunkSize;` argument, so they do not include a `valueSize;` argument.  It is possible to combine both by using an options value of `7` - the uses of which are left as an exercise for the reader.
 
 ## Command 25: Copy blocks from multiple buffers by reference
 
@@ -744,21 +751,24 @@ Once this example command has been executed, buffer 30 would contain the same se
 It should be noted that since it is only the coordinates that are transformed, the nature of the PLOT commands themselves will not be changed.  If the transform matrix was created with only "translate" or "scale" operations then the effect will work as expected for all PLOT commands (except for bitmap plots, which would not be drawn scaled as only the target coordinates woulld have changed), but if the transform included "rotate", "shear" or "skew" then results may differ.  PLOT commands that only draw lines, or fill triangles, will draw properly transformed versions of those shapes.  The effect on some other PLOT commands, such as those to fill a rectangle, or plot a circle/arc/sector will differ, as it is just the coordinates that are being transformed.  A rectangle may be drawn with a different size, but its sides will still be drawn aligned to the X and Y axis, and a circle will still be round.
 
 
-## Command 48: Read a VDP variable into a buffer
+## Command 48: Read a VDP variable into a buffer {#command-48}
 
 `VDU 23, 0, &A0, bufferId; 48, options, offset; variableId; [default[;]]`
 
-This command will copy the current value read from a [VDP variable](VDP-Variables.md) with the given `variableId;` into a buffer at the given offset.  Support for this command was added in VDP 2.12.0.
+This command will copy the current value read from a [VDP variable](VDP-Variables.md) with the given `variableId;` into a buffer at the given offset.  Support for this command was added in VDP 2.12.0, and extended in VDP 2.15.0.
 
 The `options` argument is an 8-bit value that can have bits set to modify the behaviour of this command.  The following bits are defined:
 
 | Bit value | Description |
 | --- | ----------- |
+| &01 | Read value as big-endian (added in VDP 2.15.0) |
 | &10 | Use advanced offsets |
 | &40 | Use provided default value if no variable of the given ID is set |
 | &80 | Use 16-bit values |
 
 The value size for this command will, by default, be a single byte.  VDP Variables are however stored as 16-bit values, and so bit `&80` in the `options` byte can be set to indicate that the value should be read as a 16-bit value.  Such values are stored in little-endian order.
+
+If you wish to read only the upper byte of a 16-bit value then you can set bit `&01` in the `options` byte.  This will swap the order of the bytes in the read value around, so therefore if you are reading an 8-bit value it will return the upper byte from the variable's 16-bit value.  This can be useful for reading a VDP variable that stores two 8-bit values in a single 16-bit variable, such as the keyboard event [keycode variable](./VDP-Variables.md#key-event).
 
 If the variable does not exist, then the buffer will not be changed unless the `&40` bit has been set in the options byte, and a default value is provided.  The size of the default value sent must match the size of the value being read from the variable (as determined by bit `&80`).
 
@@ -816,26 +826,54 @@ When a buffer is used for mapping data, that buffer must exist, and must contain
 
 ## Command 80: Set a buffer to be used for a callback {#command-80}
 
-`VDU 23, 0, &A0, bufferId; 80, type;`
+`VDU 23, 0, &A0, bufferId; 80, eventType;`
 
 Sets a buffer to be used as a callback when a certain event is triggered in the VDP.
 
-Support for callbacks was added in VDP 2.12.0.
+Support for callbacks was added in VDP 2.12.0, and expanded in VDP 2.15.0.
 
-The `type;` argument is a 16-bit value that specifies which type of callback the buffer is to be used for.  The following types are supported:
+The `eventType;` argument is a 16-bit value that specifies which event type a callback buffer is to be used for.  The following types are supported:
 
-| Type | Event |
-| ---- | ----------- |
-| 0 | VSYNC |
-| 1 | Mode change |
+| Type | Event | Caused by |
+| ---- | ----------- | ----------------- |
+| 0 | VSYNC | A new video frame has been displayed |
+| 1 | Mode change | The screen mode has been changed |
+| 2 | Keyboard update * | A key has been pressed or released |
+| 3 | Mouse update * | A mouse change has been detected (movement or button press) |
+| 4 | Palette change * | A palette entry has been changed using [`VDU 19`](./VDU-Commands.md#vdu-19) |
+| 5 | Read pixel * | A pixel has been read from the screen using [`VDU 23, 0, &84, x; y;`](./System-Commands.md#vdu-23-0-84) |
+| &100-&17F | VDP Protocol - about to send packet * | Indicates that a VDP Protocol packet is about to be sent to MOS |
+| &180-&1FF | VDP Protocol - packet sent * | A VDP Protocol packet has just been sent to MOS |
 
-When a callback is triggered, the buffer will be run as if a "buffer call" command has been performed.  A buffer can be set to be used for multiple types of callback, and a type can have multiple buffers set to be used for it.  Adding the same buffer to the same type of callback multiple times will have no effect, it will only be called once when the event happens.
+\* Support for keyboard, mouse, palette change, and VDP protocol events were added in VDP 2.15.0.
 
-Any VSYNC callbacks that may have been set will be cleared after any mode change.  If you wish to automatically restore VSYNC callbacks after a mode change then you should set a mode change callback with commands to set up your VSYNC callback.
+When an event occurs that has one or more buffers set as callbacks, those buffers will be executed in the order they were added as callbacks for that event type.  Adding the same buffer as a callback for the same event type multiple times will have no effect; it will only be called once when the event happens.
 
 A buffer will remain as a callback until it is removed or the buffer deleted.  If you wish to have a "one-shot" callback then you should remove the buffer from the callback after it has been triggered.
 
 Additional callback event types will be added in later versions of the VDP.  These are likely to include callbacks for audio system events.
+
+Callbacks registered for VSYNC events will be cleared after any mode change.  To ensure that your VSYNC callbacks remain active after a mode change you will need to re-register them after the mode change has occurred.  You can do this with a buffer registered to respond to mode change events.
+
+Keyboard, mouse, and read pixel callbacks are all triggered when the VDP processes those events, before it attempts to send data to MOS.  This allows the callback to potentially modify the data before it is sent.
+
+### Palette change event callbacks
+
+If you are using a palette change event callback in order to derive other palette entries you should note that calling [`VDU 19`](./VDU-Commands.md#vdu-19) from within your callback routine will also trigger your callback, creating an infinite loop.  There are several ways this can be avoided.  The simplest way is to set your derived palette using their corresponding [palette entry variables](./VDP-Variables.md#palette-entries).  This will not trigger the callback, or update the ["last colour" VDP variables](./VDP-Variables.md#last-colour).  There are other methods that can be used which would allow the use of `VDU 19` without causing an infinite loop; this is left as an exercise for the reader.
+
+### VDP Protocol event callbacks
+
+Events in the range &100-&1FF relate to the [VDP Protocol](./System-Commands.md#vdp-serial-protocol).  The lower half of this range (&100-&17F) will be triggered before a VDP protocol packet is sent to MOS, and the upper half &180-&1FF are triggered after a VDP protocol packet has been received from MOS.  The bottom 7 bits of the event type correspond to the VDP protocol packet type.
+
+These callbacks can be used to modify the state of VDP variables before and after a VDP protocol packet is sent.
+
+NB these VDP protocol event callbacks will occur no matter what the [current output stream is set to](#command-4).  Even if the output stream has been disabled (set to `-1`), the VDP protocol event callbacks will still be triggered when a VDP protocol packet is sent.  It should be noted though that as the command to [set the output stream](#command-4) only applies within the context of a buffer call this command cannot be used by callbacks to prevent that VDP protocol packets from being sent as the output stream will be restored when the callback buffer call ends.
+
+One can however suppress sending a VDP protocol packet from within a "before send" VDP protocol event callback by setting VDP variable &103 to any value, for example:
+
+`VDU 23, 0, &F8, &103; 0;`
+
+If a packet is suppressed in this way the corresponding "packet sent" event callback will not be triggered.
 
 ## Command 81: Remove buffer from a callback
 
