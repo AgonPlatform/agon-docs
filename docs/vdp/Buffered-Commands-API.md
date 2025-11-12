@@ -511,19 +511,19 @@ Reverses the order of the blocks in a buffer.
 
 `VDU 23, 0, &A0, bufferId; 24, options, [valueSize;] [chunkSize;]`
 
-Reverses the order of the data within the blocks of a buffer.  The `options` parameter is an 8-bit value that can have bits set to modify the behaviour of the operation.  The following bits are defined:
+Reverses the order of the data within the blocks of a buffer.  The `options` parameter is an 8-bit value where the bits set in that byte determine the operation's behavior.  The following bits are defined:
 
 | Bit value | Description |
 | --- | ----------- |
 | 1   | Values are 16-bits in size |
 | 2   | Values are 32-bits in size |
-| 3 (1+2) | If both value size bits are set, then the value size is sent as a 16-bit value |
-| 4   | Reverse data of the value size within chunk of data of the specified size, sent as a 16-bit value |
+| 3 (1+2) | If both value size bits are set, then a `valueSize;` argument must be sent as a 16-bit value |
+| 4   | Reverse data of the chosen value size within chunks of data, using a `chunkSize;` sent as a 16-bit value |
 | 8   | Reverse blocks |
 
-These modifiers can be combined together to modify the behaviour of the operation.
+If no value size is set in the options byte (i.e. the bottom two bits are both zero) then the value size is assumed to be 8-bits.
 
-If no value size is set in the options (i.e. the value of the bottom two bits of the options is zero) then the value size is assumed to be 8-bits.
+To be clear, the table above documents how the bits are used inside the `options` byte.  These can be combined, so using a value of `6` for the options would indicate 32-bit values (bit 2) and reversing within chunks (bit 4), and a `chunkSize;` argument must be sent as a 16-bit value.
 
 It is probably easiest to understand what this operation is capable of by going through some examples of how it can be used to manipulate bitmaps.  The VDP supports two different formats of color bitmap, either RGBA8888 which uses 4-bytes per pixel, i.e. 32-bit values, or RGBA2222 which uses a single byte per pixel.
 
@@ -537,25 +537,27 @@ Rotating an RGBA8888 bitmap by 180 degrees is in principle a little more complex
 VDU 23, 0, &A0, bufferId; 24, 2
 ```
 
-Mirroring a bitmap around the x-axis is a matter of reversing the order of rows of pixels.  To do this we can set a custom value size that corresponds to our bitmap width.  For an RGBA2222 bitmap we can just set a custom value size to our bitmap width:
+Mirroring a bitmap around the x-axis is a matter of reversing the order of rows of pixels.  This can be done by setting a custom value size that corresponds to our bitmap width.  As can be seen from the table above, setting the bottom two bits of the `options` byte, which will be a value of `3`, will indicate that we are using a custom value size, so we will need to follow that with a `valueSize;` argument as a 16-bit value.  Therefore the following command will mirror an RGBA2222 bitmap around the x-axis:
 ```
-VDU 23, 0, &A0, bufferId; 24, 3, width
-```
-
-As an RGBA8888 bitmap uses 4 bytes per pixel we need to multiply our width by 4:
-```
-VDU 23, 0, &A0, bufferId; 24, 3, width * 4
+VDU 23, 0, &A0, bufferId; 24, 3, width;
 ```
 
-To mirror a bitmap around the y-axis, we need to reverse the order of pixels within each row.  For an RGBA2222 bitmap we can just set a custom chunk size to our bitmap width:
+As an RGBA8888 bitmap uses 4 bytes per pixel we'd need to multiply our width by 4:
 ```
-VDU 23, 0, &A0, bufferId; 24, 4, width
+VDU 23, 0, &A0, bufferId; 24, 3, width * 4;
+```
+
+To mirror a bitmap around the y-axis, we need to reverse the order of pixels within each row.  That is achieved by setting the "reverse within chunks" bit in the options byte.  So if we send an options value of `4` we will need to send a `chunkSize;` argument to indicate the width of each row.  Therefore the following command will mirror an RGBA2222 bitmap around the y-axis:
+```
+VDU 23, 0, &A0, bufferId; 24, 4, width;
 ```
 
 For an RGBA8888 bitmap we need to set our options to indicate 32-bit values as well as a custom chunk size:
 ```
-VDU 23, 0, &A0, bufferId; 24, 6, width * 4
+VDU 23, 0, &A0, bufferId; 24, 6, width * 4;
 ```
+
+NB in these last two examples our options indicate that we are only sending a `chunkSize;` argument, so they do not include a `valueSize;` argument.  It is possible to combine both by using an options value of `7` - the uses of which are left as an exercise for the reader.
 
 ## Command 25: Copy blocks from multiple buffers by reference
 
