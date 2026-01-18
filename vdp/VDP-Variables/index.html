@@ -1,0 +1,3384 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Tile-Engine/">
+      
+      
+        <link rel="next" href="../../BBC-BASIC-for-Agon/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>VDP Variables - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#variable-apis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VDP Variables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variable-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable APIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-id-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable ID ranges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comms-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communications system settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rtc-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-time clock data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdp-mem-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDP memory information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mouse-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard event info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-poll-byte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Poll byte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphics-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graphical system enhancement settings/flags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmap-sprite-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap/Sprite system control settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Last value variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variable-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable APIs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variable-id-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable ID ranges
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comms-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communications system settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rtc-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-time clock data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdp-mem-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDP memory information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mouse-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard event info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-poll-byte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General Poll byte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphics-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graphical system enhancement settings/flags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitmap-sprite-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap/Sprite system control settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-vars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Last value variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keyboard map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/vdp/VDP-Variables.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="vdp-variables">VDP Variables</h1>
+<p>VDP variables provide a way to both read and change the state of the VDP.  They can be used to enable an experimental feature, read or change the current state of the VDP, or store information for use in a <a href="../Buffered-Commands-API/">buffered command</a> sequence.</p>
+<p>VDU variables are 16-bit values, although some variables may only use the lower 8 bits.  Whilst natively variables are stored as unsigned values, the VDP will interpret them as signed values where appropriate; for instance graphics coordinates can be negative, and the VDP will interpret them as such.</p>
+<p>Variables are currently split into three general categories: test flags, system settings, and VDU variables.  In the future we will add more variables to expose the state of the audio system.  These categorites are given some broad ranges of variable IDs to allow for future expansion, and to allow for easy identification of the type of variable.</p>
+<p>Test flags are used to enable a feature that may either be experimental, not yet fully implemented, have an API that might change, or are not fully tested.</p>
+<p>System settings variables provide access to VDP system information, such as memory usage, real-time clock data, and keyboard settings.</p>
+<p>VDU variables provide access to the graphics system state, including context-specific information that may change when switching <a href="../Context-Management-API/">context</a>.</p>
+<p>The VDP variables system was added in Console8 VDP 2.9.0, and was initially used only for test flags.</p>
+<p>The Console8 VDP 2.12.0 release has added many new variables that expose the state of the VDP, and allow for changes to be made to that state.  It is also now possible to use VDP variables in buffered commands.  This allows for conditional commands to be used to check against a variable, and the contents of a variable to be read into a buffer.</p>
+<p>Further extensions to the VDP variables system were made in VDP 2.15.0, exposing more information, and functionality related to <a href="../Buffered-Commands-API/#command-80">VDP events</a>.</p>
+<h2 id="variable-apis">Variable APIs</h2>
+<p>There are just two API calls to directly work with VDP variables, one to set a variable, and another to clear it.  As of VDP 2.12.0 the buffered command API also allows for the reading of variables into a buffer, and for conditional commands to be used to perform their checks against a variable.</p>
+<p>The commands to set and clear variables are documented in the <a href="../System-Commands/#vdp-var-set">system commands</a> documentation.  Briefly they are:</p>
+<ul>
+<li><code>VDU 23, 0, &amp;F8, variableId; value;</code>: Set a VDP Variable</li>
+<li><code>VDU 23, 0, &amp;F9, variableId;</code>: Clear a VDP Variable</li>
+</ul>
+<p>The <a href="../Buffered-Commands-API/">buffered commands API</a> has also been updated to support the use of variables.  All conditional commands, such as the <a href="../Buffered-Commands-API/#command-6">conditional call</a> and <a href="../Buffered-Commands-API/#command-10">conditional jump to an offset</a>, can support conditions to be checked against VDP variables.  A new command to <a href="../Buffered-Commands-API/#command-48">read the value of a VDP variable and store it in a buffer</a> has also been added which can be used to insert variable values into command sequences.</p>
+<h2 id="variable-id-ranges">Variable ID ranges</h2>
+<p>All variables listed are available from VDP 2.12.0 onwards.  Variables that were introduced in 2.9.0 and 2.11.0 are marked as such.</p>
+<p>The broad ranges of variable IDs are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Variable ID range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0001-0x00FF</td>
+<td><a href="#test-flags">Test flags</a></td>
+</tr>
+<tr>
+<td>0x0100-0x0FFF</td>
+<td><a href="#system-variables">System variables</a></td>
+</tr>
+<tr>
+<td>0x1000-0x1FFF</td>
+<td><a href="#vdu-variables">VDU variables</a> (graphics/text system)</td>
+</tr>
+<tr>
+<td>0x2000-0x2FFF</td>
+<td>Reserved for audio system variables</td>
+</tr>
+<tr>
+<td>0x3000-0x3FFF</td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td>0x4000-0xFFFF</td>
+<td>Available for general use</td>
+</tr>
+</tbody>
+</table>
+<p>The system will not prevent you from using variables in reserved ranges, although inside the "VDU variables" range values that the system does not directly support will not be stored, and cannot be read.</p>
+<h2 id="test-flags">Test Flags</h2>
+<p>In general, test flags are used to enable features that are not yet fully implemented, or may be considered experimental with an API that may change.  A new feature will typically require a test flag to be set to enable it until the feature is fully implemented and considered stable, at which point a program will not be required to set the flag to use the feature.  As a feature develops over time, programs may need to change the value they set the test flag to in order to opt in to new API changes.  It is possible that a new feature may continue to recognise its test flag after it has been fully implemented to allow for programs that used older versions of their API to continue to work, but this is not guaranteed.</p>
+<p>Test flags are essentially just simple variables.  Setting a test flag for a feature that has already been fully implemented and no longer requires the flag to be set therefore will have no harmful effect.  The test flag will be ignored, and the feature will work as normal.</p>
+<p>As of Console8 VDP 2.9.0 the following test flags are supported:</p>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0 (any)</td>
+<td>Enable the Affine Transforms feature (available from 2.9.0)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 (any)</td>
+<td>Enable hardware sprites</td>
+</tr>
+</tbody>
+</table>
+<p>If a flag is set that is not recognised then it will have no effect.  This means that if a feature graduates from being a test feature and no longer requires a flag to be set for use then, so long as the API for the feature remains the same, software that sets the flag to enable the feature will still work.</p>
+<p>For the current test flags that the VDP supports, any value can be set to enable the feature, but you are strongly advised to use set their flags with a value of zero.  Future flags may require specific values to be set to control how the feature works.</p>
+<p>(Some features that may be considered experimental use variables outside of this range to enable them.  In general this is because the feature may use a variable to control how it works, which will still be required after the feature is fully implemented.  In general though this practice will be avoided.)</p>
+<h2 id="system-variables">System Variables</h2>
+<p>Broadly speaking, system variables are used to read and change the state and configuration of the VDP that are not <em>directly</em> related to the current graphics context state or screen mode.  Within the system variables block there are sub-blocks for different types of system information.</p>
+<p>The sub-ranges within system variables are broadly as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0100-0x01FF</td>
+<td><a href="#comms-vars">Communications system settings</a></td>
+</tr>
+<tr>
+<td>0x0200-0x0208</td>
+<td><a href="#rtc-vars">Real-time clock data</a></td>
+</tr>
+<tr>
+<td>0x0209-0x020F</td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td>0x0210-0x021F</td>
+<td><a href="#vdp-mem-vars">VDP memory information</a></td>
+</tr>
+<tr>
+<td>0x0220-0x022F</td>
+<td><a href="#keyboard-vars">Keyboard settings</a></td>
+</tr>
+<tr>
+<td>0x0230-0x023F</td>
+<td><a href="#context-vars">Context management</a></td>
+</tr>
+<tr>
+<td>0x0240-0x024F</td>
+<td><a href="#mouse-vars">Mouse settings</a> *</td>
+</tr>
+<tr>
+<td>0x0250-0x025F</td>
+<td><a href="#key-event">Keyboard event info</a></td>
+</tr>
+<tr>
+<td>0x0250-0x02FF</td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td>0x0300-0x03FF</td>
+<td><a href="#graphics-settings">Graphical system enhancement settings/flags</a></td>
+</tr>
+<tr>
+<td>0x0400-0x04FF</td>
+<td><a href="#bitmap-sprite-settings">Bitmap/Sprite system control settings</a></td>
+</tr>
+<tr>
+<td>0x0500-0x05FF</td>
+<td><a href="#response-vars">Last value variables</a></td>
+</tr>
+<tr>
+<td>0x0600-0x07FF</td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td>0x0800-0x08FF</td>
+<td><a href="#key-map">Keyboard map</a></td>
+</tr>
+<tr>
+<td>0x0900-0x0FFF</td>
+<td>Reserved for future use</td>
+</tr>
+</tbody>
+</table>
+<p>* The mouse settings variables were added to this range in VDP 2.15.0, as these represent global settings for the mouse system.</p>
+<p>Many system variables can be set and adjusted by other VDU commands</p>
+<p>As of Console8 VDP 2.12.0 the following system variables are supported:</p>
+<h3 id="comms-vars">Communications system settings</h3>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0101</td>
+<td>0/1</td>
+<td></td>
+<td>X</td>
+<td>Full duplex UART hardware flow control flag. This is intended for internal use by MOS. NB setting this flag will break communications with MOS unless a suitable version of MOS that supports full duplex flow control.  The first version of MOS to support this is MOS 3.0 alpha 3</td>
+</tr>
+<tr>
+<td>0x0102</td>
+<td>n/a</td>
+<td></td>
+<td>X</td>
+<td>Reserved for future use (Buffer size on MOS for VDP protocol packets)</td>
+</tr>
+<tr>
+<td>0x0103</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Suppress the next VDP protocol packet. This variable is automatically cleared after the next attempt to send a VDP protocol packet (added in VDP 2.15.0)</td>
+</tr>
+<tr>
+<td>0x0110</td>
+<td>0/1</td>
+<td></td>
+<td>X</td>
+<td>Reserved for future use (Echo back received data, for redirect/spool, with a suitable version of MOS that supports this feature)</td>
+</tr>
+</tbody>
+</table>
+<p>Setting variable 0x0103 to any value will cause the next VDP protocol packet that would be sent to MOS to be suppressed and discarded.  This can be used to prevent specific events from sending data to MOS, which could be useful in some circumstances.  For example a VDP-resident "mouse-keys" implementation that intercepts keyboard events to move the mouse cursor could use this to prevent applicable keyboard events from being sent to MOS.</p>
+<h3 id="rtc-vars">Real-time clock data</h3>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0200</td>
+<td>0-999</td>
+<td></td>
+<td></td>
+<td>Real-time clock year</td>
+</tr>
+<tr>
+<td>0x0201</td>
+<td>1-12</td>
+<td></td>
+<td></td>
+<td>Real-time clock month</td>
+</tr>
+<tr>
+<td>0x0202</td>
+<td>1-31</td>
+<td></td>
+<td></td>
+<td>Real-time clock day</td>
+</tr>
+<tr>
+<td>0x0203</td>
+<td>0-23</td>
+<td></td>
+<td></td>
+<td>Real-time clock hour</td>
+</tr>
+<tr>
+<td>0x0204</td>
+<td>0-59</td>
+<td></td>
+<td></td>
+<td>Real-time clock minute</td>
+</tr>
+<tr>
+<td>0x0205</td>
+<td>0-59</td>
+<td></td>
+<td></td>
+<td>Real-time clock second</td>
+</tr>
+<tr>
+<td>0x0206</td>
+<td>0-999</td>
+<td>X</td>
+<td></td>
+<td>Real-time clock millisecond</td>
+</tr>
+<tr>
+<td>0x0207</td>
+<td>0-6</td>
+<td>X</td>
+<td></td>
+<td>Real-time clock weekday</td>
+</tr>
+<tr>
+<td>0x0208</td>
+<td>0-366</td>
+<td>X</td>
+<td></td>
+<td>Real-time clock day of year</td>
+</tr>
+</tbody>
+</table>
+<h3 id="vdp-mem-vars">VDP memory information</h3>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0210</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Free PSRAM low bytes</td>
+</tr>
+<tr>
+<td>0x0211</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Free PSRAM high bytes</td>
+</tr>
+<tr>
+<td>0x0212</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Number of buffers used</td>
+</tr>
+</tbody>
+</table>
+<h3 id="keyboard-vars">Keyboard settings</h3>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0220</td>
+<td>0-17</td>
+<td></td>
+<td></td>
+<td>Keyboard layout (setting to an invalid number will set to zero)</td>
+</tr>
+<tr>
+<td>0x0221</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Control keys on/off (setting to any non-zero value sets to 1)</td>
+</tr>
+<tr>
+<td>0x0222</td>
+<td>240-1000</td>
+<td></td>
+<td></td>
+<td>Keyboard repeat delay (milliseconds, rounded to nearest 250)</td>
+</tr>
+<tr>
+<td>0x0223</td>
+<td>33-500</td>
+<td></td>
+<td></td>
+<td>Keyboard repeat rate (characters per second)</td>
+</tr>
+<tr>
+<td>0x0224</td>
+<td>0-7</td>
+<td></td>
+<td></td>
+<td>Keyboard LED status (bitmask, combined values of NumLock, CapsLock and ScrollLock)</td>
+</tr>
+<tr>
+<td>0x0225</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Keyboard NumLock LED status (1=on, 0=off)</td>
+</tr>
+<tr>
+<td>0x0226</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Keyboard CapsLock LED status (1=on, 0=off)</td>
+</tr>
+<tr>
+<td>0x0227</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Keyboard ScrollLock LED status (1=on, 0=off)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="context-vars">Context management</h3>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0230</td>
+<td>0-255</td>
+<td></td>
+<td></td>
+<td>Current active context ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mouse-vars">Mouse settings</h3>
+<p>Support for mouse settings in this range was added in VDP 2.15.</p>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0240</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Mouse cursor ID *</td>
+</tr>
+<tr>
+<td>0x0241</td>
+<td>0/1</td>
+<td></td>
+<td>X</td>
+<td>Mouse enabled.  The mouse can only be enabled if a mouse is physically connected to your Agon's PS/2 mouse port</td>
+</tr>
+<tr>
+<td>0x0242</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse cursor X position in screen coordinates</td>
+</tr>
+<tr>
+<td>0x0243</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse cursor Y position in screen coordinates</td>
+</tr>
+<tr>
+<td>0x0244</td>
+<td>0-7</td>
+<td>X</td>
+<td></td>
+<td>Mouse cursor button status.  Bit 0 indicates left button pressed, bit 1 the right button, and bit 2 the middle button</td>
+</tr>
+<tr>
+<td>0x0245</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Mouse wheel delta</td>
+</tr>
+<tr>
+<td>0x0246</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse sample rate</td>
+</tr>
+<tr>
+<td>0x0247</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse resolution</td>
+</tr>
+<tr>
+<td>0x0248</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse scaling</td>
+</tr>
+<tr>
+<td>0x0249</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse acceleration</td>
+</tr>
+<tr>
+<td>0x024A</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse wheel acceleration</td>
+</tr>
+<tr>
+<td>0x024B</td>
+<td>0/1</td>
+<td></td>
+<td>X</td>
+<td>Mouse cursor visible</td>
+</tr>
+</tbody>
+</table>
+<p>* Setting the mouse cursor ID to a valid cursor ID will (as of VDP 2.15) always show the mouse cursor, and setting to an invalid ID will hide it, but not change the stored value.  Clearing the value will reset the mouse cursor ID to the default (0) and hide the cursor.  This will also affect the "mouse cursor visible" variable accordingly.</p>
+<h3 id="key-event">Keyboard event info</h3>
+<p>Support for keyboard event/state info in this range was added in VDP 2.15.</p>
+<p>Values in this range provide information on the last keyboard event that occurred.  This includes all the data sent to MOS when a key is pressed, plus some more information.</p>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0250</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Lower byte last ASCII keycode value sent to MOS *<br>Upper byte raw ASCII value from latest key event</td>
+</tr>
+<tr>
+<td>0x0251</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>FabGL Virtual keycode</td>
+</tr>
+<tr>
+<td>0x0252</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Key down flag (1) or up (0)</td>
+</tr>
+<tr>
+<td>0x0253</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Key modifiers byte (Shift, Ctrl, Alt, etc)</td>
+</tr>
+<tr>
+<td>0x0254</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>CTRL key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x0255</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>SHIFT key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x0256</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>LEFT ALT key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x0257</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>RIGHT ALT key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x0258</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>CAPSLOCK key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x0259</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>NUMLOCK key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x025A</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>SCROLLLOCK key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x025B</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>GUI key state (1=pressed, 0=not pressed)</td>
+</tr>
+<tr>
+<td>0x025C</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Raw PS/2 key scancode value, bytes 1 and 2</td>
+</tr>
+<tr>
+<td>0x025D</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Scancode bytes 3 and 4</td>
+</tr>
+<tr>
+<td>0x025E</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Scancode bytes 5 and 6</td>
+</tr>
+<tr>
+<td>0x025F</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Scancode bytes 7 and 8</td>
+</tr>
+</tbody>
+</table>
+<p>* The Agon VDP makes some minor adjustments to the keycode value it sends to MOS; it sets specific values for all four arrow keys, plus the tab and backspace keys.  The raw value before these adjustments were made is available in the upper byte of this variable.  Reading the two bytes stored in this variable separately is possible using the <a href="../Buffered-Commands-API/#command-48">read VDP variable</a> command.  If you request the variable as an 8-bit value in big-endian order, it will read the upper byte containing the raw value.  Reading as an 8-bit value in little-endian order then you will return the lower byte containing the adjusted value.</p>
+<h3 id="general-poll-byte">General Poll byte</h3>
+<p>Support for the general poll byte variable was added in VDP 2.15.</p>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0280</td>
+<td>0-255</td>
+<td></td>
+<td>X</td>
+<td>General poll byte. This will be the last byte value received with the <a href="../System-Commands/#vdu-23-0-80">general poll command</a>, and/or as returned back to MOS in the corresponding VDP protocol response packet</td>
+</tr>
+</tbody>
+</table>
+<p>In most circumstances setting this variable will have no effect.  However, a <a href="../Buffered-Commands-API/#command-80">callback event handler</a> listening for event <code>0x100</code> will see this variable as the value that was received as part of the general poll command, and can modify the value before it is sent back to MOS.  This potentially means that an inventive programmer could use the "general poll" command as a way to send data from the VDP to MOS, one byte at a time...</p>
+<h3 id="graphics-settings">Graphical system enhancement settings/flags</h3>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0300</td>
+<td>0 (any)</td>
+<td></td>
+<td>X</td>
+<td>Tile engine flag (enables layers commands, available from VDP 2.11.0)</td>
+</tr>
+<tr>
+<td>0x0310</td>
+<td>0 (any)</td>
+<td></td>
+<td>X</td>
+<td>Enables copper features flag</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bitmap-sprite-settings">Bitmap/Sprite system control settings</h3>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0400</td>
+<td>0 (any)</td>
+<td></td>
+<td>X</td>
+<td>Prefer hardware sprites flag. When set, all sprites will be set to be hardware sprites after calling the "Reset sprites" API, if the "Enable hardware sprites" test flag has also been set</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-vars">Last value variables</h3>
+<p>Support for these variables were added in VDP 2.15.</p>
+<p>Variables in this range are used to store the recent values related to a command or event that has occurred on the VDP.  This provides a way to see responses or results of VDU commands that may not otherwise be available as <a href="#vdu-variables">VDU variables</a>.  At this time, the following commands will cause these variables to be updated:</p>
+<ul>
+<li><a href="../System-Commands/#vdu-23-0-83">Get the value of a character on screen using text coordinates</a></li>
+<li><a href="../System-Commands/#vdu-23-0-93">Get the value of a character on screen using graphics coordinate</a></li>
+<li><a href="../System-Commands/#vdu-23-0-84">Get colour of pixel at a graphics coordinate</a></li>
+<li><a href="../System-Commands/#vdu-23-0-94">Read colour palette entry</a></li>
+<li><a href="../VDU-Commands/#vdu-19">Change a colour palette entry</a></li>
+<li><a href="../VDU-Commands/#vdu-20">Resetting the palette</a></li>
+</ul>
+<p>When any of these commands are successfully executed the corresponding variables described below will be updated.  With the exception of the commands to <a href="../VDU-Commands/#vdu-19">change a colour palette entry</a> and <a href="../VDU-Commands/#vdu-20">reset the palette</a>, they will also send a VDP Protocol data packet back to MOS with response data.  You can prevent the VDP Protocol data packet from being sent by temporarily <a href="../Buffered-Commands-API/#command-4">changing the output stream</a> to <code>65535</code>, and then restoring it back to the original stream by setting it back to <code>0</code> (the default stream).  This will prevent the VDP from sending the data packet, but the variables will still be set.</p>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0500</td>
+<td>0-255</td>
+<td></td>
+<td>X</td>
+<td id="last-char">Last character value read</td>
+</tr>
+<tr>
+<td>0x0510</td>
+<td>0-255</td>
+<td></td>
+<td>X</td>
+<td id="last-colour">Last colour red value</td>
+</tr>
+<tr>
+<td>0x0511</td>
+<td>0-255</td>
+<td></td>
+<td>X</td>
+<td>Last colour green value</td>
+</tr>
+<tr>
+<td>0x0512</td>
+<td>0-255</td>
+<td></td>
+<td>X</td>
+<td>Last colour blue value</td>
+</tr>
+<tr>
+<td>0x0513</td>
+<td>0-63</td>
+<td></td>
+<td>X</td>
+<td>Last colour logical colour value (it's palette index)</td>
+</tr>
+<tr>
+<td>0x0514</td>
+<td>0-63</td>
+<td></td>
+<td>X</td>
+<td>Last colour physical colour value (RGB222 equivalent of variables 0x0510-0x0512)</td>
+</tr>
+<tr>
+<td>0x0515</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X coordinate of the last colour (graphics coordinates)</td>
+</tr>
+<tr>
+<td>0x0516</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>Y coordinate of the last colour (graphics coordinates, )</td>
+</tr>
+</tbody>
+</table>
+<p>In the case of the command to <a href="../System-Commands/#vdu-23-0-94">read a colour palette entry</a>, the palette can already be read from <a href="#palette-entries">VDU variables</a>, but that will only provide you with the physical colour value for a palette entry.  The command can also read the currently selected text and graphics foreground and background colours, which are otherwise only available as their <a href="#logical-col">logical colour values</a>.</p>
+<p>Palette changes from <a href="../VDU-Commands/#vdu-19"><code>VDU 19</code></a> or <a href="../VDU-Commands/#vdu-20"><code>VDU 20</code></a> will update the last colour variables and also perform any <a href="../Buffered-Commands-API/#command-80">callbacks</a> looking for a "palette change" event.  In the case of a palette reset, the last colour variable values for red, green, and blue will all be set to 0, and the logical and physical colour values will be set to 255.  As those are not valid values for logical or physical colours this can be used to detect a palette reset.</p>
+<p>Command that read or set palette entries will set the last colour X and Y coordinate variables to 32768.</p>
+<p>Setting a palette entry by directly changing the corresponding <a href="#palette-entries">VDU variable</a> will cause the palette to be updated correctly, but will not update the last colour variables, or cause a palette change event.</p>
+<h3 id="key-map">Keyboard map</h3>
+<p>Variables from ID <code>0x0800</code> onwards for a total of 259 variables contain a map of values that relate to the keyboard.  The index into this range is the FabGL virtual keycode value.  It should be noted that this is <em>not</em> the ASCII value of a key.</p>
+<p>Within this range, the variable's lower-byte is a boolean that will indicate whether that virtual key is currently pressed/down (1) or not (0).  The upper byte provides the the current ASCII equivalent to the virtual keycode, if applicable.  This value may be adjusted by a modifier key being pressed such as the Ctrl key.  Keycodes that do not have an ASCII equivalent, such as modifier keys, function keys, or keys that are not mapped in your currently selected keyboard layout, will have the upper byte set to 0.</p>
+<p>All of the values in this range are read-only.</p>
+<h2 id="vdu-variables">VDU Variables</h2>
+<p>VDU variables are numbered in the range &amp;1000-&amp;1FFF and are used to expose information on the current graphics system state.  This includes both information about the current screen mode, and the current context state.</p>
+<p>The set of variables are loosely based on the VDU variables available in Acorn's RISC OS operating system, and where appropriate they are numbered the same.  The Agon VDP includes many extensions to include additional information that is specific to the Agon platform.</p>
+<p>In general, most of the variables within this range are specific to the currently selected <a href="../Context-Management-API/">graphics context</a>.  This means that when the context is changed, the values of these variables may change.  Within this range are some variables specific to the current screen mode which will not change when the context changes, plus variables that are derived from both the current context and the screen mode, such as the number of text columns and rows; in general these variables are read-only.</p>
+<p>Some information is specific to the current screen mode and will not change if the context is changed.  This includes the screen width and height, the number of screen banks, and the maximum logical colour number for the current screen mode, and the graphics palette definition.  Some information is derived from both the current context and the screen mode, such as the number of text columns and rows.</p>
+<p>All variables within this range are reserved for use by the VDU system.  Any values that are not recognised will not be stored, and cannot be read.</p>
+<p>Flag variables use values 0 to indicate disabled, and 1 to indicate enabled.  Setting a flag to any non-zero value is counted as if setting to 1.</p>
+<p>Some variables provide coordinates.  For those variables that are marked as "screen coordinates", the origin is at the top-left of the screen, and the location is measured in pixels.  For those variables that are marked as "character coordinates", the origin is at the top-left of the screen, and the location is measured in characters.  Variables shown as "OS coordinates" will reflect the currently selected coordinate system, as defined in variable &amp;1057.  When the default coordinate system is selected, the origin is at the bottom-left of the screen, and the location is measured in OS units, where the screen is defined as 0-1279 for X and 0-1023 for Y.</p>
+<table>
+<thead>
+<tr>
+<th>Variable ID</th>
+<th>Value</th>
+<th>Read-only</th>
+<th>Clearable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x1001</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Screen text columns - (characters)</td>
+</tr>
+<tr>
+<td>0x1002</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Screen text rows - (characters)</td>
+</tr>
+<tr>
+<td>0x1003</td>
+<td>1/3/15/63</td>
+<td>X</td>
+<td></td>
+<td>Max logical colour number for current screen mode</td>
+</tr>
+<tr>
+<td>0x100B</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Screen width in pixels - 1</td>
+</tr>
+<tr>
+<td>0x100C</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Screen height in pixels - 1</td>
+</tr>
+<tr>
+<td>0x100D</td>
+<td>1/2</td>
+<td>X</td>
+<td></td>
+<td>Number of screen banks (1 for single-buffered modes, 2 for double-buffered)</td>
+</tr>
+<tr>
+<td>0x1017</td>
+<td>0-255</td>
+<td></td>
+<td></td>
+<td>Current line thickness (pixels)</td>
+</tr>
+<tr>
+<td>0x1018</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text cursor, absolute X position (chars)</td>
+</tr>
+<tr>
+<td>0x1019</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text cursor, absolute Y position (chars)</td>
+</tr>
+<tr>
+<td>0x1020</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Frame counter low word (the frame counter is a 32-bit value)</td>
+</tr>
+<tr>
+<td>0x1021</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Frame counter high word</td>
+</tr>
+<tr>
+<td>0x1022</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Number of frames to pause on newline when the "Ctrl" key is held *</td>
+</tr>
+<tr>
+<td>0x1023</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Current number of frames being waited for *</td>
+</tr>
+<tr>
+<td>0x1055</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Current screen mode number</td>
+</tr>
+<tr>
+<td>0x1056</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Legacy modes flag</td>
+</tr>
+<tr>
+<td>0x1057</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Coordinate system (0 = screen/pixel coordinates, 1 = logical/OS (default))</td>
+</tr>
+<tr>
+<td>0x1058</td>
+<td>0/1/2<em>/3</em></td>
+<td></td>
+<td></td>
+<td>Paged mode flag (0 = disabled, 1 = enabled, 2 = disabled, but temporary paged mode is on <em>, 3 = enabled, and temporary paged mode is on </em>)</td>
+</tr>
+<tr>
+<td>0x1059</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Paged mode context row count *</td>
+</tr>
+<tr>
+<td>0x1066</td>
+<td>0-255</td>
+<td></td>
+<td></td>
+<td>Cursor behaviour flags byte, as set via <a href="../VDU-Commands/#cursor-behaviour">VDU 23,16,setting,mask</a></td>
+</tr>
+<tr>
+<td>0x1067</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Text cursor visibility</td>
+</tr>
+<tr>
+<td>0x1068</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text cursor block horizontal start column</td>
+</tr>
+<tr>
+<td>0x1069</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text cursor block horizontal end column</td>
+</tr>
+<tr>
+<td>0x106A</td>
+<td>0-31</td>
+<td></td>
+<td></td>
+<td>Text cursor block vertical start row</td>
+</tr>
+<tr>
+<td>0x106B</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text cursor block vertical end row</td>
+</tr>
+<tr>
+<td>0x106C</td>
+<td>0-3</td>
+<td></td>
+<td></td>
+<td>Text cursor appearance, write only (0 = steady, 1 = off, 2 = fast blink, 3 = slow blink)</td>
+</tr>
+<tr>
+<td>0x1070</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Active cursor type (0 = Text cursor, 1 = Graphics cursor)</td>
+</tr>
+<tr>
+<td>0x1080</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics window, LH column, screen coordinates</td>
+</tr>
+<tr>
+<td>0x1081</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics window, Bottom row, screen coordinates</td>
+</tr>
+<tr>
+<td>0x1082</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics window, RH column, screen coordinates</td>
+</tr>
+<tr>
+<td>0x1083</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics window, Top row, screen coordinates</td>
+</tr>
+<tr>
+<td>0x1084</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text window, LH column, character coordinates</td>
+</tr>
+<tr>
+<td>0x1085</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text window, Bottom row, character coordinates</td>
+</tr>
+<tr>
+<td>0x1086</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text window, RH column, character coordinates</td>
+</tr>
+<tr>
+<td>0x1087</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Text window, Top row, character coordinates</td>
+</tr>
+<tr>
+<td>0x1088</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics origin, X, OS coordinates</td>
+</tr>
+<tr>
+<td>0x1089</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics origin, Y, OS coordinates</td>
+</tr>
+<tr>
+<td>0x108A</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics cursor, X, OS coordinates</td>
+</tr>
+<tr>
+<td>0x108B</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics cursor, Y, OS coordinates</td>
+</tr>
+<tr>
+<td>0x108C</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oldest Graphics cursor, X, screen coordinates</td>
+</tr>
+<tr>
+<td>0x108D</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oldest Graphics cursor, Y, screen coordinates</td>
+</tr>
+<tr>
+<td>0x108E</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Previous Graphics cursor, X, screen coordinates</td>
+</tr>
+<tr>
+<td>0x108F</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Previous Graphics cursor, Y, screen coordinates</td>
+</tr>
+<tr>
+<td>0x1090</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics cursor, X, screen coordinates</td>
+</tr>
+<tr>
+<td>0x1091</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Graphics cursor, Y, screen coordinates</td>
+</tr>
+<tr>
+<td>0x1097</td>
+<td>0-7</td>
+<td></td>
+<td></td>
+<td>GCOL action for foreground colour</td>
+</tr>
+<tr>
+<td>0x1098</td>
+<td>0-7</td>
+<td></td>
+<td></td>
+<td>GCOL action for background colour</td>
+</tr>
+<tr>
+<td>0x1099</td>
+<td>0-63</td>
+<td></td>
+<td></td>
+<td id="logical-col">Graphics foreground (logical) colour</td>
+</tr>
+<tr>
+<td>0x109A</td>
+<td>0-63</td>
+<td></td>
+<td></td>
+<td>Graphics background (logical) colour</td>
+</tr>
+<tr>
+<td>0x109B</td>
+<td>0-63</td>
+<td></td>
+<td></td>
+<td>Text foreground (logical) colour</td>
+</tr>
+<tr>
+<td>0x109C</td>
+<td>0-63</td>
+<td></td>
+<td></td>
+<td>Text background (logical) colour</td>
+</tr>
+<tr>
+<td>0x10A1</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Max mode number (not double-buffered)</td>
+</tr>
+<tr>
+<td>0x10A2</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>X font size, graphics cursor</td>
+</tr>
+<tr>
+<td>0x10A3</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Y font size, graphics cursor</td>
+</tr>
+<tr>
+<td>0x10A4</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>X font spacing, graphics cursor</td>
+</tr>
+<tr>
+<td>0x10A5</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Y font spacing, graphics cursor</td>
+</tr>
+<tr>
+<td>0x10A7</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>X font size, text cursor</td>
+</tr>
+<tr>
+<td>0x10A8</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Y font size, text cursor</td>
+</tr>
+<tr>
+<td>0x10A9</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>X font spacing, text cursor</td>
+</tr>
+<tr>
+<td>0x10AA</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Y font spacing, text cursor</td>
+</tr>
+<tr>
+<td>0x10F2</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Dotted line pattern length</td>
+</tr>
+<tr>
+<td>0x10F3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Line pattern, bytes 0-1</td>
+</tr>
+<tr>
+<td>0x10F4</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Line pattern, bytes 2-3</td>
+</tr>
+<tr>
+<td>0x10F5</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Line pattern, bytes 4-5</td>
+</tr>
+<tr>
+<td>0x10F6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Line pattern, bytes 6-7</td>
+</tr>
+<tr>
+<td>0x1100</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Width of text window in chars</td>
+</tr>
+<tr>
+<td>0x1101</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Height of text window in chars</td>
+</tr>
+<tr>
+<td>0x1118</td>
+<td></td>
+<td></td>
+<td></td>
+<td>X position of text cursor within text window</td>
+</tr>
+<tr>
+<td>0x1119</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Y position of text cursor within text window</td>
+</tr>
+<tr>
+<td>0x111A</td>
+<td></td>
+<td></td>
+<td></td>
+<td>X position of text cursor in screen coordinates</td>
+</tr>
+<tr>
+<td>0x111B</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Y position of text cursor in screen coordinates</td>
+</tr>
+<tr>
+<td>0x1200-0x123F</td>
+<td>0-63</td>
+<td></td>
+<td></td>
+<td id="palette-entries">Palette entries.  Maps logical colours to physical screen colours. The entries used will depend on the number of colours in the current screen mode</td>
+</tr>
+<tr>
+<td>0x1300-0x13FF</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Character to bitmap mapping.  Value is a 16-bit bitmap ID, or 65535 if character is not mapped.  See <a href="../System-Commands/#vdu-23-0-92"><code>VDU 23, 0, &amp;92, char, bitmapId;</code></a></td>
+</tr>
+<tr>
+<td>0x1400</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Currently selected bitmap ID (16-bit bitmap ID)</td>
+</tr>
+<tr>
+<td>0x1401</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Count of bitmaps used</td>
+</tr>
+<tr>
+<td>0x1402</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Current bitmap transform ID. Must be set to a buffer ID containing a valid affine transform.  The affine transforms flag must be set to change this value</td>
+</tr>
+<tr>
+<td>0x1410</td>
+<td>0-255</td>
+<td></td>
+<td></td>
+<td>Current sprite ID</td>
+</tr>
+<tr>
+<td>0x1411</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Number of sprites active (not necessarily visible)</td>
+</tr>
+<tr>
+<td>0x1440</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse cursor ID **</td>
+</tr>
+<tr>
+<td>0x1441</td>
+<td>0/1</td>
+<td></td>
+<td></td>
+<td>Mouse enabled.  The mouse can only be enabled if a mouse is physically connected to your Agon's PS/2 mouse port **</td>
+</tr>
+<tr>
+<td>0x1442</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse cursor X position in screen coordinates **</td>
+</tr>
+<tr>
+<td>0x1443</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse cursor Y position in screen coordinates **</td>
+</tr>
+<tr>
+<td>0x1444</td>
+<td>0-7</td>
+<td>X</td>
+<td></td>
+<td>Mouse cursor button status.  Bit 0 indicates left button pressed, bit 1 the right button, and bit 2 the middle button **</td>
+</tr>
+<tr>
+<td>0x1445</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>Mouse wheel delta **</td>
+</tr>
+<tr>
+<td>0x1446</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse sample rate **</td>
+</tr>
+<tr>
+<td>0x1447</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse resolution **</td>
+</tr>
+<tr>
+<td>0x1448</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse scaling **</td>
+</tr>
+<tr>
+<td>0x1449</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse acceleration **</td>
+</tr>
+<tr>
+<td>0x144A</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Mouse wheel acceleration **</td>
+</tr>
+</tbody>
+</table>
+<p>* Support for these variables was added in VDP 2.14.0<br>
+** As of VDP 2.15.0 the mouse cursor variables in this range are deprecated; you are advised to use the equivalent <a href="#mouse-vars">mouse system variables</a>.  On earlier versions of the VDP setting the mouse cursor ID would only work if the mouse was enabled<br></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

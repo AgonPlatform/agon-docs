@@ -1,0 +1,2973 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../VDP/">
+      
+      
+        <link rel="next" href="../Screen-Modes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Main Commands - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vdu-0" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Main Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 0: Null (no operation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-1-send-next-character-to-printer-if-printer-is-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 1: Send next character to "printer" (if "printer" is enabled) §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-2-enable-printer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 2: Enable "printer" §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-3-disable-printer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 3: Disable "printer" §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 4: Write text at text cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 5: Write text at graphics cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-6-enable-screen-opposite-of-vdu-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 6: Enable screen (opposite of VDU 21) §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-7-make-a-short-beep-bel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 7: Make a short beep (BEL)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 8: Move cursor back one character
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 9: Move cursor forward one character
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 10: Move cursor down one line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-11-move-cursor-up-one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 11: Move cursor up one line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 12: Clear text area (CLS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-13-carriage-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 13: Carriage return
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-14-paged-mode-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 14: Paged mode On *
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-15-paged-mode-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 15: Paged mode Off *
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 16: Clear graphics area (CLG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 17, colour: Set text colour (COLOUR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 18, mode, colour: Set graphics colour (GCOL mode, colour)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 19, l, p, r, g, b: Define logical colour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 20: Reset palette and text/graphics colours and drawing modes §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-21-disable-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 21: Disable screen §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-22-n-select-screen-mode-mode-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 22, n: Select screen mode (MODE n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-23-n-re-program-display-character-system-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, n: Re-program display character / System Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VDU 23, n: Re-program display character / System Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-0-command-arguments-system-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 0, &lt;command&gt;, [&lt;arguments&gt;]: System commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-1-n-cursor-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 1, n: Cursor control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-6-n1-n2-n3-n4-n5-n6-n7-n8-set-dotted-line-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 6, n1, n2, n3, n4, n5, n6, n7, n8: Set dotted line pattern §§§
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 7, extent, direction, movement: Scroll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursor-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 16, setting, mask: Define cursor movement behaviour
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-23-n-set-line-thickness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 23, n: Set line thickness §§§
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-command-arguments-bitmap-and-sprite-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &lt;command&gt;, [&lt;arguments&gt;]: Bitmap and sprite commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-28-hexload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 28: Hexload
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VDU 23, 28: Hexload">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-data-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal data records
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-intel-hex-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Intel Hex format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphics-viewport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 24, left; bottom; right; top;: Set graphics viewport **
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 25, mode, x; y;: PLOT command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-26-reset-graphics-and-text-viewports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 26: Reset graphics and text viewports **
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 27, char: Output character to screen §
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-viewport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 28, left, bottom, right, top: Set text viewport **
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-29-x-y-set-graphics-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 29, x; y;: Set graphics origin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-30-home-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 30: Home cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-31-x-y-move-text-cursor-to-x-y-text-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 31, x, y: Move text cursor to x, y text position
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-127" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 127: Backspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 0: Null (no operation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-1-send-next-character-to-printer-if-printer-is-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 1: Send next character to "printer" (if "printer" is enabled) §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-2-enable-printer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 2: Enable "printer" §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-3-disable-printer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 3: Disable "printer" §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 4: Write text at text cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 5: Write text at graphics cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-6-enable-screen-opposite-of-vdu-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 6: Enable screen (opposite of VDU 21) §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-7-make-a-short-beep-bel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 7: Make a short beep (BEL)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 8: Move cursor back one character
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 9: Move cursor forward one character
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 10: Move cursor down one line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-11-move-cursor-up-one-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 11: Move cursor up one line
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 12: Clear text area (CLS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-13-carriage-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 13: Carriage return
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-14-paged-mode-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 14: Paged mode On *
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-15-paged-mode-off" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 15: Paged mode Off *
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 16: Clear graphics area (CLG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 17, colour: Set text colour (COLOUR)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 18, mode, colour: Set graphics colour (GCOL mode, colour)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 19, l, p, r, g, b: Define logical colour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 20: Reset palette and text/graphics colours and drawing modes §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-21-disable-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 21: Disable screen §§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-22-n-select-screen-mode-mode-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 22, n: Select screen mode (MODE n)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-23-n-re-program-display-character-system-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, n: Re-program display character / System Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VDU 23, n: Re-program display character / System Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-0-command-arguments-system-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 0, &lt;command&gt;, [&lt;arguments&gt;]: System commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-1-n-cursor-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 1, n: Cursor control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-6-n1-n2-n3-n4-n5-n6-n7-n8-set-dotted-line-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 6, n1, n2, n3, n4, n5, n6, n7, n8: Set dotted line pattern §§§
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 7, extent, direction, movement: Scroll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursor-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 16, setting, mask: Define cursor movement behaviour
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-23-n-set-line-thickness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 23, n: Set line thickness §§§
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-command-arguments-bitmap-and-sprite-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &lt;command&gt;, [&lt;arguments&gt;]: Bitmap and sprite commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-28-hexload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 28: Hexload
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VDU 23, 28: Hexload">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-data-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internal data records
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-intel-hex-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended Intel Hex format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#graphics-viewport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 24, left; bottom; right; top;: Set graphics viewport **
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 25, mode, x; y;: PLOT command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-26-reset-graphics-and-text-viewports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 26: Reset graphics and text viewports **
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 27, char: Output character to screen §
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-viewport" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 28, left, bottom, right, top: Set text viewport **
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-29-x-y-set-graphics-origin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 29, x; y;: Set graphics origin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-30-home-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 30: Home cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-31-x-y-move-text-cursor-to-x-y-text-position" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 31, x, y: Move text cursor to x, y text position
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vdu-127" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 127: Backspace
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/vdp/VDU-Commands.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="an-overview-of-vdu-commands">An Overview of VDU Commands</h1>
+<p>The Agon VDP system aims to be as compatible as practical with the Acorn BBC Micro's VDU command system.  It also supports some extensions as added by later Acorn computer systems, and the various versions of BBC BASIC by R.T.Russell.  Where necessary, some extensions have been added to help facilitate the Agon's unique features and architecture.</p>
+<p>This documentation provides a more in-depth explanation to each top-level VDU control code, and provides links to further documentation for more detailed individual commands.</p>
+<p>Please note that not all versions of the VDP support the complete command set.  The first version of the VDP to support the complete top-level list of VDU commands is the Agon Console8 VDP 2.5.0.  The following list uses the following symbols to indicate which VDP versions support which commands:</p>
+<p>* Requires VDP 1.03 or above<br>
+ ** Requires VDP 1.04 or above<br>
+ § Requires Console8 VDP 2.3.0 or above<br>
+ §§ Requires Console8 VDP 2.5.0 or above<br>
+ §§§ Requires Console8 VDP 2.7.0 or above<br>
+ §§§§ Requires Console8 VDP 2.8.0 or above<br></p>
+<p>In general, bytes/characters in the range of 0-31 are treated as control or command codes by the VDP.  Depending on the command, the VDP will then interpret bytes that follow as parameters to the command, continuing until sufficient bytes have been read to satisfy the command.  If there are insufficient bytes to satisfy the command, then the VDP will wait until more bytes are available, and timeout after 200ms.  If too many bytes are sent for a command, then the VDP will interpret those new bytes as another command.</p>
+<p>Any VDU command that is the VDP does not recognise (such as <code>VDU 2</code> when running on Quark 1.04) will be ignored.  Please note that when VDP comes across a command it does not understand it will proceed to interpret the next byte it receives as the next command.  This means that code written for a later version of the VDP may not work correctly on earlier versions and produce unexpected results.  Care should be taken to ensure that code is compatible with the VDP version it is running on, and it is generally advised to try to detect features before using them.</p>
+<p>All other characters, i.e. those in the range of 32 to 126 and 128 to 255, are sent to the screen as ASCII, unaltered.</p>
+<h2 id="vdu-0"><code>VDU 0</code>: Null (no operation)</h2>
+<p>On encountering a <code>VDU 0</code> command, the VDP will do nothing.  This may be useful for padding out a VDU command sequence, or for inserting a placeholder for a command that will be added later.</p>
+<h2 id="vdu-1-send-next-character-to-printer-if-printer-is-enabled"><code>VDU 1</code>: Send next character to "printer" (if "printer" is enabled) §§</h2>
+<p>Ensures that the next character received by the VDP is sent through to the "printer", and not to the screen.  This is useful for sending control codes to the "printer", or for sending data to the "printer" that is not intended to be displayed on the screen.  It allows characters that would not otherwise normally be sent through to the "printer" to be sent.</p>
+<p>If the "printer" has not been enabled then this command will just discard the next byte sent to the VDP.</p>
+<h2 id="vdu-2-enable-printer"><code>VDU 2</code>: Enable "printer" §§</h2>
+<p>Enables the "printer".</p>
+<p>In the context of the Agon platform, the "printer" is a serial terminal that is connected to the VDP's USB port.  Typically this port is used for power, but it can also be used to send and receive data to and from the VDP.</p>
+<p>When the "printer" is enabled, the VDP will send characters it receives to the "printer" as well as to the screen.  It will additionally send through control codes 8-13.  To send other control codes to the "printer", use the <code>VDU 1</code> command.</p>
+<p>The VDP will not send through other control codes to the printer, and will will not send through data it receives as part of other commands.</p>
+<h2 id="vdu-3-disable-printer"><code>VDU 3</code>: Disable "printer" §§</h2>
+<p>Disables the "printer".</p>
+<h2 id="vdu-4"><code>VDU 4</code>: Write text at text cursor</h2>
+<p>This causes text to be written at th current text cursor position.  This is the default mode for text display.</p>
+<p>Text is written using the current text foreground and background colours.</p>
+<h2 id="vdu-5"><code>VDU 5</code>: Write text at graphics cursor</h2>
+<p>This causes text to be written at the current graphics cursor position.</p>
+<p>Using this, characters may be positioned at any graphics coordinate within the graphics viewport.  This is useful for positioning text over graphics, or for positioning text at a specific location on the screen.</p>
+<p>Characters are plotted using the current graphics foreground colour, using the current graphics foreground plotting mode (see <a href="#vdu-18"><code>VDU 18</code></a>).</p>
+<p>The character background is transparent, and will not overwrite any graphics that are already present at the character's location.  The exception to this is <a href="#vdu-127"><code>VDU 127</code></a>, the "delete" character, which backspaces and deletes as per its usual behaviour, but will erase using the current graphics background colour.</p>
+<h2 id="vdu-6-enable-screen-opposite-of-vdu-21"><code>VDU 6</code>: Enable screen (opposite of <code>VDU 21</code>) §§</h2>
+<p>This enables the screen, and re-enables VDU command processing, reversing the effect of <code>VDU 21</code>.</p>
+<h2 id="vdu-7-make-a-short-beep-bel"><code>VDU 7</code>: Make a short beep (BEL)</h2>
+<p>Plays a short beep sound on audio channel 0.  If the audio channel is already in use, or has been disabled, then this command will have no effect.</p>
+<h2 id="vdu-8"><code>VDU 8</code>: Move cursor back one character</h2>
+<p>Moves the currently active cursor one character in the backwards direction, as defined by the current <a href="#cursor-behaviour">cursor behaviour</a> settings.</p>
+<p>By default, when the text cursor is active it will move one character to the left and, if the cursor was at the start of a line, moves to the end of the previous line (as defined by the current <a href="#text-viewport">text viewport</a>).  If the cursor is at the top of the screen then the viewport will scroll downwards.</p>
+<p>When the graphics cursor is active the cursor will move in a similar manner, but be constrained by the current graphics viewport and the viewport will not scroll.</p>
+<h2 id="vdu-9"><code>VDU 9</code>: Move cursor forward one character</h2>
+<p>Moves the currently active cursor one character in the forwards direction, as defined by the current <a href="#cursor-behaviour">cursor behaviour</a> settings.</p>
+<p>Essentially this is the opposite of <a href="#vdu-8"><code>VDU 8</code></a>, and similar behaviour applies.</p>
+<h2 id="vdu-10"><code>VDU 10</code>: Move cursor down one line</h2>
+<p>Moves the currently active cursor down one character line, as defined by the current <a href="#cursor-behaviour">cursor behaviour</a> settings.</p>
+<p>By default when the text cursor is active the cursor will move one line downwards, and the viewport will scroll upwards if the cursor is at the bottom of the screen.</p>
+<p>When the graphics cursor is active, the viewport will not scroll.</p>
+<h2 id="vdu-11-move-cursor-up-one-line"><code>VDU 11</code>: Move cursor up one line</h2>
+<p>Moves the currently active cursor up one character line, as defined by the current <a href="#cursor-behaviour">cursor behaviour</a> settings. </p>
+<p>This command is essentially the opposite of <a href="#vdu-10"><code>VDU 10</code></a> and similar behaviour applies.</p>
+<h2 id="cls"><code>VDU 12</code>: Clear text area (<code>CLS</code>)</h2>
+<p>Clears the current <a href="#text-viewport">text viewport</a> to the current text background colour, and moves the text cursor to the <a href="#vdu-30-home-cursor">"home"</a> position of the viewport (usually the top left).</p>
+<p>This is identical to the BASIC <code>CLS</code> keyword.</p>
+<h2 id="vdu-13-carriage-return"><code>VDU 13</code>: Carriage return</h2>
+<p>Moves the text cursor to the start (or column 0) of the current line, as defined by the current <a href="#cursor-behaviour">cursor behaviour</a> settings.</p>
+<h2 id="vdu-14-paged-mode-on"><code>VDU 14</code>: Paged mode On *</h2>
+<p>When paged mode is on, scrolling will stop after each page.  Output will be paused until "Shift" has been pressed on the keyboard.</p>
+<p>From VDP 2.14.0 onwards paged mode has been improved.  A page is no longer always a complete screen of output, but instead will keep up to 6 rows of context.  The VDP now also behaves better when paged mode is active, and will only pause continous output, not just when a certain number of rows has been printed.  Holding down the "Ctrl" key whilst text is being output will cause the VDP to pause briefly before every new line, allowing the user to skim through the text as it is printed (NB this works whether paged mode is enabled or not).  Holding both "Ctrl" and "Shift" will pause the output until either key is released.  You can customise how long the delay between lines will be when "Ctrl" is held, and how many lines of context will be shown through setting their corresponding <a href="../VDP-Variables/">VDP variables</a>.</p>
+<p>Further improvements were made to the operation of paged mode on VDP 2.15.0, fixing a few bugs and ensuring that behaviour now better matches those of Acorn systems.  Pressing "Escape" now also resumes output when in paged mode, and the key-press will be passed on to MOS as normal.</p>
+<p>It should be noted that the Agon's architecture means that pausing output works differently to Acorn systems.  On the Agon it is the VDP that is responsible for pausing and resuming output which is achieved by pausing the processing of VDU commands.  As the VDP has a command input buffer, it will continue to accept commands from MOS until that buffer is full, queuing them up for later execution.  MOS does not receive any explicit indication that the VDP's output has been paused, instead it will only pause execution when the VDP's command input buffer is full.  There will therefore be a backlog of commands waiting to be processed by the VDP when output is resumed.  Acorn systems don't have such a command buffer, so when output is paused the entire system pauses immediately.  A simple example of how this difference is visible is how pressing "Escape" in a BASIC program behaves when the system is paused for paged mode.  On an Acorn system the user will immediately be returned to the BASIC prompt.  On an Agon system however the VDP will first need to process any queued output before the BASIC prompt is shown, which may involve further pauses if the queued output is sufficient to fill another page.  Given the architecture of the Agon system this difference is essentially unavoidable without making significant changes to how the VDP and MOS interact, which would most likely incur a heavy performance penalty.  This is therefore seen as an acceptable compromise.</p>
+<h2 id="vdu-15-paged-mode-off"><code>VDU 15</code>: Paged mode Off *</h2>
+<p>Disables paged mode.  This is the default mode.</p>
+<h2 id="clg"><code>VDU 16</code>: Clear graphics area (<code>CLG</code>)</h2>
+<p>Clears the current graphics viewport to the current graphics background colour.</p>
+<p>The current graphics cursor is unaffected.</p>
+<p>This is identical to the BASIC <code>CLG</code> keyword.</p>
+<h2 id="vdu-17"><code>VDU 17, colour</code>: Set text colour (<code>COLOUR</code>)</h2>
+<p>This will set the current text colour to the given colour, as defined by the colour palette.</p>
+<p>Colour numbers in the range 0-127 are interpreted as foreground colours, and numbers in the range 128-255 are interpreted as background colours.</p>
+<p>The actual range of colours supported will depend on the screen mode you are using.  Agon systems can only actually display a maximum of 64 colours (numbered 0 to 63).  The VDP will loop around the colour palette if a colour number is given that is outside the range of colours supported by the screen mode.  This means that for instance colour 65 is always equivalent to colour 1, or when in a 16 colour screen mode selecting colour 32 would be equivalent to choosing colour 0.</p>
+<p>This command is identical to the BASIC <code>COLOUR</code> keyword.</p>
+<h2 id="vdu-18"><code>VDU 18, mode, colour</code>: Set graphics colour (<code>GCOL mode, colour</code>)</h2>
+<p>This command will set both the current graphics colour, and the current graphics painting mode.</p>
+<p>As with <a href="#vdu-17"><code>VDU 17</code></a> the colour number will set the foreground colour if it is in the range 0-127, or the background colour if it is in the range 128-255, and will be interpreted in the same manner.</p>
+<p>Up to and including Console8 VDP 2.5.0 support for the <code>mode</code> parameter was highly limited.  The only fully supported mode was mode 0, which is the default mode.  This mode sets on-screen pixels with the target colour.  From VDP 1.04 onwards there was very limited support for mode 4, which would invert on-screen pixels, but was only supported for straight line plotting operations.</p>
+<p>As of Console8 VDP 2.6.0, all 8 of the basic modes are supported for all currently supported plot operations.  Separate plot modes are tracked for foreground and background colours.</p>
+<p>The full array of available modes is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Set on-screen pixel to target colour value</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OR value with the on-screen pixel</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AND value with the on-screen pixel</td>
+</tr>
+<tr>
+<td>3</td>
+<td>EOR value with the on-screen pixel</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Invert the on-screen pixel</td>
+</tr>
+<tr>
+<td>5</td>
+<td>No operation</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AND the inverse of the specified colour with the on-screen pixel</td>
+</tr>
+<tr>
+<td>7</td>
+<td>OR the inverse of the specified colour with the on-screen pixel</td>
+</tr>
+</tbody>
+</table>
+<p>For more information on the various plot commands, please see the <a href="../PLOT-Commands/">VDP PLOT command documentation</a></p>
+<p>(Acorn's graphics system supported some further GCOL mode options, which could specify the use of a fill pattern, which is not currently supported by the Agon VDP.  Support for these modes may be added in a future version of the VDP firmware.)</p>
+<p>This command is identical to the BASIC <code>GCOL</code> keyword.</p>
+<h2 id="vdu-19"><code>VDU 19, l, p, r, g, b</code>: Define logical colour</h2>
+<p>This command sets the colour palette, by mapping a logical colour (i.e. the colour as selected via <a href="#vdu-17"><code>VDU 17, colour</code></a> or <a href="#vdu-18"><code>VDU 18, mode, colour</code></a>) to a physical colour.  This is useful for defining custom colours, or for redefining the default colours.</p>
+<p>If the physical colour number is given as 255 then the colour will be defined using the red, green, and blue values given.</p>
+<p>If the physical colour value is less than 64, the value is interpreted as a 6-bit colour number where the number in binary form is in the format <code>RRGGBB</code>.</p>
+<p>Any other physical colour value (i.e. 64 to 254) is not valid and the command will be ignored.</p>
+<p>If the physical colour is not 255 then the red, green, and blue values must still be provided, but will be ignored.</p>
+<p>The values for red, green and blue must be given in the range 0-255.  You should note that the physical Agon hardware only supports 64 colours, so the actual colour displayed may not be exactly the same as the colour requested.  The nearest colour will be chosen.</p>
+<p>Up to and including Console8 VDP 2.5.0 this command would have no effect when in a 64 colour screen mode, and the palette in those modes was fixed.</p>
+<p>From Console8 VDP 2.6.0 onwards, the command works in all screen modes, and will allow for the definition of custom colours.  Please note that when in a 64 colour screen mode there is no "palette" for the screen output per-se, so the command will not have any effect to the existing screen display.  It will only affect the colours used for subsequent graphics or text operations.</p>
+<p>It should be noted that from Console8 VDP 2.10.1 onwards, if you are in a screen mode with a palette (i.e. with less than 64 colours) if you redefine a palette entry to use a colour that is identical to an existing palette entry then any pixels drawn into the framebuffer of that colour will always be for the lowest numbered palette entry.  This is a limitation of the underlying graphics system the VDP uses which, whilst it maintains a palette for video signal output, only accepts commands to draw using "real" colours.  This could lead to some unexpected results in some limited circumstances, such as if your program is attempting to produce animations via palette cycling.  This can be worked around by ensuring that your palette contains unique entries when you are drawing to the screen, and then change the palette after drawing has been completed.  In reality most users are unlikely to encounter this issue, as they will work with a palette that does not contain duplicate entries, but it is worth being aware of.</p>
+<p>(This is a result of improvements in how the palette is handled.  Prior to VDP 2.10.0 the palette was not being properly changed when an entry was adjusted, which could result in the VDP using incorrect colours when drawing bitmaps.  This issue was fixed in VDP 2.10.0.  That this results in the above described behaviour is considered to be the least worst option.  This may be addressed in a future version of the VDP firmware.)</p>
+<p>As of VDP 2.15.0, when this command successfuly changes a palette entry the <a href="../VDP-Variables/#last-colour">"last colour"</a> variables will be updated to reflect the palette change that has been made, and any <a href="../Buffered-Commands-API/#command-80">callbacks</a> looking for a "palette change" event will be triggered.  </p>
+<p>This command is equivalent to the two ways the BASIC <code>COLOUR</code> keyword can be used to redefine the colour palette: <code>COLOUR l, p</code> or <code>COLOUR l, r, g, b</code>.</p>
+<h2 id="vdu-20"><code>VDU 20</code>: Reset palette and text/graphics colours and drawing modes §§</h2>
+<p>This command will reset the colour palette to the default palette, and will reset the text and graphics colours and drawing modes to their default values.</p>
+<p>From VDP 2.15.0 onwards this command will also set the <a href="../VDP-Variables/#last-colour">"last colour"</a> variables, and will trigger a "palette change" <a href="../Buffered-Commands-API/#command-80">callback</a> event.  The "last colour" variables will have their red, green and blue values all set to 0, and the logical and physical colour values set to 255.  As 255 is not a valid value for either of these variables this can be used to detect that the palette has been reset.</p>
+<h2 id="vdu-21-disable-screen"><code>VDU 21</code>: Disable screen §§</h2>
+<p>This command will "disable the screen", stopping any further VDU commands from being processed.  This is useful for temporarily disabling the screen, for instance when using the "printer" to send data to a serial terminal.  The actual screen display will not be turned off, but the VDP will stop processing VDU commands so changes to the display will not be made until the screen is re-enabled.</p>
+<p>The exception to this is commands <code>VDU 1</code> and <code>VDU 6</code>, which will still be processed.  If the "printer" has been enabled, bytes sent to the VDP still be sent through to the "printer", with the restrictions as described against <code>VDU 2</code>.</p>
+<p>Please note that the behaviour of the Agon system differs from Acorn systems when <code>VDU 21</code> has been called.  On an Agon system, when the screen has been disabled the VDP will consider each and every byte received as a new command, looking out specifically for a <code>VDU 6</code> command byte to re-enable the command interpreter.  It will not attempt to interpret any bytes received as a parameter to the previous command.  An Acorn system, on the other hand, would accept parameters for VDU commands, and just not process the command.  This means that code written for an Acorn system may not work correctly on an Agon system if it uses <code>VDU 21</code>.</p>
+<h2 id="vdu-22-n-select-screen-mode-mode-n"><code>VDU 22, n</code>: Select screen mode (<code>MODE n</code>)</h2>
+<p>Changes the screen mode to the given mode number.</p>
+<p>Please see the <a href="../Screen-Modes/">Screen Modes</a> documentation for more information on the screen modes supported by the Agon VDP.</p>
+<p>This command is identical to the BASIC <code>MODE</code> keyword.</p>
+<p>Changing the screen mode will reset the graphics system, returning most settings to their defaults.  The current cursor behaviour (as defined using <a href="#cursor-behaviour"><code>VDU 23, 16, x, y</code></a>) will be retained.</p>
+<h2 id="vdu-23-n-re-program-display-character-system-commands"><code>VDU 23, n</code>: Re-program display character / System Commands</h2>
+<p>The <code>VDU 23</code> command serves two purposes.</p>
+<p>Firstly when <code>n</code> is in the range of 32-255 it will re-program the character in the system font at the given character code.  This is useful for redefining the character set, or for adding custom characters to the system character set.  The format of the command in this mode is:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>VDU 23, char_no, r1, r2, r3, r4, r5, r6, r7, r8
+</code></pre></div>
+Where <code>char_no</code> is the character number to re-program, and <code>r1</code> to <code>r8</code> are the 8 bytes of data that define the character in rows from top to bottom.  Each byte defines one row of the character, with the least significant bit of each byte defining the left-most pixel of the row, and the most significant bit defining the right-most pixel of the row.</p>
+<p>Please note that as of Console8 VDP 2.8.0 this form of the command will only work if the system font is the currently selected font.  For more information please see the <a href="../Font-API/">Font API</a> documentation.</p>
+<p>Additionally, rather than re-programming the display character, there is also a function available to <a href="../System-Commands/#vdu-23-0-92">remap the character to a bitmap</a>, allowing these font character replacements to be multi-coloured.</p>
+<p>Note: There is a related VDU 23 System Command which can <a href="../System-Commands/#vdu-23-0-90">program the entire character range 0-255</a>, and a reset command is also available to <a href="../System-Commands/#vdu-23-0-91">reset the system font</a> back to default.</p>
+<p>The second purpose of this command is to send system commands to the VDP.</p>
+<p>The following commands are supported:</p>
+<h3 id="vdu-23-0-command-arguments-system-commands"><code>VDU 23, 0, &lt;command&gt;, [&lt;arguments&gt;]</code>: System commands</h3>
+<p>Commands starting with <code>VDU 23, 0</code> are <a href="../System-Commands/">system commands</a>.  These commands are used to configure the VDP and to control its behaviour.  This includes functionality such as the <a href="../Enhanced-Audio-API/">audio system</a>, the <a href="../Buffered-Commands-API/">buffered commands API</a>, <a href="../Font-API/">font API</a>, and <a href="../Context-Management-API/">context management API</a>.</p>
+<p>Information on these commands can be found in the <a href="../System-Commands/">System Commands</a> documentation.</p>
+<h3 id="vdu-23-1-n-cursor-control"><code>VDU 23, 1, n</code>: Cursor control</h3>
+<p>This command controls the appearance of the text cursor.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Hide the cursor</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Show the cursor</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Make the cursor steady §§§§</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Make the cursor flash §§§§</td>
+</tr>
+</tbody>
+</table>
+<p>Please note that when the active cursor is the <a href="#vdu-5">graphics cursor</a>, the cursor will not be visible, and the cursor control commands will have no effect.</p>
+<p>Previous versions of this documentation indicated that values 2 and 3 were supported as of Console8 VDP version 2.7.0.  Unfortunately this was incorrect as a bug prevented these values from working correctly.  (This functionality could however be used via <code>VDU 23, 0, &amp;0A</code> on that version of the VDP.)  As of Console8 VDP 2.8.0 these values are now supported.</p>
+<h3 id="vdu-23-6-n1-n2-n3-n4-n5-n6-n7-n8-set-dotted-line-pattern"><code>VDU 23, 6, n1, n2, n3, n4, n5, n6, n7, n8</code>: Set dotted line pattern §§§</h3>
+<p>This command sets the dotted line pattern for the various dotted line (<a href="#vdu-25"><code>VDU 25</code></a>) <a href="../PLOT-Commands/">PLOT commands</a>.  The pattern is defined by 8 bytes, where each bit in each byte defines a pixel in the pattern.  Bits are used from the pattern most significant bit first, from bytes <code>n1</code>-<code>n8</code>, so the top-most bits (most significant bits) of the first byte (<code>n1</code>) define the start of the pattern.</p>
+<p>The repeat length of the pattern is set using <code>VDU 23, 0, 242, n</code>, where <code>n</code> is the number of pixels to repeat the pattern for.  The default repeat length is 8, meaning that only the <code>n1</code> byte will be used for the pattern.  Setting the repeat length to zero will reset to the default pattern, with the default repeat length.</p>
+<p>The current dotted line pattern will be reset on changing screen mode.</p>
+<p>Support for this command was added in Agon Console8 VDP 2.7.0.</p>
+<h3 id="vdu-23-7"><code>VDU 23, 7, extent, direction, movement</code>: Scroll</h3>
+<p>This command scrolls in a given direction.</p>
+<p>The <code>extent</code> parameter controls what part of the screen will be scrolled.  A value of <code>0</code> means the current text viewport, a <code>1</code> means the whole screen, a <code>2</code> means the current graphics viewport, and <code>3</code> is interpreted as the current "active" viewport (as chosen using <a href="#vdu-4"><code>VDU 4</code></a> or <a href="#vdu-5"><code>VDU 5</code></a>).</p>
+<p>The `direction`` parameter can be one of the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Scroll right</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Scroll left</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Scroll down</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Scroll up</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Scroll in positive X direction *</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Scroll in negative X direction *</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Scroll in positive Y direction *</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Scroll in negative Y direction *</td>
+</tr>
+</tbody>
+</table>
+<p>* Support for these values was added in Agon Console8 VDP 2.5.0 for cursor behaviour values set by <code>VDU 23, 16, x, y</code>, but only for bits 1 and 2.  As of Console8 VDP 2.7.0, bit 3 of the cursor behaviour is also supported allowing the x and y directions to be swapped, thus letting X be vertical and Y be horizontal.</p>
+<p>The <code>movement</code> parameter controls the movement amount.  A value of <code>0</code> means that the screen will be scrolled by one character width/height in the given direction.  Any other value is interpreted as the number of pixels to scroll in the given direction.</p>
+<p>Support for a <code>movement</code> value of zero was added in Agon Console8 VDP 2.5.0.  Before this version a <code>movement</code> value of zero would be interpreted as no movement.</p>
+<p>The Agon implementation of this command differs from Acorn systems in the interpretation of the <code>movement</code> and <code>extent</code> parameter.  On Acorn systems, the only valid <code>extent</code> values are 0 or 1.  Acorn's <code>movement</code> parameter can also only be 0 or 1, but vertical movement would always be one character height, and horizontal movement one character width for a movement value of 0, and one byte for a movement value of 1, which made the results of this command vary depending on the current screen mode.  The Agon implementation of this command allows for more flexibility, and allows for scrolling by a given number of pixels in any direction, at the cost of some compatibility.</p>
+<h3 id="cursor-behaviour"><code>VDU 23, 16, setting, mask</code>: Define cursor movement behaviour</h3>
+<p>This command controls the behaviour of the text cursor.  It is used to adjust the cursor behaviour via a bitmask.  The new setting is calculated as:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>new_setting = (current_setting AND mask) EOR setting
+</code></pre></div></p>
+<p>This method of setting the cursor behaviour allows you to set individual bits, or to clear individual bits, without needing to know the current setting.  The use of <code>AND</code> and <code>EOR</code> however can be slightly confusing and hard to understand.  By using <code>EOR</code> we are flipping the bits set in the <code>setting</code> value, rather than just turning those bits on.  If we provide a <code>mask</code> value of <code>0</code> then no bits from the <code>current_setting</code> will be retained, and the new setting will just be equal to the <code>setting</code> value.  If the mask is <code>255</code> (i.e. all bits set) then the resultant new cursor behaviour will be the current setting with the bits in <code>setting</code> flipped.    One can therefore ensure that only the bits you wish to change, and the rest remain unaffected, by providing a <code>mask</code> value that has all bits set except for those you wish to change, and taking care to ensure that the <code>setting</code> value only has those bits you wish to change set.</p>
+<p>For example, if one wishes to only enable scroll protection (bit 0) without affecting any of the other settings, one could use:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>VDU 23, 16, 1, 254
+</code></pre></div></p>
+<p>The interpretation of the settings byte flags is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>0</td>
+<td>Normal value</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td>Undefined</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>Graphics cursor (VDU 5 mode) does an implicit cr/lf when it moves off right of graphics viewport</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>Graphics cursor carries on off edge of graphics viewport</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>Cursor moves right after a character is printed</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>Cursor does not move right after a character is printed §</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>Text cursor (VDU 4 mode) will scroll when it moves off the bottom of the screen</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>Text cursor will wrap to top of screen when it moves off the bottom of the screen §</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td></td>
+<td>Defines the cursor direction, as follows *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>0 0 0</td>
+<td>X direction is right, Y direction is down *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>0 0 1</td>
+<td>X direction is left, Y direction is down *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>0 1 0</td>
+<td>X direction is right, Y direction is up *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>0 1 1</td>
+<td>X direction is left, Y direction is up *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>1 0 0</td>
+<td>X direction is down, Y direction is right *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>1 0 1</td>
+<td>X direction is down, Y direction is left *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>1 1 0</td>
+<td>X direction is up, Y direction is right *</td>
+</tr>
+<tr>
+<td>3, 2, 1</td>
+<td>1 1 1</td>
+<td>X direction is up, Y direction is left *</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>Disable scroll protection</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>Enable scroll protection §</td>
+</tr>
+</tbody>
+</table>
+<p>The default value for each setting is zero, i.e. all bits are cleared.</p>
+<p>* Full support for these settings was added in Agon Console8 VDP 2.7.0.  Partial support for bits 1 and 2 was added in Console8 VDP 2.5.0 but only for direction-based scrolling (<a href="#vdu-23-7"><code>VDU 23, 7</code></a>).</p>
+<p>§ Whilst the Quark documentation claims that bits 4 and 5 are supported in the Quark VDP 1.04 release, they were not actually supported in the VDP firmware.  The cursor would always move right after a character was printed, and the text cursor could never wrap to the top of the screen.  The cursor direction bits were also not supported.  Support for scroll protection was also limited to an incorrect (buggy) implementation, which would simply prevent vertical scrolling.  Full support for all of these features was added in Agon Console8 VDP 2.7.0.  Further improvements to ensure that scroll protection works in exactly the same way as on Acorn systems were made in VDP 2.15.0.</p>
+<p>Scroll protection, when enabled, ensures that printing a character when the text cursor is at the last character position on the screen a "pending newline" is generated and the cursor will wait at the edge of the screen, rather than immediately moving to the next line and causing the screen to scroll.  If a subsequent character is printed, or a "cursor right" command (<a href="#vdu-9"><code>VDU 9</code></a>) is issued, then the pending newline will be executed just before the next character is printed or the cursor moved.  If the cursor is moved back within the screen then the pending newline will be cancelled.</p>
+<p>Enabling scroll protection therefore allows you to print a character to the bottom right-most character position on the screen without causing the screen to scroll.</p>
+<h3 id="vdu-23-23-n-set-line-thickness"><code>VDU 23, 23, n</code>: Set line thickness §§§</h3>
+<p>This command sets the line thickness for the various line drawing commands.  The line thickness is set to <code>n</code> pixels.  The default line thickness is 1 pixel.</p>
+<p>This command was added to Agon Console8 VDP 2.6.0.  Prior to that version, the line thickness was always 1 pixel.  PLOT commands that draw filled shapes are not affected by the line thickness.  Line plot commands that omit the first or last point may produce unexpected results when the line thickness is greater than 1.</p>
+<h3 id="vdu-23-27-command-arguments-bitmap-and-sprite-commands"><code>VDU 23, 27, &lt;command&gt;, [&lt;arguments&gt;]</code>: Bitmap and sprite commands</h3>
+<p>See the <a href="../Bitmaps-API/">Bitmap and Sprite Commands</a> documentation for more information.</p>
+<h3 id="vdu-23-28-hexload"><code>VDU 23, 28</code>: Hexload</h3>
+<p>This command switches the VDP to a dedicated Intel Hex receiver/decoder. After sending this command, the VDP temporarily blocks all other functions and expects Intel Hex-formatted data on it's USB/serial port. The baudrate and serial configuration settings are displayed on-screen, and the VDP loops through all incoming records until the final End-of-File record is received.
+Starting console8-vdp 2.8.2+, the user can press the 'escape' key to abort an incoming transfer and return the VDP to it's regular function.</p>
+<p>Detailed documentation for the Intel Hex format can be found <a href="https://en.wikipedia.org/wiki/Intel_HEX">here</a></p>
+<p>The purpose of hexload is to enable a user to send binaries directly to ez80 memory, using a text-formatted binary (Intel Hex) from an external PC to the external USB/serial port of an Agon system. The solution has a few components that need to work together in order to make this happen:</p>
+<p><img alt="overview" src="../../images/hexload.png" /></p>
+<p>A specific client that sends the VDU sequence to the VDP, to start the 'remote' Intel Hex receiver/decoder, is the component that is responsible for receiving preformatted data-records from the VDP. Data is sent to the client using VDP virtual keystroke packets, where packets contains an ASCII keycode for each received byte.</p>
+<p>The format of this data and the sequence of events of the protocol to the client is detailed below.
+The current hexload <a href="https://github.com/envenomator/agon-hexload">utility</a> streams the incoming data directly to memory and optionally to the filesystem. The memory destination address(es) are dependent on which address records are present in the Intel Hex file sent to the VDP. If no address records are present (for example when a binary is converted to Intel Hex format before sending) the VDP defaults to the Agon 0x40000 load address.</p>
+<p>The MOS has no specific role, other than to accept virtual keyboard packets and send out bytes to the VDP.</p>
+<p>In order to reliably transfer the incoming Intel Hex stream at full serial speeds, the VDP runs a dedicated Intel Hex receiver and decodes all Intel Hex records to data packets that are sent to the MOS as virtual keystrokes. This allows the VDP to perform the bulk of Intel Hex processing, while the lower-powered ez80 can focus on data reception.</p>
+<p>The RTS/CTS flow control lines on the USB/serial interface are hardwired for ESP32 boot selection, per Espressif standards. Any flow control on the USB/serial interface is therefore not possible on this serial interface, which leads to potential periodic loss of incoming packets. While the Intel Hex format specifies a checksum at the end of each record, this will only detect single-bit errors and not multi-bit issues that easily arise when the USB/serial is overrun. In order to deal with this, the VDP starting 2.8.2+ allows for an extended, Agon-proprietary Intel Hex format where CRC16 verification takes place at each record between PC and VDP, and the VDP sends back it's calculated CRC16. The PC sender can detect if the VDP has received incorrect data, whereupon it retransmits a record if necessary. At the start of an extended format session, the PC sends a custom Intel Hex record that contains the full CRC32 checksum of all data to be sent to the VDP. The VDP then verifies and displays the results upon End-of-File record reception.</p>
+<p>The RTS/CTS flow control lines between VDP and ez80 are only in use one-way to the VDP, not from the VDP to the ez80. This creates a similar challenge in absence of flow control. The data format sent to the hexload utility periodically waits for acknowledgement and asks for a mirror of each record's checksum to be sent back to the VDP. Starting 2.8.2+, using extended format, the VDP will retransmit corrupted data to the ez80, because it has a way to temporarily pause the incoming traffic from the PC.</p>
+<h4 id="internal-data-records">Internal data records</h4>
+<p>At each Intel Hex DATA record, the VDP sends these bytes as virtual keystrokes to MOS:</p>
+<ol>
+<li>Start/stop byte - 0x01 indicates a data packet follows, 0x00 indicates end of transfer / return to normal VDP function</li>
+<li>Three bytes of the 24-bit address of the following packet, in big-endian format (U / H / L)</li>
+<li>A single byte containing the number of data bytes to be sent in this packet</li>
+<li>0-n data bytes as indicated previously</li>
+</ol>
+<p>The hexload utility should then transmit a single byte to the VDP, containing a 2s complement to the sum of all received bytes. This byte is added to the running checksum by the VDP, to detect and indicate communication errors to the Hexload utility.
+Address information from Intel Hex ADDRESS records, are parsed by the VDP and sent to the hexload utility as part of data packets with an address header.</p>
+<h4 id="extended-intel-hex-format">Extended Intel Hex format</h4>
+<p>A Agon-proprietary extended format has been devised, to allow CRC16 checks at each Intel hex record's line, retransmission upon failed verification and full CRC32 verification at end of transmission. The VDP switches to reception of the extended format, upon receipt of a specific IntelHex-formatted start record:</p>
+<div class="highlight"><pre><span></span><code>:06 0000 FF XXXXXXXX CC
+</code></pre></div>
+<ol>
+<li>: start of record</li>
+<li>6 bytes of payload data, indicated by a single byte (2 ASCII nibbles '06')</li>
+<li>0x0000 start address (4 ASCII nibbles '0000' ignored / unused)</li>
+<li>Non-standard record type 0xFF (2 ASCII nibbles 'FF')</li>
+<li>The CRC32 of the entire payload to be sent, in Intel Hex format (6 ASCII nibbles)</li>
+<li>A regular Intel Hex checksum of a single byte (2 ASCII nibbles)
+This command is used by the hexload utility, and should not be used by user applications.</li>
+</ol>
+<p>After switching to the extended format, the VDP expects all subsequent Intel Hex records to have a CRC16 appended to it, containing the CRC16 of the original Intel Hex record, including the ':' character. In this way, all content can be verified. The CRC16 is sent using Intel Hex format, using 4 ASCII nibbles.
+The VDP then sends back it's own calculated CRC16 in binary form (2 bytes), so it allows the PC sender application to retransmit records if necessary.</p>
+<p>After the PC sender sends the last (End-of-file) Intel Hex record, the VDP sends back it's calculated CRC32 in binary form (4 bytes), and issues a result statement before it exits the receiver/decoder role.</p>
+<h2 id="graphics-viewport"><code>VDU 24, left; bottom; right; top;</code>: Set graphics viewport **</h2>
+<p>This command sets the graphics viewport.  The graphics viewport defines the area of the screen that graphics will be drawn to.  It is also the area that will be cleared by the <a href="#clg"><code>VDU 16</code></a> command.</p>
+<p>It should be noted that the coordinates given for this command must lie within the screen area.  If the coordinates are outside of the screen area then the command will be ignored.  When using OS Coordinates (the default coordinate system) this means that the coordinates must be in the range 0-1279 for the x-axis positions, and 0-1023 for the y-axis positions.</p>
+<p>Coordinates given are "inclusive", meaning that drawing locations up to and including those given will be drawn to.  To set a graphics viewport that is a single pixel tall, therefore, the <code>bottom</code> and <code>top</code> coordinates should be the same.</p>
+<p>(Please note that owing to a bug in the VDP firmware, viewports of a single pixel wide or tall were not supported until Console8 VDP 2.7.0.  Prior to that version a command to set a single pixel high viewport would be ignored.)</p>
+<h2 id="vdu-25"><code>VDU 25, mode, x; y;</code>: PLOT command</h2>
+<p>This command is used for graphics plotting, and is equivalent to the BASIC <a href="../PLOT-Commands/"><code>PLOT</code> command</a>.</p>
+<p>The aim for this command is to support all of Acorn's original <code>PLOT</code> functionality, however several of Acorn's plotting operations are not yet supported.  Support for plot modes has greatly expanded over time, and will continue to expand in the future.</p>
+<p>For more information see the <a href="../PLOT-Commands/">PLOT Commands</a> documentation.</p>
+<h2 id="vdu-26-reset-graphics-and-text-viewports"><code>VDU 26</code>: Reset graphics and text viewports **</h2>
+<p>This command resets the graphics and text viewports to their default values, homes the text cursor, and resets the graphics origin.  The default graphics viewport is the whole screen, and the default text viewport is the whole screen.</p>
+<p>NB prior to Console8 VDP 2.8.0, this command had a bug and did not reset the graphics origin.</p>
+<h2 id="vdu-27"><code>VDU 27, char</code>: Output character to screen §</h2>
+<p>Sends the next character to the screen.  This allows for characters outside of the normal ASCII range of 32-126 and 128-255 to be drawn on the screen.</p>
+<h2 id="text-viewport"><code>VDU 28, left, bottom, right, top</code>: Set text viewport **</h2>
+<p>This defines a text viewport.  The text viewport defines the area of the screen that text will be drawn to.  It is also the area that will be cleared by the <a href="#cls"><code>VDU 12</code></a> command.</p>
+<p>The coordinates given are character positions, based on the currently selected font, not pixel positions.  They are absolute positions that do not take into account the <a href="#cursor-behaviour">text cursor behaviour settings</a>.</p>
+<h2 id="vdu-29-x-y-set-graphics-origin"><code>VDU 29, x; y;</code>: Set graphics origin</h2>
+<p>This command sets the graphics origin.  This sets where on the screen graphics coordinates are relative to for drawing commands.</p>
+<h2 id="vdu-30-home-cursor"><code>VDU 30</code>: Home cursor</h2>
+<p>When in <code>VDU 4</code> mode, this moves the text cursor to the home position of the current text viewport.  When in <code>VDU 5</code> mode, this moves the graphics cursor to the home position within the current graphics viewport.</p>
+<p>The home position is found by going to the beginning of the current line and then moving to the top-most character position of the current viewport.  The home position obeys the currently set <a href="#cursor-behaviour">cursor behaviour</a> settings.</p>
+<h2 id="vdu-31-x-y-move-text-cursor-to-x-y-text-position"><code>VDU 31, x, y</code>: Move text cursor to x, y text position</h2>
+<p>Moves the text cursor to the given text position.  The coordinates given are character positions based on the currently selected font, not pixel positions, and respect the currently defined <a href="#cursor-behaviour">cursor behaviour</a>.</p>
+<p>This is equivalent to the BASIC <code>TAB(x, y)</code> statement.</p>
+<p>Please note that if you have changed the text viewport, the coordinates given will be relative to the text viewport, not the whole screen.</p>
+<p>The coordinates given must be within the currently active text viewport, or if no viewport has been set the whole screen.  If they are not then the command will be ignored and the cursor will not be moved.</p>
+<h2 id="vdu-127"><code>VDU 127</code>: Backspace</h2>
+<p>Moves the text cursor back one character, and deletes the character at that position, respecting the currently defined <a href="#cursor-behaviour">cursor behaviour</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

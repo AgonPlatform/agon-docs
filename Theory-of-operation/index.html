@@ -1,0 +1,1866 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../FAQ/">
+      
+      
+        <link rel="next" href="../Programming/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Theory of operation - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-agon-light-hardware" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Theory of operation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-agon-light-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agon Light hardware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Agon Light hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-main-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The main processor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-video-display-processor-or-vdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The video display processor, or VDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-agon-software-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agon software platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Agon software platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bbc-basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BBC BASIC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BBC BASIC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bbc-basic-adl-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BBC BASIC ADL version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-commands-screen-modes-and-the-vdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU commands, screen modes, and the VDP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VDU commands, screen modes, and the VDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screen modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mos/Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mos/API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mos/C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mos/Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mos/Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mos/System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mos/Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vdp/VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-agon-light-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agon Light hardware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Agon Light hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-main-processor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The main processor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-video-display-processor-or-vdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The video display processor, or VDP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-agon-software-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Agon software platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Agon software platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bbc-basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BBC BASIC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BBC BASIC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bbc-basic-adl-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BBC BASIC ADL version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-commands-screen-modes-and-the-vdp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU commands, screen modes, and the VDP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VDU commands, screen modes, and the VDP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Screen modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/Theory-of-operation.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="understanding-the-agon-light-computer-platform">Understanding the Agon Light computer platform</h1>
+<p>The Agon Light, and its variants, is a retro-style computer platform that is designed to be inexpensive and easy to manufacture, using commonly available parts.</p>
+<p>The platform is designed to be easy to understand, and easy to program.  It is designed to be a platform that is suitable for learning about computers, and learning about programming.</p>
+<p>Please note this is a preliminary guide to the Agon Light platform, and is subject to change.  The Agon Light platform is still under development, and this guide is still being written.</p>
+<h2 id="the-agon-light-hardware">The Agon Light hardware</h2>
+<h3 id="the-main-processor">The main processor</h3>
+<p>The primary processor on which you run programs is an eZ80.  This is a microcontroller based on the Zilog Z80 processor, which was used in many computers and arcade machines in the 1970s and 1980s.  The eZ80 is a modern version of the Z80, with a few enhancements.  It has attached to it 512KB of RAM, which is considerably more than the 64KB that was common in the 1980s.  Also attached to the eZ80 chip is an SD card interface, allowing an SD card to be used for storage.</p>
+<p>The eZ80 was chosen as the main processor of the Agon Light because of its historic ubiquity, and because it is still manufactured today.  It is a relatively simple processor, and is easy to understand and program.</p>
+<p>The eZ80 runs an operating system called <a href="../MOS/">MOS</a>.  This is a relatively simple operating system designed to provide basic facilities to programs.  Alternative operating systems such as CP/M can be used on the Agon Light, but MOS is the default operating system.</p>
+<h3 id="the-video-display-processor-or-vdp">The video display processor, or VDP</h3>
+<p>Whilst the eZ80 is manufactured today, none of the video chips that were used in computers of the 1970s and 1980s are still manufactured, so for video output a different solution is needed.  To solve this problem the Agon Light uses a separate video processor, which we call the VDP, the Video Display Processor.  This chip is responsible for sound and video output, and also keyboard and mouse input.  Technically, this is an ESP32-Pico-D4 chip, which has attached to it an 8MB RAM chip which is used for storing bitmaps, sound samples, fonts, and other data.</p>
+<p>The exact technical details of the VDP however for most programmers is not important - in the Agon platform, from a software perspective, the VDP is designed to be used via a <a href="../VDP/">simple API</a>, with the details of how it works abstracted away.  Indeed, when using an emulator of the Agon Light, the VDP chip is not emulated at all; the emulator instead runs a compiled version of the VDP firmware using the host computer's video and audio hardware.</p>
+<p>Effectively, the design of the Agon Light is that of two computers in one.  The eZ80 is the computer that is used to run programs, and the VDP is a smart terminal computer that draws the screen, plays sound, and handles the keyboard and mouse<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> interfaces.  The eZ80 and the VDP communicate with each other using a high speed serial interface.</p>
+<p>Some other retro-inspired computers take a different approach to solving the video output problem.  Often this involves making use of an FPGA chip, which is a chip that can be programmed to behave like any other chip.  This is a very flexible solution, but it is also very expensive.  The Agon Light takes a different approach, using a separate video processor chip, which is much cheaper than an FPGA.</p>
+<p>The use of what is effectively a separate computer for the VDP in the Agon platform creates a significant architectural difference to many classic home computers of the 8-bit, 16-bit and early 32-bit era.  Those classic computers would usually use a shared area of memory that the main processor and the video processor would both have access to.  This shared memory would be used to store the screen memory, and the main processor would write to this memory to update the screen.  This is not the case with the Agon platform.  The eZ80 and the VDP have no shared memory, and the VDP has no access to the eZ80's RAM.  This means that the VDP cannot read the screen memory directly, and the eZ80 cannot write directly to the screen memory.  Instead, the VDP has to be sent commands to draw things to the screen, and the eZ80 has to be sent commands to read things from the screen.  This is a significant difference to many classic computers, and is something that programmers need to be aware of when writing programs for the Agon platform.</p>
+<h2 id="the-agon-software-platform">The Agon software platform</h2>
+<p>From a software perspective, a significant inspiration for the Agon Light was the BBC Micro, a popular computer in the UK from the 1980s designed and built by Acorn Computers Ltd..  (Acorn went on to design the ARM processor, which is now the most commonly used processor design in the world.)  The BBC Micro was part of the BBC's Computer Literacy Project, which was a project to introduce computers to the UK population with an emphasis on education.  The BBC Micro was designed to be easy to use, and to be used in schools by children.</p>
+<p>There are several significant differences between the Agon Light and the BBC Micro, but the two most important ones are the main processor, and the video system.  A BBC Micro was based on the 6502 CPU, which was a competitor to the Z80.  The 6502 was a simpler processor than the Z80, and was cheaper to manufacture, and given the relative simplicity often significantly faster than the Z80.  The 6502 was used in many popular computers and games consoles of the 1970s and 1980s, including the Apple II, the Commodore 64, and the Atari 2600.  The Z80 was used in many other popular computers of the 1970s and 1980s, including the Sinclair ZX80, the Sinclair ZX81, the Sinclair Spectrum, the Amstrad CPC, and the MSX.  The BBC Micro however was designed from the ground up to be a computer capable of having multiple processors, and the first second processor option available for the computer was the Z80.  A version of BBC BASIC was produced for Acorn's Z80 second processor, and this is the version of BBC BASIC that the Agon Light is directly based on.</p>
+<h3 id="bbc-basic">BBC BASIC</h3>
+<p>An important part of the BBC Micro was BBC BASIC, a well respected version of the BASIC programming language.  Compared to other versions of BASIC, BBC BASIC was very powerful since it included many advanced features, such as procedures, functions, and recursion.  It also included many commands for graphics and sound, which made it easy to write games and other programs that used graphics and sound.</p>
+<p>The original version of BBC BASIC for the BBC Micro's 6502 processor was written by Sophie Wilson of Acorn.  The version of BBC BASIC for the Z80 was written by Richard T. Russell, and was based on the original version by Sophie Wilson.  Specifically it is effectively equivalent to BBC BASIC 4 that was used on the BBC Master series of computers.  The version of BBC BASIC for the Agon Light is directly based on R.T.Russell's version, and is largely compatible with the BBC Micro version.</p>
+<p>BBC BASIC has an inbuilt assembler, which allows for machine code to be embedded within BASIC programs.  This is a very powerful feature, and allows for programs to be written that make use of the full power of the processor.  Machine code can run very many times faster than interpreted BASIC.  It should be noted that the Z80 version of BASIC as used on the Agon platform has an assembler for the Z80 built in, whereas the original 6502 version of BASIC for the BBC Micro included an assembler for the 6502 processor.  Programs written for the BBC Micro that include assembler code will therefore not run on the Agon Light without rewriting those assembler routines.</p>
+<h4 id="bbc-basic-adl-version">BBC BASIC ADL version</h4>
+<p>There is now a newer version of BBC BASIC for the Agon platform known as the "ADL version".  The original Z80 version of BBC BASIC was restricted to work within 64KB of RAM.  This limitation was due to the fact that the Z80 processor only has 16 address lines (also referred to as a 16-bit address bus), so technically it can only address 64KB of RAM.</p>
+<p>The newer eZ80 CPU used in the Agon Light has a 24-bit address bus, which means that it can potentially address up to 16MB of RAM.  Agon Light machines come with 512KB of RAM attached to the eZ80 CPU.</p>
+<p>To allow programs to make use of this extra RAM, and some other new facilities, the eZ80 has extensions known as "ADL mode".  This mode extends most processor registers to 24 bits, and allows for the use of the extra RAM.  The ADL version of BBC BASIC is designed to make use of this extra RAM, and to allow for programs to be written that make use of more than 64KB of RAM.</p>
+<p>The ADL version of BBC BASIC also includes modifications to the assembler to allow for the use of newer ADL machine code instructions.  This means that programs written for the ADL version of BBC BASIC may not run on the original Z80 version of BBC BASIC.</p>
+<h3 id="vdu-commands-screen-modes-and-the-vdp">VDU commands, screen modes, and the VDP</h3>
+<p>The other significant difference between the Agon Light and the BBC Micro is the video system.  As video output is handled by a separate processor, and there is no shared memory between the two processors within an Agon Light, the design of the Agon system does not allow for the video system to work in the same kind of manner as a BBC Micro.  From a software perspective, however, the Agon Light is designed to be as similar as possible to the BBC Micro, and the video system is designed to be as similar as possible to the BBC Micro video system.  This means that many programs written for the BBC Micro can be ported to the Agon Light with minimal changes.</p>
+<p>Using BASIC on a BBC Micro, the primary way to draw things to the screen was via simple keywords such as <code>PRINT</code>, <code>MOVE</code>, <code>DRAW</code>, <code>PLOT</code>, <code>COLOUR</code> (etc.) and most importantly <code>VDU</code>.  It is the <code>VDU</code> keyword that sent commands to the video system.  Effectively <em>all</em> of the other keywords that drew onto the screen (or changed drawing settings) are just shorthand for <code>VDU</code> commands.</p>
+<p>The same is true on the Agon Light.  The Agon's VDP processor has been written to understand the same <code>VDU</code> commands as the BBC Micro, and so the same keywords that draw things to the screen on a BBC Micro will also draw things to the screen on an Agon Light.  This means that many programs written in BBC BASIC for the BBC Micro can be ported to the Agon Light with minimal changes.</p>
+<p>The Agon Light also includes a number of additional <code>VDU</code> commands that are not present on the BBC Micro, which allow for more advanced graphics and sound effects.  These commands are documented in the <a href="../VDP/">VDP</a> section of this documentation.</p>
+<h4 id="screen-modes">Screen modes</h4>
+<p>Another important difference to be aware of is that the available <a href="../vdp/Screen-Modes/">screen modes</a> on the Agon Light are different to those on the BBC Micro.  The single exception to this is mode 7, the teletext mode, which is supported on both platforms.  A BBC Micro was highly limited in terms of its video output, supporting only 8 different screen modes, using only 4 different pixel resolutions, and a maximum of 8 colours.  Agon machines offer a much wider variety of screen modes, with many more resolutions to choose from, and up to 64 colours on screen at once.</p>
+<p>Whilst the screen modes available on the Agon differ, the Agon graphics system by default uses the same 1280x1024 coordinate space as the BBC Micro<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, where the origin is at the bottom left of the screen.  As this is the same coordinate space as the BBC Micro, programs that use this coordinate space on the BBC Micro will work on the Agon Light without modification.  As the screen ratios are different on the Agon you may see some inaccuracies when comparing output directly to a BBC Micro, but the differences are generally minor.</p>
+<p>The purpose of having a uniform coordinate space is to make it easier to allow you to change a program initially written to run in one screen mode (at one particular resolution) to run in a different screen mode at a different resolution without having to change the coordinates used in the program.</p>
+<p>This style of coordinate space may be alien to you, and also has some limitations if you wish for pixel perfect accuracy when positioning things on-screen<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.  A command is available to switch the coordinate system to use the native pixel resolution of the screen mode with the origin at the top left of the screen.</p>
+<p>Whilst the BBC Micro could only display 8 colours on screen at once, it did have a "16 colour" screen mode where half of the colours were flashing.  The Agon does not provide any screen modes with direct support for flashing colours, but it is possible to simulate these modes on later versions of the Agon VDP firmware.</p>
+<h4 id="limitations">Limitations</h4>
+<p>The nature of the MOS/VDP split on the Agon platform carries with it some limitations that you should be aware of.</p>
+<p>The VDP is, essentially, a stream processor.  It accepts a stream of data from the eZ80, and interprets that as a series of commands and data.  In regular use, there is no command to indicate the beginning of a command stream, and no command to indicate the end of a command stream.  The VDU commands that the VDP interprets are of a variable length, ranging from a single byte to potentially over 64kb.  A single <code>VDU</code> statement in BASIC could be a complete command from the perspective of the VDP, or it could be the first part of a command that is continued in the next <code>VDU</code> statement.  For commands that are intended to send across a large amount of data, such as a bitmap or a sound sample, the data is typically sent using a series of <code>VDU</code> statements, each of which is a part of the same command.</p>
+<p>Care must therefore be taken to ensure that the VDP is sent complete commands, and that commands are not interleaved.  For instance, it may be tempting when transferring over a sound sample to use <code>PRINT</code> or <code>DRAW</code> statements to show progress.  This will not work, because the VDP will interpret the <code>PRINT</code> or <code>DRAW</code> statements (which will have been translated into a raw VDU byte command stream) as part of the sound sample data.</p>
+<p>To solve this issue, the VDP provides a <a href="../vdp/Buffered-Commands-API/">Buffered Commands API</a>.  This allows for data to be sent to the VDP in discrete chunks, sent to one of over 65000 buffers.  Once all of the data has been sent, a command can be sent to the VDP to make use of the data in the buffer, whether that is to use the buffer as a sound sample, a bitmap, or a sequence of VDU commands.  So to print a progress bar whilst sending a sound sample, you would send the sound sample data to a buffer a chunk at a time using the Buffered Commands API "add block" command, and after each chunk use drawing commands to update the progress bar.  Once all of the sound sample data has been sent, you would then send a command to the VDP to identify that data as a sound sample, and/or use other commands to play that sample.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>As of the time of writing, the only model of Agon that comes with an inbuilt PS/2 mouse port is the Agon Console8. All other models of Agon can add one using a simple circuit attached to some GPIO pins.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Technically the BBC Micro's coordinate system was not actually 1280x1024; that was just the coordinate space of all the graphical screen modes that most models of the BBC Micro supported.  The actual OS coordinates on a BBC Micro are based on the pixel resolution of the screen with a conversion factor applied for the X and Y dimensions.  A BBC Micro built for the UK market was made to work with PAL TVs, and all of its screen modes had a vertical pixel resolution of 256 lines, with a conversion factor for the Y dimension of 4.  A BBC Micro built for the US market (which were very rare) had the same conversion factor of 4, but a vertical pixel resolution of 200 lines as they were built to work with NTSC TVs.  Later Acorn computers such as the Archimedes used the same system of conversion factors, but as they offered a wider variety of pixel resolutions some screen modes would use different coordinate spaces.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Using a strict 1280x1024 OS coordinate space has meant that in all screen modes on the Agon the vertical conversion factor for the Y dimensions is <em>never</em> a round number, and will always includes a fraction.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

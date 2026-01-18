@@ -1,0 +1,2208 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Screen-Modes/">
+      
+      
+        <link rel="next" href="../System-Commands/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>PLOT Commands - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#interaction-with-gcol-paint-modes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PLOT Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-with-gcol-paint-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction with GCOL paint modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-drawing-plot-codes-00-3f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line drawing (PLOT codes &amp;00-&amp;3F)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-fill-codes-plot-codes-48-4f-58-5f-68-6f-78-7f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line fill codes (PLOT codes &amp;48-&amp;4F, &amp;58-5F, &amp;68-6F, &amp;78-&amp;7F)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filled-triangles-plot-codes-50-57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filled triangles (PLOT codes &amp;50-&amp;57)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filled-rectangles-plot-codes-60-67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filled rectangles (PLOT codes &amp;60-&amp;67)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filled-parallelograms-plot-codes-70-77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filled parallelograms (PLOT codes &amp;70-&amp;77)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circle-drawing-plot-codes-90-9f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Circle drawing (PLOT codes &amp;90-&amp;9F)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arcs-segments-and-sectors-plot-codes-a0-b7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arcs, segments, and sectors (PLOT codes &amp;A0-&amp;B7) §§§§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rectangle-copymove-plot-codes-b8-bf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rectangle copy/move (PLOT codes &amp;B8-&amp;BF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fill-path-experimental-plot-codes-d8-df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fill path - Experimental (PLOT codes &amp;D8-&amp;DF) §§§§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitmap-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap plots (PLOT codes &amp;E8-&amp;EF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-support-prior-to-vdp-104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PLOT support prior to VDP 1.04
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-with-gcol-paint-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction with GCOL paint modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-drawing-plot-codes-00-3f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line drawing (PLOT codes &amp;00-&amp;3F)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#line-fill-codes-plot-codes-48-4f-58-5f-68-6f-78-7f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Line fill codes (PLOT codes &amp;48-&amp;4F, &amp;58-5F, &amp;68-6F, &amp;78-&amp;7F)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filled-triangles-plot-codes-50-57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filled triangles (PLOT codes &amp;50-&amp;57)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filled-rectangles-plot-codes-60-67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filled rectangles (PLOT codes &amp;60-&amp;67)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filled-parallelograms-plot-codes-70-77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filled parallelograms (PLOT codes &amp;70-&amp;77)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circle-drawing-plot-codes-90-9f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Circle drawing (PLOT codes &amp;90-&amp;9F)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arcs-segments-and-sectors-plot-codes-a0-b7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arcs, segments, and sectors (PLOT codes &amp;A0-&amp;B7) §§§§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rectangle-copymove-plot-codes-b8-bf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rectangle copy/move (PLOT codes &amp;B8-&amp;BF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fill-path-experimental-plot-codes-d8-df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fill path - Experimental (PLOT codes &amp;D8-&amp;DF) §§§§
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bitmap-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmap plots (PLOT codes &amp;E8-&amp;EF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot-support-prior-to-vdp-104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PLOT support prior to VDP 1.04
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/vdp/PLOT-Commands.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="vdu-25-plot-commands">VDU 25: PLOT commands</h1>
+<p><code>VDU 25, code, x; y;</code></p>
+<p>The Agon VDP system supports a number of <code>PLOT</code> commands via <code>VDU 25</code>, which are used to draw lines, circles, and other shapes on the screen.  The command set is inherited from Acorn's BBC Micro, plus Acorn's Graphics eXtension ROM (GXR).</p>
+<p>PLOT commands sent to the VDP all require a command byte, followed by two 16-bit values for X and Y coordinates.  The command byte is used to specify the drawing operation, and the mode in which the drawing operation is performed.</p>
+<p>Most PLOT commands require additional coordinates than the single pair provided with the command.  The graphics system works using a concept of a "graphics cursor", and will keep track of the last few positions of the graphics cursor.  Every PLOT command "pushes" a copy of the current graphics cursor position onto a stack, and then moves the graphics cursor to the new position.  Commands that require additional coordinates will look at the last few positions on the stack to determine the additional coordinates.</p>
+<p>Support for PLOT commands has grown over time, but is still only a subset of those available on a BBC Micro with a GXR ROM.</p>
+<p>PLOT commands are essentially split into a drawing operation, and a mode that controls how the drawing operation is performed.  There are 8 different modes for each operation.  The command byte is effectively split into two parts where the lower 3 bits define the mode, and the upper 5 bits define the drawing operation.</p>
+<p>The complete set of PLOT codes supported by the Agon VDP follows.  For completeness, all commands from Acorn's command set are shown, including those that are not yet supported.</p>
+<table>
+<thead>
+<tr>
+<th>PLOT code</th>
+<th>(Decimal)</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;00-&amp;07</td>
+<td>0-7</td>
+<td>Solid line, includes both ends</td>
+</tr>
+<tr>
+<td>&amp;08-&amp;0F</td>
+<td>8-15</td>
+<td>Solid line, final point omitted</td>
+</tr>
+<tr>
+<td>&amp;10-&amp;17</td>
+<td>16-23</td>
+<td>Dot-dash line, includes both ends, pattern restarted §§§§</td>
+</tr>
+<tr>
+<td>&amp;18-&amp;1F</td>
+<td>24-31</td>
+<td>Dot-dash line, final point omitted, pattern restarted §§§§</td>
+</tr>
+<tr>
+<td>&amp;20-&amp;27</td>
+<td>32-39</td>
+<td>Solid line, first point omitted</td>
+</tr>
+<tr>
+<td>&amp;28-&amp;2F</td>
+<td>40-47</td>
+<td>Solid line, both points omitted</td>
+</tr>
+<tr>
+<td>&amp;30-&amp;37</td>
+<td>48-55</td>
+<td>Dot-dash line, first point omitted, pattern continued §§§§</td>
+</tr>
+<tr>
+<td>&amp;38-&amp;3F</td>
+<td>56-63</td>
+<td>Dot-dash line, both points omitted, pattern continued §§§§</td>
+</tr>
+<tr>
+<td>&amp;40-&amp;47</td>
+<td>64-71</td>
+<td>Point plot</td>
+</tr>
+<tr>
+<td>&amp;48-&amp;4F</td>
+<td>72-79</td>
+<td>Line fill left and right to non-background §§</td>
+</tr>
+<tr>
+<td>&amp;50-&amp;57</td>
+<td>80-87</td>
+<td>Triangle fill</td>
+</tr>
+<tr>
+<td>&amp;58-&amp;5F</td>
+<td>88-95</td>
+<td>Line fill right to background §§</td>
+</tr>
+<tr>
+<td>&amp;60-&amp;67</td>
+<td>96-103</td>
+<td>Rectangle fill</td>
+</tr>
+<tr>
+<td>&amp;68-&amp;6F</td>
+<td>104-111</td>
+<td>Line fill left and right to foreground §§</td>
+</tr>
+<tr>
+<td>&amp;70-&amp;77</td>
+<td>112-119</td>
+<td>Parallelogram fill</td>
+</tr>
+<tr>
+<td>&amp;78-&amp;7F</td>
+<td>120-127</td>
+<td>Line fill right to non-foreground §§</td>
+</tr>
+<tr>
+<td>&amp;80-&amp;87</td>
+<td>128-135</td>
+<td>Not supported (Flood until non-background)</td>
+</tr>
+<tr>
+<td>&amp;88-&amp;8F</td>
+<td>136-143</td>
+<td>Not supported (Flood until foreground)</td>
+</tr>
+<tr>
+<td>&amp;90-&amp;97</td>
+<td>144-151</td>
+<td>Circle outline</td>
+</tr>
+<tr>
+<td>&amp;98-&amp;9F</td>
+<td>152-159</td>
+<td>Circle fill</td>
+</tr>
+<tr>
+<td>&amp;A0-&amp;A7</td>
+<td>160-167</td>
+<td>Circular arc §§§§</td>
+</tr>
+<tr>
+<td>&amp;A8-&amp;AF</td>
+<td>168-175</td>
+<td>Circular segment §§§§</td>
+</tr>
+<tr>
+<td>&amp;B0-&amp;B7</td>
+<td>176-183</td>
+<td>Circular sector §§§§</td>
+</tr>
+<tr>
+<td>&amp;B8-&amp;BF</td>
+<td>184-191</td>
+<td>Rectangle copy/move</td>
+</tr>
+<tr>
+<td>&amp;C0-&amp;C7</td>
+<td>192-199</td>
+<td>Not supported (Ellipse outline)</td>
+</tr>
+<tr>
+<td>&amp;C8-&amp;CF</td>
+<td>200-207</td>
+<td>Not supported (Ellipse fill)</td>
+</tr>
+<tr>
+<td>&amp;D0-&amp;D7</td>
+<td>208-215</td>
+<td>Not defined</td>
+</tr>
+<tr>
+<td>&amp;D8-&amp;DF</td>
+<td>216-223</td>
+<td>Fill path (Experimental - Not defined on Acorn systems) §§§§</td>
+</tr>
+<tr>
+<td>&amp;E0-&amp;E7</td>
+<td>224-231</td>
+<td>Not defined</td>
+</tr>
+<tr>
+<td>&amp;E8-&amp;EF</td>
+<td>232-239</td>
+<td>Bitmap plot §</td>
+</tr>
+<tr>
+<td>&amp;F0-&amp;F7</td>
+<td>240-247</td>
+<td>Not defined</td>
+</tr>
+<tr>
+<td>&amp;F8-&amp;FF</td>
+<td>248-255</td>
+<td>Not defined</td>
+</tr>
+</tbody>
+</table>
+<p>Within each group of eight plot codes, the effects are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Plot code</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0  (8)</td>
+<td>Move relative</td>
+</tr>
+<tr>
+<td>1  (9)</td>
+<td>Plot relative in current foreground colour</td>
+</tr>
+<tr>
+<td>2  (A)</td>
+<td>Plot relative in logical inverse colour §§§</td>
+</tr>
+<tr>
+<td>3  (B)</td>
+<td>Plot relative in current background colour</td>
+</tr>
+<tr>
+<td>4  (C)</td>
+<td>Move absolute</td>
+</tr>
+<tr>
+<td>5  (D)</td>
+<td>Plot absolute in current foreground colour</td>
+</tr>
+<tr>
+<td>6  (E)</td>
+<td>Plot absolute in logical inverse colour §§§</td>
+</tr>
+<tr>
+<td>7  (F)</td>
+<td>Plot absolute in current background colour</td>
+</tr>
+</tbody>
+</table>
+<p>Codes 0-3 use the position data provided as part of the command as a relative position, adding the position given to the current graphical cursor position.  Codes 4-7 use the position data provided as part of the command as an absolute position, setting the current graphical cursor position to the position given.</p>
+<p>The various "Line fill" plot commands have an additional effect, which is to adjust the graphics cursor position to the right-hand edge of the filled line, if one was drawn.</p>
+<p>§ Support added in Agon Console8 VDP 2.1.0<br>
+§§ Support added in Agon Console8 VDP 2.2.0<br>
+§§§ Support added in Agon Console8 VDP 2.6.0<br>
+§§§§ Support added in Agon Console8 VDP 2.7.0<br></p>
+<h2 id="interaction-with-gcol-paint-modes">Interaction with GCOL paint modes</h2>
+<p>The GCOL command (<code>VDU 18, mode, colour</code>) is used to set the paint mode for the PLOT command.  The paint mode is used to control how the PLOT command interacts with the existing pixels on the screen.</p>
+<p>Up until Console8 VDP 2.6.0 the only fully supported GCOL paint mode was mode 0, which sets the pixel to the target colour value.  This is the default mode, and is used if no GCOL command has been issued.  There was limited support for mode 4, which inverts the pixel, but this was only supported for straight line drawing operations.</p>
+<p>As of Console8 VDP 2.6.0, the following modes are now available for all currently supported plot operations:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Set on-screen pixel to target colour value</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OR value with the on-screen pixel</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AND value with the on-screen pixel</td>
+</tr>
+<tr>
+<td>3</td>
+<td>EOR value with the on-screen pixel</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Invert the on-screen pixel</td>
+</tr>
+<tr>
+<td>5</td>
+<td>No operation</td>
+</tr>
+<tr>
+<td>6</td>
+<td>AND the inverse of the specified colour with the on-screen pixel</td>
+</tr>
+<tr>
+<td>7</td>
+<td>OR the inverse of the specified colour with the on-screen pixel</td>
+</tr>
+</tbody>
+</table>
+<p>PLOT commands using an "inverse" plot code are essentially identical to setting a GCOL paint mode of 4, and will temporarily override the current GCOL paint mode if a different GCOL paint mode is set.</p>
+<h2 id="line-drawing-plot-codes-00-3f">Line drawing (PLOT codes &amp;00-&amp;3F)</h2>
+<p>For all of the line drawing plot codes, the position given with the PLOT command is the end point of the line.  The start point of the line is the last position on the graphics cursor stack.</p>
+<p>Support for plotting dotted lines was added in Agon Console8 VDP 2.7.0.  The default pattern is 1 pixel on, 1 pixel off, but this can be changed using the <code>VDU 23, 6, n1-n8</code> command which takes 8 bytes of data.  The length of pattern can be set using <code>VDU 23, 0, 242, n</code> where n is the number of pixels in the pattern.  Setting a length of zero will reset to the default pattern with a length of 8.  When drawing a line, the pattern is repeated as many times as necessary to draw the line and will be used from the top-most bit of the pattern data, repeating as necessary to draw the whole line.</p>
+<h2 id="line-fill-codes-plot-codes-48-4f-58-5f-68-6f-78-7f">Line fill codes (PLOT codes &amp;48-&amp;4F, &amp;58-5F, &amp;68-6F, &amp;78-&amp;7F)</h2>
+<p>These various PLOT codes will fill horizontal lines on the screen.  When executing "drawing" plot codes, the graphics system will scan the line to find appropriate start and end positions, depending on the PLOT code used and the screen contents.  The final calculated end position will be pushed to the graphics cursor stack.</p>
+<h2 id="filled-triangles-plot-codes-50-57">Filled triangles (PLOT codes &amp;50-&amp;57)</h2>
+<p>Filled triangles are drawn using the last two positions on the graphics cursor stack and the position given with the PLOT command.</p>
+<p>The behaviour of the triangle fill command has changed slightly in Agon Console8 VDP 2.6.0, and you may observe some slight differences in the exact pixels drawn when using this command.  Unfortunately the old behaviour was not compatible with the new GCOL paint modes, and so the behaviour had to be changed.  The behaviour is consistent with general "best practice" for triangle fill algorithms, and so should be more predictable and reliable.  As an example, with the revised triangle plotting it is possible to draw a fan of triangles using an EOR paint mode and you will not see the edges of the triangles "cancel each other out" as you would have done with the old behaviour.</p>
+<p>This new behaviour is not entirely consistent with the BBC Micro or GXR ROM, but it is more consistent with modern graphics systems and should be more predictable and reliable.  In practice, the differences are minimal and should not affect most programs.</p>
+<h2 id="filled-rectangles-plot-codes-60-67">Filled rectangles (PLOT codes &amp;60-&amp;67)</h2>
+<p>Filled rectangles are drawn using the last position on the graphics cursor stack and the position given with the PLOT command to define two corners of a rectangle.</p>
+<h2 id="filled-parallelograms-plot-codes-70-77">Filled parallelograms (PLOT codes &amp;70-&amp;77)</h2>
+<p>Parallelograms require three points to be defined.  They will therefore use the last two points pushed to the graphics cursor stack, coupled with the position given with the PLOT command.</p>
+<p>The three given points represent any three corners of the parallelogram.  The first and last (third) points are used to define opposing corners of the parallelogram.  The graphics system will calculate the fourth corner of the parallelogram as a point opposite to the second corner, and then fill the shape.</p>
+<h2 id="circle-drawing-plot-codes-90-9f">Circle drawing (PLOT codes &amp;90-&amp;9F)</h2>
+<p>Circle drawing requires two points to be defined.  They will therefore use the last point pushed to the graphics cursor stack, coupled with the position given with the PLOT command.  The first point is the centre of the circle, and the second point is a point on the circumference of the circle.</p>
+<h2 id="arcs-segments-and-sectors-plot-codes-a0-b7">Arcs, segments, and sectors (PLOT codes &amp;A0-&amp;B7) §§§§</h2>
+<p>Arcs, segments, and sectors require three points to be defined.  They will therefore use the last two points pushed to the graphics cursor stack, coupled with the position given with the PLOT command.</p>
+<p>Arcs, segments, and sectors are all drawn anticlockwise from a start point to an end.</p>
+<p>The first point defines the start of the arc, segment, or sector, which is a point on the circumference of the circle.  The second point defines the centre of the circle that the arc, segment, or sector is part of.  The distance from the first point to the second point defines the radius of the circle.  The final point (provided with the PLOT command) defines the end of the arc, segment, or sector.  This point does not have to be on the circumference of the circle, and the graphics system will calculate the point on the circumference that the arc, segment, or sector ends at.  Instead the final point is effectively used to define the angle of the arc.</p>
+<h2 id="rectangle-copymove-plot-codes-b8-bf">Rectangle copy/move (PLOT codes &amp;B8-&amp;BF)</h2>
+<p>These PLOT codes are interpreted slightly differently from others.  The purpose of these commands is to copy or move a rectangle of pixels from one location to another.  The rectangle is defined by the last two positions on the graphics cursor stack, and the position provided with the PLOT command is the destination to copy the rectangle to.</p>
+<p>A "move" operation will copy the rectangle to the new location, and then clear the original rectangle using the currently defined background colour.  (NB the background GCOL paint mode is <em>not</em> used when filling the original rectangle - the pixels will be set with the background colour).  A "copy" operation will copy the rectangle to the new location, but leave the original rectangle in place.</p>
+<table>
+<thead>
+<tr>
+<th>PLOT code</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;B8</td>
+<td>Move cursor relative to last position</td>
+</tr>
+<tr>
+<td>&amp;B9</td>
+<td>Relative rectangle move</td>
+</tr>
+<tr>
+<td>&amp;BA</td>
+<td>Relative rectangle copy</td>
+</tr>
+<tr>
+<td>&amp;BB</td>
+<td>Relative rectangle copy</td>
+</tr>
+<tr>
+<td>&amp;BC</td>
+<td>Move cursor to absolute position</td>
+</tr>
+<tr>
+<td>&amp;BD</td>
+<td>Absolute rectangle move</td>
+</tr>
+<tr>
+<td>&amp;BE</td>
+<td>Absolute rectangle copy</td>
+</tr>
+<tr>
+<td>&amp;BF</td>
+<td>Absolute rectangle copy</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fill-path-experimental-plot-codes-d8-df">Fill path - Experimental (PLOT codes &amp;D8-&amp;DF) §§§§</h2>
+<p>The ability to draw a filled path was added in the Agon Console8 VDP 2.7.0 release.  This command was not part of Acorn's original PLOT command set, either on the BBC Micro, in their Graphics Extension ROM, or in the later Acorn Archimedes operating systems.  For now, it should therefore be considered to be experimental.  Whilst at the time of writing this documentation it is thought that this command is not likely to change, it <em>is</em> possible that the command may be removed or altered in future releases.</p>
+<p>This command will fill a path defined by an arbitrary number of points.  The path must be at least three points long.</p>
+<p>As the path is is of an arbitrary length the nature of this commands operation differs from other PLOT commands.</p>
+<p>All new paths will be started with the last two points pushed to the graphics cursor stack, plus the position given with the PLOT command.  The path thus starts with three points and therefore, if no subsequent commands are received to extend the path, a triangle will be drawn.</p>
+<p>If the next VDU command received immediately after a fill path plotting command is also a matching "Fill path" PLOT command then the path will be extended with the new position given with the PLOT command.  If the next VDU command is not a matching "Fill path" PLOT command then the path will be considered to be complete, i.e. the path will be closed by connecting the last point to the first one and the graphics system will then fill the area defined by the path.</p>
+<p>Please note that any "move" PLOT command will be interpreted as closing the current path.  Whilst absolute and relative positioning PLOT commands can be combined when building up a path, changing between different codes (such as from "foreground" to "background" PLOTs) will be interpreted as closing the current path and starting a new path.</p>
+<p>If any other VDU commands are received after a "Fill path" PLOT command, then the path will be considered to be complete and the graphics system will fill the area defined by the path.  Similarly if there is a significant delay between the VDP receiving "fill path" PLOT commands, even if the next command uses a matching PLOT code, then the path will be considered to be complete and the graphics system will fill the area defined by the path.</p>
+<p>As a result of this mode of operation, it is not possible to interactively enter multiple "fill path" PLOT commands one after another at the BASIC command prompt using separate commands over multiple lines, as the system will interpret the character output for command entry as closing the current path.  Instead filled paths must be defined in a single command sequence, uninterrupted by other VDU commands, usually as part of a program.</p>
+<h2 id="bitmap-plot">Bitmap plots (PLOT codes &amp;E8-&amp;EF)</h2>
+<p>Bitmap plots will draw the currently selected bitmap to the screen.</p>
+<p>Before a bitmap plot can be used a valid bitmap must be selected using either <code>VDU 23, 27, 0, id</code> or <code>VDU 23, 27, &amp;20, bufferId;</code>.</p>
+<p>Bitmap plots will only draw non-transparent pixels to the screen.  When using "foreground" PLOTs, the bitmap is drawn to screen using the current foreground GCOL painting mode using the colour from the bitmap.  When using "background" PLOTs, the bitmap is drawn to screen using the current background GCOL painting mode using the currently selected background colour.  Inverse plot modes invert on-screen pixels that correspond to non-transparent pixels in the bitmap.</p>
+<p>As of Console8 VDP version 2.9.0 it is possible to set an affine transform matrix to be applied to bitmap plots.  This allows for bitmaps to be scaled, rotated, sheared, and translated when being drawn onto the screen.  The transform matrix is set using <code>VDU 23, 0, &amp;96, 1, bufferId;</code> which is documented in the <a href="../System-Commands/">System Commands</a> documentation.  The buffered commands API provides commands to set and manipulate the transform matrix, and is documented in the <a href="../Buffered-Commands-API/">Buffered Commands</a> documentation.</p>
+<h2 id="plot-support-prior-to-vdp-104">PLOT support prior to VDP 1.04</h2>
+<p>Prior to VDP 1.04 the PLOT command support was very limited, did not support relative positioning, and had buggy and incorrect interpretations of some of the PLOT codes.  As of VDP 1.04 the PLOT command support has been greatly improved, and is now much more compatible with the BBC Micro and GXR ROM.</p>
+<p>The most significant bug was the mis-interpretation of several "move" commands to instead be "draw".  As a result, some programs written for earlier versions of the VDP firmware may no longer work correctly.  Fixing these programs however is usually very straightforward and usually just involves changing the PLOT code used.</p>
+<h2 id="compatibility">Compatibility</h2>
+<p>If the VDP does not recognise a plot operation, it will be ignored.  This can allow you to write programs that "feature detect" whether the VDP supports a particular plot operation, and then use it if it does, or fall back to an alternative if it does not.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

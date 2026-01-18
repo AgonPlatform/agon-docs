@@ -1,0 +1,2561 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Enhanced-Audio-API/">
+      
+      
+        <link rel="next" href="../Buffered-Commands-API/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Bitmaps and Sprites API - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bitmaps" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bitmaps and Sprites API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bitmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bitmaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select-bitmap-8bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 0, n: Select bitmap n
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-1-w-h-b1-b2-bn-load-colour-bitmap-data-into-current-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 1, w; h; b1, b2 ... bn: Load colour bitmap data into current bitmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-1-n-0-0-capture-screen-data-into-bitmap-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 1, n, 0, 0;: Capture screen data into bitmap n *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-2-w-h-col1-col2-create-a-solid-colour-rectangular-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 2, w; h; col1; col2;: Create a solid colour rectangular bitmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-3-x-y-draw-current-bitmap-on-screen-at-pixel-position-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 3, x; y;: Draw current bitmap on screen at pixel position x, y
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-20-bufferid-select-bitmap-using-a-16-bit-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;20, bufferId;: Select bitmap using a 16-bit buffer ID *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-21-w-h-format-create-bitmap-from-selected-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;21, w; h; format: Create bitmap from selected buffer *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-21-bitmapid-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;21, bitmapId; 0;
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sprites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sprites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-4-n-select-sprite-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 4, n: Select sprite n
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-5-clear-frames-in-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 5: Clear frames in current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-6-n-add-bitmap-n-as-a-frame-to-current-sprite-where-bitmaps-buffer-id-is-64000n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 6, n: Add bitmap n as a frame to current sprite (where bitmap's buffer ID is 64000+n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-7-n-activate-n-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 7, n: Activate n sprites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-8-select-next-frame-of-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 8: Select next frame of current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-9-select-previous-frame-of-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 9: Select previous frame of current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-10-n-select-the-nth-frame-of-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 10, n: Select the nth frame of current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-11-show-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 11: Show current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-12-hide-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 12: Hide current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-13-x-y-move-current-sprite-to-pixel-position-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 13, x; y;: Move current sprite to pixel position x, y
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-14-x-y-move-current-sprite-by-x-y-pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 14, x; y;: Move current sprite by x, y pixels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-15-update-the-sprites-in-the-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 15: Update the sprites in the GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-16-reset-bitmaps-and-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 16: Reset bitmaps and sprites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-17-reset-sprites-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 17: Reset sprites (only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-18-n-set-the-current-sprite-gcol-paint-mode-to-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 18, n: Set the current sprite GCOL paint mode to n **
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-19-set-sprite-to-be-a-hardware-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 19: Set sprite to be a hardware sprite ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-20-set-sprite-to-be-a-software-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 20: Set sprite to be a software sprite ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-21-n-replace-currently-selected-frame-of-current-sprite-with-bitmap-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 21, n; Replace currently selected frame of current sprite with bitmap n ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-26-n-add-bitmap-n-as-a-frame-to-current-sprite-using-a-16-bit-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;26, n;: Add bitmap n as a frame to current sprite using a 16-bit buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-35-n-replace-currently-selected-frame-of-current-sprite-with-bitmap-n-using-a-16-bit-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;35, n;: Replace currently selected frame of current sprite with bitmap n using a 16-bit buffer ID ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes on sprites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes on sprites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-sprite-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software sprite limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-sprite-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware sprite limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-cursor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse cursor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mouse cursor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mouse-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;40, hotX, hotY: Setup a new mouse cursor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bitmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bitmaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bitmaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select-bitmap-8bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 0, n: Select bitmap n
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-1-w-h-b1-b2-bn-load-colour-bitmap-data-into-current-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 1, w; h; b1, b2 ... bn: Load colour bitmap data into current bitmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-1-n-0-0-capture-screen-data-into-bitmap-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 1, n, 0, 0;: Capture screen data into bitmap n *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-2-w-h-col1-col2-create-a-solid-colour-rectangular-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 2, w; h; col1; col2;: Create a solid colour rectangular bitmap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-3-x-y-draw-current-bitmap-on-screen-at-pixel-position-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 3, x; y;: Draw current bitmap on screen at pixel position x, y
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-20-bufferid-select-bitmap-using-a-16-bit-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;20, bufferId;: Select bitmap using a 16-bit buffer ID *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-21-w-h-format-create-bitmap-from-selected-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;21, w; h; format: Create bitmap from selected buffer *
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-21-bitmapid-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;21, bitmapId; 0;
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sprites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sprites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-4-n-select-sprite-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 4, n: Select sprite n
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-5-clear-frames-in-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 5: Clear frames in current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-6-n-add-bitmap-n-as-a-frame-to-current-sprite-where-bitmaps-buffer-id-is-64000n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 6, n: Add bitmap n as a frame to current sprite (where bitmap's buffer ID is 64000+n)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-7-n-activate-n-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 7, n: Activate n sprites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-8-select-next-frame-of-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 8: Select next frame of current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-9-select-previous-frame-of-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 9: Select previous frame of current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-10-n-select-the-nth-frame-of-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 10, n: Select the nth frame of current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-11-show-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 11: Show current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-12-hide-current-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 12: Hide current sprite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-13-x-y-move-current-sprite-to-pixel-position-x-y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 13, x; y;: Move current sprite to pixel position x, y
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-14-x-y-move-current-sprite-by-x-y-pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 14, x; y;: Move current sprite by x, y pixels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-15-update-the-sprites-in-the-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 15: Update the sprites in the GPU
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-16-reset-bitmaps-and-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 16: Reset bitmaps and sprites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-17-reset-sprites-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 17: Reset sprites (only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-18-n-set-the-current-sprite-gcol-paint-mode-to-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 18, n: Set the current sprite GCOL paint mode to n **
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-19-set-sprite-to-be-a-hardware-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 19: Set sprite to be a hardware sprite ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-20-set-sprite-to-be-a-software-sprite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 20: Set sprite to be a software sprite ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-21-n-replace-currently-selected-frame-of-current-sprite-with-bitmap-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, 21, n; Replace currently selected frame of current sprite with bitmap n ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-26-n-add-bitmap-n-as-a-frame-to-current-sprite-using-a-16-bit-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;26, n;: Add bitmap n as a frame to current sprite using a 16-bit buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdu-23-27-35-n-replace-currently-selected-frame-of-current-sprite-with-bitmap-n-using-a-16-bit-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;35, n;: Replace currently selected frame of current sprite with bitmap n using a 16-bit buffer ID ***
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-sprites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes on sprites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes on sprites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-sprite-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software sprite limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-sprite-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware sprite limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-cursor_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mouse cursor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mouse cursor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mouse-cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDU 23, 27, &amp;40, hotX, hotY: Setup a new mouse cursor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/vdp/Bitmaps-API.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="vdu-23-27-bitmaps-sprites-and-mouse-cursor">VDU 23, 27: Bitmaps, sprites, and mouse cursor</h1>
+<p>VDU 23, 27 is reserved for the bitmap, sprite, and mouse cursor functionality.</p>
+<p>As of VDP 1.04, the bitmap system is integrated with the <a href="../Buffered-Commands-API/">Buffered Commands API</a>.  Bitmap data is stored in buffers, and can be manipulated using the Buffered Commands API on the VDP.</p>
+<h2 id="bitmaps">Bitmaps</h2>
+<p>The bitmap system we have on the Agon uses commands that are inspired by Acorn's Graphics eXtension ROM (GXR) system.  Some mistakes were made in the original interpretation of the GXR commands, and so until the Console8 VDP 2.2.0 release it was not possible to use code written for GXR on the Agon.</p>
+<p>Acorn only actually had two VDU commands for what it called "sprites", which on the Agon we consider to be "bitmaps".  The first command was used to select a bitmap (so that it may later be used with an appropriate PLOT command), and the second was to define a bitmap from an area of screen.</p>
+<p>The approach taken on Agon (initially at least) was to redefine the "define bitmap from screen" command to instead allow the uploading of a binary bitmap image.  In doing so, the parameters of the command changed, and the bitmap identifier was lost from the command parameters.  Instead, on the Agon, you need to always perform a "select bitmap" command before any other bitmap commands to set the bitmap being used.  Additionally on the Agon, prior to Console8 VDP 2.2.0, plotting bitmaps could only be performed with a custom command, and not with the standard <code>PLOT</code> commands.</p>
+<p>As of Console8 VDP 2.2.0, it is now possible to use Acorn GXR style "sprite" code on an Agon.  The <code>PLOT</code> code for drawing bitmaps is now supported, and bitmap command 1 can now be used to capture screen data into a bitmap identically to the GXR.  The documentation on the <a href="../PLOT-Commands/"><code>PLOT</code> command</a> (<code>VDU 25</code>) explains how to use it to draw bitmaps.</p>
+<p>In addition to GXRs two commands, the Agon VDP has several other commands for managing bitmaps, and additional commands to manage "sprites".</p>
+<p>As has been noted above, bitmap data is stored in buffers.  Acorn's original API design only allows for a maximum of 255 bitmaps, as they used an 8-bit ID, however buffers are identified with a 16-bit identifier.  This means that the Agon VDP can support a much larger number of bitmaps, in theory up to 65534 of them.  To allow access to these additional bitmaps, the Agon VDP several additional commands working with bitmaps using 16-bit IDs.  Those 16-bit IDs directly correspond to the IDs of the buffers in which the bitmaps are stored.  Bitmaps with 8-bit IDs are automatically mapped onto buffer IDs in the range 64000-64255.</p>
+<p>In general, commands to manage bitmaps using 16-bit IDs are numbered 32 higher than the equivalent command using an 8-bit ID (32 is <code>&amp;20</code> in hexadecimal).  For instance, the command to select a bitmap with an 8-bit ID is <code>VDU 23, 27, 0, n</code>, whereas the command to select a bitmap with a 16-bit ID is <code>VDU 23, 27, &amp;20, bufferId;</code>.</p>
+<p>Storing bitmaps in buffers allows for their data to be manipulated using the buffered commands API.  This can, for instance, allow for the colours of bitmaps to be changed, or for a bitmap to be mirrored, or split into multiple bitmaps.</p>
+<p>* Commands marked with an asterisk are only available in VDP 2.2.0 or later.
+*<em> Commands marked with a double asterisk are only available in VDP 2.6.0 or later.
+*</em>* Commands marked with a triple asterisk are only available in VDP 2.12.0 or later.</p>
+<p>The commands to manage bitmaps are as follows:</p>
+<h3 id="select-bitmap-8bit"><code>VDU 23, 27, 0, n</code>: Select bitmap n</h3>
+<p>This selects the bitmap with the given 8-bit ID as being the currently "active" bitmap for subsequent bitmap commands.</p>
+<p>As noted above, bitmaps with 8-bit IDs are stored in buffers with an ID of 64000+<code>n</code>.</p>
+<p>You need to select a bitmap before it can be plotted onto the screen or use any other bitmap commands.</p>
+<h3 id="vdu-23-27-1-w-h-b1-b2-bn-load-colour-bitmap-data-into-current-bitmap"><code>VDU 23, 27, 1, w; h; b1, b2 ... bn</code>: Load colour bitmap data into current bitmap</h3>
+<p>This command is used to load bitmap data directly into the currently selected bitmap.</p>
+<p>NB rather than using this command to load bitmap data it is recommended to use the <a href="../Buffered-Commands-API/#bitmap-buffers">Buffered Commands API</a> approach instead.</p>
+<p>Before you can load bitmap data into a bitmap with this command, you must first select the bitmap using <code>VDU 23, 27, 0, n</code>, where <code>n</code> is the 8-bit ID of the bitmap to be loaded, or using <code>VDU 23, 27, &amp;20, bufferId;</code> using a 16-bit buffer ID.</p>
+<p>The bitmap data is given as a series of bytes as part of the command in RGBA8888 format, meaning that each pixel is represented by four bytes, one each for the red, green, blue, and alpha components of the pixel.  Each component value is in the range of 0-255.  The bytes are given in row-major order, starting at the top left of the bitmap, and working across the rows, and then down the columns.</p>
+<p>The width and height of the bitmap must be given in pixels, and must match the number of bytes given in the data.  If the width and height do not match the data then the command will fail.</p>
+<p>It should be noted that whilst the image format supported by this command is for full 24-bit colour images with 256 levels of transparency (alpha) per pixel, the Agon hardware is only capable of displaying 2-bits per colour channel.  The graphics system also does not really support transparency, so any non-zero alpha value is interpreted as "fully visible".  Data loaded via this command remains in RGBA8888 format on the VDP, but is converted on the fly when the bitmap is drawn to the screen.</p>
+<p>(As RGBA8888 is a very wasteful format, given the hardware limitations, other options are now available.  Loading bitmaps with this command can take a long time, and it is not possible to intersperse other commands, such as showing progress on-screen, whilst the data is being sent.  There are however alternative ways of managing the data which avoids these issues.  Please see the section on "Using buffers for bitmaps" in the <a href="../Buffered-Commands-API/">Buffered Commands API</a> document for more information.)</p>
+<h3 id="vdu-23-27-1-n-0-0-capture-screen-data-into-bitmap-n"><code>VDU 23, 27, 1, n, 0, 0;</code>: Capture screen data into bitmap n *</h3>
+<p>This command, added in Agon Console8 VDP 2.2.0, is compatible with the Acorn GXR command of the same number.  It captures the screen data into the bitmap with the given 8-bit ID.</p>
+<p>This version of the <code>VDU 23, 27, 1</code> command differs from the one documented before in that you do not need to explicitly select a bitmap before capturing screen data into it.  The bitmap ID is passed as a parameter to this version of the command.</p>
+<p>As you may have noticed, this command does not include any dimensions for the bitmap.  Those are set via the graphics system, taking the last two graphics cursor positions to define the bitmap rectangle.  Any <code>PLOT</code>, or <code>VDU 25</code>, style command will push the graphics cursor position - typically "move" style plot commands are used to define the rectangle.</p>
+<p>To be clear, this command should be performed <em>after</em> two "move" style PLOT commands.</p>
+<p>If a bitmap with the given ID already exists then it will be overwritten, and similarly if a buffer was already defined with the ID 64000+<code>n</code> then that will be overwritten too.</p>
+<p>Up to and including the Console8 VDP 2.5.0 release, the bitmap data captured using this command will be stored in "native" format.  The nature of the "native" format varies depending on the screen mode.  For all screen modes the bitmap will use 1 byte per pixel, but the data within that byte varies.  In 64 colour modes, the data is essentially in RGB222 with no alpha channel.  It is possible to convert bitmaps captured in 64 colour modes to RGBA2222 format by using the OR operation of the "adjust" command from the <a href="../Buffered-Commands-API/">Buffered Commands API</a>, ORing all the bytes in the bitmap's buffer with <code>&amp;C0</code> to set the pixel alpha bits to be "opaque", and then re-creating the bitmap from the corresponding buffer to be RGBA2222 (format 1).  For all other screen modes, the byte represents a palette index.  An unfortunate effect of this is that a bitmap captured in one screen mode may not be compatible with other screen modes.</p>
+<p>Also up to and including the Console8 VDP 2.5.0 release, bitmaps captured with this command would use "exclusive" coordinates, and so would be 1 pixel shorter and narrower than the area defined by the graphics cursor positions.  (This is <em>not</em> consistent with the behaviour of this command on Acorn systems.)</p>
+<p>From Console8 VDP 2.6.0, the bitmap data captured using this command will be stored in RGBA2222 format, regardless of the screen mode.  This is to ensure that the data is consistent and predictable, and to allow for the use of the bitmap in any screen mode.</p>
+<p>Bitmaps captured on Console8 VDP 2.6.0 or later also now use "inclusive" coordinates, and so will be 1 pixel taller and wider than bitmaps captured on earlier versions of the VDP.  This is to ensure that the bitmap captures the entire area defined by the graphics cursor positions.  This is consistent with the behaviour of this command on Acorn systems.</p>
+<h3 id="vdu-23-27-2-w-h-col1-col2-create-a-solid-colour-rectangular-bitmap"><code>VDU 23, 27, 2, w; h; col1; col2;</code>: Create a solid colour rectangular bitmap</h3>
+<p>Creates a new bitmap in RGBA8888 format with the given width and height, and fills it with a solid colour.  The colour is given as two 16-bit numbers, col1 and col2, which are combined to form a 32-bit number in RGBA colour range.</p>
+<p>The bitmap is created in the buffer with the ID 64000+<code>n</code>, where <code>n</code> is the 8-bit ID given in the command.</p>
+<h3 id="vdu-23-27-3-x-y-draw-current-bitmap-on-screen-at-pixel-position-x-y"><code>VDU 23, 27, 3, x; y;</code>: Draw current bitmap on screen at pixel position x, y</h3>
+<p>Prior to Agon Console8 VDP 2.2.0, this was the only way to draw a bitmap on-screen.  On more up to date VDP versions is strongly recommended that you use the appropriate <a href="../PLOT-Commands/#bitmap-plot">PLOT command</a> instead.</p>
+<p>Before this command can be used, a valid bitmap must be selected using <code>VDU 23, 27, 0, n</code>, where <code>n</code> is the 8-bit ID of the bitmap to be drawn, or using <code>VDU 23, 27, &amp;20, bufferId;</code> using a 16-bit buffer ID.</p>
+<p>The x and y parameters give the pixel position on the screen at which the top left corner of the bitmap will be drawn.  This is in contrast to <code>PLOT</code> commands which will (by default) use OS Coordinates, where the origin is at the bottom left of the screen and the screen is always considered to have the dimensions 1280x1024.</p>
+<p>Please note that this command does not obey the current graphics viewport, the currently selected coordinate system, the current painting mode, or any transforms that may be in effect for bitmap plots.  The bitmap will simply be drawn at the given pixel position, and will <em>not</em> be clipped by the viewport.  For these reasons you are strongly advised to use the appropriate bitmap <a href="../PLOT-Commands/#bitmap-plot">PLOT commands</a> instead.</p>
+<h3 id="vdu-23-27-20-bufferid-select-bitmap-using-a-16-bit-buffer-id"><code>VDU 23, 27, &amp;20, bufferId;</code>: Select bitmap using a 16-bit buffer ID *</h3>
+<p>This command is essentially identical to <code>VDU 23, 27, 0, n</code>, however it uses a 16-bit buffer ID instead of an 8-bit bitmap ID.</p>
+<h3 id="vdu-23-27-21-w-h-format-create-bitmap-from-selected-buffer"><code>VDU 23, 27, &amp;21, w; h; format</code>: Create bitmap from selected buffer *</h3>
+<p>This command creates a new bitmap from the data in the currently selected buffer.</p>
+<p>Whilst bitmap data can be loaded into a buffer at any time, before that data can drawn on-screen it must be converted into a bitmap.  The VDP needs to understand the width and height of the bitmap, and the format of the data.  This command performs that conversion.</p>
+<p>Valid values for the format parameter are:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>RGBA8888 (4-bytes per pixel)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>RGBA2222 (1-bytes per pixel)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mono/Mask (1-bit per pixel)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Reserved for internal use by VDP ("native" format)</td>
+</tr>
+</tbody>
+</table>
+<p>It should be noted that the "alpha" channel in both the RGBA8888 and RGBA2222 formats is not properly used by the Agon VDP.  Any non-zero value in the alpha channel is interpreted as "fully visible".  The Agon VDP does not currently support transparency.  The alpha channel is still stored in the bitmap data, and is used when the bitmap is drawn to the screen, but it is not used to blend the bitmap with the background.  (If we improve support for transparency in the future, to maintain compatibility we will do so by adding new bitmap formats, rather than changing the behaviour of the existing formats.)</p>
+<p>Mono/Mask bitmaps can be of any width, but their data must be sent using a whole number of bytes per row.  Mono/mask bitmaps are also required to have a colour, and will use the currently selected graphics foreground colour.  If you wish to use a different colour then you must change the graphics foreground colour before creating the bitmap.  Mono/mask bitmaps only draw their "on" pixels, and the "off" pixels are transparent.</p>
+<p>The use of the "native" format is reserved for internal use by the VDP.  They have some significant limitations, and are not intended for general use.</p>
+<p>As with <code>VDU 23, 27, 1, w; h; b1, b2...bn</code>, the width and height of the bitmap must be given in pixels, and must match the number of bytes given in the data.  If the width and height do not match the data then the command will fail.</p>
+<p>Prior to the Console8 VDP 2.2.0 release, mono/mask bitmaps were not supported.</p>
+<h3 id="vdu-23-27-21-bitmapid-0"><code>VDU 23, 27, &amp;21, bitmapId; 0;</code></h3>
+<p>This command captures a bitmap from the screen into the buffer with the given 16-bit buffer ID.  It works the same as <code>VDU 23, 27, 1, n, 0, 0;</code>, but using a 16-bit buffer ID instead of an 8-bit bitmap ID.</p>
+<p>Support for this command was added in VDP 2.2.0.</p>
+<h2 id="sprites">Sprites</h2>
+<p>The Sprites system on the Agon VDP is an extension to the bitmap system.  For all versions of the VDP up to and including 2.11.0, they are not true "hardware sprites" as one might find on some 8-bit machines or consoles.  Instead they are best thought of as "automatically drawn bitmaps".  This brings with it some limitations, and some performance considerations.</p>
+<p>From VDP 2.12.0 onwards the VDP does support the option to mark some sprites as being "hardware sprites".  These have some different limitations and performance considerations.  For clarity when we need to differentiate between the two types of sprites, we will refer to the original sprites as "software sprites", and the new sprites as "hardware sprites".  In the VDP 2.12.0 release the hardware sprites feature is not enabled by default, and a test flag must be set to enable them using <code>VDU 23, 0, &amp;F8, 2; 1;</code>.</p>
+<p>For compatibility with existing software, all sprites are by default set to be software sprites.</p>
+<p>Technically the VDP can support up to 256 sprites.  They must be defined contiguously, and so the first sprite is sprite 0.  (In contrast, bitmaps can have any ID from 0 to 65534.)  Once a selection of sprites have been defined, you can activate them using the <code>VDU 23, 27, 7, n</code> command, where <code>n</code> is the number of sprites to activate.  This will activate the first <code>n</code> sprites, starting with sprite 0.  All sprites from 0 to n-1 must be defined.  You can, however, set sprites within the "active" range to be hidden, so they will not be drawn.</p>
+<p>A single sprite can have multiple "frames", referring to different bitmaps.  (These bitmaps do not need to be the same size.)  This allows a sprite to include an animation sequence, which can be stepped through one frame at a time, or picked in any order.</p>
+<p>With software sprites, any format of bitmap can be used as a sprite frame.  It should be noted however that "native" format bitmaps are not recommended for use as sprite frames, as they cannot get erased from the screen.  (As noted above, the "native" bitmap format is not really intended for general use.)  This is part of why from Agon Console8 VDP 2.6.0 bitmaps captured from the screen are now stored in RGBA2222 format.</p>
+<p>Hardware sprites are limited to using bitmaps in RGBA8888 or RGBA2222 format.</p>
+<p>Moving sprites around the screen is done by changing the position of the sprite.  This can be done either by setting the absolute position of the sprite, or by moving the sprite by a given number of pixels.  (Sprites are positioned using pixel coordinates, and not by the logical OS coordinate system.)  Software sprites will not update their position on-screen until either another drawing operation is performed or an explicit <code>VDU 23, 27, 15</code> command is performed.</p>
+<p>Here are the sprite commands:</p>
+<h3 id="vdu-23-27-4-n-select-sprite-n"><code>VDU 23, 27, 4, n</code>: Select sprite n</h3>
+<p>This selects the sprite with the given 8-bit ID as being the currently "active" sprite for subsequent sprite commands.</p>
+<h3 id="vdu-23-27-5-clear-frames-in-current-sprite"><code>VDU 23, 27, 5</code>: Clear frames in current sprite</h3>
+<p>This command clears all frames from the current sprite.  The sprite will be left with no frames, and so will not be drawn on-screen.</p>
+<h3 id="vdu-23-27-6-n-add-bitmap-n-as-a-frame-to-current-sprite-where-bitmaps-buffer-id-is-64000n"><code>VDU 23, 27, 6, n</code>: Add bitmap n as a frame to current sprite (where bitmap's buffer ID is 64000+<code>n</code>)</h3>
+<p>This command adds a bitmap as a frame to the current sprite.  The bitmap must already be set up and available for use.  Attempting to assign a bitmap has not yet been defined to a frame will be ignored.</p>
+<h3 id="vdu-23-27-7-n-activate-n-sprites"><code>VDU 23, 27, 7, n</code>: Activate n sprites</h3>
+<p>This command activates the first <code>n</code> sprites, starting with sprite 0.  Any sprites within that range that have been set to be hidden, or do not have any frames set, will not be drawn.</p>
+<h3 id="vdu-23-27-8-select-next-frame-of-current-sprite"><code>VDU 23, 27, 8</code>: Select next frame of current sprite</h3>
+<p>This command selects the next frame of the currently selected sprite.  If the current frame is the last frame of the sprite, then the first frame will be selected.</p>
+<h3 id="vdu-23-27-9-select-previous-frame-of-current-sprite"><code>VDU 23, 27, 9</code>: Select previous frame of current sprite</h3>
+<p>This command selects the previous frame of the currently selected sprite.  If the current frame is the first frame of the sprite, then the last frame will be selected.</p>
+<h3 id="vdu-23-27-10-n-select-the-nth-frame-of-current-sprite"><code>VDU 23, 27, 10, n</code>: Select the nth frame of current sprite</h3>
+<p>This command selects the nth frame of the currently selected sprite, with frames numbered from zero.  If the frame number is out of range, then the command will be ignored.</p>
+<h3 id="vdu-23-27-11-show-current-sprite"><code>VDU 23, 27, 11</code>: Show current sprite</h3>
+<p>This command reverses a previous "hide" command, and will cause the current sprite to be drawn on-screen, if it is within the range of active sprites.</p>
+<h3 id="vdu-23-27-12-hide-current-sprite"><code>VDU 23, 27, 12</code>: Hide current sprite</h3>
+<p>This command will cause the current sprite to be hidden, and not drawn on-screen.  The sprite will still be active, and can be shown again using the "show" command.</p>
+<h3 id="vdu-23-27-13-x-y-move-current-sprite-to-pixel-position-x-y"><code>VDU 23, 27, 13, x; y;</code>: Move current sprite to pixel position x, y</h3>
+<p>This command moves the current sprite to the given pixel position on the screen.  The sprite will be drawn at the top left corner of the sprite bitmap, and so the position given is the top left corner of the sprite.</p>
+<h3 id="vdu-23-27-14-x-y-move-current-sprite-by-x-y-pixels"><code>VDU 23, 27, 14, x; y;</code>: Move current sprite by x, y pixels</h3>
+<p>This command moves the current screen location of the currently selected sprite by the given number of pixels.</p>
+<h3 id="vdu-23-27-15-update-the-sprites-in-the-gpu"><code>VDU 23, 27, 15</code>: Update the sprites in the GPU</h3>
+<p>This command will cause the sprites to be redrawn on-screen.  This is necessary if you have moved a sprite and want to see the change on-screen.  It is also necessary if you have changed the frame of a sprite, or if you have shown or hidden a sprite.</p>
+<h3 id="vdu-23-27-16-reset-bitmaps-and-sprites"><code>VDU 23, 27, 16</code>: Reset bitmaps and sprites</h3>
+<p>This command will clear all bitmap and sprite definitions.  All sprites will be deactivated, and have all their frames cleared, and the current active sprite ID will be set to zero.  All bitmap definitions will be cleared too, and the current active bitmap set to zero (or <code>64000</code> when using 16-bit IDs).  The bitmap data stored in buffers related to the bitmaps will remain, the buffer will just no longer be marked as a bitmap, so should you wish to clear the buffers too that needs to be done separately.  Any uses of bitmaps will also be reset, such as mapping a character to a bitmap, or using a bitmap as the mouse cursor.  This command will also clear the screen.</p>
+<p>Any sprites that were set to be hardware sprites will be reset to be software sprites, unless the test flag to enable hardware sprites has been set and also the feature flag to use hardware sprites by default has also been set.</p>
+<h3 id="vdu-23-27-17-reset-sprites-only"><code>VDU 23, 27, 17</code>: Reset sprites (only)</h3>
+<p>This command will clear all sprite definitions.  All sprites will be deactivated, and have all their frames cleared, and set the current active sprite ID to zero.  As with <code>VDU 23, 27, 16</code> sprites will be reset to be software sprites unless the appropriate flags are set.</p>
+<p>This command will not affect any bitmap definitions.</p>
+<h3 id="vdu-23-27-18-n-set-the-current-sprite-gcol-paint-mode-to-n"><code>VDU 23, 27, 18, n</code>: Set the current sprite GCOL paint mode to n **</h3>
+<p>This command sets the paint mode for the current sprite.  Please see the documentation on the <code>GCOL</code> command for more information on the paint modes.  This command is only supported for software sprites.</p>
+<p>If you use this command on a sprite that has been set to be a hardware sprite it will automatically be set to be a software sprite.</p>
+<p>NB As of VDP 2.15.0 hardware sprites that use a bitmap in RGBA2222 format can support <code>XOR</code> painting mode (mode 3), which is used for the new hardware-sprite based text cursor...  This command will still sets the sprite to be a software sprite though, but you can set the sprite to be a hardware sprite using <code>VDU 23, 27, 19</code> after using this command and the paint mode will be retained.  A hardware sprite set to use any other painting mode, or that is in RGBA8888 format, will be interpreted as using the normal "set pixel" mode (mode 0).</p>
+<h3 id="vdu-23-27-19-set-sprite-to-be-a-hardware-sprite"><code>VDU 23, 27, 19</code>: Set sprite to be a hardware sprite ***</h3>
+<p>This command sets the currently selected sprite to be drawn a hardware sprite.  This command is only supported on VDP 2.12.0 or later.</p>
+<p>Please note that at this time to use hardware sprites you need to enable the corresponding test flag for them.  This can be done using <code>VDU 23, 0, &amp;F8, 2; 1;</code>.  Until this flag is set, this command will be ignored.</p>
+<p>Hardware sprites can only use bitmaps in RGBA8888 or RGBA2222 format.  If the current frame of the sprite is not in one of those formats the sprite will not be drawn to the screen.</p>
+<p>As noted above, hardware sprites will generally ignore any paint mode that has been set on a sprite.</p>
+<h3 id="vdu-23-27-20-set-sprite-to-be-a-software-sprite"><code>VDU 23, 27, 20</code>: Set sprite to be a software sprite ***</h3>
+<p>This command reverses the effect of the <code>VDU 23, 27, 19</code> command, and sets the current sprite to be drawn as a software sprite.  This command is only supported on VDP 2.12.0 or later.</p>
+<h3 id="vdu-23-27-21-n-replace-currently-selected-frame-of-current-sprite-with-bitmap-n"><code>VDU 23, 27, 21, n</code>; Replace currently selected frame of current sprite with bitmap n ***</h3>
+<p>This command replaces the currently selected frame of the current sprite with the bitmap with the given 8-bit ID.  The bitmap must already be set up and available for use.  Attempting to assign a bitmap has not yet been defined to a frame will be ignored.  This command is only supported in VDP 2.12.0 or later.</p>
+<h3 id="vdu-23-27-26-n-add-bitmap-n-as-a-frame-to-current-sprite-using-a-16-bit-buffer-id"><code>VDU 23, 27, &amp;26, n;</code>: Add bitmap n as a frame to current sprite using a 16-bit buffer ID</h3>
+<p>This command is identical to <code>VDU 23, 27, 6, n</code>, but uses a 16-bit buffer ID instead of an 8-bit bitmap ID.</p>
+<h3 id="vdu-23-27-35-n-replace-currently-selected-frame-of-current-sprite-with-bitmap-n-using-a-16-bit-buffer-id"><code>VDU 23, 27, &amp;35, n;</code>: Replace currently selected frame of current sprite with bitmap n using a 16-bit buffer ID ***</h3>
+<p>This command replaces the currently selected frame of the current sprite with the bitmap with the given 16-bit buffer ID.  The bitmap must already be set up and available for use.  Attempting to assign a bitmap has not yet been defined to a frame will be ignored.  This command is only supported in VDP 2.12.0 or later.</p>
+<h2 id="notes-on-sprites">Notes on sprites</h2>
+<p>The sprite system on the Agon, up to and including the 2.11.0 release, implemented exclusively software sprites.  These carry with them some significant limitations and performance considerations.  They should be used sparingly, and with care.</p>
+<p>From the VDP 2.12.0 release the VDP will also support hardware sprites, which bring with them a different set of limitations and considerations for use.</p>
+<p>The use of software sprites and hardware sprites can be combined to take advantage of the strengths of each system with both visible on screen simultaneously.</p>
+<p>The following notes are intended to help you understand the limitations of software sprites, and the differences between software and hardware sprites.</p>
+<h3 id="software-sprite-limitations">Software sprite limitations</h3>
+<p>Software sprites are best thought of as "automatically drawn bitmaps", as that is, essentially, how they are implemented inside the VDP.</p>
+<p>In single buffer screen modes, performing a drawing operation will cause all sprites to be hidden, the drawing operation performed, and then all sprites are redrawn.  When a sprite is drawn on-screen, a copy of the area of screen that ist covers is made, and then the sprite is drawn over that screen area.  When a sprite is hidden, the area of screen that it covered is copied back onto the screen.  This means that if you have a lot of active sprites, a lot of screen data is being copied around.</p>
+<p>In single-buffered screen modes, owing to inefficiencies in how software spriates have been implemented, <em>any</em> operation that draws something to the screen will cause <em>all</em> sprites to be hidden, the drawing operation performed, and then all sprites are redrawn.  (This includes, for example, the flashing of the text cursor.)  Sprites are redrawn in order by their ID at the beginning of the screen being drawn to the VGA port.  This means that if there are a lot of active sprites, those later in the list get drawn to the screen buffer later, possibly after that part of the screen has been sent out of the VGA port.  This, essentially, is the cause of the flickering.</p>
+<p>If you have too many software sprites on-screen then you may notice that some sprites may flicker, especially if they are positioned closer to the top of the screen.  Sprites are always drawn in order, so those with lower IDs will flicker less than those with higher IDs.</p>
+<p>One way to reduce flickering is to try to avoid using sprites near the top of the screen.  This gives more opportunity for the sprites to be redrawn before the row they occupy is scanned out of the VGA port.</p>
+<p>Owing to how software sprites work, it is hard to offer definitive advice on how many sprites you can use.  The size of sprites you are using will also be a factor.  It is best to experiment and see what works for you.</p>
+<p>Software sprites also behave differently on double-buffered screen modes.  In those modes sprites are never "hidden" and are instead drawn to screen before a buffer swap.  This means they tend not to flicker, but care needs to be taken to ensure that the screen is properly redrawn.</p>
+<p>In double-buffered screen modes software sprites are not hidden at all, and instead work exactly as if they were plain automatically drawn bitmaps.  This means that they will not flicker, but care needs to be taken to ensure that the screen is properly redrawn.</p>
+<p>Performance of the Agon emulator differs significantly from real hardware, owing to how the VDP system is emulated.  You will be able to have more software sprites on-screen on the emulator than you will on real hardware.</p>
+<p>Up to and including the Console8 VDP 2.5.0 release, sprites using bitmaps captured from screen would not work properly, and would not be erased from the screen.  This is because the bitmaps were stored in "native" format, and the VDP did not have the ability to erase them.  This was fixed in the Console8 VDP 2.6.0 release, and bitmaps captured from the screen are now stored in RGBA2222 format, and so can be erased from the screen.</p>
+<p>Console8 VDP 2.6.0 also introduces the ability to set the GCOL paint mode for software sprites.  This can allow for more sophisticated drawing operations to be performed with sprites, and some interesting effects.</p>
+<p>On versions of the VDP that only support software sprites, for completely optimal graphical performance, it is usually best to avoid using sprites, and instead use the bitmap system directly.  Using a small number of sprites can be a reasonable compromise.</p>
+<h3 id="hardware-sprite-limitations">Hardware sprite limitations</h3>
+<p>Hardware sprites are a new feature in the VDP 2.12.0 release.</p>
+<p>As of version 2.12.0 the feature is still considered experimental, so to use the command to mark as sprite as being a "hardware sprite" you need to set a test flag.  This can be done using <code>VDU 23, 0, &amp;F8, 2; 1;</code>.</p>
+<p>Hardware sprites have different limitations placed on them when compared with software sprites, but also have some advantages.</p>
+<p>The main advantages that hardware sprites exhibit is that they will always be shown in full 64 colours, whatever the colour depth of screen mode you are in, and they operate as proper sprites in double-buffered screen modes.  Hardware sprites also do not flicker, and changes made to them will immediately appear on-screen, with no need to send a "refresh sprites" command.  They appear above all other graphics on the screen, including software sprites.  When hardware sprites overlap, the sprite with the higher ID will be drawn on top of the sprite with the lower ID.</p>
+<p>The limitations of hardware sprites are that you can only use bitmaps in RGBA8888 or RGBA2222 format, and they will not support different GCOL paint modes - they will always be shown with a "set pixel" style of drawing operation.  There are also limitations on how many hardware sprites can be shown on-screen at once, and these limitations are complex and depend on many factors.</p>
+<p>Technically the way that hardware sprites work is that the VDP only draws the sprites out during the VGA signal generation.  As they are not drawn into the framebuffer, this means that hardware sprites do not need to be hidden and redrawn in the same way that software sprites do, and so will not flicker.</p>
+<p>The exact limitations of how many hardware sprites can be displayed at once are complex, depending on the sizes of the sprites, their data format, the resolution, frequency, and colour depth of the screen mode, and the position of the sprites on-screen.  The limitations are, essentially, around how many pixels need to get drawn onto a single scanline of the VGA signal and the time available to generate that signal.  The VDP will try to draw all of the hardware sprites that are active, but if there are too many then this can take too long and cause issues with the VGA signal generation.  If you have too many sprite pixels active on a row then the signal generation can fail, and the VGA signal may break down and not display correctly.  You may see jittery output, or the screen may not display at all.</p>
+<p>In general, you will be able to use less hardware sprites on a single scanline in higher resolution screen modes, and more in lower resolution modes.  You will be able to show more RGBA2222 format sprites than RGBA8888 format ones.  The colour depth of the screen mode does not have much of an impact on the number of sprites that can be shown, but the resolution does.</p>
+<p>By way of an example, the BASIC <code>sprites_5.bas</code> test program from the <code>agon-bbc-basic</code> repository is written to show 32 ghost sprites, which are all 16x16 pixels in size, in RGBA8888 format, and run in mode 8 (64 colours, 320x240 resolution).  This demo generally shows quite a lot of flickering, with some of the sprites turning completely invisible towards the top of the screen.  When converted to use hardware sprites, all 32 ghosts will always be visible, and do not flicker at all.  You can increase the number of sprites to 64, and they will still be stable.  Going up to 90 sprites will often still be stable, although you might see some occasional glitchiness in the display output.  The higher you go with the number of active hardware sprites, the more likely you are to see issues with the VGA signal generation.  If you go too far, which experimentation shows happens in the region of around 140+ sprites, then the VDP can end up in a state where it is unable to display anything at all, and you will need to press the reset button on your Agon to recover, or the VDP might crash.</p>
+<p>In contrast, when adjusting the same demo to run in any of modes 0, 1 or 2, which are 640x480 resolution modes with 16, 4 and 2 colours respectively, the number of sprites that can be shown on-screen at once is significantly reduced.  The original count of 32 sprites will generally be fairly glitchy, and some occasional glitchiness may still be observed with just 20 hardware sprites showing.</p>
+<p>Wider sprites can also cause issues if used as hardware sprites.  The exact limitations will depend on the resolution of the screen mode, but in general it is best to avoid using wide sprites as hardware sprites.  Tall sprites are less of an issue, so long as they are narrow.</p>
+<p>As these limtiations are complex with many factors, the VDP does not set any explicit limits on the number of sprites a user can set as hardware sprites.  To do so would place additional burdens on the output system, and further restrict the number of hardware sprites that could be displayed.  It is up to you to experiment and see what works for you.</p>
+<h2 id="mouse-cursor_1">Mouse cursor</h2>
+<h3 id="mouse-cursor"><code>VDU 23, 27, &amp;40, hotX, hotY</code>: Setup a new mouse cursor</h3>
+<p>Set up a new mouse cursor using the currently selected bitmap, with its hotspot position at <code>hotX</code>, <code>hotY</code>.  The <code>cursorId</code> of the newly created cursor will be the same as the 16-bit ID of the currently selected bitmap, therefore if you have <a href="#select-bitmap-8bit">selected a bitmap using an 8-bit ID</a> then the <code>cursorId</code> will be <code>64000 + n</code>, where <code>n</code> is the 8-bit ID of the bitmap.</p>
+<p>Once a mouse cursor has been set up in this way, it can be selected for display using <a href="../System-Commands/#select-mouse-cursor"><code>VDU 23, 0, &amp;89, 3, bitmapId;</code></a>.</p>
+<p>Please note that mouse cursor IDs from 0-18 are reserved for the system mouse cursors, and these cannot be overridden.</p>
+<p>As of VDP 2.15.0 mouse cursors are drawn using hardware sprites.  This greatly improves their performance and appearance, but does mean that they can only use bitmaps in RGBA8888 or RGBA2222 format, and so mono/mask bitmaps are no longer supported.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2098 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Modules/">
+      
+      
+        <link rel="next" href="../Argument-Substitution/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>System Variables - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#type-of-system-variables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System Variables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type-of-system-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type of System Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-of-system-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming of system variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Path variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-path-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Path variables: Run$Path and Moslet$Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-type-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File load/run type aliases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cliprompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI$Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autopaged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI$AutoPaged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obey-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obey files: Obey$Dir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-and-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time and date: Sys$Date, Sys$Time and Sys$Year
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hotkeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hotkeys: Hotkey$&lt;n&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#type-of-system-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type of System Variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-of-system-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming of system variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Path variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-path-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Path variables: Run$Path and Moslet$Path
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#application-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-type-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File load/run type aliases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cliprompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI$Prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autopaged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI$AutoPaged
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obey-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obey files: Obey$Dir
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-and-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time and date: Sys$Date, Sys$Time and Sys$Year
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hotkeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hotkeys: Hotkey$&lt;n&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/mos/System-Variables.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="system-variables">System Variables</h1>
+<p>System variables are global variables that store various settings relating to different parts of the current operating system environment.  MOS support a few different types of system variables, and they are used by the system in several different ways.</p>
+<p>Applications/programs are welcome to use system variables for their own needs.  MOS provides two API calls to allow for variables to be read and written by application code, and the command line also has several commands that will make use of system variables.</p>
+<p>System variables are a new feature added to MOS 3.0.</p>
+<h2 id="type-of-system-variables">Type of System Variables</h2>
+<p>There are a few different data types that system variables can be.  The following are the types of system variables that are supported by MOS:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>How to set</th>
+<th>How to remove</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>A string of characters</td>
+<td><a href="../Star-Commands/#set"><code>*Set</code></a></td>
+<td><a href="../Star-Commands/#unset"><code>*Unset</code></a></td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>Three-byte integers</td>
+<td><a href="../Star-Commands/#seteval"><code>*SetEval</code></a></td>
+<td><a href="../Star-Commands/#unset"><code>*Unset</code></a></td>
+</tr>
+<tr>
+<td>Macros</td>
+<td>Macros are strings that can be expanded, passed through the GSTrans mechanism, when they are read</td>
+<td><a href="../Star-Commands/#setmacro"><code>*SetMacro</code></a></td>
+<td><a href="../Star-Commands/#unset"><code>*Unset</code></a></td>
+</tr>
+<tr>
+<td>Code</td>
+<td>A machine code routine will be called when the variable is read or set. This allows the OS to provide some more sophisticated behaviour, such as access to real-time clock data</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+<p>The GSTrans mechanism is used by the command line in various ways.  For instance, when setting a system variable using the <a href="../Star-Commands/#set"><code>*Set</code></a> command, the string value in the command line will first be passed through the GSTrans mechanism, allowing for variables to be expanded in the string before the variable is set.  The <a href="../Star-Commands/#echo"><code>*Echo</code></a> command also uses the GSTrans mechanism, allowing for variables to be expanded in the string that is echoed to the screen.</p>
+<h2 id="naming-of-system-variables">Naming of system variables</h2>
+<p>Users are free to name their system variables as they wish, but there are some limitations to bear in mind.</p>
+<ul>
+<li>Using wholly numeric names is not recommended, as this can cause difficulties with GSTrans operations when looking up a variable.  For instance, GSTrans will always interpret <code>&lt;123&gt;</code> to mean the ASCII character with the value 123, rather than looking up the name as a variable.</li>
+<li>When setting a variable, the case of a name is preserved, however variable lookup is not case-sensitive.  This means that <code>MyVar</code> and <code>myvar</code> are considered to be the same variable.</li>
+<li>Names can contain essentially any non-space, or non-control character</li>
+<li>When looking up variables, wildcard characters <code>#</code> and <code>*</code> can be used.  <code>#</code> will match any single character, and <code>*</code> will match any number of characters.</li>
+</ul>
+<p>By default, MOS's system variables follow a naming convention where the variable is named loosely in the format <code>Class$VariableName</code>.  You do not have to follow this convention, but following it can help to keep your variables organised.</p>
+<h2 id="path-variables">Path variables</h2>
+<p>Variables that are named in the format <code>Name$Path</code> are considered to be path variables.  When loading or running a file, MOS will supports prefixing filenames with a path and a colon.  Let's say we have a variable named <code>Foo$Path</code>, which is set to <code>/home/foo/</code>.  If you try to load a file named <code>Foo:Bar</code>, the system will look for the file <code>/home/foo/Bar</code>.</p>
+<p>Path variables can contain multiple paths to search, separated by commas.  For instance, if <code>Foo$Path</code> is set to <code>/home/foo/,/home/bar/</code>, the system will look for <code>Foo:Bar</code> in <code>/home/foo/Bar</code> and <code>/home/bar/Bar</code>, opening the first it finds.  If the file is not found in any of the paths and the file was opened for creation/update, the system will create the file in the first path in the list.</p>
+<p>It is important to note that directories used in path variables should end with a <code>/</code> character.  If this is omitted then the system will not be able to find files in that directory.  For example, if <code>Foo$Path</code> is set to <code>/home/foo</code>, then the system will look for <code>Foo:Bar</code> in <code>/home/fooBar</code>, which is unlikely to be correct.</p>
+<h3 id="system-path-variables">System Path variables: <code>Run$Path</code> and <code>Moslet$Path</code></h3>
+<p>The MOS system makes use of two path variables, which it will set to default values on startup.  These are <code>Run$Path</code> and <code>Moslet$Path</code>.</p>
+<p>The <code>Moslet$Path</code> variable is used to identify the directory where "moslet" programs are located.  By default this will be set to <code>/mos/</code>.  Moslets differ from normal programs in that they are written to be loaded and run from a different memory location, which should usually allow them to be used whilst a different program is running.  Their purpose is essentially to allow for new star commands to be added to MOS.  When you run a program, the system will use this variable to check to see whether the program you are trying to run is a moslet, and if it is, it will load the moslet and run it in the moslet memory space.</p>
+<p>The <code>Run$Path</code> variable used to identify directories in which the command line should search when trying to run a program.  By default it is a macro variable set to <code>&lt;Moslet$Path&gt;, ./, /bin/</code>, which provides the same default search path for running programs as MOS 2.</p>
+<p>These variables can be redefined to allow you to change where the system looks for moslets and programs to run.</p>
+<h2 id="application-variables">Application variables</h2>
+<p>By convention, application variables are named in the format <code>App$VariableName</code> where <code>App</code> is the name of the application that the variable is associated with.  This helps prevent clashes between variables that serve similar purposes for different applications.</p>
+<p>If an application is started up using an <code>obey</code> file, then often the obey file will set a variable named in the format <code>App$Dir</code> or <code>App$Path</code> to represent the directory the program is located in, which may be used by the program to locate its resources.  Typically this is achieved with a command such as <code>set App$Dir &lt;Obey$Dir&gt;</code>.</p>
+<h2 id="command-aliases">Command aliases</h2>
+<p>If you set up a system variable in the format <code>Alias$Name</code> then this will set up a new command alias that can be used from the command line with the given name.  For example, one could add a new <code>Mode</code> command using <code>*set Alias$Mode vdu 22 %0</code>.  This would allow you to run the command <code>mode 1</code> to change the screen mode to mode 1.  The command will be expanded to <code>vdu 22 1</code> when the command is run.</p>
+<p>When attempting to interpret a command, the MOS command interpreter checks for aliases first.  As with regular commands the matching of the command name is not case-sensitive, and the command can be abbreviated with a <code>.</code> character.  So if you have defined the <code>Mode</code> command alias above, and no other aliases beginning with <code>m</code>, then <code>*m. 1</code> will be interpreted as <code>*mode 1</code>.  Only if no matching alias is found will the system look for a matching in-built command.</p>
+<p>Alias resolution can be disabled by prefixing a command with the <a href="../Star-Commands/#skip-aliases"><code>%</code></a> character.  So <code>*%m.</code> will skip alias resolution and run the first in-built command that matches <code>m.</code>, which in MOS 3.0 would be the <a href="../Star-Commands/#mem"><code>Mem</code></a> command.  Disabling alias resolution can be useful in script files to ensure you're running the command you expect, and not an alias that may have been defined by the user.</p>
+<p>Aliases support <a href="../Argument-Substitution/">argument substitution</a>.  Any unused arguments (beyond the last used argument) will be automatically appended to the end of the resultant command.</p>
+<p>An alias can include multiple commands, separated by carriage return characters (<code>|M</code>).  If one command in an alias sequence fails, the rest of the commands will not be executed, and the error reported.</p>
+<p>As an alias will append any unused arguments to the end of the command, the example above for a <code>mode</code> command is actually flawed.  Whilst <code>mode 1</code> would result in a <code>vdu 22 1</code> command, <code>mode 1 2 3 4</code> would result in the command <code>vdu 22 1 2 3 4</code> which is still technically a valid VDU command, but would send 3 extra bytes to the VDP, performing a <code>VDU 2</code>, <code>VDU 3</code> and <code>VDU 4</code> commands (enable printer, disable printer, and "write text at text cursor"), and is unlikely to be the intended behaviour.  Therefore a better version of the command would be <code>*set Alias$Mode vdu 22 %0|M#</code>.  This splits the alias into two separate commands, the first being a <code>vdu 22</code> passing in the first argument, and the second command will be a <code>#</code> with all other arguments following it.  The command interpreter considers commands beginning with a <code>#</code> to be a comment, and will ignore it.</p>
+<h3 id="file-type-variables">File load/run type aliases</h3>
+<p>System variables are used to define how certain files should be loaded or run when using either the <code>LoadFile</code> or <code>RunFile</code> commands.  Additionally the MOS 3 CLI will use run type aliases to determine how to run a file if the user enters a filename without a preceding command.</p>
+<p>Load and run type variables are a special type of <a href="#command-aliases">command alias</a> named in the format <code>Alias$@LoadType_extension</code> or <code>Alias$@RunType_extension</code>, where the <code>extension</code> matches the filing system extension for that file type.  As with command aliases, these support <a href="../Argument-Substitution/">argument substitution</a>.  The system defines a few such aliases by default.</p>
+<p>Attempting to load or run a file with an extension that does not have a corresponding alias (using <code>LoadFile</code> or <code>RunFile</code>) will result in an <code>Invalid command</code> error.</p>
+<p>The system will set a variable named either <code>LastFile$Run</code> or <code>LastFile$Load</code> to the alias expansion that was used to run or load the file.  This can be useful for debugging purposes, as it allows you to see exactly what command (or sequence of commands) was executed when the file was loaded or run.</p>
+<p>As load and run aliases are essentially a special type of command alias, they work in the same way as other aliases.  They can therefore also contain mutiple commands, separated by carriage return characters (<code>|M</code>), and will automatically append any unused arguments to the end of the expanded command string.</p>
+<p>MOS 3.0 contains a few built in file load and run-types.  These are:</p>
+<table>
+<thead>
+<tr>
+<th>Type variable</th>
+<th>File extension</th>
+<th>Definition</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Alias$@LoadType_bin</code></td>
+<td><code>.bin</code></td>
+<td><code>Load %*0</code></td>
+<td>Load a binary file</td>
+</tr>
+<tr>
+<td><code>Alias$@LoadType_obey</code></td>
+<td><code>.obey</code></td>
+<td><code>Type %*0</code></td>
+<td>Prints the contents of an obey file to the screen</td>
+</tr>
+<tr>
+<td><code>Alias$@RunType_bas</code></td>
+<td><code>.bas</code></td>
+<td><code>BBCBasic %*0</code></td>
+<td>Run a text-format BBC BASIC program *</td>
+</tr>
+<tr>
+<td><code>Alias$@RunType_bbc</code></td>
+<td><code>.bbc</code></td>
+<td><code>BBCBasic %*0</code></td>
+<td>Run a BBC BASIC program *</td>
+</tr>
+<tr>
+<td><code>Alias$@RunType_bin</code></td>
+<td><code>.bin</code></td>
+<td><code>RunBin %*0</code></td>
+<td>Run a binary file</td>
+</tr>
+<tr>
+<td><code>Alias$@RunType_exec</code></td>
+<td><code>.exec</code></td>
+<td><code>Exec %*0</code></td>
+<td>Run a script using the <code>*exec</code> command</td>
+</tr>
+<tr>
+<td><code>Alias$@RunType_obey</code></td>
+<td><code>.obey</code></td>
+<td><code>Obey %*0</code></td>
+<td>Run a script using the <code>*obey</code> command</td>
+</tr>
+</tbody>
+</table>
+<p>* The aliases to run BBC BASIC assume that a <code>BBCBasic.bin</code> executable is present in your current <a href="#system-path-variables">run path</a>.  Often this is the plain Z80 version of BASIC.  If you wish to use the eZ80 version of BASIC, or BASIC V, then you can either rename their executable to <code>BBCBasic.bin</code> or redefine the <code>Alias$@RunType_bas</code> and <code>Alias$@RunType_bbc</code> variables to point to the correct executable.  For example, if you have a copy of BBC BASIC V in your current run path, with an executable named <code>BBCBasicV.bin</code>, you could use the following commands to redefine the aliases:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>*set Alias$@RunType_bas BBCBasicV %*0
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>*set Alias$@RunType_bbc BBCBasicV %*0
+</code></pre></div>
+<p>It is common for <a href="../../MOS/#boot-script">boot-up scripts</a> to set up load and run type variables to add support for other file types, or change the in-built behaviour.</p>
+<h2 id="cli">CLI</h2>
+<h3 id="cliprompt"><code>CLI$Prompt</code></h3>
+<p>The command prompt that the MOS CLI displays is defined using the variable named <code>CLI$Prompt</code>.  By default this is a macro set to <code>&lt;Current$Dir&gt; *</code> to match the default prompt from MOS 2.2 onwards.  The prompt can be changed to anything you like, and if it is set as a macro it can include variables that will be expanded when the prompt is displayed.</p>
+<p>If you unset the <code>CLI$Prompt</code> variable, the system will revert to displaying the default prompt which is <code>*</code>.</p>
+<h3 id="autopaged"><code>CLI$AutoPaged</code></h3>
+<p>Setting a variable <code>CLI$AutoPaged</code> to any value will enable the auto-paging feature of the CLI, if you are using VDP 2.14.0 or later by <a href="../../vdp/System-Commands/#vdu-23-0-9a">temporarily enabling paged mode</a>.  By default this variable is not set.</p>
+<p>When this variable is set then commands that can produce a lot of output will automatically use the VDP's "paged mode" for output.  This means that output will pause after a page of text has been displayed, and output will continue when the user presses the "shift" key.  This behaviour specifically applies to <a href="../Star-Commands/#dir"><code>*Dir</code></a> (and its various aliases), <a href="../Star-Commands/#help"><code>*Help</code></a>, <a href="../Star-Commands/#show"><code>*Show</code></a> and <a href="../Star-Commands/#type"><code>*Type</code></a>.  Other commands that could produce a lot of output such as running a program or a script explicitly do not use this feature so as to allow the user to control the output.</p>
+<p>Auto-paging applies whether you are using the MOS command line, or executing MOS commands via some other means, such as using the <a href="../API/#0x10-mos_oscli"><code>mos_oscli</code></a> API, or using the command from a BBC BASIC program.</p>
+<p>Support for this variable was added in MOS 3.0.1.  In MOS 3.0.0 the system would always use auto-paging, and the feature could not be disabled.</p>
+<p>To automatically enable paged mode for the CLI, you can add the following line to your <a href="../../MOS/#boot-script">boot script</a>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>*set CLI$AutoPaged 1
+</code></pre></div>
+<h2 id="obey-files">Obey files: <code>Obey$Dir</code></h2>
+<p>When an obey file is run with the <code>obey</code> command, the system will set the variable <code>Obey$Dir</code> to the directory that the obey file is located in.  This can be used by the obey file to locate resources that it needs to run.</p>
+<p>It should be noted that the <code>Obey$Dir</code> variable will not include a trailing <code>/</code> character, so if you are using it to build a path to a file, you will need to add the <code>/</code> character yourself.  For example, if you have an obey file located in <code>/home/foo/</code>, and wished from that obey file to run a program called <code>foo.bin</code> located in the same directory, your script should use the command <code>*RunBin &lt;Obey$Dir&gt;/foo.bin</code>.</p>
+<h2 id="time-and-date">Time and date: <code>Sys$Date</code>, <code>Sys$Time</code> and <code>Sys$Year</code></h2>
+<p>MOS provides three system variables that expose the current real-time clock information.  These are <code>Sys$Date</code>, <code>Sys$Time</code> and <code>Sys$Year</code>.  The date variable is in the format of <code>Day, n Mon</code>.  It is possible to set these variables, and the real-time clock should update accordingly.  The exception to that is setting <code>Sys$Date</code> if the value cannot be interpreted as a valid date.</p>
+<p>The real-time clock information can also be displayed and updated using the <a href="../Star-Commands/#time"><code>*Time</code></a> command</p>
+<h2 id="hotkeys">Hotkeys: <code>Hotkey$&lt;n&gt;</code></h2>
+<p>Hotkey definitions are stored as system variables in the format <code>Hotkey$n</code> where <code>n</code> is a number from 1-12 equating to the F1-F12 keys on your keyboard.  Hotkeys can also be defined using the <a href="../Star-Commands/#hotkey"><code>*Hotkey</code></a> command.</p>
+<p>Hotkey definitions support <a href="../Argument-Substitution/">argument substitution</a>.  Any unused arguments are discarded.</p>
+<p>If a hotkey definition is set as a macro variable (using <a href="../Star-Commands/#setmacro"><code>SetMacro</code></a>), then the system will expand the macro when the hotkey is pressed.</p>
+<p>A hotkey definition that ends with a carriage return character (<code>|M</code>) will automatically press return when the hotkey is pressed.  When used in a CLI this means the command will execute immediately.  Hotkeys set using the <a href="../Star-Commands/#hotkey"><code>*Hotkey</code></a> will automatically append a carriage return to the end of the command.</p>
+<p>In MOS 3.0, whilst a hotkey variable can technically contain multiple lines, split by <code>|M</code>, the system will only use the first line of the variable, and the rest will be discarded.  This limitation is due to how the MOS line editor works.</p>
+<p>If you wish to create a hotkey that can run a sequence of commands then there are two options.  Firstly you could create an obey file, and define a hotkey to run the obey file passing in all the arguments.  Alternatively you could define a command alias that can run a sequence of commands, and define a hotkey to use that alias.  Please note that both of these options are only suitable for running multiple MOS commands, and cannot be used for multi-line input in other environments such as the BBC BASIC command line.</p>
+<p>Support for multiple commands in a hotkey may be added in a future version of MOS.</p>
+<h2 id="system">System</h2>
+<p>As noted above, there are several "system" variables that MOS provides to give access to system information and control how MOS behaves.</p>
+<p>Another two system variables are the <code>Console</code> variable and <code>Keyboard</code>.  These are two special write-only variables that will turn on or disable "console mode", and set the current keyboard layout respectively.  These variables are named to be compatible with earlier versions of MOS.</p>
+<h2 id="return-codes">Return codes</h2>
+<p>When a command or program finishes running MOS will set a numeric variable <code>Sys$ReturnCode</code> to indicate the success or failure of the program.  This variable is set to 0 if the program ran successfully, and to a non-zero value if the program reported an error.</p>
+<p>The <code>Try</code> command can also be used to run a command and set a system variable <code>Try$ReturnCode</code> to the return code of that command.  If an error occurred then a variable <code>Try$Error</code> will also be set to the error message.  This can be useful in script files to check for errors and take appropriate action.  Running commands without using the <code>Try</code> command inside a script file (executed using either <code>exec</code> or <code>obey</code>) that fail will cause the script to stop running.  You can then use the <code>if</code> command to check the return code and take appropriate action.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2238 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Font-API/">
+      
+      
+        <link rel="next" href="../VDP-Variables/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Tile Engine - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#drawing-co-ordinates" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tile Engine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-co-ordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drawing Co-ordinates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-bank-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Bank Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile Bank Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialisereset-tile-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialise/Reset Tile Bank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-tile-into-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Tile Into Bank
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load Tile Into Bank">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tile-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-tile-from-tile-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw Tile From Tile Bank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletefree-tile-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete/Free Tile Bank
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-map-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Map Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile Map Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tile-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tile-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Attribute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialisereset-tile-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialise/Reset Tile Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-tile-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Tile Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletefree-tile-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete/Free Tile Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-layer-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Layer Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile Layer Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialisereset-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialise/Reset Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-tile-layer-scroll-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Tile Layer Scroll Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draw-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-and-draw-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update and Draw Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#drawing-co-ordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drawing Co-ordinates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-bank-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Bank Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile Bank Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialisereset-tile-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialise/Reset Tile Bank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-tile-into-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Tile Into Bank
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Load Tile Into Bank">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tile-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Format
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-tile-from-tile-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw Tile From Tile Bank
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletefree-tile-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete/Free Tile Bank
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-map-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Map Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile Map Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tile-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tile-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Attribute
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialisereset-tile-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialise/Reset Tile Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-tile-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Tile Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletefree-tile-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete/Free Tile Map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tile-layer-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Layer Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tile Layer Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialisereset-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialise/Reset Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-tile-layer-scroll-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Tile Layer Scroll Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#draw-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-and-draw-tile-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update and Draw Tile Layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/vdp/Tile-Engine.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="tile-engine">Tile Engine</h1>
+<p>The Tile Engine is a series of routines in the VDP that allows for the loading of tile graphic data into a "Tile Bank" and the defining of a "Tile Map" that can be displayed as a "Tile Layer" by the Agon. Commands are provided that allow the tile map to be scrolled horizontally and/or vertically on a per-pixel basis, controlled by any Agon language that supports the VDU interface.</p>
+<p>The Tile Engine is accessed through the <code>VDU 23,0,&amp;C2</code> (aka <code>VDU 23,0,194</code>) commands. While not all VDU commands starting with this sequence are currently in use, many are defined and reserved for future enhancements.</p>
+<blockquote>
+<p>Note: The Tile Engine functionality is currently enabled through the use of a feature flag. To enable the Tile Engine, execute <code>VDU 23,0,248,768;0;</code> at the start of your code.</p>
+</blockquote>
+<h2 id="drawing-co-ordinates">Drawing Co-ordinates</h2>
+<p>As the Tile Engine uses 8x8 character tiles, the Acorn text co-ordinate system has been adopted for specifying the position of a tile on screen with (0,0) at the top left of the screen. However, as this is limited to eight pixel blocks, the Tile Engine can additionally take an X and Y offset parameter to provide per-pixel positioning within the specified 1block.</p>
+<h2 id="tile-bank-commands">Tile Bank Commands</h2>
+<p>The Tile Bank is a block of memory in the VDP that can hold up to 255 8x8 character tiles in the RGBA2222 format.</p>
+<h3 id="initialisereset-tile-bank">Initialise/Reset Tile Bank</h3>
+<p><code>VDU 23, 0, &amp;C2, 0, &lt;tilebank&gt;, 0, 0, 0</code></p>
+<p>This command will initialise or reset (clear) the tile bank. It must be executed before attempting to load any tiles.</p>
+<p>From VDP 2.15.0, four tile banks (0-3) are supported, each capable of holding 255 tiles. This allows for up to 1020 unique tiles to be uploaded to the VDP.</p>
+<h3 id="load-tile-into-bank">Load Tile Into Bank</h3>
+<p><code>VDU 23, 0, &amp;C2, 1, &lt;tilebank&gt;, &lt;tileid&gt;, b1, b2 ... b64</code></p>
+<p>This command will load 64 bytes of data into the specified tile id.</p>
+<p>From VDP 2.15.0, valid values for <code>tilebank</code> are 0-3.</p>
+<p>Valid values for <code>tileid</code> are 1-255. Do not load any data into Tile Id 0 (in any of the tile banks) as it has a special purpose and will not be drawn.</p>
+<h4 id="tile-format">Tile Format</h4>
+<p>Tiles are 8x8 pixel characters defined using the RGBA2222 format, where each pixel occupies one byte of memory. Due to hardware limitations, the Agon Light can display a maximum of 64 colours.</p>
+<p>The actual format of the RGBA2222 pixel is AABBGGRR, where each byte has two bits for each channel:</p>
+<ul>
+<li>A = Alpha (transparency)</li>
+<li>B = Blue</li>
+<li>G = Green</li>
+<li>R = Red</li>
+</ul>
+<p>For the Red, Green and Blue colours, there are two bits per channel, enabling four shades (values 00, 01, 10, 11) per channel and totalling the 64 colours available on the Agon.</p>
+<p>Although there are two bits for the Alpha channel, there are only two transparency states implemented on the Agon:</p>
+<ul>
+<li>If AA = 11 then pixel is opaque</li>
+<li>If AA = 10 then pixel is opaque</li>
+<li>If AA = 01 then pixel is opaque</li>
+<li>If AA = 00 then pixel is transparent</li>
+</ul>
+<p>The Tile Engine requires that opaque RGBA2222 pixels have the Alpha channel bits set to 11 followed by the colour values in BBGGRR order. Transparent pixels should have the Alpha channel bits set to 00 and the RGB colour values for all other channels set to 00.</p>
+<p>The position of each byte in the tile is shown below (in hex), working from top left to bottom right in rows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>00 01 02 03 04 05 06 07
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>08 09 0A 0B 0C 0D 0E 0F
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>10 11 12 13 14 15 16 17
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>18 19 1A 1B 1C 1D 1E 1F
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>20 21 22 23 24 25 26 27
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>28 29 2A 2B 2C 2D 2E 2F
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>30 31 32 33 34 35 36 37
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>38 39 3A 3B 3C 3D 3E 3F
+</code></pre></div>
+<h3 id="draw-tile-from-tile-bank">Draw Tile From Tile Bank</h3>
+<p><code>VDU 23, 0, &amp;C2, 6, &lt;tilebank&gt;, &lt;tileid&gt;, 0, &lt;xpos&gt;, &lt;ypos&gt;, &lt;xoffset&gt;, &lt;yoffset&gt;, &lt;attribute&gt;</code></p>
+<p>This command allows for a single tile to be drawn on screen.</p>
+<h3 id="deletefree-tile-bank">Delete/Free Tile Bank</h3>
+<p><code>VDU 23, 0, &amp;C2, 7, &lt;tilebank&gt;</code></p>
+<p>This command will delete the Tile Bank (if allocated) and free up previously allocated memory in the ESP32.</p>
+<h2 id="tile-map-commands">Tile Map Commands</h2>
+<p>The Tile Map is an array that contains a one-byte Tile ID and an associated Attribute byte.</p>
+<h3 id="tile-id">Tile ID</h3>
+<p>The <code>&lt;tileid&gt;</code> refers to the specified tile in the Tile Bank. Values between 0-255 are valid. If a <code>&lt;tileid&gt;</code> is set to 0, the tile is not drawn and the existing background pixels are untouched.</p>
+<h3 id="tile-attribute">Tile Attribute</h3>
+<p>The <code>&lt;attribute&gt;</code> byte provides additional instructions on how to display the tile. The attribute byte is configured as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>Reserved - should be set to 0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Reserved - should be set to 0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Reserved - should be set to 0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reserved - should be set to 0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tile bank</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tile bank</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Flip Y:  0 = No flip, 1 = flip</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Flip X:  0 = No flip, 1 = flip</td>
+</tr>
+</tbody>
+</table>
+<p>If the <code>&lt;tileid&gt;</code> is set to 0, the attribute byte should also be set to 0 in order to ensure that the tile is not drawn.</p>
+<p>From VDP 2.15.0, bits 2 and 3 of the attribute byte can be used to specify one of four tile banks.</p>
+<h3 id="initialisereset-tile-map">Initialise/Reset Tile Map</h3>
+<p><code>VDU 23, 0, &amp;C2, 16, 0, &lt;tilemapsize&gt;, 0, 0</code></p>
+<p>This command is used to initialise the Tile Map in the VDP. The size of the tile map is configurable with the following options for <code>&lt;tilemapsize&gt;</code> allowed:</p>
+<table>
+<thead>
+<tr>
+<th>Tile Map Mode</th>
+<th>Tile Map Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>32x32</td>
+</tr>
+<tr>
+<td>1</td>
+<td>32x64</td>
+</tr>
+<tr>
+<td>2</td>
+<td>32x128</td>
+</tr>
+<tr>
+<td>3</td>
+<td>64x32</td>
+</tr>
+<tr>
+<td>4</td>
+<td>64x64</td>
+</tr>
+<tr>
+<td>5</td>
+<td>64x128</td>
+</tr>
+<tr>
+<td>6</td>
+<td>128x32</td>
+</tr>
+<tr>
+<td>7</td>
+<td>128x64</td>
+</tr>
+<tr>
+<td>8</td>
+<td>128x128</td>
+</tr>
+</tbody>
+</table>
+<h3 id="set-tile-properties">Set Tile Properties</h3>
+<p><code>VDU 23, 0, &amp;C2, 17, 0, &lt;xpos&gt;, &lt;ypos&gt;, &lt;tileid&gt;, &lt;attribute&gt;</code></p>
+<p>This command writes the <code>&lt;tileid&gt;</code> and <code>&lt;attribute&gt;</code> bytes to the specified X/Y position in the Tile Map.</p>
+<h3 id="deletefree-tile-map">Delete/Free Tile Map</h3>
+<p><code>VDU 23, 0, &amp;C2, 23, 0</code></p>
+<p>This command deletes and frees up memory allocated to the Tile Map.</p>
+<h2 id="tile-layer-commands">Tile Layer Commands</h2>
+<p>The Tile Layer is the viewport into which the Tile Map is displayed. </p>
+<h3 id="initialisereset-tile-layer">Initialise/Reset Tile Layer</h3>
+<p><code>VDU 23, 0, &amp;C2, 24, 0, &lt;tilelayersize&gt;, 0, 0</code></p>
+<p>This command initalises or resets the Tile Layer. It should be configured to match the size of the required screen mode (this behaviour is not enforced, but the display may appear odd with the layer in only a part of it).</p>
+<table>
+<thead>
+<tr>
+<th>Tile Layer Mode</th>
+<th>Tile Layer Size</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>80x60</td>
+<td>For 640x480 modes</td>
+</tr>
+<tr>
+<td>1</td>
+<td>80x30</td>
+<td>For 640x240 modes</td>
+</tr>
+<tr>
+<td>2</td>
+<td>40x30</td>
+<td>For 320x240 modes</td>
+</tr>
+<tr>
+<td>3</td>
+<td>40x25</td>
+<td>For 320x200 modes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="set-tile-layer-scroll-parameters">Set Tile Layer Scroll Parameters</h2>
+<p><code>VDU 23, 0, &amp;C2, 26, 0, &lt;xpos&gt;, &lt;ypos&gt;, &lt;xoffset&gt;, &lt;yoffset&gt;</code></p>
+<p>This command specifies the X and Y positions in the Tile Map to start drawing the layer from. Valid values for <code>&lt;xpos&gt;</code> and <code>&lt;ypos&gt;</code> depends on the Tile Map Mode. The <code>&lt;xoffset&gt;</code> and <code>&lt;yoffset&gt;</code> parameters can take a value between 0-7 and are used for per-pixel offset of the Tile Map.</p>
+<p>For example, a <code>&lt;xpos&gt;</code> value of 10 will start drawing the layer from column 10 of the Tile Map. An <code>&lt;xoffset&gt;</code> of 4 would start drawing from the 4th pixel of column 10. This has the effect of "pulling" the image from right to left.</p>
+<h2 id="update-tile-layer">Update Tile Layer</h2>
+<p><code>VDU 23, 0, &amp;C2, 28, 0</code></p>
+<p>This command will cause the Tile Engine to update the Tile Layer internally based on the scroll parameters but will not draw anything to the screen.</p>
+<p>If the Tile Engine reaches the end of the Tile Map before completing the Tile Layer, the display will wrap to the start of the Tile Map.</p>
+<h2 id="draw-tile-layer">Draw Tile Layer</h2>
+<p><code>VDU 23, 0, &amp;C2, 29, 0</code></p>
+<p>This command will cause the Tile Engine to draw the Tile Layer to the display buffer. It will draw what is currently in the layer buffer.</p>
+<p>This command is useful for drawing a static background to the screen as the contents of the layer do not need to be calculated.</p>
+<h2 id="update-and-draw-tile-layer">Update and Draw Tile Layer</h2>
+<p><code>VDU 23, 0, &amp;C2, 30, 0</code></p>
+<p>This command will cause the Tile Engine to update and draw the Tile Layer to the display buffer. It is a combination of the previous two commands that can be called with a single command.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

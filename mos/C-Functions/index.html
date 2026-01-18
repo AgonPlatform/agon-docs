@@ -1,0 +1,2382 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../API/">
+      
+      
+        <link rel="next" href="../Executables/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>C functions - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-c-function-calling-convention" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              C functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-c-function-calling-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The C function calling convention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The C function calling convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passing-parameters-to-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passing parameters to functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calling-c-functions-from-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calling C functions from assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions available from the mos_getfunction API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions available from the mos_getfunction API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00-byte-sd_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x00 - BYTE SD_init();
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01-byte-sd_readblocksdword-sector-byte-buf-word-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x01 - BYTE SD_readBlocks(DWORD sector, BYTE *buf, WORD count);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02-byte-sd_writeblocksdword-sector-byte-buf-word-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x02 - BYTE SD_writeBlocks(DWORD sector, BYTE *buf, WORD count);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x03-na" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x03 - n/a
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x04-na" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x04 - n/a
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x05-int-f_printf-fil-fp-const-tchar-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x05 - int f_printf (FIL* fp, const TCHAR* str, ...);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x06-fresult-f_findfirst-dir-dp-filinfo-fno-const-tchar-path-const-tchar-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x06 - FRESULT f_findfirst (DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x07-fresult-f_findnext-dir-dp-filinfo-fno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x07 - FRESULT f_findnext (DIR* dp, FILINFO* fno);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x08-byte-open_uart1uart-puart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x08 - BYTE open_UART1(UART * pUART);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x09-int-setvarvalchar-name-void-value-char-actualname-byte-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x09 - int setVarVal(char * name, void * value, char ** actualName, BYTE * type);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0a-int-readvarvalchar-namepattern-void-value-char-actualname-int-length-byte-typeflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0A - int readVarVal(char * namePattern, void * value, char ** actualName, int * length, BYTE * typeFlag);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0b-int-gstranschar-source-char-dest-int-destlen-int-read-byte-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0B - int gsTrans(char * source, char * dest, int destLen, int * read, BYTE flags);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0c-int-substituteargschar-template-char-args-char-dest-int-length-byte-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0C - int substituteArgs(char * template, char * args, char * dest, int length, BYTE flags);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0d-int-resolvepathchar-filepath-char-resolvedpath-int-length-byte-index-dir-dir-byte-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0D - int resolvePath(char * filepath, char * resolvedPath, int * length, BYTE * index, DIR * dir, BYTE flags);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0e-int-getdirectoryforpathchar-srcpath-char-dir-int-length-byte-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0E - int getDirectoryForPath(char * srcPath, char * dir, int * length, BYTE index);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0f-int-resolverelativepathchar-path-char-resolved-int-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0F - int resolveRelativePath(char * path, char * resolved, int * length);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x10-void-getsysvars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x10 - void * getsysvars()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x11-void-getkbmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x11 - void * getkbmap()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note for the future: MOS modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Buffered-Commands-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vdp/VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-c-function-calling-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The C function calling convention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The C function calling convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passing-parameters-to-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passing parameters to functions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calling-c-functions-from-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calling C functions from assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Return values
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions available from the mos_getfunction API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions available from the mos_getfunction API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00-byte-sd_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x00 - BYTE SD_init();
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01-byte-sd_readblocksdword-sector-byte-buf-word-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x01 - BYTE SD_readBlocks(DWORD sector, BYTE *buf, WORD count);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02-byte-sd_writeblocksdword-sector-byte-buf-word-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x02 - BYTE SD_writeBlocks(DWORD sector, BYTE *buf, WORD count);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x03-na" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x03 - n/a
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x04-na" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x04 - n/a
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x05-int-f_printf-fil-fp-const-tchar-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x05 - int f_printf (FIL* fp, const TCHAR* str, ...);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x06-fresult-f_findfirst-dir-dp-filinfo-fno-const-tchar-path-const-tchar-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x06 - FRESULT f_findfirst (DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x07-fresult-f_findnext-dir-dp-filinfo-fno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x07 - FRESULT f_findnext (DIR* dp, FILINFO* fno);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x08-byte-open_uart1uart-puart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x08 - BYTE open_UART1(UART * pUART);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x09-int-setvarvalchar-name-void-value-char-actualname-byte-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x09 - int setVarVal(char * name, void * value, char ** actualName, BYTE * type);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0a-int-readvarvalchar-namepattern-void-value-char-actualname-int-length-byte-typeflag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0A - int readVarVal(char * namePattern, void * value, char ** actualName, int * length, BYTE * typeFlag);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0b-int-gstranschar-source-char-dest-int-destlen-int-read-byte-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0B - int gsTrans(char * source, char * dest, int destLen, int * read, BYTE flags);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0c-int-substituteargschar-template-char-args-char-dest-int-length-byte-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0C - int substituteArgs(char * template, char * args, char * dest, int length, BYTE flags);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0d-int-resolvepathchar-filepath-char-resolvedpath-int-length-byte-index-dir-dir-byte-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0D - int resolvePath(char * filepath, char * resolvedPath, int * length, BYTE * index, DIR * dir, BYTE flags);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0e-int-getdirectoryforpathchar-srcpath-char-dir-int-length-byte-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0E - int getDirectoryForPath(char * srcPath, char * dir, int * length, BYTE index);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x0f-int-resolverelativepathchar-path-char-resolved-int-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x0F - int resolveRelativePath(char * path, char * resolved, int * length);
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x10-void-getsysvars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x10 - void * getsysvars()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x11-void-getkbmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0x11 - void * getkbmap()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note for the future: MOS modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/mos/C-Functions.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="using-mos-c-functions">Using MOS C functions</h1>
+<p>MOS 3.0 added a new API, <a href="../API/#0x50-mos_getfunction">mos_getfunction</a>, which allows programs to get the address of various C functions.  These functions comply with the Zilog eZ80 C calling conventions.</p>
+<p>As MOS already provides an extensive API, the range of C functions this API provides is limited.  There are essentially three potential reasons why a function has been made available via this API:</p>
+<ol>
+<li>The function cannot be made available via a traditional MOS API</li>
+<li>The equivalent MOS API is difficult to use from programs written in C (in general because it uses the <code>IX(U)</code> register)</li>
+<li>Direct access to the function may be useful for efficiency reasons</li>
+</ol>
+<p>It is important to note that these functions are only accessible to programs written to run in the eZ80's ADL mode.  Z80 mode programs cannot use the <code>mos_getfunction</code> API, and would not be able to use these functions even if they could, as the calling convention is not compatible with Z80 mode code.</p>
+<p>The complete list of functions available from the <code>mos_getfunction</code> API is provided in the <a href="#functions">MOS C functions</a> section below.</p>
+<h2 id="the-c-function-calling-convention">The C function calling convention</h2>
+<p>Zilog's documentation for their C function calling convention is described in a document with the very catchy name <a href="https://www.zilog.com/docs/appnotes/an0333.pdf">ZDS II for eZ80Acclaim!: Calling C Functions from Assembly and Vice Versa</a>.  This document is essentially an edited except from the "ZiLOG Developer Studio II eZ80Acclaim!® User Manual" with some additional examples.</p>
+<p>When considering function pointers returned by the <code>mos_getfunction</code> API the notes around function naming conventions in Zilog's documentation are not really important.</p>
+<p>If you are using these functions from a C program, assuming your compiler understands the Zilog eZ80 C calling convention (which is currently true for all C compilers for the Agon platform) you will need to let your compiler know the function prototype.</p>
+<p>The underlying details of how the C function calling convention works should not be important to you if you are only using these functions from C.  You can skip ahead to the descriptions of the <a href="#functions">functions available</a> from the <code>mos_getfunction</code> API.</p>
+<p>However if you are using these functions from assembly then you will need to understand how the calling convention works.</p>
+<h3 id="passing-parameters-to-functions">Passing parameters to functions</h3>
+<p>Function parameters are passed on the stack in reverse order, i.e. the rightmost parameter is pushed first, and the leftmost parameter is pushed last.  The leftmost argument is therefore at the top of the stack when the function is called.</p>
+<p>After a function call, the caller is responsible for cleaning up the stack.  This means that the caller must remove the arguments from the stack after the function has returned.</p>
+<p>Arguments of different types are always a multiple of 3 bytes in size, essentially because the eZ80's registers are 3 bytes wide in ADL mode.  As most variable types are not a multiple of 3 bytes in size, some bytes pushed to the stack will be ignored by functions that take arguments of those types.  C compilers that support the eZ80 C calling convention will automatically understand this and ignore any extra padding bytes on the stack when handling function arguments.  For example, a <code>char</code> type is 1 byte in size, and will be padded to 3 bytes when passed to a function.  The compiler will automatically ignore the extra 2 bytes.</p>
+<p>The following table provides a guid the types of arguments that can be passed to functions, their size, and how they are arranged in memory on the stack.  As type names can vary, the table may show various common names used for the same underlying type, and is not exhaustive.  For example the table does not list <code>int8_t</code>, <code>unsigned char</code> or <code>BYTE</code>, as they are essentially equivalent to <code>char</code> and <code>uint8_t</code>.  The "memory" column shows how the values are arranged from the least significant byte to the most significant byte.  It is always a multiple of 3 bytes, with each individual value byte shown as <code>xx</code>; bytes that will be ignored by the function are shown as <code>??</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Native Size</th>
+<th>Size on stack</th>
+<th>Memory (Low to high)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char</code>/<code>uint8_t</code></td>
+<td>1 byte</td>
+<td>3 bytes</td>
+<td><code>xx ?? ??</code></td>
+</tr>
+<tr>
+<td><code>short</code>/<code>uint16_t</code></td>
+<td>2 bytes</td>
+<td>3 bytes</td>
+<td><code>xx xx ??</code></td>
+</tr>
+<tr>
+<td><code>int</code>/<code>uint24_t</code></td>
+<td>3 bytes</td>
+<td>3 bytes</td>
+<td><code>xx xx xx</code></td>
+</tr>
+<tr>
+<td><code>long</code>/<code>uint32_t</code></td>
+<td>4 bytes</td>
+<td>6 bytes</td>
+<td><code>xx xx xx xx ?? ??</code></td>
+</tr>
+<tr>
+<td><code>long long</code>/<code>uint64_t</code></td>
+<td>8 bytes</td>
+<td>9 bytes</td>
+<td><code>xx xx xx xx xx xx xx xx ??</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>4 bytes</td>
+<td>6 bytes</td>
+<td><code>xx xx xx xx ?? ??</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>4 bytes</td>
+<td>6 bytes</td>
+<td><code>xx xx xx xx ?? ??</code></td>
+</tr>
+<tr>
+<td><code>void *</code> (any pointer)</td>
+<td>3 bytes</td>
+<td>3 bytes</td>
+<td><code>xx xx xx</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>as noted above, the types in this table are not exhaustive, and similar types of the same length/size will be treated the same way</li>
+<li><code>uint24_t</code> is not part of the C standard, but may be supported by some compilers that support the eZ80.  As the eZ80 includes several 24-bit registers when in ADL mode, this is also the default integer <code>int</code> type used by these compilers.</li>
+<li>the Zilog C compiler does not support the <code>long long</code>/<code>uint64_t</code> type, and this is not part of their C calling convention standard, but it is a common extension that other compilers for the eZ80 supports.  This type is not currently used by any of the functions available from the <code>mos_getfunction</code> API, but is included for completeness.</li>
+<li>owing to constraints of the eZ80 architecture, both <code>float</code> and <code>double</code> are IEEE-754 single precision 32-bit floating point values by compilers that target the eZ80.</li>
+</ul>
+<h3 id="calling-c-functions-from-assembly">Calling C functions from assembly</h3>
+<p>As values are passed to functions using the stack, the process of calling a C function from assembly is generally to push arguments in reverse order.  As noted above, all arguments must be a multiple of 3 bytes in size; the nature of the eZ80 when running in ADL mode is that as you can only push wide registers to the stack you will always push 3-bytes to the stack.  This means that if you have an 8-bit value in an 8-bit register for an 8-bit argument (e.g. a <code>BYTE</code> or a <code>char</code>), you just need to ensure the value is in the least signficant register of a 3-byte register, and then push that register to the stack.  The other two bytes will be ignored by the function.</p>
+<p>The <code>mos_getfunction</code> API returns a pointer to the requested function in the <code>HLU</code> register.  In principle your program needs to "call" this function, but the eZ80 does not have a version of the <code>CALL</code> instruction that can use a register as the address to call.  There is, however, a <code>JP (HL)</code> instruction.  There is more than one way to use this instruction to "call" a function, but the simplest is probably the following:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>; Call a function pointer in HL
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>; use `CALL call_HL` to call the function, ensuring return address is pushed
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>.call_HL    JP (HL)
+</code></pre></div>
+<p>With this in place, to call a function provided from the <code>mos_getfunction</code> API from eZ80 assembler code, you would do the following:</p>
+<ol>
+<li>Push the arguments to the stack in reverse order</li>
+<li>Ensure that the <code>HLU</code> register contains the address of the function to call</li>
+<li>Perform a <code>CALL call_HL</code> instruction to push the return address onto the stack</li>
+<li>Execution continues after that call, with the return value set as per the calling convention</li>
+<li>Pop arguments off the stack</li>
+</ol>
+<p>Step 2 here could be a call to <code>mos_getfunction</code> at that point in the process, or that could be done earlier in your program.  Please note however that there may in future be some <a href="#modules">issues with caching function pointers</a> when <a href="../Modules/">MOS Modules</a> so please read the guidance below.</p>
+<h3 id="return-values">Return values</h3>
+<p>The return value from a function will be placed in one or more of the eZ80's registers.</p>
+<p>Exactly which registers are used depends on the type of the value returned.  The following table shows how different types of return values are returned.  As with the table above for arguments, the types in this table are not exhaustive, and similar types of the same length/size will be treated the same way.  Some types are returned across multiple registers; the table below illustrates register contents from the most significant byte to the least significant byte.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Return registers</th>
+<th>Register contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>char</code>/<code>uint8_t</code></td>
+<td><code>A</code></td>
+<td><code>xx</code></td>
+</tr>
+<tr>
+<td><code>short</code>/<code>uint16_t</code></td>
+<td><code>HLU</code></td>
+<td><code>?? xx xx</code></td>
+</tr>
+<tr>
+<td><code>int</code>/<code>uint24_t</code></td>
+<td><code>HLU</code></td>
+<td><code>xx xx xx</code></td>
+</tr>
+<tr>
+<td><code>long</code>/<code>uint32_t</code></td>
+<td><code>E:HLU</code></td>
+<td><code>xx: xx xx xx</code></td>
+</tr>
+<tr>
+<td><code>long long</code>/<code>uint64_t</code></td>
+<td><code>BC:DEU:HLU</code></td>
+<td><code>?? xx xx: xx xx xx: xx xx xx</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td><code>E:HLU</code></td>
+<td><code>xx: xx xx xx</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td><code>E:HLU</code></td>
+<td><code>xx: xx xx xx</code></td>
+</tr>
+<tr>
+<td><code>void *</code> (any pointer)</td>
+<td><code>HLU</code></td>
+<td><code>xx xx xx</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>as noted above, the types in this table are not exhaustive, and similar types of the same length/size will be treated the same way</li>
+<li>as with the argument table, <code>uint24_t</code> is not part of the C standard, and the <code>int</code> type is a 24-bit value</li>
+<li>as with the argument table, <code>long long</code>/<code>uint64_t</code> is not part of the Zilog C calling convention standard, but is a common extension that other compilers for the eZ80 supports.  This type is not currently used by any of the functions available from the <code>mos_getfunction</code> API, but is included for completeness.</li>
+</ul>
+<h2 id="functions">Functions available from the <code>mos_getfunction</code> API</h2>
+<p>The following functions are available from the <a href="../API/#0x50-mos_getfunction"><code>mos_getfunction</code></a> API.</p>
+<p>It should be noted that that whilst MOS APIs will return <code>FRESULT</code> or "status" values in the 8-bit <code>A</code> register, most of the underlying functions return an <code>FRESULT</code> or an <code>int</code> for their status, which are actually 24-bit values.  The calling convention means they will be returned in <code>HL(U)</code>.</p>
+<p>This list is complete as of the MOS 3.0 release, but may change in future releases of MOS to include additional functions.</p>
+<h3 id="0x00-byte-sd_init">0x00 - <code>BYTE    SD_init();</code></h3>
+<p>Initialises the low-level SD card handling system </p>
+<h3 id="0x01-byte-sd_readblocksdword-sector-byte-buf-word-count">0x01 - <code>BYTE    SD_readBlocks(DWORD sector, BYTE *buf, WORD count);</code></h3>
+<p>Read raw sector data from SD card.</p>
+<p><code>DWORD</code> is a 32-bit value, <code>WORD</code> is a 16-bit value, and <code>BYTE</code> is an 8-bit value.  The <code>buf</code> pointer is a pointer to a buffer of data that will be filled with the data read from the SD card.  The <code>count</code> parameter indicates how many bytes to read from the SD card.</p>
+<h3 id="0x02-byte-sd_writeblocksdword-sector-byte-buf-word-count">0x02 - <code>BYTE    SD_writeBlocks(DWORD sector, BYTE *buf, WORD count);</code></h3>
+<p>Write raw sector data to SD card.</p>
+<p>This function works in a similar way to the <code>SD_readBlocks</code> function.  The <code>buf</code> pointer here is a pointer to the buffer of data used to write to the SD card.</p>
+<h3 id="0x03-na">0x03 - n/a</h3>
+<p>Calling <code>mos_getfunction</code> asking for this function number will succeed, but return a <code>NULL</code> pointer.</p>
+<p>Reserved for potential future <code>SD_status</code> function</p>
+<h3 id="0x04-na">0x04 - n/a</h3>
+<p>Calling <code>mos_getfunction</code> asking for this function number will succeed, but return a <code>NULL</code> pointer.</p>
+<p>Reserved for potential future <code>SD_ioctl</code> function</p>
+<h3 id="0x05-int-f_printf-fil-fp-const-tchar-str">0x05 - <code>int f_printf (FIL* fp, const TCHAR* str, ...);</code></h3>
+<p>The FatFS <code>f_printf</code> function.  This function is documented in the <a href="http://elm-chan.org/fsw/ff/doc/printf.html">FatFS documentation</a>.</p>
+<h3 id="0x06-fresult-f_findfirst-dir-dp-filinfo-fno-const-tchar-path-const-tchar-pattern">0x06 - <code>FRESULT f_findfirst (DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);</code></h3>
+<p>The FatFS <code>f_findfirst</code> function, equivalent to the <a href="../API/#0x94-ffs_dfindfirst"><code>ffs_dfindfirst</code></a> API call.  This function is documemented in the <a href="http://elm-chan.org/fsw/ff/doc/findfirst.html">FatFS documentation</a>.</p>
+<p>Please note that for C functions, an <code>FRESULT</code> is an <code>int</code> type, and therefore will be returned in the <code>HLU</code> register.  This differs from the MOS APIs for FatFS which returns an 8-bit <code>FRESULT</code> value.  The return values however are otherwise identical.</p>
+<h3 id="0x07-fresult-f_findnext-dir-dp-filinfo-fno">0x07 - <code>FRESULT f_findnext (DIR* dp, FILINFO* fno);</code></h3>
+<p>The FatFS <code>f_findnext</code> function, equivalent to the <a href="../API/#0x95-ffs_dfindnext"><code>ffd_dfindnext</code></a> API call.  This function is documemented in the <a href="http://elm-chan.org/fsw/ff/doc/findnext.html">FatFS documentation</a>.</p>
+<p>As with the <code>f_findfirst</code> function, an <code>FRESULT</code> is an <code>int</code> type, and will be returned in the <code>HLU</code> register.</p>
+<h3 id="0x08-byte-open_uart1uart-puart">0x08 - <code>BYTE    open_UART1(UART * pUART);</code></h3>
+<p>Equivalent to the <a href="../API/#0x15-mos_uopen"><code>mos_uopen</code></a> API call.  Please refer to the API documentation for details of the <code>UART</code> structure.</p>
+<h3 id="0x09-int-setvarvalchar-name-void-value-char-actualname-byte-type">0x09 - <code>int     setVarVal(char * name, void * value, char ** actualName, BYTE * type);</code></h3>
+<p>The underlying function the <a href="../API/#0x30-mos_setvarval"><code>mos_setvarval</code></a> API call uses.  Please see the API documentation for information about variable names and types.</p>
+<p>Please note that the way this function works differs slightly from the API; the API handles creating pointers for some arguments, and getting the values from them to return in registers.</p>
+<p>The parameters are as follows:
+- <code>name</code> is the name of the variable to set.  As with the API, if this name is a pattern the first matched name will be set, unless an <code>actualName</code> pointer has been provided.
+- <code>value</code> is a pointer to the value to be set, or if setting a number type variable this will be the actual number to set.
+- <code>actualName</code> is a pointer to a pointer to a string.  Providing this pointer is optional, but if it is set then on first call the pointer it points to should be set to <code>NULL</code>.  After the function has been called, the pointer will be set to the actual name string of the variable that has been set.  Please note that it is important to not adjust that string in any way.  If you have used a pattern in the <code>name</code> parameter, and have provided an <code>actualName</code> pointer, then subsequent calls to this function will set the next variable that matches the pattern, and the <code>actualName</code> pointer will be updated accordingly.
+- <code>type</code> is a pointer to a <code>BYTE</code> for the variable type to be set.  This is required.  This value will be updated after the function has been called to reflect the actual type of the variable that has been set; please note that varible types 3 and 4 ("expanded" and "literal string") will be replaced with either "string" or "number" as appropriate.</p>
+<p>The return value is a <a href="../API/#status-codes">MOS status code</a>, which will be in the <code>HLU</code> register.</p>
+<h3 id="0x0a-int-readvarvalchar-namepattern-void-value-char-actualname-int-length-byte-typeflag">0x0A - <code>int     readVarVal(char * namePattern, void * value, char ** actualName, int * length, BYTE * typeFlag);</code></h3>
+<p>The underlying function the <a href="../API/#0x31-mos_readvarval"><code>mos_readvarval</code></a> API call uses.</p>
+<p>This function is very similar to the <code>setVarVal</code> function, and it's arguments work in a very similar way.  These are the differences:</p>
+<ul>
+<li><code>value</code> can be <code>null</code> to measure the length of a variable, but otherwise must always point to a buffer into which the variable value will be read/copied.  This is in contrast to the <code>setVarVal</code> function which will accept a raw number as the value to be set for "number" type variables.</li>
+<li>a pointer to a 24-bit <code>length</code> value is required.  On entry, this indicates the length of the <code>value</code> buffer, if one has been provided.  If a matching variable is found, this value will always be updated to reflect the full length of the variable that has been read, or will be <code>0</code> if no variable was found.</li>
+<li>the <code>typeFlag</code> pointer is required.  On entry, if the value this points to is <code>3</code> then the variable being read will be "expanded" before it is returned.  This means that if the variable being read is a "macro" type, the returned string will be the expanded string with variables referenced in the macro replaced with their values.  If the variable being read is a "number", then it will be converted into a string.  On return, this value will be set to the underlying type of the variable that has been read, if a variable was found.</li>
+</ul>
+<p>The return value from this function is a <a href="../API/#status-codes">MOS status code</a>, which will be in the <code>HLU</code> register.  If a <code>value</code> buffer was provided, and the variable was found, then the value will be copied into that buffer.  If the buffer was not large enough to hold the variable then as much of the variable as will fit will be copied into the buffer, the <code>length</code> will reflect the total length of the variable (which will be more than was copied) and the function will return an "out of memory" status code.</p>
+<h3 id="0x0b-int-gstranschar-source-char-dest-int-destlen-int-read-byte-flags">0x0B - <code>int     gsTrans(char * source, char * dest, int destLen, int * read, BYTE flags);</code></h3>
+<p>The underlying function the <a href="../API/#0x34-mos_gstrans"><code>mos_gstrans</code></a> API call uses.</p>
+<p>The "GSTrans" functionality in MOS is used to translate a source string that may include references to <a href="../System-Variables/">system variables</a> into a new string with those variables expanded.  It can also convert other special character sequences into non-printable characters.  Guidance on this can be found in the documentation for the <a href="../Star-Commands/#echo"><code>echo</code></a> star command.</p>
+<p>The arguments to this function are as follows:</p>
+<ul>
+<li><code>source</code> is a pointer to the source "template" string to be translated</li>
+<li><code>dest</code> is a pointer to the destination buffer where the translated string will be written.  If this is set to <code>NULL</code> then the function will not write to the buffer, but will still calculate the length of the translated string.</li>
+<li><code>destLen</code> is the size of the destination buffer, if one is provided</li>
+<li><code>read</code> is a pointer to an integer to store the number of translated characters read from source</li>
+<li><code>flags</code> is a set of flags that control how the translation is performed.  These flags are described in the <a href="../API/#0x32-mos_gsinit"><code>mos_gsinit</code></a> API documentation.</li>
+</ul>
+<p>The <code>source</code> and <code>read</code> pointers are both always required.  The <code>dest</code> pointer is optional, but if provided it cannot be the same as the <code>source</code> pointer.</p>
+<p>The GSTrans process essentially performs a call to the <a href="../API/#0x32-mos_gsinit"><code>mos_gsinit</code></a> API and then calls <a href="../API/#0x33-mos_gsread"><code>mos_gsread</code></a> until it reaches the end of the source string.</p>
+<p>This function returns a <a href="../API/#status-codes">MOS status code</a>, which will be in the <code>HLU</code> register.  Various return values are possible, and may indicate that the source string was not valid, or various other errors.</p>
+<h3 id="0x0c-int-substituteargschar-template-char-args-char-dest-int-length-byte-flags">0x0C - <code>int substituteArgs(char * template, char * args, char * dest, int length, BYTE flags);</code></h3>
+<p>The underlying function the <a href="../API/#0x35-mos_substituteargs"><code>mos_substituteargs</code></a> API call uses to perform <a href="../Argument-Substitution/">argument substitution</a>.</p>
+<p>This function works in a very similar manner to its corresponding API call.  For information on the arguments to this function, please see the API documentation.</p>
+<p>The return value from this function is the total length of the substituted string.  If a destination buffer was provided that was not large enough to hold the entire substituted string then the function will fill the buffer with as much of the substituted string as will fit.</p>
+<h3 id="0x0d-int-resolvepathchar-filepath-char-resolvedpath-int-length-byte-index-dir-dir-byte-flags">0x0D - <code>int resolvePath(char * filepath, char * resolvedPath, int * length, BYTE * index, DIR * dir, BYTE flags);</code></h3>
+<p>The underlying function the <a href="../API/#0x38-mos_resolvepath"><code>mos_resolvepath</code></a> API call uses.</p>
+<p>The <code>resolvePath</code> function resolves a file path.  The primary use for this function is to take a MOS-style file path that may include a <a href="../System-Variables/#path-variables">path prefix</a> or use other <a href="../System-Variables/">system variables</a> and to resolve it into a full path that can be used by the underlying file system, i.e. the <a href="../API/#fatfs-commands">FatFS APIs</a>.  It can also be used to find files within a directory that match a given pattern.</p>
+<p>The arguments to this function are as follows:</p>
+<ul>
+<li><code>filepath</code> is a pointer to the file path string that is to be resolved</li>
+<li><code>resolvedPath</code> is a pointer to the buffer where the resolved path will be written.  If this is set to <code>NULL</code> then the function will calculate the length of the resolved path.</li>
+<li><code>length</code> is a pointer to an integer that on entry indicates the size of the <code>resolvedPath</code> buffer.  On exit, this will be set to the length of the resolved path.</li>
+<li><code>index</code> is a pointer to a <code>BYTE</code> that is used to keep track of which version of a path prefix is being used.  This is used when resolving paths that use a prefix where the corresponding system variable contains multiple values.  If the <code>index</code> pointer is set to <code>NULL</code> then only the first matching path will be returned.  You can use this to manually iterate through the available prefixes.</li>
+<li><code>dir</code> is a pointer to a <code>DIR</code> object.  This is optional, but if it is not provided then the function can only return the first matching path.  If a <code>DIR</code> object is provided, then repeated calls to this function can be used to find all matching paths.  This is useful for finding files that match a given pattern.</li>
+<li><code>flags</code> is a set of flags that control how the path is resolved.  These flags are described in the <a href="../API/#0x38-mos_resolvepath"><code>mos_resolvepath</code></a> API documentation.</li>
+</ul>
+<p>This function will return a <a href="../API/#status-codes">MOS status code</a>, in the <code>HLU</code> register.  For more guidance on possible return values, please see the API documentation for the <a href="../API/#0x38-mos_resolvepath"><code>mos_resolvepath</code></a> API call.</p>
+<h3 id="0x0e-int-getdirectoryforpathchar-srcpath-char-dir-int-length-byte-index">0x0E - <code>int getDirectoryForPath(char * srcPath, char * dir, int * length, BYTE index);</code></h3>
+<p>The underlying function the <a href="../API/#0x39-mos_getdirforpath"><code>mos_getdirforpath</code></a> API call uses.</p>
+<p>This function will return the directory for a given file path, omitting the leaf name.</p>
+<p>The arguments to this function are as follows:</p>
+<ul>
+<li><code>srcPath</code> is a pointer to the file path string that is to be resolved</li>
+<li><code>dir</code> is a pointer to the buffer where the resolved path will be written.  If this is set to <code>NULL</code> then the function will calculate the length of the resolved path.</li>
+<li><code>length</code> is a pointer to an integer that on entry indicates the size of the <code>dir</code> buffer.  On exit, this will be set to the length of the resolved path.</li>
+<li><code>index</code> is used to determine which version of a path prefix is used</li>
+</ul>
+<p>This function is purely a string manupulation function.  It does not perform any filing system operations, </p>
+<p>This function returns a <a href="../API/#status-codes">MOS status code</a>, in the <code>HLU</code> register.  If the path contains a prefix that is not recognised, or if the prefix was recognised but the <code>index</code> value is out of range, then the function will return a "no path" status code.</p>
+<h3 id="0x0f-int-resolverelativepathchar-path-char-resolved-int-length">0x0F - <code>int resolveRelativePath(char * path, char * resolved, int * length);</code></h3>
+<p>This is the underlying function that <a href="../API/#0x3c-mos_getabsolutepath"><code>mos_api_getabsolutepath</code></a> uses.</p>
+<p>This function will take a relative path, i.e. one that may contain <code>.</code> or <code>..</code> path components, and resolve it into an absolute path.  Please note that this function does not perform a file path resolution, i.e. it will not resolve any path prefixes or system variables.  This function does however verify that the path provided is valid (at least in terms of does the containing directory exist), and will return an error if it is not.</p>
+<p>At the time of writing, this function requires both the source <code>path</code> argument and a destination <code>resolved</code> pointer to be provided.  To come into line with other functions this may change in the future to allow for the <code>resolved</code> pointer to be <code>NULL</code> in order to calculate the length of the resolved path.  As with the other functions above, the <code>length</code> pointer is used to indicate the size of the destination buffer, and will be updated to reflect the length of the resolved path.</p>
+<p>Returns a <a href="../API/#status-codes">MOS status code</a>, in the <code>HLU</code> register.</p>
+<h3 id="0x10-void-getsysvars">0x10 - <code>void * getsysvars()</code></h3>
+<p>Returns a pointer to the system variables area.  Directly equivalent to the <a href="../API/#0x08-mos_sysvars"><code>mos_sysvars</code></a> API call.</p>
+<p>The sysvars pointer will be returned in the <code>HLU</code> register.</p>
+<h3 id="0x11-void-getkbmap">0x11 - <code>void * getkbmap()</code></h3>
+<p>Returns a pointer to the keyboard map.  Directly equivalent to the <a href="../API/#0x1e-mos_getkbmap"><code>mos_getkbmap</code></a> API call.</p>
+<p>The keyboard map pointer will be returned in the <code>HLU</code> register.</p>
+<h2 id="modules">A note for the future: MOS modules</h2>
+<p>It is highly likely that a future version of MOS will introduce a <a href="../Modules/">module system</a> that will allow some parts of MOS to be loaded and unloaded at run-time.</p>
+<p>What this means is that the address of a function returned by the <code>mos_getfunction</code> API might not be valid if the module that provides it has been unloaded.</p>
+<p>Functions provided by "Core MOS" will always be present.  At this time the exact details of what will be included in "Core MOS" have yet to be finalised, but it is likely that all of the APIs and star commands present in MOS 2.3 will be included.  Whilst some new features added in MOS 3.0 are also likely to be included in "Core MOS" are also likely to be included, not all of them will be.</p>
+<p>For now, the safest way to use the <code>mos_getfunction</code> API would be to call it each time you need to use a function, immediately before you call the function it returns.  This should guarantee that the module containing the function has been loaded and is present in memory.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

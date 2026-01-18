@@ -1,0 +1,4020 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Bitmaps-API/">
+      
+      
+        <link rel="next" href="../Context-Management-API/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Buffered Commands API - Community Agon Platform documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#command-0" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Community Agon Platform documentation" class="md-header__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Community Agon Platform documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Buffered Commands API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="lime"  aria-label="Switch to your system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to your system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Community Agon Platform documentation" class="md-nav__button md-logo" aria-label="Community Agon Platform documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Community Agon Platform documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AgonPlatform/agon-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    contribute
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome & getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome & getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Theory-of-operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory of operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MOS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Star-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/C-Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Executables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Executable format
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/System-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mos/Argument-Substitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Argument Substitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VDP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VDP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDU-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Screen-Modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Screen Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLOT-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PLOT Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System-Commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Enhanced-Audio-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audio API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bitmaps-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bitmaps and Sprites API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buffered Commands API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 0: Write block to a buffer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 0: Write block to a buffer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bitmap-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using buffers for bitmaps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-buffers-for-sound-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using buffers for sound samples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-buffers-for-command-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using buffers for command sequences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 1: Call a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 2: Clear a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 3: Create a writeable buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 4: Set output stream to a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 5: Adjust buffer contents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 5: Adjust buffer contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 6: Conditionally call a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 7: Jump to a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 8: Conditional Jump to a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-9-jump-to-an-offset-in-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 9: Jump to an offset in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 10: Conditional jump to an offset in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-11-call-buffer-with-an-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 11: Call buffer with an offset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-12-conditional-call-buffer-with-an-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 12: Conditional call buffer with an offset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 13: Copy blocks from multiple buffers into a single buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 14: Consolidate blocks in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 15: Split a buffer into multiple blocks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-16-split-a-buffer-into-multiple-blocks-and-spread-across-multiple-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 16: Split a buffer into multiple blocks and spread across multiple buffers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-17-split-a-buffer-and-spread-across-blocks-starting-at-target-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 17: Split a buffer and spread across blocks, starting at target buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-18-split-a-buffer-into-blocks-by-width" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 18: Split a buffer into blocks by width
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-19-split-by-width-into-blocks-and-spread-across-target-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 19: Split by width into blocks and spread across target buffers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-20-split-by-width-into-blocks-and-spread-across-blocks-starting-at-target-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 20: Split by width into blocks and spread across blocks starting at target buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-21-spread-blocks-from-a-buffer-across-multiple-target-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 21: Spread blocks from a buffer across multiple target buffers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-22-spread-blocks-from-a-buffer-across-blocks-starting-at-target-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 22: Spread blocks from a buffer across blocks starting at target buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-23-reverse-the-order-of-blocks-in-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 23: Reverse the order of blocks in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-24-reverse-the-order-of-data-of-blocks-within-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 24: Reverse the order of data of blocks within a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-25-copy-blocks-from-multiple-buffers-by-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 25: Copy blocks from multiple buffers by reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-26-copy-blocks-from-multiple-buffers-and-consolidate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 26: Copy blocks from multiple buffers and consolidate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-32-and-33-create-or-manipulate-a-2d-or-3d-affine-transformation-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands 32 and 33: Create or manipulate a 2D or 3D affine transformation matrix
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands 32 and 33: Create or manipulate a 2D or 3D affine transformation matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-34-create-or-combine-a-matrix-of-arbitrary-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 34: Create or combine a matrix of arbitrary dimensions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 34: Create or combine a matrix of arbitrary dimensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-40-create-a-transformed-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 40: Create a transformed bitmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-41-apply-a-transform-matrix-to-data-in-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 41: Apply a transform matrix to data in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 48: Read a VDP variable into a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-64-compress-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 64: Compress a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-65-decompress-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 65: Decompress a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-72-expand-a-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 72: Expand a bitmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 80: Set a buffer to be used for a callback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 80: Set a buffer to be used for a callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#palette-change-event-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Palette change event callbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdp-protocol-event-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDP Protocol event callbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-81-remove-buffer-from-a-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 81: Remove buffer from a callback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-128-debug-info-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 128: Debug info command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-a-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading a sample
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeating-a-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeating a command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-simplistic-reset-all-audio-channels-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A simplistic "reset all audio channels" example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-ideas-techniques-and-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other ideas, techniques, and principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other ideas, techniques, and principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-many-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using many buffers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-modifying-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-modifying code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jump tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-output-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the output stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-your-imagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use your imagination!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Context-Management-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Copper-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copper Effects API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Font-API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Font Management API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tile-Engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VDP-Variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VDP Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BBC-BASIC-for-Agon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BBC Basic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPIO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Updating-Firmware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updating Firmware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Additional resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../External-Documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Third-Party-Projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Third party projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#command-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 0: Write block to a buffer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 0: Write block to a buffer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bitmap-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using buffers for bitmaps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-buffers-for-sound-samples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using buffers for sound samples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-buffers-for-command-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using buffers for command sequences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 1: Call a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 2: Clear a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 3: Create a writeable buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 4: Set output stream to a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 5: Adjust buffer contents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 5: Adjust buffer contents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 6: Conditionally call a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 7: Jump to a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 8: Conditional Jump to a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-9-jump-to-an-offset-in-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 9: Jump to an offset in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 10: Conditional jump to an offset in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-11-call-buffer-with-an-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 11: Call buffer with an offset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-12-conditional-call-buffer-with-an-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 12: Conditional call buffer with an offset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 13: Copy blocks from multiple buffers into a single buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 14: Consolidate blocks in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 15: Split a buffer into multiple blocks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-16-split-a-buffer-into-multiple-blocks-and-spread-across-multiple-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 16: Split a buffer into multiple blocks and spread across multiple buffers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-17-split-a-buffer-and-spread-across-blocks-starting-at-target-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 17: Split a buffer and spread across blocks, starting at target buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-18-split-a-buffer-into-blocks-by-width" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 18: Split a buffer into blocks by width
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-19-split-by-width-into-blocks-and-spread-across-target-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 19: Split by width into blocks and spread across target buffers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-20-split-by-width-into-blocks-and-spread-across-blocks-starting-at-target-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 20: Split by width into blocks and spread across blocks starting at target buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-21-spread-blocks-from-a-buffer-across-multiple-target-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 21: Spread blocks from a buffer across multiple target buffers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-22-spread-blocks-from-a-buffer-across-blocks-starting-at-target-buffer-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 22: Spread blocks from a buffer across blocks starting at target buffer ID
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-23-reverse-the-order-of-blocks-in-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 23: Reverse the order of blocks in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-24-reverse-the-order-of-data-of-blocks-within-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 24: Reverse the order of data of blocks within a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-25-copy-blocks-from-multiple-buffers-by-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 25: Copy blocks from multiple buffers by reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-26-copy-blocks-from-multiple-buffers-and-consolidate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 26: Copy blocks from multiple buffers and consolidate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-32-and-33-create-or-manipulate-a-2d-or-3d-affine-transformation-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands 32 and 33: Create or manipulate a 2D or 3D affine transformation matrix
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands 32 and 33: Create or manipulate a 2D or 3D affine transformation matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-34-create-or-combine-a-matrix-of-arbitrary-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 34: Create or combine a matrix of arbitrary dimensions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 34: Create or combine a matrix of arbitrary dimensions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advanced-operations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-40-create-a-transformed-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 40: Create a transformed bitmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-41-apply-a-transform-matrix-to-data-in-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 41: Apply a transform matrix to data in a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 48: Read a VDP variable into a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-64-compress-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 64: Compress a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-65-decompress-a-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 65: Decompress a buffer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-72-expand-a-bitmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 72: Expand a bitmap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 80: Set a buffer to be used for a callback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command 80: Set a buffer to be used for a callback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#palette-change-event-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Palette change event callbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vdp-protocol-event-callbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VDP Protocol event callbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-81-remove-buffer-from-a-callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 81: Remove buffer from a callback
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-128-debug-info-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command 128: Debug info command
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-a-sample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading a sample
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeating-a-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repeating a command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-simplistic-reset-all-audio-channels-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A simplistic "reset all audio channels" example
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-ideas-techniques-and-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other ideas, techniques, and principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other ideas, techniques, and principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack depth
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-many-buffers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using many buffers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-modifying-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-modifying code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jump-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jump tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-output-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using the output stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-your-imagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use your imagination!
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/AgonPlatform/agon-docs/edit/main/docs/vdp/Buffered-Commands-API.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="vdp-buffered-commands-api">VDP Buffered Commands API</h1>
+<p>The VDP Buffered Commands API is a low-level API that allows for the creation of buffers on the VDP.  These buffers can be used for sequences of commands for later execution, storing data, as well as storing bitmaps, sound samples and fonts.</p>
+<p>Through the use of the APIs, it is possible to both send commands to the VDP in a "packetised" form, as well as to have "functions" or "stored procedures" that can be saved on the VDP and executed later.</p>
+<p>These commands are collected under <code>VDU 23, 0, &amp;A0, bufferId; command, [&lt;arguments&gt;]</code>.</p>
+<p>Examples below are given in BBC BASIC.</p>
+<p>A common source of errors when sending commands to the VDP from BASIC via VDU statements is to forget to use a <code>;</code> after a number to indicate a 16-bit value should be sent.  If you see unexpected behaviour from your BASIC code that is the most likely source of the problem.</p>
+<p>All commands must specify a buffer ID as a 16-bit integer.  There are 65534 buffers available for general use, with one buffer ID (number 65535) reserved for special functions, and is generally interpreted as meaning "current buffer".  As with all other VDP commands, these 16-bit values are sent as two bytes in little-endian order, and are documented as per BBC BASIC syntax, such as <code>bufferId;</code>.</p>
+<p>On a restart all buffers will be empty.  One should not assume however that buffers are empty when your program is run, as other programs may have already used the buffers.  Indeed, it is a valid use case to have a "loader" program that is designed to be run before another program to prepare a set of buffers for that second program to use.  It is therefore advisable to clear out the buffers before use.</p>
+<p>A single buffer can contain multiple blocks.  This approach allows for a buffer to be gradually built up over time, and for multiple commands to be sent to the VDP in a single packet.  This can be useful for sending large amounts of data to the VDP, such as a large bitmap or a sound sample, or using smaller blocks to contain for command sequences for more easily referencing an individual command (or indeed even fragments of command sequences).  By breaking up large data into smaller packets it is possible to avoid blocking the screen for long periods of time, allowing for a visual indicator of progress to be made to the user.</p>
+<p>Many of the commands accept an offset within a buffer.  An offset is typically a 16-bit value, however as buffers can be larger than 64kb an "advanced" offset mode is provided.  This advanced mode allows for offsets to be specified as 24-bit values, and also provides for a mechanism to refer to individual blocks within a buffer.  When this mode is used, the offset is sent as 3 bytes in little-endian order.  If the top bit of an advanced offset is set, this indicates that <em>following</em> the offset value there will be a 16-bit block number, with the remaining 23-bit offset value to be applied as an offset within the indicated block.  Using block offsets can be useful for modifying commands within buffers, as using block offsets can make identifying where parameters are placed within commands much easier to work out.</p>
+<p>At this time the VDP Buffered Commands API does not send any messages back to MOS to indicate the status of a command, or support a mechanism for sending contents of buffers back to MOS.  This will likely change in the future, but that will require changes to agon-mos to support it.</p>
+<h2 id="command-0">Command 0: Write block to a buffer</h2>
+<p><code>VDU 23, 0 &amp;A0, bufferId; 0, length; &lt;buffer-data&gt;</code></p>
+<p>This command is used to store a data block (a sequence of bytes) in a buffer on the VDP.  The exact nature of this data may vary.  It could be a sequence of VDU commands which can be executed later, a bitmap, a sound sample, or just a sequence of bytes.  When used for a sequence of VDU commands, this effectively allows for functions or stored procedures to be created.</p>
+<p>This is the most common command to use to send data to the VDP.  Typically you will call <a href="#command-2">command 2</a> first to ensure that the buffer is empty, and then make a series of calls to this command to send data to the buffer.  You can also use this command to save a sequence of commands to a buffer for later execution using <a href="#command-1">command 1</a>.</p>
+<p>NB you do not need to "create a buffer" before writing blocks to it; buffers are created automatically when the first block is written to them.</p>
+<p>The <code>bufferId</code> is a 16-bit integer that identifies the buffer to write to.  Writing to the same buffer ID multiple times will add new blocks to that buffer.  This allows a buffer to be built up over time, essentially allowing for a command to be sent across to the VDP in multiple separate packets.</p>
+<p>Whilst the length of an individual block added using this command is restricted to 65535 bytes (as the largest value that can be sent in a 16-bit number) the total size of a buffer, or a block within a buffer, is <em>not</em> restricted to this size, as multiple blocks can be added to a buffer, and blocks can be <a href="#command-14">consolidated</a>.  Given how long it takes to send data to the VDP it is advisable to send data across in smaller chunks, such as 1kb of data or less at a time.</p>
+<p>As writing to a single buffer ID is cumulative with this command, care should be taken to ensure that the buffer is cleared out before writing to it.</p>
+<p>When building up a complex sequence of commands it is often advisable to use multiple blocks within a buffer.  Typically this is easier to code, as otherwise working out exactly how many bytes long a command sequence is can be can be onerously difficult.  It is also easier to modify a command sequences that are broken up into multiple blocks.</p>
+<p>As mentioned above it is advisable to send large pieces of data, such as bitmaps or sound samples, in smaller chunks.  In between each packet of data sent to a buffer, the user can then perform other operations, such as updating the screen to indicate progress.  This allows for long-running operations to be performed without blocking the screen, and larger amounts of data to be transferred over to the VDP than may otherwise be practical given the limitations of the eZ80.</p>
+<p>If a buffer ID of 65535 is used then this command will be ignored, and the data discarded.  This is because this buffer ID is reserved for special functions.</p>
+<h3 id="bitmap-buffers">Using buffers for bitmaps</h3>
+<p>Whilst it is advisable to send bitmaps over in multiple blocks, they cannot be <em>used</em> if they are spread over multiple blocks.  To use a bitmap its data must be in a single contiguous block, and this is achieved by using the <a href="#command-14">"consolidate blocks" command</a>.</p>
+<p>Once you have a block that is ready to be used for a bitmap, the buffer must be selected, and then a bitmap created for that buffer using the bitmap and sprites API.  This is done with the following commands:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>VDU 23, 27, &amp;20, bufferId;              : REM Select bitmap (using a buffer ID)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>VDU 23, 27, &amp;21, width; height; format  : REM Create bitmap from buffer
+</code></pre></div>
+<p>More extensive information on the bitmap and sprites API calls can be found in the <a href="../Bitmaps-API/">bitmaps and sprites documentation</a>.</p>
+<p>Until the "create bitmap" call has been made the buffer cannot be used as a bitmap.  That is because the system needs to understand the dimensions of the bitmap, as well as the format of the data.  Usually this only needs to be done once.  The format is given as an 8-bit value, with the following values supported:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>RGBA8888</td>
+<td>RGBA, 8-bits per channel, with bytes ordered sequentially for red, green, blue and alpha</td>
+</tr>
+<tr>
+<td>1</td>
+<td>RGBA2222</td>
+<td>RGBA, 2-bits per channel, with bits ordered from highest bits as alpha, blue, green and red</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mono/Mask</td>
+<td>Monochrome, 1-bit per pixel</td>
+</tr>
+</tbody>
+</table>
+<p>You should note that some <a href="../Bitmaps-API/">bitmap API commands</a> use an 8-bit number to reference bitmaps.  These are automatically mapped to buffers numbered in the range 64000-64255 (<code>&amp;FA00</code>-<code>&amp;FAFF</code>).  Working out the buffer number for a bitmap is simply a matter of adding 64000.</p>
+<p>There is one other additional call added to the bitmap and sprites API, which allows for bitmaps referenced with a buffer ID to be added to sprites.  This is done with the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>VDU 23, 27, &amp;26, bufferId;              : REM Add bitmap to the current sprite
+</code></pre></div>
+<p>This command otherwise works identically to <code>VDU 23, 27, 6</code>.</p>
+<p>It should be noted that it is possible to modify the buffer that a bitmap is stored in using the "adjust buffer contents" and "reverse contents" commands (<code>5</code> and <code>24</code> respectively).  This can allow you to do things such as changing colours in a bitmap, or flipping an image horizontally or vertically.  This will even work on bitmaps that are being used inside sprites.</p>
+<p>Using commands targeting a buffer that creates new blocks after a buffer has been designated as a bitmap, such as this command, <a href="#command-14">"consolidate"</a> or <a href="#command-15">"split"</a>, will invalidate the bitmap and remove it from use.</p>
+<h3 id="using-buffers-for-sound-samples">Using buffers for sound samples</h3>
+<p>Much like with bitmaps, it is advisable to send samples over to the VDP in multiple blocks for the same reasons.</p>
+<p>In contrast to bitmaps, the sound system can play back samples that are spread over multiple blocks, so there is no need to consolidate buffers.  As a result of this, the sample playback system is also more tolerant of modifications being made to the buffer after a sample has been created from it, even if the sample is currently playing.  It should be noted that splitting a buffer may result in unexpected behaviour if the sample is currently playing, such as skipping to other parts of the sample.</p>
+<p>Full information on the sound system can be found in the <a href="../Enhanced-Audio-API/">audio API documentation</a>.</p>
+<p>Once you have a buffer that contains block(s) that are ready to be used for a sound sample, the following command must be used to indicate that a sample should be created from that buffer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>VDU 23, 0, &amp;85, 0, 5, 2, bufferId; format
+</code></pre></div>
+<p>The <code>format</code> parameter is an 8-bit value that indicates the format of the sample data.  The following values are supported:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>8-bit signed, 16KHz</td>
+</tr>
+<tr>
+<td>1</td>
+<td>8-bit unsigned, 16KHz</td>
+</tr>
+</tbody>
+</table>
+<p>Once a sample has been created in this way, the sample can be selected for use on a channel using the following command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>VDU 23, 0, &amp;85, channel, 4, 8, bufferId;
+</code></pre></div>
+<p>Samples uploaded using the existing "load sample" command (<code>VDU 23, 0, &amp;85, sampleNumber, 5, 0, length; lengthHighByte, &lt;sample data&gt;</code>) are also stored in buffers automatically.  A sample number using this system is in the range of -1 to -128, but these are stored in the range 64256-64383 (<code>&amp;FB00</code>-<code>&amp;FB7F</code>).  To map a number to a buffer range, you need to negate it, subtract 1, and then add it to 64256.  This means sample number -1 is stored in buffer 64256, -2 is stored in buffer 64257, and so on.</p>
+<h3 id="using-buffers-for-command-sequences">Using buffers for command sequences</h3>
+<p>Buffers are particularly useful for storing sequences of VDU commands that can be executed later.  Having a buffer full of commands can be thought of as a "function" or "stored procedure" that can be called later.  This can have significant performance advantages, as calling a buffer of commands is much faster than sending the same commands across from MOS to the VDP each time they are needed.</p>
+<p>Storing commands is as simple as sending <code>VDU 23, 0, &amp;A0, bufferId; 0, length;</code> and then just performing the VDU commands you wish to be stored as normal.  Instead of those commands being executed immediately they will be saved in the buffer instead.</p>
+<p>The main difficulty in storing command sequences in buffers is working out the <code>length</code> parameter, as VDU commands can vary in length.  Using a <code>length</code> value that is too short means some bytes will not get stored in the buffer, so the last command may be incomplete, and those bytes will instead get interpreted as commands by the main VDU command processor, likely resulting in unexpected behaviour.  Conversely a <code>length</code> that is too long means bytes from subsequent commands that you had intended to be sent to the VDP's command processor will instead get stored in the buffer until that buffer is full, again resulting in unexpected behaviour.</p>
+<p>There are two strategies that can help here.</p>
+<p>Firstly splitting complicated command sequences across multiple blocks can make it easier to work out the length of each block.  It's much simpler to count up the bytes used for a small number of commands than to work out the entire length of a long sequence of commands.  When executing a buffer there is no performance penalty between having a single long block of commands, or multiple smaller blocks.  This approach can also make it easier to modify command sequences later, as you can just change a single block rather than having to recalculate the length of an entire sequence.  It is however still quite easy to mis-count the number of bytes in a block, so care should still be taken.</p>
+<p>Secondly, instead of accurately calculating exactly how many bytes needed for the sequence you wish to save in a block one can instead choose an estimated length that is longer than is actually needed.  After sending the sequence of commands you wish to be saved, to ensure the block is definitely filled you can then send extra <a href="../VDU-Commands/#vdu-0">null commands</a> (<code>VDU 0</code>, which are <code>0</code> bytes) to pad out the block to the required length.  Conservatively, just sending as many zero bytes as the block length you have specified safely ensures that the block will be filled.  The VDP's command processor essentially ignores the extra zero bytes beyond those being stored in the block, and when executing the block the stored extra zero bytes will also be ignored.</p>
+<h2 id="command-1">Command 1: Call a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 1</code></p>
+<p>This command will attempt to execute all of the commands stored in the buffer with the given ID.  If the buffer does not exist, or is empty, then this command will do nothing.</p>
+<p>Essentially, this command passes the contents of the buffer to the VDP's VDU command processor system, and executes them as if they were sent directly to the VDP.</p>
+<p>As noted against command 0, it is possible to build up a buffer over time by sending across multiple commands to write to the same buffer ID.  When calling a buffer with multiple blocks, the blocks are executed in order.</p>
+<p>Care should be taken when using this command within a buffer, as it is possible to create an infinite loop.  For instance, if a buffer contains a command to call itself, then this will result in an infinite loop.  This will cause the VDP to hang, and the only way to recover from this is to reset the VDP.</p>
+<p>Using a <code>bufferId</code> of -1 (65535) will cause the current buffer to be executed.  This can be useful for creating loops within a buffer.  It will be ignored if used outside of a buffered command sequence.</p>
+<h2 id="command-2">Command 2: Clear a buffer</h2>
+<p><code>VDU 23, 0 &amp;A0, bufferId; 2</code></p>
+<p>This command will clear the buffer with the given ID.  If the buffer does not exist then this command will do nothing.</p>
+<p>Please note that this clears out all of the blocks sent to a buffer via command 0, not just the last one.  i.e. if you have built up a buffer over time by sending multiple commands to write to the same buffer ID, this command will clear out all of those commands.</p>
+<p>Calling this command with a <code>bufferId</code> value of -1 (65535) will clear out all buffers.</p>
+<h2 id="create-buffer">Command 3: Create a writeable buffer</h2>
+<p><code>VDU 23, 0 &amp;A0, bufferId; 3, length;</code></p>
+<p>NB it is incredibly rare that you will want to use this command.  In general, new buffers are best created using the <a href="#command-0">write buffer</a> command.  You do not need to use this command to create a buffer before using the <a href="#command-0">write buffer</a> command; doing so will usually lead to errors as you will end up with <em>two</em> blocks in the buffer, the first of which will be empty.  The use of this command to create a buffer in which to store reference data can largely be replaced through the use of <a href="../VDP-Variables/">VDP Variables</a>.</p>
+<p>This command will create a new writeable buffer with the given ID.  If a buffer with the given ID already exists then this command will do nothing; you may therefore wish to <a href="#command-2">clear the buffer</a> first before using this command.  This command was primarily intended for use to create a buffer that can be used to capture output using the <a href="#command-4">"set output stream"</a> command, or to store data that can be used for other commands.</p>
+<p>If you do wish to use this command to create a buffer to store program data, after using this command you will typically use the "set" operation in the <a href="#command-5">"buffer adjust"</a> command to change the buffer's contents.  As the <a href="#command-5">buffer adjust</a> command does not require a "writeable buffer" this is not recommended; it is generally easier to use command 0 to write a data block to a buffer.</p>
+<p>This new buffer will be a single empty single block upon creation, containing zeros.</p>
+<p>The <code>length</code> parameter is a 16-bit integer that specifies the maximum size of the buffer.  This is the maximum number of bytes that can be stored in the buffer.</p>
+<p>After creating a buffer with this command it is possible to use the <a href="#command-0">write buffer</a> command to write further blocks to the buffer, however this is <em>probably</em> not advisable.</p>
+<p>Using this command with a <code>bufferId</code> of <code>65535</code> (-1) and <code>0</code> will be ignored, as these values have special meanings for writable buffers.  See <a href="#command-4">command 4</a>.</p>
+<h2 id="command-4">Command 4: Set output stream to a buffer</h2>
+<p><code>VDU 23, 0 &amp;A0, bufferId; 4</code></p>
+<p>Do <em>not</em> use this command.  It almost certainly does not do what you want or expect.</p>
+<p>NB: The original intent of this command was to provide a way for buffered command sequences to access to VDP state information.  In general this is no longer necessary, as almost of this functionality is now available via <a href="../VDP-Variables/">VDP Variables</a> in a much easier to use form.  An alternative use of this command was to suppress VDP protocol packets from being sent to MOS - in VDP 2.15 one can suppress the next VDP protocol packet by setting VDP Variable <code>&amp;103</code>, which is a much safer approach.</p>
+<p>This command changes the current "output stream" of the VDP, allowing <a href="../System-Commands/#vdp-serial-protocol">VDP protocol</a> data packets to be sent to a buffer, or prevented from being sent, instead of being sent to MOS.</p>
+<p>The default output stream for the main VDU command processor is the communications channel from the VDP to MOS running on the eZ80.</p>
+<p>Changes made with this command apply to the current command stream, and any other buffered command sequences that are called from within that sequence.  Once the buffered command sequence has completed, the output stream will be reset to its original value.  (Please note that from VDP 2.8 until 2.14 a bug meant that this behaviour was not observed, and any changes to the output stream applied globally and permanently.  This has been fixed in VDP 2.15.)</p>
+<p>The target buffer must be a writable buffer created with <a href="#create-buffer">command 3</a>, or one of two special buffer IDs.  If the buffer does not exist, or the first block within the target buffer is not writable, then this command will do nothing.</p>
+<p>In reality, this is a poor way to capture VDP state information, as one does not have full control over when VDP protocol packets are sent.</p>
+<p>The two special buffer IDs are:</p>
+<ul>
+<li><code>65535</code> (-1): This removes/detaches the output stream.  Any subsequent interactions that cause VDP protocol packets to be sent will have those responses discarded/ignored.<ul>
+<li>This includes both responses from VDU commands and user interactions such as keyboard or mouse update events.</li>
+</ul>
+</li>
+<li><code>0</code>: This will set the output stream back to its original value for the current command stream.  Typically that will be the communications channel from the VDP to MOS running on the eZ80, but this may not be the case if a nested call has been made.<ul>
+<li>NB From VDP 2.8 until 2.14 setting the output stream to 0 would always set the output stream back to the MOS communication channel.  This was a bug that has been fixed in VDP 2.15.</li>
+</ul>
+</li>
+</ul>
+<p>It should be noted that writable buffers can only be written to until the end of the buffer has been reached; once that happens no more data will be written to the buffer.  It is not currently possible to "rewind" an output stream.  If you are using the command to capture VDP protocol packets you should ensure that the buffer is large enough to capture all of the data that is expected to be written to it.  The only current way to "rewind" an output stream is to clear the buffer and create a new one, and then call set output stream again with the newly created buffer.</p>
+<p>This command should be used with care, as it can cause unexpected behaviour if used incorrectly.  It is strongly recommended to only use this command from within a buffered command sequence.  If you do use it outside of a buffered command sequence, it is important to remember to restore the original output channel using <code>VDU 23, 0, &amp;A0, 0; 4</code>.  Failing to do this will mean VDP will stop communicating with MOS, and so basic information such as key presses won't be sent across, effectively causing your Agon to hang.</p>
+<p>As of VDP 2.15 when this command is used outside of a buffered command sequence the change will be temporary, protecting you from the hanging scenario that has just been described.  As soon as the VDP detects that the current command stream has completed (i.e. there are no pending commands, and a screen refresh has been performed) the output stream will be restored to communicate with MOS.  This can be useful for performing some operations that will set <a href="../VDP-Variables/">VDP Variables</a> without having to worry about them also sending data back to MOS.</p>
+<h2 id="command-5">Command 5: Adjust buffer contents</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 5, operation, offset; [count;] &lt;operand&gt;, [arguments]</code></p>
+<p>This command will adjust the contents of a buffer, at a given offset.  The exact nature of the adjustment will depend on the operation used.</p>
+<p>Passing a <code>bufferId</code> of -1 (65535) to this command will adjust the contents of the current buffer.  This will only work if this command is used within a buffered command sequence, otherwise the command will not do anything.</p>
+<p>The basic set of adjustment operations are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>NOT</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Negate</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Set value</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Add</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Add with carry</td>
+</tr>
+<tr>
+<td>5</td>
+<td>AND</td>
+</tr>
+<tr>
+<td>6</td>
+<td>OR</td>
+</tr>
+<tr>
+<td>7</td>
+<td>XOR</td>
+</tr>
+</tbody>
+</table>
+<p>All of these operations will modify a byte found at the given offset in the buffer.  The only exception to that is the "Add with carry" operation, which will also store the "carry" value in the byte at the <em>next</em> offset.  With the exception of NOT and Negate, each command requires an operand value to be specified.</p>
+<p>To flip the bits of a byte at offset 12 in buffer 3, you would need to use the NOT operation, and so the following command would be used:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>VDU 23, 0, &amp;A0, 3; 5, 0, 12;
+</code></pre></div></p>
+<p>To add 42 to the byte at offset 12 in buffer 3, you would need to use the Add operation, and so the following command would be used:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>VDU 23, 0, &amp;A0, 3; 5, 3, 12; 42
+</code></pre></div></p>
+<p>When using add with carry, the carry value is stored in the byte at the next offset.  So to add 42 to the byte at offset 12 in buffer 3, and store the carry value in the byte at offset 13, you would need to use the Add with carry operation, and so the following command would be used:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>VDU 23, 0, &amp;A0, 3; 5, 4, 12; 42
+</code></pre></div></p>
+<h3 id="advanced-operations">Advanced operations</h3>
+<p>Whilst these operations are useful, they are not particularly powerful as they only operate one one byte at a time, with a fixed operand value, and potentially cannot reach all bytes in a buffer.  To address this, the API supports a number of advanced operations.</p>
+<p>The operation value used is an 8-bit value that can have bits set to modify the behaviour of the operation.  The following bits are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;10</td>
+<td>Use "advanced" offsets</td>
+</tr>
+<tr>
+<td>&amp;20</td>
+<td>Operand is a buffer-fetched value (buffer ID and an offset)</td>
+</tr>
+<tr>
+<td>&amp;40</td>
+<td>Multiple target values should be adjusted</td>
+</tr>
+<tr>
+<td>&amp;80</td>
+<td>Multiple operand values should be used</td>
+</tr>
+</tbody>
+</table>
+<p>These bits can be combined together to modify the behaviour of the operation.</p>
+<p>Fundamentally, this command adjusts values of a buffer at a given offset one byte at a time.  When either of the "multiple" variants are used, a 16-bit <code>count</code> must be provided to indicate how many bytes should be altered.</p>
+<p>Advanced offsets are sent as a 24-bit value in little-endian order, which can allow for buffers that are larger than 64kb to be adjusted.  If the top-bit of this 24-bit value is set, then the 16-bit value immediately following the offset is used as a block index number, and the remaining 23-bits of the offset value are used as an offset within that block.  When the "advanced" offset mode bit has been set then all offsets associated with this command must be sent as advanced offsets.</p>
+<p>The "buffer-fetched value" mode allows for the operand value to be fetched from a buffer.  The operand sent as part of the command in this case is a pair of 16-bit values giving the buffer ID and offset to indicate where the actual operand value should be fetched from.  An operand buffer ID of -1 (65535) will be interpreted as meaning "this buffer", and thus can only be used inside a buffered command sequence.  If the advanced offset mode is used, then the operand value is an advanced offset value.</p>
+<p>The "multiple target values" mode allows for multiple bytes to be adjusted at once.  When this mode is used, the <code>count</code> value must be provided to indicate how many bytes should be adjusted.  Unless the "multiple operand values" mode is also used, the operand value is used for all bytes adjusted.</p>
+<p>The "multiple operand values" mode allows for multiple operand values to be used.  When this mode is used, the <code>count</code> value must be provided to indicate how many operand values should be used.  This can allow, for instance, to add together several bytes in a buffer.  When this mode is used in conjunction with the "multiple target values" mode, the number of operand values must match the number of target values, and the operation happens one byte at a time.</p>
+<p>Some examples of advanced operations are as follows:</p>
+<p>Flip the bits of 7 bytes in buffer 3 starting at offset 12:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;40, 12; 7;
+</code></pre></div>
+This uses operation 0 (NOT) with the "multiple target values" modifier (&amp;40).</p>
+<p>Add 42 to each of the 7 bytes in buffer 3 starting at offset 12:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;43, 12; 7; 42
+</code></pre></div></p>
+<p>Set the byte at offset 12 in the fourth block of buffer 3 to 42:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;12, 12; &amp;80, 4; 42
+</code></pre></div>
+This is using operation 2 (Set) with the "advanced offsets" modifier (&amp;10).  As BBC BASIC doesn't natively understand how to send 24-bit values it is sent as the 16-bit value <code>12;</code> followed by a byte with its top bit set <code>&amp;80</code> to complete the 24-bit offset in little-endian order.  As the top bit of the offset is set, this indicates that the next 16-bit value will be a block index, <code>4;</code>.  Finally the value to write is sent, <code>42</code>.</p>
+<p>An operation like this could be used to set the position as part of a draw command.</p>
+<p>Set the value in buffer 3 at offset 12 to the sum of the five values 1, 2, 3, 4, 5:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>VDU 23, 0, &amp;A0, 3; 5, 2, 12; 0  : REM clear out the value at offset 12 (set it to 0)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;83, 12; 5; 1, 2, 3, 4, 5
+</code></pre></div></p>
+<p>AND together 7 bytes in buffer 3 starting at offset 12 with the 7 bytes in buffer 4 starting at offset 42:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;E5, 12; 7; 4; 42;
+</code></pre></div></p>
+<p>As we are working on a little-endian system, integers longer than one byte are sent with their least significant byte first.  This means that the add with carry operation can be used to add together integers of any size, so long as they are the same size.  To do this, both the "multiple target values" and "multiple operand values" modes must be used.</p>
+<p>The following commands will add together a 16-bit, 24-bit, 32-bit, and 40-bit integers, all targeting the value stored in buffer 3 starting at offset 12, and all using the operand value of 42:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;C4, 12; 2; 42;  : REM 2 bytes; a 16-bit integer
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;C4, 12; 3; 42; 0  : REM 3 bytes; a 24-bit integer
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;C4, 12; 4; 42; 0;  : REM 4 bytes; a 32-bit integer
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>VDU 23, 0, &amp;A0, 3; 5, &amp;C4, 12; 5; 42; 0; 0  : REM 5 bytes; a 40-bit integer
+</code></pre></div>
+Take note of how the operand value is padded out with zeros to match the size of the target value.  <code>42;</code> is used as a base to send a 16-bit value, with zeros added of either 8-bit or 16-bits to pad it out to the required size.  The "carry" value will be stored at the next offset in the target buffer after the complete target value.  So for a 16-bit value, the carry will be stored at offset 14, for a 24-bit value it will be stored at offset 15, and so on.</p>
+<h2 id="command-6">Command 6: Conditionally call a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 6, operation, &lt;checkBufferId; checkOffset; | vduVariableId;&gt; [arguments]</code></p>
+<p>This command will conditionally call a buffer if the condition operation passes.  This command works in a similar manner to the "Adjust buffer contents" command.</p>
+<p>With this command a buffer ID of 65535 (-1) is always interpreted as "current buffer", and so can only be used within a buffered command sequence.  If used outside of a buffered command sequence then this command will do nothing.</p>
+<p>The basic set of condition operations are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Exists (value is non-zero)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Not exists (value is zero)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Equal</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Not equal</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Less than</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Less than or equal</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Greater than or equal</td>
+</tr>
+<tr>
+<td>8</td>
+<td>AND</td>
+</tr>
+<tr>
+<td>9</td>
+<td>OR</td>
+</tr>
+</tbody>
+</table>
+<p>The value that is being checked is fetched from the specified check buffer ID and offset, or from a <a href="../VDP-Variables/">VDP Variable</a>.  With the exception of "Exists" and "Not exists", each command requires an operand value argument to be specified to check against.</p>
+<p>The operation value used is an 8-bit value that can have bits set to modify the behaviour of the operation.  The following bits are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;10</td>
+<td>Use advanced offsets</td>
+</tr>
+<tr>
+<td>&amp;20</td>
+<td>Operand value argument is a buffer-fetched value (buffer ID and an offset)</td>
+</tr>
+<tr>
+<td>&amp;40</td>
+<td>Value to be checked is a <a href="../VDP-Variables/">VDP Variable</a> *</td>
+</tr>
+<tr>
+<td>&amp;80</td>
+<td>Compare 16-bit values *</td>
+</tr>
+</tbody>
+</table>
+<p>* These flag bits are only supported from VDP 2.12.0 onwards.</p>
+<p>These modifiers can be combined together to modify the behaviour of the operation.</p>
+<p>When bit <code>&amp;20</code> is set on the condition operation byte, the value to check against is fetched from a buffer, so the arguments provided must be a buffer ID and an offset (which can be an advanced offset, if the appropriate bit is set).</p>
+<p>Up to and including VDP 2.11.0, all comparisons would be conducted against 8-bit values only.  As of VDP 2.12.0 it is possible to specify that the values to compare are 16-bit values by setting bit <code>&amp;80</code> in the operation byte, in which case the operand value argument must be a 16-bit value.</p>
+<p>Comparisons of values larger than 16-bit are not directly supported.  If you need to compare larger values, you will need to break them down into smaller values and compare them separately, splitting your comparisons across multiple buffers.</p>
+<p>If the value to be checked is a VDP Variable, then the check buffer ID argument and offset should be omitted and instead a 16-bit variable ID sent in their place.  The "exists" and "not exists" operations for variables are a true existance check, rather than checking the value against zero.  For all other operations, if the variable does not exist then the operation result will be treated as false.</p>
+<p>(When the value to be checked is <em>not</em> a VDP variable, a <code>checkOffset;</code> argument must always be provided.  As with other commands, this can be an advanced offset.)</p>
+<p>The <code>AND</code> and <code>OR</code> operations are logical operations, and so the operand value is used as a boolean value.  Any non-zero value is considered to be true, and zero is considered to be false.  These operations therefore are most useful when used with buffer-fetched operand values (operations &amp;28, &amp;29, &amp;38 and &amp;39).</p>
+<p>Some examples of condition operations are as follows:</p>
+<p>Call buffer 7 if the value in buffer 12 at offset 5 exists (is non-zero):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>VDU 23, 0, &amp;A0, 7; 6, 0, 12; 5;
+</code></pre></div></p>
+<p>Call buffer 8 if the value in buffer 12 at offset 5 does not exist (is zero):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>VDU 23, 0, &amp;A0, 8; 6, 1, 12; 5;
+</code></pre></div></p>
+<p>Combining the above two examples is effectively equivalent to "if the value exists, call buffer 7, otherwise call buffer 8":
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>VDU 23, 0, &amp;A0, 7; 6, 0, 12; 5;
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>VDU 23, 0, &amp;A0, 8; 6, 1, 12; 5;
+</code></pre></div></p>
+<p>Call buffer 3 if the value in buffer 4 at offset 12 is equal to 42:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>VDU 23, 0, &amp;A0, 3; 6, 2, 4; 12; 42
+</code></pre></div></p>
+<p>Call buffer 5 if the value in buffer 2 at offset 7 is less than the value in buffer 2 at offset 8:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>VDU 23, 0, &amp;A0, 5; 6, &amp;24, 2; 7; 2; 8;
+</code></pre></div></p>
+<h2 id="command-7">Command 7: Jump to a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 7</code></p>
+<p>This command will jump to the buffer with the given ID.  If the buffer does not exist, or is empty, then this command will do nothing.</p>
+<p>This essentially works the same as the call command (command 1), except that it does not return to the caller.  This command is therefore useful for creating loops.</p>
+<p>Using this command to jump to buffer 65535 (buffer ID -1) is treated as a "jump to end of current buffer".  This will return execution to the caller, and can be useful for exiting a loop.</p>
+<h2 id="command-8">Command 8: Conditional Jump to a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 8, operation, checkBufferId; checkOffset; [arguments]</code></p>
+<p>This command operates in a similar manner to the "Conditionally call a buffer" command (command 6), except that it will jump to the buffer if the condition operation passes.</p>
+<p>As with the "Jump to a buffer" command (command 7), a jump to buffer 65535 is treated as a "jump to end of current buffer".</p>
+<h2 id="command-9-jump-to-an-offset-in-a-buffer">Command 9: Jump to an offset in a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 9, offset; offsetHighByte, [blockNumber;]</code></p>
+<p>This command will jump to the given offset in the buffer with the given ID.  If the buffer does not exist, or is empty, then this command will do nothing.</p>
+<p>The offset in this command is always an "advanced" offset, given as a 24-bit value in little-endian order.  As with other uses of advanced offsets, if the top-bit is set in the high byte of the offset value, a block number must also be provided.</p>
+<p>When jumping to an offset, using buffer ID 65535 is treated as meaning "jump within current buffer".  This can be useful for creating loops within a buffer, or when building up command sequences that may be copied across multiple buffers.</p>
+<p>Jumping to an offset that is beyond the end of the buffer is equivalent to jumping to the end of the buffer.</p>
+<h2 id="command-10">Command 10: Conditional jump to an offset in a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 10, offset; offsetHighByte, [blockNumber;] operation, &lt;checkBufferId; checkOffset; | vduVariableId;&gt; [arguments]</code></p>
+<p>A conditional jump with an offset works in a similar manner to the "Conditional call a buffer" command (command 6), except that it will jump to the given offset in the buffer if the condition operation passes.</p>
+<p>As with the "Jump to an offset in a buffer" command (command 9), the offset in this command is always an "advanced" offset, given as a 24-bit value in little-endian order, and the usual advanced offset rules apply.  And similarly, using buffer ID 65535 is treated as meaning "jump within current buffer".</p>
+<h2 id="command-11-call-buffer-with-an-offset">Command 11: Call buffer with an offset</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 11, offset; offsetHighByte, [blockNumber;]</code></p>
+<p>Works just like "Call a buffer" (command 1), except that it also accepts an advanced offset.</p>
+<h2 id="command-12-conditional-call-buffer-with-an-offset">Command 12: Conditional call buffer with an offset</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 12, offset; offsetHighByte, [blockNumber;] operation, &lt;checkBufferId; checkOffset; | vduVariableId;&gt; [arguments]</code></p>
+<p>Works just like the "Conditional call a buffer" command (command 6), except that it also accepts an advanced offset.</p>
+<h2 id="command-13">Command 13: Copy blocks from multiple buffers into a single buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, targetBufferId; 13, sourceBufferId1; sourceBufferId2; ... 65535;</code></p>
+<p>This command will copy the contents of multiple buffers into a single buffer.  The buffers to copy from are specified as a list of buffer IDs, terminated by a buffer ID of -1 (65535).  The buffers are copied in the order they are specified.</p>
+<p>This is a block-wise copy, so the blocks from the source buffers are copied into the target buffer.  The blocks are copied in the order they are found in the source buffers.</p>
+<p>The target buffer will be overwritten with the contents of the source buffers.  This will not be done however until after all the data has been gathered and copied.  The target buffer can therefore included in the list of the source buffers.</p>
+<p>If a source buffer that does not exist is specified, or a source buffer that is empty is specified, then that buffer will be ignored.  If no source buffers are specified, or all of the source buffers are empty, then the target buffer will be cleared out.</p>
+<p>The list of source buffers can contain repeated buffer IDs.  If a buffer ID is repeated, then the blocks from that buffer will be copied multiple times into the target buffer.</p>
+<p>If there is insufficient memory available on the VDP to complete this command then it will fail, and the target buffer will be left unchanged.</p>
+<h2 id="command-14">Command 14: Consolidate blocks in a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 14</code></p>
+<p>Takes all the blocks in a buffer and consolidates them into a single block.  This is useful for bitmaps, as it allows for a bitmap to be built up over time in multiple blocks, and then consolidated into a single block for use as a bitmap.</p>
+<p>If there is insufficient memory available on the VDP to complete this command then it will fail, and the buffer will be left unchanged.</p>
+<h2 id="command-15">Command 15: Split a buffer into multiple blocks</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 15, blockSize;</code></p>
+<p>Splits a buffer into multiple blocks.  The <code>blockSize</code> parameter is a 16-bit integer that specifies the target size of each block.  If the source data is not a multiple of the block size then the last block will be smaller than the specified block size.</p>
+<p>If this command is used on a buffer that is already split into multiple blocks, then the blocks will be consolidated first, and then re-split into the new block size.</p>
+<p>If there is insufficient memory available on the VDP to complete this command then it will fail, and the buffer will be left unchanged.</p>
+<h2 id="command-16-split-a-buffer-into-multiple-blocks-and-spread-across-multiple-buffers">Command 16: Split a buffer into multiple blocks and spread across multiple buffers</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 16, blockSize; [targetBufferId1;] [targetBufferId2;] ... 65535;</code></p>
+<p>Splits a buffer into multiple blocks, as per command 15, but then spreads the resultant blocks across the target buffers.  The target buffers are specified as a list of buffer IDs, terminated by a buffer ID of -1 (65535).</p>
+<p>The blocks are spread across the target buffers in the order they are specified, and the spread will loop around the buffers until all the blocks have been distributed.  The target buffers will be cleared out before the blocks are spread across them.</p>
+<p>What this means is that if the source buffer is, let's say, 100 bytes in size and we split using a block size of 10 bytes then we will end up with 10 blocks.  If we then spread those blocks across 3 target buffers, then the first buffer will contain blocks 1, 4, 7 and 10, the second buffer will contain blocks 2, 5 and 8, and the third buffer will contain blocks 3, 6 and 9.</p>
+<p>This command attempts to ensure that, in the event of insufficient memory being available on the VDP to complete the command, it will leave the targets as they were before the command was executed.  However this may not always be possible.  The first step of this command is to consolidate the source buffer into a single block, and this may fail from insufficient memory.  If that happens then all the buffers will be left as they were.  After this however the target buffers will be cleared.  If there is insufficient memory to successfully split the buffer into multiple blocks then the call will exit, and the target buffers will be left empty.</p>
+<h2 id="command-17-split-a-buffer-and-spread-across-blocks-starting-at-target-buffer-id">Command 17: Split a buffer and spread across blocks, starting at target buffer ID</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 17, blockSize; targetBufferId;</code></p>
+<p>As per the above two commands, this will split a buffer into multiple blocks.  It will then spread the blocks across buffers starting at the target buffer ID, incrementing the target buffer ID until all the blocks have been distributed.</p>
+<p>Target blocks will be cleared before a block is stored in them.  Each target will contain a single block.  The exception to this is if the target buffer ID reaches 65534, as it is not possible to store a block in buffer 65535.  In this case, multiple blocks will be placed into buffer 65534.</p>
+<p>With this command if there is insufficient memory available on the VDP to complete the command then it will fail, and the target buffers will be left unchanged.</p>
+<h2 id="command-18-split-a-buffer-into-blocks-by-width">Command 18: Split a buffer into blocks by width</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 18, width; blockCount;</code></p>
+<p>This command splits a buffer into a given number of blocks by first of all splitting the buffer into blocks of a given width (number of bytes), and then consolidating those blocks into the given number of blocks.</p>
+<p>This is useful for splitting a bitmap into a number of separate columns, which can then be manipulated individually.  This can be useful for dealing with sprite sheets.</p>
+<h2 id="command-19-split-by-width-into-blocks-and-spread-across-target-buffers">Command 19: Split by width into blocks and spread across target buffers</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 19, width; [targetBufferId1;] [targetBufferId2;] ... 65535;</code></p>
+<p>This command essentially operates the same as command 18, but the block count is determined by the number of target buffers specified.  The blocks are spread across the target buffers in the order they are specified, with one block placed in each target.  The target buffers are specified as a list of buffer IDs, terminated by a buffer ID of -1 (65535).</p>
+<h2 id="command-20-split-by-width-into-blocks-and-spread-across-blocks-starting-at-target-buffer-id">Command 20: Split by width into blocks and spread across blocks starting at target buffer ID</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 20, width; blockCount; targetBufferId;</code></p>
+<p>This command essentially operates the same as command 18, but the generated blocks are spread across blocks starting at the target buffer ID, as per command 17.</p>
+<h2 id="command-21-spread-blocks-from-a-buffer-across-multiple-target-buffers">Command 21: Spread blocks from a buffer across multiple target buffers</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 21, [targetBufferId1;] [targetBufferId2;] ... 65535;</code></p>
+<p>Spreads the blocks from a buffer across multiple target buffers.  The target buffers are specified as a list of buffer IDs, terminated by a buffer ID of -1 (65535).  The blocks are spread across the target buffers in the order they are specified, and the spread will loop around the buffers until all the blocks have been distributed.</p>
+<p>It should be noted that this command does not copy the blocks, and nor does it move them.  Unless the source buffer has been included in the list of targets, it will remain completely intact.  The blocks distributed across the target buffers will point to the same memory as the blocks in the source buffer.  Operations to modify data in the source buffer will also modify the data in the target buffers.  Clearing the source buffer however will not clear the target buffers.</p>
+<h2 id="command-22-spread-blocks-from-a-buffer-across-blocks-starting-at-target-buffer-id">Command 22: Spread blocks from a buffer across blocks starting at target buffer ID</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 22, targetBufferId;</code></p>
+<p>Spreads the blocks from a buffer across blocks starting at the target buffer ID.</p>
+<p>This essentially works the same as command 21, and the same notes about copying and moving blocks apply.  Blocks are spread in the same manner as commands 17 and 20.</p>
+<h2 id="command-23-reverse-the-order-of-blocks-in-a-buffer">Command 23: Reverse the order of blocks in a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 23</code></p>
+<p>Reverses the order of the blocks in a buffer.</p>
+<h2 id="command-24-reverse-the-order-of-data-of-blocks-within-a-buffer">Command 24: Reverse the order of data of blocks within a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 24, options, [valueSize;] [chunkSize;]</code></p>
+<p>Reverses the order of the data within the blocks of a buffer.  The <code>options</code> parameter is an 8-bit value where the bits set in that byte determine the operation's behavior.  The following bits are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Values are 16-bits in size</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Values are 32-bits in size</td>
+</tr>
+<tr>
+<td>3 (1+2)</td>
+<td>If both value size bits are set, then a <code>valueSize;</code> argument must be sent as a 16-bit value</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reverse data of the chosen value size within chunks of data, using a <code>chunkSize;</code> sent as a 16-bit value</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Reverse blocks</td>
+</tr>
+</tbody>
+</table>
+<p>If no value size is set in the options byte (i.e. the bottom two bits are both zero) then the value size is assumed to be 8-bits.</p>
+<p>To be clear, the table above documents how the bits are used inside the <code>options</code> byte.  These can be combined, so using a value of <code>6</code> for the options would indicate 32-bit values (bit 2) and reversing within chunks (bit 4), and a <code>chunkSize;</code> argument must be sent as a 16-bit value.</p>
+<p>It is probably easiest to understand what this operation is capable of by going through some examples of how it can be used to manipulate bitmaps.  The VDP supports two different formats of color bitmap, either RGBA8888 which uses 4-bytes per pixel, i.e. 32-bit values, or RGBA2222 which uses a single byte per pixel.</p>
+<p>The simplest example is rotating an RGBA2222 bitmap by 180 degrees, which can be done by just reversing the order of bytes in the buffer:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>VDU 23, 0, &amp;A0, bufferId; 24, 0
+</code></pre></div></p>
+<p>Rotating an RGBA8888 bitmap by 180 degrees is in principle a little more complex, as each pixel is made up of 4 bytes.  However with this command it is still a simple operation, as we can just reverse the order of the 32-bit values that make up the bitmap by using an options value of <code>2</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>VDU 23, 0, &amp;A0, bufferId; 24, 2
+</code></pre></div></p>
+<p>Mirroring a bitmap around the x-axis is a matter of reversing the order of rows of pixels.  This can be done by setting a custom value size that corresponds to our bitmap width.  As can be seen from the table above, setting the bottom two bits of the <code>options</code> byte, which will be a value of <code>3</code>, will indicate that we are using a custom value size, so we will need to follow that with a <code>valueSize;</code> argument as a 16-bit value.  Therefore the following command will mirror an RGBA2222 bitmap around the x-axis:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>VDU 23, 0, &amp;A0, bufferId; 24, 3, width;
+</code></pre></div></p>
+<p>As an RGBA8888 bitmap uses 4 bytes per pixel we'd need to multiply our width by 4:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>VDU 23, 0, &amp;A0, bufferId; 24, 3, width * 4;
+</code></pre></div></p>
+<p>To mirror a bitmap around the y-axis, we need to reverse the order of pixels within each row.  That is achieved by setting the "reverse within chunks" bit in the options byte.  So if we send an options value of <code>4</code> we will need to send a <code>chunkSize;</code> argument to indicate the width of each row.  Therefore the following command will mirror an RGBA2222 bitmap around the y-axis:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>VDU 23, 0, &amp;A0, bufferId; 24, 4, width;
+</code></pre></div></p>
+<p>For an RGBA8888 bitmap we need to set our options to indicate 32-bit values as well as a custom chunk size:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>VDU 23, 0, &amp;A0, bufferId; 24, 6, width * 4;
+</code></pre></div></p>
+<p>NB in these last two examples our options indicate that we are only sending a <code>chunkSize;</code> argument, so they do not include a <code>valueSize;</code> argument.  It is possible to combine both by using an options value of <code>7</code> - the uses of which are left as an exercise for the reader.</p>
+<h2 id="command-25-copy-blocks-from-multiple-buffers-by-reference">Command 25: Copy blocks from multiple buffers by reference</h2>
+<p><code>VDU 23, 0, &amp;A0, targetBufferId; 25, sourceBufferId1; sourceBufferId2; ...; 65535;</code></p>
+<p>This command is essentially a version of <a href="#command-13">command 13</a> that copies blocks by reference rather than by value.  The parameters for this command are the same as for command 13, and the same rules apply.</p>
+<p>If the target buffer is included in the list of source buffers then it will be skipped to prevent a reference loop.</p>
+<p>Copying by reference means that the blocks in the target buffer will point to the same memory as the blocks in the source buffers.  Operations to modify data blocks in the source buffers will therefore also modify those blocks in the target buffer.  Clearing the source buffers will not clear the target buffer - it will still point to the original data blocks.  Data blocks are only freed from memory when no buffers are left with any references to them.</p>
+<p>Buffers that get consolidated become new blocks, so will lose their links to the original blocks, thus after a "consolidate" operation modifications to the original blocks will no longer be reflected in the consolidated buffer.</p>
+<p>This command is useful to construct a single buffer from multiple sources without the copy overhead, which can be costly.  For example, this can be useful for constructing a bitmap from multiple constituent parts before consolidating it into a single block.  In such an example, using command 13 instead would first make a copy of the contents of the source buffers, and then consolidate them into a single block.  Using this command does not make that first copy, and so would be faster.</p>
+<p>This command is also useful for creating multiple buffers that all point to the same data.</p>
+<h2 id="command-26-copy-blocks-from-multiple-buffers-and-consolidate">Command 26: Copy blocks from multiple buffers and consolidate</h2>
+<p><code>VDU 23, 0, &amp;A0, targetBufferId; 26, sourceBufferId1; sourceBufferId2; ...; 65535;</code></p>
+<p>This command is similar to performing a "copy" operation followed by a "consolidate" operation, and thus has similar behaviour to <a href="#command-13">command 13</a> and/or command 25.  The parameters for this command are the same as for command 25.  As with command 25, you cannot include the target buffer in the list of source buffers.  If you do, then it will be skipped.</p>
+<p>This command will replace the target buffer with a new buffer that contains a single block that is the result of consolidating the blocks from the source buffers.  If the target buffer already contains a single block of the same size as the source buffers then it will re-use the memory, and so will be faster than performing a separate "copy by reference" and "consolidate" operation.</p>
+<p>It is useful for constructing a single buffer from multiple sources, such as for constructing a bitmap from multiple constituent parts.</p>
+<h2 id="commands-32-and-33-create-or-manipulate-a-2d-or-3d-affine-transformation-matrix">Commands 32 and 33: Create or manipulate a 2D or 3D affine transformation matrix</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 32, operation, [&lt;format&gt;, &lt;arguments...&gt;]</code><br>
+<code>VDU 23, 0, &amp;A0, bufferId; 33, operation, [&lt;format&gt;, &lt;arguments...&gt;]</code></p>
+<p>As of the time of writing, this command is experimental and subject to change.  It features in the VDP 2.9.0 release, but to use this command you need to enable the feature by setting the affine transforms test flag.  This is done using the command <code>VDU 23, 0, &amp;F8, 1; 1;</code>.  The exact operations and arguments supported by this command may change in the future.  Command 33 was added in the VDP 2.10.0 release.</p>
+<p>The purpose of these commands is to create or manipulate an affine transform matrix stored in a buffer.  Affine transforms are used to manipulate 2D or 3D points, and can be used to perform operations such as translation, rotation, scaling, and shearing.  Command 32 creates or manipulates a 2D affine transform matrix, and command 33 creates or manipulates a 3D affine transform matrix.  Affine transforms are used to manipulate 2D or 3D points, and can be used to perform operations such as translation, rotation, scaling, and shearing.</p>
+<p>To use this API you do not need to understand the mathematics of affine transformations.  The API is designed to be simple to use, and to allow for complex transformations to be built up from simple operations.</p>
+<p>Technically, a 2D affine transformation matrix is a 3x3 matrix that can be used to perform transformations on 2D points, and can be applied to drawing operations.  A 3D affine transform uses a 4x4 matrix to account for the extra dimension.  The matrix is stored in row-major order, and is stored as 32-bit single-precision IEEE-754 floating point values.  The matrix is stored in a single block in the buffer.  The drawing system may store a second block in the buffer to cache an inverse of the matrix, but you should not rely on that being there.</p>
+<p>A challenge with this API is that inherently neither the VDU command system nor the eZ80 CPU directly support floating-point arithmetic.  The API therefore supports sending numbers across in a variety of different formats to help facilitate this, and will convert the values sent to floating-point values as required.  The API supports sending fixed-point values, 16-bit and 32-bit integers, and 16-bit and 32-bit floating-point values.  Values must just be sent across as bytes in the VDU command stream in little-endian order, much like any other value byte must be send.</p>
+<p>Several different operations are supported by this command.  When an operation is performed, the result is stored back in the buffer, replacing any existing data that may have been there.  Most operations will combine their result with the existing matrix in the buffer.  This means that you can combine for instance rotation and scaling into one transform matrix.  The following operations are supported:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Arguments</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>Set an "identity matrix" (effectively a "reset" operation)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>Invert the matrix (this will only succeed if the buffer already contains a valid transform matrix)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1 (3 for 3D)</td>
+<td>Rotate anticlockwise by angle in degrees</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1 (3 for 3D)</td>
+<td>Rotate anticlockwise by angle in radians</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>Multiply all values in the first 8 matrix positions by an amount</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2 (3 for 3D)</td>
+<td>Scale X and Y (and Z for 3D) by given scaling factors</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2 (3 for 3D)</td>
+<td>Translate X and Y (and Z for 3D) by a number of pixels</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2 (3 for 3D)</td>
+<td>Translate X and Y by using currently selected graphics coordinate system units, (Z transform in pixels for 3D version)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2 (3 for 3D)</td>
+<td>Shear X and Y by given amounts</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2 (3 for 3D)</td>
+<td>Skew X and Y by angle in degrees</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2 (3 for 3D)</td>
+<td>Skew X and Y by angle in radians</td>
+</tr>
+<tr>
+<td>11</td>
+<td>6 (12 for 3D)</td>
+<td>Transform (combine with another transform matrix - requires 6 values to be sent, or 12 values for 3D - the final matrix row will be set to <code>0, 0, 1</code>, or <code>0, 0, 0, 1</code> for a 3D matrix)</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>bitmapId;</code>, 2</td>
+<td>Translate X and Y by a proportion of the size (width/height) of a given bitmap.  This operation requires a 16-bit bitmap ID to immediately follow the operation byte, before the format byte and X, Y values.  NB the 3D version of this command will also only perform an X, Y translation, and thus also only accepts 2 arguments</td>
+</tr>
+</tbody>
+</table>
+<p>Repeatedly calling this command with different operations will build up a transform matrix in the buffer.  It should be noted that if the buffer is not cleared out before starting to build up a new matrix (or set to an identity matrix) then the results may not be as expected.</p>
+<p>Every operation that requires arguments to be provided must then send a byte to indicate the format of the arguments that follow.  The format byte is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-&amp;1F</td>
+<td>Shift (used for fixed-point values, ignored for floating-point)</td>
+</tr>
+<tr>
+<td>&amp;20</td>
+<td>Unused, must be zero (Reserved for future use)</td>
+</tr>
+<tr>
+<td>&amp;40</td>
+<td>When set, data is provided in fixed-point format, otherwise it is IEEE-754 floating point</td>
+</tr>
+<tr>
+<td>&amp;80</td>
+<td>When set, data is presented as 16-bit values, otherwise they are 32-bit values</td>
+</tr>
+</tbody>
+</table>
+<p>The fixed-point format supported by this command essentially means that values sent will be interpreted as a binary number with a "binary point".  The binary point starts out to the right of the right-most bit of the value (the least significant bit), meaning that when a shift value of zero is used the number being sent is an integer.  A shift of 1 will move the binary point one place to the left, effectively dividing the number by 2.  A shift of 2 will divide the number sent by 4, and so on.</p>
+<p>The shift value is a 5-bit value, and its use varies depending on whether a 16-bit or a 32-bit value is being sent (i.e. if bit 7 has been set).  When a 32-bit value is sent (bit 7 is clear), the shift is interpreted as a 5-bit unsigned integer, i.e. it has the range of 0-31.  For 16-bit values, the 5-bit shift is a signed integer, giving a range of -16 to +15.  This allows for a negative shift to be applied to 16-bit values, meaning the number sent will be multiplied by 2 when a shift of -1 is given, by 4 for a shift of -2, and so on.</p>
+<p>As can be seen, the API also supports sending IEEE-754 floating point values.  These can be sent either as single-precision values (using 32-bits), or as half-precision values (in 16-bits).  The "shift" bits in the format byte will be ignored when sending floating-point values.  A format value of <code>0</code> therefore indicates that values will be sent as 32-bit single-precision IEEE-754 floating point values, and a format value of <code>&amp;80</code> indicates values will be sent as 16-bit half-precision IEEE-754 values.</p>
+<p>In all cases data should be sent in little-endian byte order.</p>
+<h3 id="advanced-operations_1">Advanced operations</h3>
+<p>Similar to the Adjust command, it is possible to perform some advanced operations with this command by setting some of the upper bits of the operation byte.  The following bits are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;10</td>
+<td>Use advanced offsets (when using buffer-fetched values)</td>
+</tr>
+<tr>
+<td>&amp;20</td>
+<td>Fetch values from a buffer (and offset), rather than the command stream</td>
+</tr>
+<tr>
+<td>&amp;40</td>
+<td>Separate arguments will have individual format bytes</td>
+</tr>
+</tbody>
+</table>
+<p>The most important of these is the "fetch values from a buffer" bit.  When this bit is set, a format byte is still read from the VDU command stream, but then the next two bytes in the stream are interpreted as a buffer ID, which should then be followed by an offset (2 further bytes, unless the "use advanced offsets" bit is set).  The value to be used in the operation will then be fetched from the buffer at the given offset, and interpreted using the format described in the format byte.  Using this allows for transform matrices to be built up over time in multiple buffers, and then combined into a single buffer.  This can be useful for building up complex transformations in a modular way.</p>
+<p>When this flag is set, all arguments are fetched from the given buffer, at the given offset.  If the operation requires multiple bytes they will be read consecutively from the buffer.  The format byte is still used to interpret the values fetched from the buffer.</p>
+<p>When the "Separate arguments have individual format bits" flag is set then each argument will be prefaced with its own format byte, rather than a single byte being used to dictate the format of all arguments.  This can be useful when sending multiple arguments of different types.  This can be combined with the other flags.</p>
+<h2 id="command-34-create-or-combine-a-matrix-of-arbitrary-dimensions">Command 34: Create or combine a matrix of arbitrary dimensions</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 34, operation, rows, columns, [&lt;arguments&gt;]</code></p>
+<p>As of the time of writing, this command is experimental and subject to change.  It features in the VDP 2.10.0 release, but to use this command you need to enable the feature by setting the affine transforms test flag.  This is done using the command <code>VDU 23, 0, &amp;F8, 1; 1;</code>.  The exact operations and arguments supported by this command may change in the future.</p>
+<p>This command expands on commands 32 and 33 to allow for the creation of a matrix of arbitrary dimensions.  The matrix is stored in a buffer, and is stored in row-major order.  The matrix is stored as 32-bit single-precision IEEE-754 floating point values.  The matrix is stored in a single block in the buffer.</p>
+<p>This command works in a similar manner to commands 32 and 33, and where applicable supports the same floating point data formats.  The operations supported by this command are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Arguments</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>format, &lt;arguments...&gt;</code></td>
+<td>Set the matrix to the values provided</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>sourceBufferId; row, column, format, &lt;arguments...&gt;</code></td>
+<td>Copy source matrix and set an individual value</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>format, &lt;value&gt;</code></td>
+<td>Create a matrix with all entries filled with the given value</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>format, &lt;value&gt;</code></td>
+<td>Create a matrix filled with zeros and set the diagonal to the given value</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>sourceBufferId1; sourceBufferId2;</code></td>
+<td>Add two matrices together</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>sourceBufferId1; sourceBufferId2;</code></td>
+<td>Subtract matrices (target = source1 - source2)</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>sourceBufferId1; sourceBufferId2;</code></td>
+<td>Multiply two matrices together</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>sourceBufferId; format, &lt;value&gt;</code></td>
+<td>Multiply matrix by a scalar value</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>sourceBufferId; row, column</code></td>
+<td>Extract a sub-matrix from a source matrix at given row and column. Target matrix will be filled from top-left, truncating or padding with zeros as necessary</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>sourceBufferId; row</code></td>
+<td>Create a new copy of the source matrix, inserting a row at given offset</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>sourceBufferId; column</code></td>
+<td>Create a new copy of the source matrix, inserting a column at given offset</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>sourceBufferId; row</code></td>
+<td>Create a new copy of the source matrix, removing a row at given offset</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>sourceBufferId; column</code></td>
+<td>Create a new copy of the source matrix, removing a column at given offset</td>
+</tr>
+</tbody>
+</table>
+<p>The target matrix will always be created with the number of rows and columns given in the command.  If the source matrix is not the same size as the target matrix then the source matrix will be truncated or padded with zeros as necessary.</p>
+<p>When multiplying two different matrixes together, usually it is required that the second matrix will have the same number of rows as there are columns in the first matrix.  This command however will allow different matrixes of different dimensions to be multiplied together.  It does this by making the matrixes square and padding with zeros where necessary, where the square size is the maximum of the dimensions of the sources and target matrixes.</p>
+<h3 id="advanced-operations_2">Advanced operations</h3>
+<p>Similar to commands 32 and 33, it is possible to perform some advanced operations with this command by setting some of the upper bits of the operation byte.  The following bits are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;10</td>
+<td>Use advanced offsets (when using buffer-fetched values)</td>
+</tr>
+<tr>
+<td>&amp;20</td>
+<td>Fetch values from a buffer (and offset), rather than the command stream</td>
+</tr>
+</tbody>
+</table>
+<h2 id="command-40-create-a-transformed-bitmap">Command 40: Create a transformed bitmap</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 40, options, transformBufferId; sourceBitmapId; [width; height;]</code></p>
+<p>As of the time of writing, this command is experimental and subject to change.  It features in the VDP 2.10.0 release, but to use this command you need to enable the feature by setting the affine transforms test flag.  This is done using the command <code>VDU 23, 0, &amp;F8, 1; 1;</code>.  The exact options and arguments supported by this command may change in the future.</p>
+<p>This command applies an affine transformation to a bitmap, creating a new RGBA2222 format bitmap.  It will replace the target buffer with the new bitmap, and creates a corresponding bitmap.</p>
+<p>The <code>options</code> parameter is an 8-bit value that can have bits set to modify the behaviour of the operation.  The following bits are defined, and can be combined together:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Arguments</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td>Target bitmap should be resized.  When <em>not</em> set, target will be same dimensions as the original bitmap.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>width; height;</code></td>
+<td>Target bitmap will be resized to explicitly given dimensions</td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td>Automatically translate target bitmap position.  When set the calculated transformed minimum x,y coordinates will be placed at the top left of the target</td>
+</tr>
+</tbody>
+</table>
+<p>Usually the target bitmap will be the same size as the source bitmap, but it is possible to resize the target bitmap to a different size.  When no explicit size is given, but the "resize" bit has been set, then the target bitmap size will depend on the transformation being applied.  This could mean, for example, that applying a progressive series of rotations to a bitmap can result in several different sizes of target bitmap.</p>
+<h2 id="command-41-apply-a-transform-matrix-to-data-in-a-buffer">Command 41: Apply a transform matrix to data in a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 41, options, format, transformBufferId; sourceBufferId; [&lt;arguments&gt;]</code></p>
+<p>As of the time of writing, this command is experimental and subject to change.  It features in the VDP 2.10.0 release, but to use this command you need to enable the feature by setting the affine transforms test flag.  This is done using the command <code>VDU 23, 0, &amp;F8, 1; 1;</code>.  The exact options and arguments supported by this command may change in the future.</p>
+<p>This command will copy the source buffer and transform sets of values held within it using the given format and transform matrix.  The transformed values will be stored in the target buffer, replacing any existing data that may have been there.  The options byte, and optional arguments (depending on which bits of the options byte are set), control how the transformation is applied.</p>
+<p>The <code>options</code> parameter is an 8-bit value that can have bits set to modify the behaviour of this command, including which arguments should be sent.  The following bits are defined, and can be combined together:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Arguments</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;01</td>
+<td><code>size</code></td>
+<td>Explicit data set size (otherwise data size will be one less than the number of rows in the transform matrix)</td>
+</tr>
+<tr>
+<td>&amp;02</td>
+<td><code>offset;</code></td>
+<td>Has an offset into the buffer for where to find the first data set (NB this may be an "advanced offset" if that option is set)</td>
+</tr>
+<tr>
+<td>&amp;04</td>
+<td><code>stride;</code></td>
+<td>Has an explicit stride (in bytes) between value sets</td>
+</tr>
+<tr>
+<td>&amp;08</td>
+<td><code>limit;</code></td>
+<td>Has an explicit limit to the number of data items to be transformed</td>
+</tr>
+<tr>
+<td>&amp;10</td>
+<td></td>
+<td>"Advanced offsets" should be used</td>
+</tr>
+<tr>
+<td>&amp;20</td>
+<td></td>
+<td>Optional argument values should be fetched from buffers (and thus be a bufferId and offset in the command stream)</td>
+</tr>
+<tr>
+<td>&amp;40</td>
+<td></td>
+<td>Data transforms should be applied on a block-by-block basis on data in the source buffer</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>format</code> argument indicates the format of data in the source buffer, using the same format as for the affine transform commands.  This means that values to be transformed will be interpretted either as fixed-point or floating-point values in either 16 or 32 bits.  Using fixed-point format with a shift value of zero will interpret the values as integers (e.g. a format of <code>&amp;C0</code> means source data is in 16-bit integers).  Data in the target buffer will be stored in the same format as the source buffer.</p>
+<p>This command works with sets of data.  Typically if you are using this command to transform 2D points the size of the data set will be two, to indicate that you're transforming two values, the X and Y coordinates.  These sets of data values must appear contiguously in the source buffer.  The <code>stride</code> dictates how far apart (in bytes) the start of each set of data lies in the source buffer.  The <code>limit</code> parameter can be used to limit the number of data sets that are transformed.</p>
+<p>As an example, this command can be used to transform sets of coordinates in a buffer that contains a series of PLOT commands.  A complete PLOT VDU command is a sequence of 6 bytes, where the first byte is <code>25</code> for PLOT, the second byte is the PLOT operation code, and then there are two 16-bit integer values for the X and Y coordinates.  The <code>offset</code> therefore would be set to <code>2</code>, and the <code>stride</code> would be set to <code>6</code>.  Our <code>format</code> needs to indicate we are using 16-bit fixed-point values with no shift, so that equates to <code>&amp;C0</code>.  As we wish to set an explicit (start) offset and stride we need an <code>options</code> value of <code>6</code> (which is 2 + 4).  A command to use a 2D transform matrix stored in buffer <code>10</code> on a command sequence the data stored in buffer 20, writing the transformed data to buffer 30, would look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>VDU 23, 0, &amp;A0, 30; 41, 6, &amp;C0, 10; 20; 2; 6;
+</code></pre></div>
+<p>This example makes two significant assumptions.  The first, as mentioned above, is that the source buffer only contains a series of PLOT commands.  The second assumption is that we are using a 2D affine transform matrix created by command 32, which will have created a 3x3 matrix, and therefore an explicit <code>size</code> argument is not needed - it will be automatically derived as a data set size of 2, i.e. X and Y coordinates.</p>
+<p>Once this example command has been executed, buffer 30 would contain the same sequence of PLOT commands as buffer 20, but with the X and Y coordinates transformed by the matrix stored in buffer 10.  Buffer 30 could then be called, and a transformed version of the PLOT commands would be drawn on the screen.</p>
+<p>It should be noted that since it is only the coordinates that are transformed, the nature of the PLOT commands themselves will not be changed.  If the transform matrix was created with only "translate" or "scale" operations then the effect will work as expected for all PLOT commands (except for bitmap plots, which would not be drawn scaled as only the target coordinates woulld have changed), but if the transform included "rotate", "shear" or "skew" then results may differ.  PLOT commands that only draw lines, or fill triangles, will draw properly transformed versions of those shapes.  The effect on some other PLOT commands, such as those to fill a rectangle, or plot a circle/arc/sector will differ, as it is just the coordinates that are being transformed.  A rectangle may be drawn with a different size, but its sides will still be drawn aligned to the X and Y axis, and a circle will still be round.</p>
+<h2 id="command-48">Command 48: Read a VDP variable into a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 48, options, offset; variableId; [default[;]]</code></p>
+<p>This command will copy the current value read from a <a href="../VDP-Variables/">VDP variable</a> with the given <code>variableId;</code> into a buffer at the given offset.  Support for this command was added in VDP 2.12.0, and extended in VDP 2.15.0.</p>
+<p>The <code>options</code> argument is an 8-bit value that can have bits set to modify the behaviour of this command.  The following bits are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Bit value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;01</td>
+<td>Read value as big-endian (added in VDP 2.15.0)</td>
+</tr>
+<tr>
+<td>&amp;10</td>
+<td>Use advanced offsets</td>
+</tr>
+<tr>
+<td>&amp;40</td>
+<td>Use provided default value if no variable of the given ID is set</td>
+</tr>
+<tr>
+<td>&amp;80</td>
+<td>Use 16-bit values</td>
+</tr>
+</tbody>
+</table>
+<p>The value size for this command will, by default, be a single byte.  VDP Variables are however stored as 16-bit values, and so bit <code>&amp;80</code> in the <code>options</code> byte can be set to indicate that the value should be read as a 16-bit value.  Such values are stored in little-endian order.</p>
+<p>If you wish to read only the upper byte of a 16-bit value then you can set bit <code>&amp;01</code> in the <code>options</code> byte.  This will swap the order of the bytes in the read value around, so therefore if you are reading an 8-bit value it will return the upper byte from the variable's 16-bit value.  This can be useful for reading a VDP variable that stores two 8-bit values in a single 16-bit variable, such as the keyboard event <a href="../VDP-Variables/#key-event">keycode variable</a>.</p>
+<p>If the variable does not exist, then the buffer will not be changed unless the <code>&amp;40</code> bit has been set in the options byte, and a default value is provided.  The size of the default value sent must match the size of the value being read from the variable (as determined by bit <code>&amp;80</code>).</p>
+<p>If the <code>bufferId</code> does not exist, or the offset is out of bounds, then the command will fail.</p>
+<h2 id="command-64-compress-a-buffer">Command 64: Compress a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, targetBufferId; 64, sourceBufferId;</code></p>
+<p>This command will compress the contents of a buffer, replacing the target buffer with the compressed data.  Unless the target buffer is the same as the source, the source buffer will be left unchanged.</p>
+<h2 id="command-65-decompress-a-buffer">Command 65: Decompress a buffer</h2>
+<p><code>VDU 23, 0, &amp;A0, targetBufferId; 65, sourceBufferId;</code></p>
+<p>This command will decompress the contents of a buffer, replacing the target buffer with the decompressed data.  Unless the target buffer is the same as the source, the source buffer will be left unchanged.</p>
+<p>The source buffer must contain a complete set of compressed data, but need not be in a single block.  The decompressed data will be stored in a single block in the target buffer.</p>
+<p>Using this command, data can be sent from MOS in a compressed form, and then decompressed on the VDP.  This can be useful for sending large amounts of data over to the VDP, as it can reduce the amount of data that needs to be sent.</p>
+<p>The compression algorithm supported by this command and the corresponding "compress" command is "TurboVega-style" compression.  Source code for the compression and decompression routines and tools to use them on other systems can be found in the <a href="https://github.com/TurboVega/agon_compression">TurboVega agon_compression repository</a>.</p>
+<h2 id="command-72-expand-a-bitmap">Command 72: Expand a bitmap</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 72, options, sourceBufferId; [width;] &lt;mappingDataBufferId; | mapping-data...&gt;</code></p>
+<p>This command will expend a bitmap stored in the source buffer indicated by <code>sourceBufferId</code> that uses an arbitrary number of bits per pixel into a new buffer (indicated by <code>bufferId</code>) that uses 8-bits per pixel.</p>
+<p>The primary intent of this command is to allow the VDP to support other formats of bitmap than the natively supported formats.  The bitmap should be mapped to valid RGBA2222 colour values, allowing the destination buffer to then be set as a bitmap in RGBA2222 format.  It should be noted that the destination buffer is not automatically marked as being a bitmap.</p>
+<p>It should also be noted that this command could be used for purposes other than expanding bitmaps, although the language used to describe the function of this command is based around bitmaps.  This is left to the user to explore.</p>
+<p>The <code>options</code> parameter is an 8-bit value that can have bits set to modify the behaviour of the operation.  The following bits are defined:</p>
+<table>
+<thead>
+<tr>
+<th>Bits</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-2</td>
+<td>Number of bits per pixel in the source bitmap</td>
+</tr>
+<tr>
+<td>3</td>
+<td>When set, the source bitmap is aligns to the next byte at a given width (in pixels)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>When set, mapping data is in a buffer</td>
+</tr>
+<tr>
+<td>5-7</td>
+<td>Reserved for future use (set to zero)</td>
+</tr>
+</tbody>
+</table>
+<p>The number of bits per pixel in the source bitmap is specified by the bottom 3 bits of the <code>options</code> parameter.  This can be any value from 1 to 8 where a 0 is interpreted as 8.</p>
+<p>It is assumed that pixels are stored in the source buffer in a continuous manner, one byte at a time, starting from the top-most bits of the first byte.</p>
+<p>If bit 3 has been set of the options byte, then following the <code>sourceBufferId</code> should be a 16-bit <code>width</code> parameter.  This value is used as a pixel count, after which the system will align to the next byte.  This is useful when dealing with bitmaps that have widths that do not align to a byte boundary.</p>
+<p>The various different values that pixels will be mapped to should immediately follow in the command stream, with the number of bits per pixel given dictating how many mapping value bytes are sent (so 1 bits per pixel will have 2 values, 2 bits per pixel will have 4 values, and so on).  If bit 4 has been set of the options byte, then following the <code>width</code> parameter should be a 16-bit <code>mappingDataBufferId</code> parameter.  This buffer should contain the mapping data which will be used instead of values sent as part of the command stream..</p>
+<p>When a buffer is used for mapping data, that buffer must exist, and must contain a single block of at least the number of values required for the given number of bits per pixel.</p>
+<h2 id="command-80">Command 80: Set a buffer to be used for a callback</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 80, eventType;</code></p>
+<p>Sets a buffer to be used as a callback when a certain event is triggered in the VDP.</p>
+<p>Support for callbacks was added in VDP 2.12.0, and expanded in VDP 2.15.0.</p>
+<p>The <code>eventType;</code> argument is a 16-bit value that specifies which event type a callback buffer is to be used for.  The following types are supported:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Event</th>
+<th>Caused by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>VSYNC</td>
+<td>A new video frame has been displayed</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Mode change</td>
+<td>The screen mode has been changed</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Keyboard update *</td>
+<td>A key has been pressed or released</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Mouse update *</td>
+<td>A mouse change has been detected (movement or button press)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Palette change *</td>
+<td>A palette entry has been changed using <a href="../VDU-Commands/#vdu-19"><code>VDU 19</code></a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Read pixel *</td>
+<td>A pixel has been read from the screen using <a href="../System-Commands/#vdu-23-0-84"><code>VDU 23, 0, &amp;84, x; y;</code></a></td>
+</tr>
+<tr>
+<td>&amp;100-&amp;17F</td>
+<td>VDP Protocol - about to send packet *</td>
+<td>Indicates that a VDP Protocol packet is about to be sent to MOS</td>
+</tr>
+<tr>
+<td>&amp;180-&amp;1FF</td>
+<td>VDP Protocol - packet sent *</td>
+<td>A VDP Protocol packet has just been sent to MOS</td>
+</tr>
+</tbody>
+</table>
+<p>* Support for keyboard, mouse, palette change, and VDP protocol events were added in VDP 2.15.0.</p>
+<p>When an event occurs that has one or more buffers set as callbacks, those buffers will be executed in the order they were added as callbacks for that event type.  Adding the same buffer as a callback for the same event type multiple times will have no effect; it will only be called once when the event happens.</p>
+<p>A buffer will remain as a callback until it is removed or the buffer deleted.  If you wish to have a "one-shot" callback then you should remove the buffer from the callback after it has been triggered.</p>
+<p>Additional callback event types will be added in later versions of the VDP.  These are likely to include callbacks for audio system events.</p>
+<p>Callbacks registered for VSYNC events will be cleared after any mode change.  To ensure that your VSYNC callbacks remain active after a mode change you will need to re-register them after the mode change has occurred.  You can do this with a buffer registered to respond to mode change events.</p>
+<p>Keyboard, mouse, and read pixel callbacks are all triggered when the VDP processes those events, before it attempts to send data to MOS.  This allows the callback to potentially modify the data before it is sent.</p>
+<h3 id="palette-change-event-callbacks">Palette change event callbacks</h3>
+<p>If you are using a palette change event callback in order to derive other palette entries you should note that calling <a href="../VDU-Commands/#vdu-19"><code>VDU 19</code></a> from within your callback routine will also trigger your callback, creating an infinite loop.  There are several ways this can be avoided.  The simplest way is to set your derived palette using their corresponding <a href="../VDP-Variables/#palette-entries">palette entry variables</a>.  This will not trigger the callback, or update the <a href="../VDP-Variables/#last-colour">"last colour" VDP variables</a>.  There are other methods that can be used which would allow the use of <code>VDU 19</code> without causing an infinite loop; this is left as an exercise for the reader.</p>
+<h3 id="vdp-protocol-event-callbacks">VDP Protocol event callbacks</h3>
+<p>Events in the range &amp;100-&amp;1FF relate to the <a href="../System-Commands/#vdp-serial-protocol">VDP Protocol</a>.  The lower half of this range (&amp;100-&amp;17F) will be triggered before a VDP protocol packet is sent to MOS, and the upper half &amp;180-&amp;1FF are triggered after a VDP protocol packet has been received from MOS.  The bottom 7 bits of the event type correspond to the VDP protocol packet type.</p>
+<p>These callbacks can be used to modify the state of VDP variables before and after a VDP protocol packet is sent.</p>
+<p>NB these VDP protocol event callbacks will occur no matter what the <a href="#command-4">current output stream is set to</a>.  Even if the output stream has been disabled (set to <code>-1</code>), the VDP protocol event callbacks will still be triggered when a VDP protocol packet is sent.  It should be noted though that as the command to <a href="#command-4">set the output stream</a> only applies within the context of a buffer call this command cannot be used by callbacks to prevent that VDP protocol packets from being sent as the output stream will be restored when the callback buffer call ends.</p>
+<p>One can however suppress sending a VDP protocol packet from within a "before send" VDP protocol event callback by setting VDP variable &amp;103 to any value, for example:</p>
+<p><code>VDU 23, 0, &amp;F8, &amp;103; 0;</code></p>
+<p>If a packet is suppressed in this way the corresponding "packet sent" event callback will not be triggered.</p>
+<h2 id="command-81-remove-buffer-from-a-callback">Command 81: Remove buffer from a callback</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 81, type;</code></p>
+<p>Removes a buffer from being used as a callback for a certain event type.</p>
+<p>Support for callbacks was added in VDP 2.12.0.</p>
+<p>The types are as described in <a href="#command-80">command 80</a>, with the addition that sending a type of <code>65535</code> will remove the buffer from all callback types.</p>
+<p>Calling this command with a bufferId value of <code>65535</code> will clear all callbacks for the given type.  Therefore if you wish to clear all callbacks for all types then you can call this command with a bufferId of <code>65535</code> and a type of <code>65535</code>.</p>
+<h2 id="command-128-debug-info-command">Command 128: Debug info command</h2>
+<p><code>VDU 23, 0, &amp;A0, bufferId; 128</code></p>
+<p>This command is a debugging command that will print out info on a buffer to the USB serial console.  This is useful for debugging purposes, and can be used to check the contents of a buffer after a series of operations have been performed on it.</p>
+<p>The info printed to the console will tell you how many blocks/streams are stored against the <code>bufferId</code>.  If the buffer contains a transform matrix, then the matrix will be printed out in a human-readable format.  For other buffers the whole of the first block/stream will be output to the console in hexadecimal format.  NB the whole block/stream will be output, so be aware that if the buffer is large then a lot of data will be sent to the console.</p>
+<p>Before VDP 2.10.0 this command would only work if you were using a VDP compiled with the <code>DEBUG</code> flag set.  As of VDP 2.10.0 this command will now work without the flag being set.</p>
+<h2 id="examples">Examples</h2>
+<p>What follows are some examples of how the VDP Buffered Commands API can be used to perform various tasks.</p>
+<h3 id="loading-a-sample">Loading a sample</h3>
+<p>Sound sample files can be large, and so it is not practical to send them over to the VDP in a single packet.  Even with optimised machine code, it could take several seconds to send a single sample over to the VDP.  This would block the screen, and make it impossible to show progress to the user.  Using the VDP Buffered Commands API we can send a sample over to the VDP in multiple packets.</p>
+<p>The following example will load a sound sample from a file called <code>sound.bin</code> and send it over to the VDP.  Lines 10-50 prepare things, opening up the file and getting its length.  Line 70 clears out buffer 42 so it is ready to store the sample.  The loop from lines 90 to 170 sends the sample one block at a time, adding the sample data to buffer 42.  Finally, lines 200-220 creates the sample, sets channel 1 to use it, and then plays it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a> 10 blockSize% = 1000
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a> 20 infile% = OPENIN &quot;sound.bin&quot;
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a> 30 length% = EXT#infile%
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a> 40 PRINT &quot;Sound sample length: &quot;; length%; &quot;bytes&quot;
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a> 50 remaining% = length%
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a> 60 REM Load sample data into buffer 42
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a> 70 VDU 23, 0, &amp;A0, 42; 2       : REM Clear out buffer 42
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a> 80 PRINT &quot;Loading sample&quot;;
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a> 90 REPEAT
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>100   IF remaining% &lt; blockSize% THEN blockSize% = remaining%
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>110   remaining% = remaining% - blockSize%
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>120   PRINT &quot;.&quot;;       : REM Show progress
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>130   VDU 23, 0, &amp;A0, 42; 0, blockSize%; : REM Send next blockSize% bytes to buffer 42
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>140   FOR i% = 1 TO blockSize%
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>150     VDU BGET#infile%
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>160   NEXT
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>170 UNTIL remaining% = 0
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>180 CLOSE #infile%
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>190 REM Set buffer 42 to be an 8-bit unsigned sample
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>200 VDU 23, 0, &amp;85, 1, 5, 2, 42; 1     : REM Channel is ignored in this command
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>210 VDU 23, 0, &amp;85, 1, 4, 8, 42;       : REM Set sample for channel 1 to buffer 42
+<a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a>220 VDU 23, 0, &amp;85, 1, 0, 100, 750; length% DIV 16;  : REM Play sample on channel 1
+</code></pre></div>
+<p>Please note that the BASIC code here is not fast, owing to the fact that it has to read the sample file one byte at a time.  This is because BBC BASIC does not provide a way to read a chunk of a file at once.  This is not a limitation of the VDP Buffered Commands API, but rather of BBC BASIC.</p>
+<p>This can be optimised by writing a small machine code routine to read a chunk of a file at once, and then calling that from BASIC.  This is left as an exercise for the reader.</p>
+<p>Whilst this example illustrates loading a sample, it is easily adaptable to loading in a bitmap.</p>
+<h3 id="repeating-a-command">Repeating a command</h3>
+<p>This example will print out "Hello " 20 times.</p>
+<p>This is admittedly a contrived example, as there is an obvious way to achieve what this code does in plain BASIC, but it is intended to illustrate the API.  The technique used here can be fairly easily adapted to more complex scenarios.</p>
+<p>This example uses three buffers.  The first buffer is used to print out a string.  The second buffer is used to store a value that will be used to control how many times the string printing buffer is called.  The third buffer is used to call the string printing buffer the required number of times, and is gradually built up.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a> 10 REM Clear the buffers we&#39;re going to use (1-3)
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a> 20 VDU 23, 0, &amp;A0, 1; 2       : REM Clear out buffer 1
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a> 30 VDU 23, 0, &amp;A0, 2; 2       : REM Clear out buffer 2
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a> 40 VDU 23, 0, &amp;A0, 3; 2       : REM Clear out buffer 3
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a> 50 VDU 23, 0, &amp;A0, 1; 0, 6;   : REM Send the next 6 bytes to buffer 1
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a> 60 PRINT &quot;Hello &quot;;            : REM The print will be captured into buffer 1
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a> 70 REM Create a writable buffer with ID 2, 1 byte long for our iteration counter
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a> 80 VDU 23, 0, &amp;A0, 2; 3, 1;
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a> 90 REM set our iteration counter to 20 - adjust (5), set value (2), offset 0, value 20
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>100 VDU 23, 0, &amp;A0, 2; 5, 2, 0; 20
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>110 REM gradually build up our command buffer in buffer 3
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>120 VDU 23, 0, &amp;A0, 3; 0, 6;   : REM 6 bytes for the following &quot;call&quot; command
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>130 VDU 23, 0, &amp;A0, 1; 1       : REM Call buffer 1 to print &quot;Hello &quot;
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>140 VDU 23, 0, &amp;A0, 3; 0, 10;  : REM 10 bytes for the following &quot;adjust&quot; command
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>150 REM Decrement the iteration counter in buffer 2
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>160 VDU 23, 0, &amp;A0, 2; 5, 3, 0; -1
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>170 VDU 23, 0, &amp;A0, 3; 0, 11;  : REM 11 bytes for the following &quot;conditional call&quot; command
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>180 REM If the iteration counter is not zero, then call buffer 3 again
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>190 VDU 23, 0, &amp;A0, 3; 6, 0, 2; 0;
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>200 REM That&#39;s all the commands for buffer 3
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>210 REM Now call buffer 3 to execute those commands
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>220 VDU 23, 0, &amp;A0, 3; 1
+</code></pre></div>
+<p>It should be noted that after this code has been run the iteration counter in buffer ID 2 will have been reduced to zero.  Calling buffer 3 again at that point will result in the counter looping around to 255 on its first decrement, and then counting down from there, so you will see the loop run 256 times.  To avoid this, the iteration counter in buffer 2 should be reset to the desired value before calling buffer 3 again.</p>
+<p>Another thing to note is that if there were any additional commands added to buffer 3 beyond the final conditional call then it is likely that the VDP would crash, which is obviously not ideal.  This would happen because the call stack depth (i.e. number of "calls within a call") will have become too deep, and the command interpreter inside the VDP will have run out of memory.  This code works as-is because the conditional call is the last command in buffer 3 the VDP uses a method called "tail call optimisation" to avoid having to return to the caller.  The call is automatically turned into a "jump".  This is a technique that is used in many programming languages, and is a useful technique to be aware of.</p>
+<p>A safer way to write this code would be to use a conditional jump (command 8) rather than a conditional call.  This would avoid the call stack depth issue, and allow additional commands to be placed in buffer 3 after that jump.</p>
+<p>As a very simple example, you can imagine replacing buffer 1 with a buffer that draws something to the screen.  Those drawing calls could use relative positioning, allowing for repeated patterns to be drawn.  It could indeed do anything.  The point here is just to illustrate the technique.</p>
+<h3 id="a-simplistic-reset-all-audio-channels-example">A simplistic "reset all audio channels" example</h3>
+<p>Sometimes you will just want the ability to very quickly call a routine to perform a bulk action.  One potential example of this is to reset all audio channels to their default state (default waveform, and remove any envelopes that may have been applied).  The audio API provides a call to reset individual channels, but there is no call to reset them all.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a> 10 REM Clear the buffer we&#39;re going to use
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a> 20 resetAllChannels% = 7
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a> 30 VDU 23, 0, &amp;A0, resetAllChannels%; 2       : REM Clear out buffer
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a> 40 FOR channel = 0 TO 31
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a> 50   VDU 23, 0, &amp;A0, resetAllChannels%; 0, 5; : REM 5 bytes for the following &quot;reset channel&quot; command
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a> 60   VDU 23, 0, &amp;85, channel, 10
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a> 70 NEXT
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a> 80 REM Call the clear command
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a> 90 VDU 23, 0, &amp;A0, resetAllChannels%; 1
+</code></pre></div>
+<p>In this example we take a simplistic approach to building up a command that will reset all the audio channels.  The nature of the Audio API is that one can ask any channel to be reset, even if it has not been enabled, so we can just loop through all 32 potential channels.  An alternative approach could have been to disable all the channels and then enable a default number of channels.</p>
+<p>Once a command buffer has been sent it will remain on the VDP until that buffer is cleared.  This means that the <code>VDU 23, 0, &amp;A0, clearCommand%; 1</code> call can be made many times.  This can be useful if you wanted to reset all the audio channels at the start of a game loop, for instance.</p>
+<p>It is possible to write a more sophisticated version of this example that would use a loop on the VDP, rather than relying on sending multiple "reset channel" commands.  That would require the use of a few more buffers.  The reality of this approach however is that it is significantly more complex to accomplish and require quite a lot more BASIC code.  Since there is a lot of available free memory on the VDP for storing commands, it is not necessary to be overly concerned about the number of commands sent, so often a simpler approach such as the one in this example is on balance the better option.</p>
+<h3 id="other-ideas-techniques-and-principles">Other ideas, techniques, and principles</h3>
+<p>The examples above are intended to illustrate some of the principles of how the VDP Buffered Commands API can be used.  They are not intended to be complete solutions or illustrations of what is possible.</p>
+<h4 id="stack-depth">Stack depth</h4>
+<p>It should be noted that the VDP does not have a very deep call stack, and so it is possible to run out of stack space if you have a large number of nested calls.  (At the time of writing, the depth limit appears to be in the region of 20 calls.  For those that don't understand what "stack depth" means, an example of this would be calling buffer 1, which in turn calls buffer 2, which in turn calls buffer 3 and so on, up to calling buffer 20.)  If the depth limit is exceeded, the VDP will crash, and you will need to press the reset button.</p>
+<p>As noted above in the "repeat" example, the VDP will use a technique called "tail call optimisation" to help avoid/mitigate this issue.  This is where a call is automatically turned into a "jump" if it is the last command in a buffer.  This avoids the need to return to the caller, removing the need to start a new VDU command interpreter, and so avoids the call stack depth issue.</p>
+<p>Often the stack depth issue can be avoided by using a "jump" command rather than a "call" command (as this also does not need to start a new VDU command interpreter).  A jump differs from a call in that it just changes the command sequence being executed, and does not keep track of where it was being called from.</p>
+<p>The down-side of using a jump is that over-use of jumps can result in "spaghetti code", which can be difficult to follow.  It is therefore recommended to use jumps sparingly, and to use calls where possible.</p>
+<h4 id="using-many-buffers">Using many buffers</h4>
+<p>The API makes use of 16-bit buffer ID to allow a great deal of freedom.  Buffer IDs do not have to be used sequentially, so you are free to use whatever buffer IDs you like.  It is suggested that you can plan out different ranges of buffer IDs for your own uses.  For example, you could decide to use buffer IDs &amp;100-&amp;1FF for sprite management, &amp;200-&amp;2FF for sound management, &amp;400-&amp;4FF for data manipulation.  This is <em>entirely</em> up to you.</p>
+<p>Command buffers can be as short, or as long, as you like.  Often it will be easier to have many short buffers in order to allow for sophisticated behaviour.</p>
+<p>The VDP also has significantly more free memory available for storing commands and data than the eZ80 does, so it is not really necessary to be overly concerned about the number of commands sent.  (Currently there is 4 megabytes of free memory available on the VDP for storing commands, sound samples, and bitmaps.  The memory attached to the VDP is actually an 8 megabyte chip, and a later version of the VDP software may allow for even more of that to be used.)</p>
+<h4 id="self-modifying-code">Self-modifying code</h4>
+<p>A technique that was fairly common in the era of 8-bit home computers was to use self-modifying code.  This is where a program would modify its own code in order to achieve some effect.  The VDP Buffered Commands API allows for this technique to be used via the "adjust buffer contents" command.  For example this could be used to adjust the coordinates that are part of a command sequence to draw a bitmap, allowing for a bitmap to be drawn at different locations on the screen.</p>
+<h4 id="jump-tables">Jump tables</h4>
+<p>There are a number of ways to implement jump tables using the VDP Buffered Commands API.</p>
+<p>One such example would be to allocate a range of buffer IDs for use as jump table entries, and to use the "adjust buffer" command to change the lower byte of the buffer ID on a "jump" or "call" command (or a "conditional" version) to point to the buffer ID of the jump table entry.</p>
+<p>An alternative way could be to use "jump with offset" command with an advanced offset, specifying a block within a buffer to jump to, and adjusting that block as needed.  This would allow for a jump table to be built up within a single buffer.</p>
+<h4 id="using-the-output-stream">Using the output stream</h4>
+<p>Some VDU commands will send response packets back to MOS running on the eZ80.  These packets can be captured by using the "set output stream" command.  This can be used to capture the response packets from a command.</p>
+<p>When you have a captured response packet, the contents of the buffer can be examined to determine what the response was.  Values can be extracted from the buffer using the "adjust buffer contents" command and used to modify other commands.</p>
+<p>For example, you may wish to find out where the text cursor position is on screen and then use that information to work out whether the text cursor should be moved before printing new output.</p>
+<p>Care needs to be taken when using "set output stream" to ensure that the sequence of commands you're using doesn't create more response packets than you are expecting.  It is usually best to use this command within a buffered command sequence, as that will ensure that the output stream is reset to its original value once the buffered command sequence has completed.</p>
+<p>If you are using this command as part of a longer sequence it is recommended to use the "set output stream" command to reset the output stream to its original value (by using a buffer ID of 0) once you have captured the response packet you are interested in.</p>
+<p>Please note that at present the number of commands that send response packets is currently very limited, and so this technique is not as useful as it could be.  This will likely change in the future.</p>
+<p>Also to note here is that response packets will be written sequentially to the output stream.  There is no mechanism to control <em>where</em> in the output stream a response packet is written.  This means that if you are capturing response packets, you will need to be careful to ensure that the response packets you are interested in are not interleaved with other response packets that you are not interested in.  Clearing and re-creating a buffer before capturing response packets is recommended.</p>
+<h4 id="use-your-imagination">Use your imagination!</h4>
+<p>As can be seen, by having command sequences that can adjust the contents of buffers, and conditionally call other command sequences, it is possible to build up quite sophisticated behaviour.  You effectively have a programmable computer within the VDP.</p>
+<p>It is up to your imagination as to how exactly the API can be used.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.instant", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
