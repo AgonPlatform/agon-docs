@@ -11,8 +11,8 @@ This method should be used with caution. Calling this method will wait indefinit
 In assembler, an example might be:
 
 ```
-ld a, $00         ; put $00 into A
-rst.lil $08       ; make a MOS call with command $00 (mos_getkey).
+LD A, 0           ; put $00 into A
+RST.LIL 08h       ; make a MOS call with command $00 (mos_getkey).
                   ; system will wait until a key is pressed, then...
                   ; A now contains the ascii code of the pressed key
 ```
@@ -35,10 +35,10 @@ This is useful to check for a single key press. E.g., in a game menu where there
 In assembler, an example might be:
 
 ```
-ld a, $08         ; put $08 into A
-rst.lil $08       ; make a MOS call with command $08 (mos_sysvars).
+LD A, 08h         ; put $08 into A
+RST.LIL 08h       ; make a MOS call with command $08 (mos_sysvars).
                   ; IXU is now loaded with the base address
-ld a, (ix + $05)  ; A is loaded with the byte at offset +$05 from the base address
+LD A, (IX + 05h)  ; A is loaded with the byte at offset +$05 from the base address
                   ; A now contains the ascii code of the pressed key, or 0 if no key
 ```
 
@@ -59,10 +59,10 @@ It is also possible to check the status of the modifier keys (SHIFT, CTRL, etc).
 The byte at offset $06 after IXU provides a bit code of the modifier keys which are pressed.
 
 ```
-ld a, $08         ; put $08 into A
-rst.lil $08       ; make a MOS call with command $08 (mos_sysvars).
+LD A, 08h         ; put $08 into A
+RST.LIL 08h       ; make a MOS call with command $08 (mos_sysvars).
                   ; IXU is now loaded with the base address
-ld a, (ix + $06)  ; A is loaded with the byte at offset +$06 from the base address
+LD A, (IX + 06h)  ; A is loaded with the byte at offset +$06 from the base address
                   ; A now contains a bit pattern of any modifier keys pressed
 ```
 
