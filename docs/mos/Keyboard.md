@@ -187,7 +187,7 @@ ld hl, myBuffer   ; HL is where the string data will be stored once entered
 ld bc, 32         ; BC is the max length of string to be captured
 ld e, 1           ; E contains flags. 1 = buffer will be cleared before use
 rst.lil $08       ; make a MOS call with command $09 (mos_editline).
-                  ; the data will now be sored at address starting _myBuffer_
+                  ; the data will now be stored at address starting _myBuffer_
                   ; The A regster will contain the charater used to exit, ESC or ENTER
 
 myBuffer:
