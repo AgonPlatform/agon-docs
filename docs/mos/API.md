@@ -1255,7 +1255,7 @@ All of the API calls in this range require MOS 3.0 or above.
 
 ### `0x40`: mos_clearvdpflags
 
-Clears VDP Protocol status flags from the `sysvar_vpd_pflags` [sysvar](#sysvars).
+Clears [VDP protocol status flags](#VDP-pflags-vdpflags) from the `sysvar_vpd_pflags` [sysvar](#sysvars).
 
 Bits in this status value will be set when various different VDP Protocol message packet types are received by MOS from the VDP.  Such packets may be sent for user-initiated actions, such as pressing a key on the keyboard, or moving the mouse, or for system-initiated actions, such as a VDU command being sent to the VDP.  Please note that in general use these bits are not automatically cleared, so if you wish to detect a response from the VDP to a VDU command your program sends it is important to clear out the corresponding protocol flags before sending the command.  You can then use the [`mos_waitforvdpflags`](#0x41-mos_waitforvdpflags) API call to wait for the VDP to respond, and check the status of the flags in `sysvar_vpd_pflags` to see if the command was successful.
 
@@ -1271,7 +1271,7 @@ Returns:
 
 ### `0x41`: mos_waitforvdpflags
 
-Waits for corresponding VDP protocol flags to be set in the `sysvar_vpd_pflags` [sysvar](#sysvars).
+Waits for corresponding [VDP protocol status flags](#VDP-pflags-vdpflags) to be set in the `sysvar_vpd_pflags` [sysvar](#sysvars).
 
 Typically your program should first clear whichever protocol flag you are interested in detecting, using the [`mos_clearvdpflags`](#0x40-mos_clearvdpflags) API call.  Once you have done that, you should send a VDU command to the VDP for which you are expecting a response, and then use this API call to wait for that response to be received.
 
@@ -2121,6 +2121,18 @@ Example: Reading a virtual keycode in Z80 mode (16-bit):
 ```
 		MOSCALL	mos_getkey
 		LD.LIL	A, (IX + sysvar_vkeycode)	; Load A with the virtual keycode from FabGL
+```
+
+### VDP pflags (vdpflags)
+The bits to manipulate the flags for `sysvar_vpd_pflags` are defined in the MOS `equs.inc`. They names are relatively self documenting, describing the category of update each is related to. The bits assigned are defined as follows:
+```
+VDPP_FLAG_CURSOR:	EQU		00000001b
+VDPP_FLAG_SCRCHAR:	EQU		00000010b
+VDPP_FLAG_POINT:	EQU		00000100b
+VDPP_FLAG_AUDIO:	EQU		00001000b	
+VDPP_FLAG_MODE:		EQU		00010000b
+VDPP_FLAG_RTC:		EQU		00100000b
+VDPP_FLAG_MOUSE:	EQU		01000000b
 ```
 
 ### Real Time Clock {#sysvar_rtc}
