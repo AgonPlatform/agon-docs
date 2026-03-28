@@ -176,8 +176,7 @@ There may be times when you want a user to enter some text, or even just a numbe
 The programmer needs to define a buffer of bytes where the typed in string will be stored and then invoke the `mos_editline` command. Note that the buffer needs to allow an extra byte for a $00 terminator. So, a 32 byte buffer will be 31 string characters, plus the $00 terminator.
 
 When the call has been completed, the A register will contain the character used to exit.
-If user pressed ENTER, then it will be 13. 
-If user pressed ESC, then it will be 27. This can used used as a check for _cancel_.
+If user pressed ENTER, then it will be 13, but if the user pressed ESC, then it will be 27. This can used used as a check for _cancel_.
 
 In assembler, an example might be:
 
