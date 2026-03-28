@@ -108,7 +108,7 @@ This is probably the most complex method, but also the most comprehensive and fl
 
 The MOS API command `mos_getkbmap` returns a pointer to the base address of the MOS _virtual keyboard map_ in IXU as a 24-bit pointer. 
 
-The keyboard map is an array of 16 bytes, where each bit within those bytes contains the current status of each key on the keyboard, bit = 1 for pressed, bit = o for not pressed.
+The keyboard map is an array of 16 bytes, where each bit within those bytes contains the current status of each key on the keyboard, bit = 1 for pressed, bit = 0 for not pressed.
 
 To find out if any key (including modifer keys) is pressed, read the correct byte with the offset after IXU and then check the specific bit for its status.
 
