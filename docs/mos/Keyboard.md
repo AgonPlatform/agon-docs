@@ -11,8 +11,8 @@ This method should be used with caution. Calling this method will wait indefinit
 In assembler, an example might be:
 
 ```
-LD A, 0           ; put $00 into A
-RST.LIL 08h       ; make a MOS call with command $00 (mos_getkey).
+LD A, 0           ; put 0 into A
+RST.LIL 08h       ; make a MOS call with command 00h (mos_getkey).
                   ; system will wait until a key is pressed, then...
                   ; A now contains the ascii code of the pressed key
 ```
@@ -35,10 +35,10 @@ This is useful to check for a single key press. E.g., in a game menu where there
 In assembler, an example might be:
 
 ```
-LD A, 08h         ; put $08 into A
-RST.LIL 08h       ; make a MOS call with command $08 (mos_sysvars).
+LD A, 08h         ; put 08h into A
+RST.LIL 08h       ; make a MOS call with command 08h (mos_sysvars).
                   ; IXU is now loaded with the base address
-LD A, (IX + 05h)  ; A is loaded with the byte at offset +$05 from the base address
+LD A, (IX + 05h)  ; A is loaded with the byte at offset +05h from the base address
                   ; A now contains the ascii code of the pressed key, or 0 if no key
 ```
 
@@ -59,10 +59,10 @@ It is also possible to check the status of the modifier keys (SHIFT, CTRL, etc).
 The byte at offset $06 after IXU provides a bit code of the modifier keys which are pressed.
 
 ```
-LD A, 08h         ; put $08 into A
+LD A, 08h         ; put 08h into A
 RST.LIL 08h       ; make a MOS call with command $08 (mos_sysvars).
                   ; IXU is now loaded with the base address
-LD A, (IX + 06h)  ; A is loaded with the byte at offset +$06 from the base address
+LD A, (IX + 06h)  ; A is loaded with the byte at offset +06h from the base address
                   ; A now contains a bit pattern of any modifier keys pressed
 ```
 
@@ -70,14 +70,14 @@ The following bits represent the given modifier keys:
 
 | Bit |  Hex |Modifier |
 | :---: | :---: | :---: |
-| 0     | $01 | CTRL |
-| 1     | $02 | SHIFT |
-| 2     | $04 | ALT L |
-| 3     | $08 | ALT R |
-| 4     | $10 | CAPS |
-| 5     | $20 | |
-| 6     | $40 | |
-| 7     | $80 | WINDOWS |
+| 0     | 01h | CTRL |
+| 1     | 02h | SHIFT |
+| 2     | 04h | ALT L |
+| 3     | 08h | ALT R |
+| 4     | 10h | CAPS |
+| 5     | 20h | |
+| 6     | 40h | |
+| 7     | 80h | WINDOWS |
 
 ### sysvar_vkeydown
 
@@ -86,10 +86,10 @@ You can also do a simple test to see if any of the _keys_ are pressed.
 The byte at offset $18 (sysvar_vkeydown) after IXU provides an indication if there are any keys pressed.
 
 ```
-ld a, $08         ; put $08 into A
-rst.lil $08       ; make a MOS call with command $08 (mos_sysvars).
+LD A, 08h         ; put 08h into A
+RST.LIL 08h       ; make a MOS call with command 08h (mos_sysvars).
                   ; IXU is now loaded with the base address
-ld a, (ix + $18)  ; A is loaded with the byte at offset +$18 from the base address
+LD A, (IX + 18h)  ; A is loaded with the byte at offset +18h from the base address
                   ; A now contains 1 if any key is pressed, or 0 if none are pressed
 ```
 
@@ -119,13 +119,13 @@ This can also be used to check for less common combinations that would not retur
 In assembler, an example might be:
 
 ```
-ld a, $1E             ; put $1E into A
-rst.lil $08           ; make a MOS call with command $1E (mos_getkbmap).
+LD A, 1Eh             ; put 1Eh into A
+RST.LIL 08h           ; make a MOS call with command 1Eh (mos_getkbmap).
                       ; IXU is now loaded with the base address of the keyboard map
-ld a, (ix + $0C)      ; A is loaded with the byte at offset +$0C from the base address
+LD A, (IX + 0Ch)      ; A is loaded with the byte at offset +0Ch from the base address
                       ; A now contains the status of 8 differnt keys
-bit 2, A              ; The Z flag register now determines whether the SPACE key (bit 2) is pressed
-jp nz, SPACE_PRESSED  ; do something as a result of key status
+BIT 2, A              ; The Z flag register now determines whether the SPACE key (bit 2) is pressed
+JP NZ, SPACE_PRESSED  ; do something as a result of key status
 ```
 
 In AgonDev C, the following example can be used:
@@ -182,16 +182,16 @@ If user pressed ESC, then it will be 27. This can used used as a check for _canc
 In assembler, an example might be:
 
 ```
-ld a, $09         ; put $09 into A
-ld hl, myBuffer   ; HL is where the string data will be stored once entered
-ld bc, 32         ; BC is the max length of string to be captured
-ld e, 1           ; E contains flags. 1 = buffer will be cleared before use
-rst.lil $08       ; make a MOS call with command $09 (mos_editline).
+LD A, 09h         ; put $09 into A
+LD HL, myBuffer   ; HL is where the string data will be stored once entered
+LD BC, 32         ; BC is the max length of string to be captured
+LD E, 1           ; E contains flags. 1 = buffer will be cleared before use
+RST.LIL 08h       ; make a MOS call with command $09 (mos_editline).
                   ; the data will now be stored at address starting _myBuffer_
                   ; The A regster will contain the charater used to exit, ESC or ENTER
 
 myBuffer:
-    .ds 32        ; define 32 bytes of space for the buffer
+    .DS 32        ; define 32 bytes of space for the buffer
 ```
 
 
