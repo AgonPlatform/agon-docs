@@ -182,11 +182,11 @@ If user pressed ESC, then it will be 27. This can used used as a check for _canc
 In assembler, an example might be:
 
 ```
-LD A, 09h         ; put $09 into A
+LD A, 09h         ; put 09h into A
 LD HL, myBuffer   ; HL is where the string data will be stored once entered
 LD BC, 32         ; BC is the max length of string to be captured
 LD E, 1           ; E contains flags. 1 = buffer will be cleared before use
-RST.LIL 08h       ; make a MOS call with command $09 (mos_editline).
+RST.LIL 08h       ; make a MOS call with command 09h (mos_editline).
                   ; the data will now be stored at address starting _myBuffer_
                   ; The A regster will contain the charater used to exit, ESC or ENTER
 
