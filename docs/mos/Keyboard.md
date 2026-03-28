@@ -2,7 +2,7 @@
 
 There are several different methods of reading the keyboard from within your code, each with advantages and disadvantages, so the method selected will depend on your specific need at that point in your code. You don't have to stick with one method, you can choose the best for a particular task.
 
-## Method 1 - mos_getkey
+## Method 1 - [`mos_getkey`](./API.md#0x00-mos_getkey)
 
 This call will wait until a key has been pressed, and return the ascii key code of the key which was pressed.
 
