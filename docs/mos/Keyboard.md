@@ -28,7 +28,7 @@ There are three useful keyboard bytes store in this area - `sysvar_keyascii`, `s
 
 ### sysvar_keyascii
 
-The byte at offset $05 after IXU provides an ascii code of the current key being pressed (or most recent if several are pressed), or 0 if no key is pressed.
+The byte at offset 05h after `IXU` provides an ascii code of the current key being pressed (or most recent if several are pressed), or 0 if no key is pressed.
 
 This is useful to check for a single key press. E.g., in a game menu where there may be multiple options, but only a single decision is needed to move on.
 
@@ -56,7 +56,7 @@ uint8_t theKey = vdp_getKeyCode();      // put ascii code, or 0, into theKey
 
 It is also possible to check the status of the modifier keys (SHIFT, CTRL, etc).
 
-The byte at offset $06 after IXU provides a bit code of the modifier keys which are pressed.
+The byte at offset 06h after IXU provides a bit code of the modifier keys which are pressed.
 
 ```
 LD A, 08h         ; put 08h into A
