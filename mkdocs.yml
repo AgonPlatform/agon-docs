@@ -75,6 +75,7 @@ nav:
       - 'Modules': mos/Modules.md
       - 'System Variables': mos/System-Variables.md
       - 'Argument Substitution': mos/Argument-Substitution.md
+      - 'Keyboard Input': mos/Keyboard.md
   - 'VDP':
     - 'Overview': VDP.md
     - 'Main Commands': vdp/VDU-Commands.md
