@@ -12,7 +12,7 @@ In assembler, an example might be:
 
 ```
 LD A, 0           ; put 0 into A
-RST.LIL 08h       ; make a MOS call with command 00h (mos_getkey).
+RST.LIL 08h       ; make a MOS call with command 0x00 (mos_getkey).
                   ; system will wait until a key is pressed, then...
                   ; A now contains the ascii code of the pressed key
 ```
@@ -36,7 +36,7 @@ In assembler, an example might be:
 
 ```
 LD A, 08h         ; put 08h into A
-RST.LIL 08h       ; make a MOS call with command 08h (mos_sysvars).
+RST.LIL 08h       ; make a MOS call with command 0x08 (mos_sysvars).
                   ; IXU is now loaded with the base address
 LD A, (IX + 05h)  ; A is loaded with the byte at offset +05h from the base address
                   ; A now contains the ascii code of the pressed key, or 0 if no key
@@ -60,7 +60,7 @@ The byte at offset 06h after IXU provides a bit code of the modifier keys which 
 
 ```
 LD A, 08h         ; put 08h into A
-RST.LIL 08h       ; make a MOS call with command $08 (mos_sysvars).
+RST.LIL 08h       ; make a MOS call with command 0x08 (mos_sysvars).
                   ; IXU is now loaded with the base address
 LD A, (IX + 06h)  ; A is loaded with the byte at offset +06h from the base address
                   ; A now contains a bit pattern of any modifier keys pressed
@@ -81,16 +81,16 @@ The following bits represent the given modifier keys:
 
 ### [`sysvar_vkeydown`](./API.md#sysvars)   
 
-You can also do a simple test to see if any of the _keys_ are pressed.
+You can also do a simple test to see if _any_ of the keys are pressed.
 
-The byte at offset $18 (sysvar_vkeydown) after IXU provides an indication if there are any keys pressed.
+The byte at offset 18h (sysvar_vkeydown) after `IXU` provides an indication if there are any keys pressed. However, the value returned represents the last key up/down event, so it might be possible that the last key event was a key up, but another key still remains pressed.
 
 ```
 LD A, 08h         ; put 08h into A
-RST.LIL 08h       ; make a MOS call with command 08h (mos_sysvars).
+RST.LIL 08h       ; make a MOS call with command 0x08 (mos_sysvars).
                   ; IXU is now loaded with the base address
 LD A, (IX + 18h)  ; A is loaded with the byte at offset +18h from the base address
-                  ; A now contains 1 if any key is pressed, or 0 if none are pressed
+                  ; A now contains 1 if any key is pressed, or 0 if the last event was a key up
 ```
 
 In AgonDev C there are also two useful functions to aid the programmer which utilise this MOS call, which are pretty obvious what they do. One will wait until _any_ key is pressed down, the other will wait until there are no keys pressed (all keys up):
@@ -106,11 +106,11 @@ These are useful for that _press any key to continue_ scenario.
 
 This is probably the most complex method, but also the most comprehensive and flexible. 
 
-The MOS API command `mos_getkbmap` returns a pointer to the base address of the MOS _virtual keyboard map_ in IXU as a 24-bit pointer. 
+The MOS API command `mos_getkbmap` returns a pointer to the base address of the MOS _virtual keyboard map_ in `IXU` as a 24-bit pointer. 
 
 The keyboard map is an array of 16 bytes, where each bit within those bytes contains the current status of each key on the keyboard, bit = 1 for pressed, bit = 0 for not pressed.
 
-To find out if any key (including modifer keys) is pressed, read the correct byte with the offset after IXU and then check the specific bit for its status.
+To find out if any key (including modifer keys) is pressed, read the correct byte with the offset after `IXU` and then check the specific bit for its status.
 
 This method is useful to check for a multiple key presses. E.g., In a game where multiple directions are possible (up and right), or movement plus a fire button need to be detected at the same time. 
 
@@ -120,7 +120,7 @@ In assembler, an example might be:
 
 ```
 LD A, 1Eh             ; put 1Eh into A
-RST.LIL 08h           ; make a MOS call with command 1Eh (mos_getkbmap).
+RST.LIL 08h           ; make a MOS call with command 0x1E (mos_getkbmap).
                       ; IXU is now loaded with the base address of the keyboard map
 LD A, (IX + 0Ch)      ; A is loaded with the byte at offset +0Ch from the base address
                       ; A now contains the status of 8 differnt keys
@@ -173,10 +173,14 @@ NOTE: There are a few gaps, so there may be more keys as not every keyboard has 
 ## Method  4 - [`mos_editline`](./API.md#0x09-mos_editline) 
 
 There may be times when you want a user to enter some text, or even just a number. The MOS API provides a useful method of allowing the user to type in as string of text without the programmer having to deal with every key press.
-The programmer needs to define a buffer of bytes where the typed in string will be stored and then invoke the `mos_editline` command. Note that the buffer needs to allow an extra byte for a $00 terminator. So, a 32 byte buffer will be 31 string characters, plus the $00 terminator.
+The programmer needs to define a buffer of bytes where the typed in string will be stored and then invoke the `mos_editline` command. Note that the buffer needs to allow an extra byte for a 0 terminator. So, a 32 byte buffer will be 31 string characters, plus the 0 terminator.
 
 When the call has been completed, the A register will contain the character used to exit.
 If user pressed ENTER, then it will be 13, but if the user pressed ESC, then it will be 27. This can used used as a check for _cancel_.
+
+The flag of 1 defines if the buffer is to be cleared before displaying. This allow the previous history to be used as default, or cleared.
+
+Note too that any defined hotkeys will also function whilst the editline is active.
 
 In assembler, an example might be:
 
@@ -185,7 +189,7 @@ LD A, 09h         ; put 09h into A
 LD HL, myBuffer   ; HL is where the string data will be stored once entered
 LD BC, 32         ; BC is the max length of string to be captured
 LD E, 1           ; E contains flags. 1 = buffer will be cleared before use
-RST.LIL 08h       ; make a MOS call with command 09h (mos_editline).
+RST.LIL 08h       ; make a MOS call with command 0x09 (mos_editline).
                   ; the data will now be stored at address starting _myBuffer_
                   ; The A regster will contain the charater used to exit, ESC or ENTER
 
