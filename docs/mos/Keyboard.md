@@ -178,9 +178,18 @@ The programmer needs to define a buffer of bytes where the typed in string will 
 When the call has been completed, the A register will contain the character used to exit.
 If user pressed ENTER, then it will be 13, but if the user pressed ESC, then it will be 27. This can used used as a check for _cancel_.
 
-The flag of 1 defines if the buffer is to be cleared before displaying. This allow the previous history to be used as default, or cleared.
+Normal key behaviours are also supported, such as cursor keys, TAB and up/down arrows. Note too that any defined hotkeys will also function whilst the editline is active.
 
-Note too that any defined hotkeys will also function whilst the editline is active.
+Various flags can be set depending on required functionality:
+
+Bit 0 of the flags defines if the buffer is to be cleared before displaying. This allow the previous history to be used as default, or cleared.
+
+Bit 1 of the flags allows the tAB key to be used for auto-completion of MOS commands and filenames.
+
+Bit 2 of the flags can be set to disable hotkeys.
+
+Bit 3 of the flags can be set to disable input history.
+
 
 In assembler, an example might be:
 
