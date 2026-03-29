@@ -26,7 +26,7 @@ The MOS API command `mos_sysvars` returns a pointer to the base of the MOS SysVa
 
 There are three useful keyboard bytes store in this area - `sysvar_keyascii`, `sysvar_keymods` and `sysvar_vkeydown`.
 
-### sysvar_keyascii
+###   [`sysvar_keyascii`](./API.md#sysvars) 
 
 The byte at offset 05h after `IXU` provides an ascii code of the current key being pressed (or most recent if several are pressed), or 0 if no key is pressed.
 
@@ -52,7 +52,7 @@ In AgonDev C, the following example can be used:
 uint8_t theKey = vdp_getKeyCode();      // put ascii code, or 0, into theKey
 ```
 
-### sysvar_keymods
+### [`sysvar_keymods`](./API.md#sysvars)  
 
 It is also possible to check the status of the modifier keys (SHIFT, CTRL, etc).
 
@@ -79,7 +79,7 @@ The following bits represent the given modifier keys:
 | 6     | 40h | |
 | 7     | 80h | WINDOWS |
 
-### sysvar_vkeydown
+### [`sysvar_vkeydown`](./API.md#sysvars)   
 
 You can also do a simple test to see if any of the _keys_ are pressed.
 
@@ -102,7 +102,7 @@ vdp_waitKeyUp();
 
 These are useful for that _press any key to continue_ scenario.
 
-## Method  3 - mos_getkbmap
+## Method  3 - [`mos_getkbmap`](./API.md#0x1e-mos_getkbmap)       
 
 This is probably the most complex method, but also the most comprehensive and flexible. 
 
@@ -170,7 +170,7 @@ Keys located on an extended keyboard number pad area are indicated with (pad).
 NOTE: There are a few gaps, so there may be more keys as not every keyboard has been tested.
 
 
-## Method  4 - mos_editline
+## Method  4 - [`mos_editline`](./API.md#0x09-mos_editline) 
 
 There may be times when you want a user to enter some text, or even just a number. The MOS API provides a useful method of allowing the user to type in as string of text without the programmer having to deal with every key press.
 The programmer needs to define a buffer of bytes where the typed in string will be stored and then invoke the `mos_editline` command. Note that the buffer needs to allow an extra byte for a $00 terminator. So, a 32 byte buffer will be 31 string characters, plus the $00 terminator.
