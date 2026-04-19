@@ -186,13 +186,23 @@ This command will cause the current sprite to be hidden, and not drawn on-screen
 
 This command moves the current sprite to the given pixel position on the screen.  The sprite will be drawn at the top left corner of the sprite bitmap, and so the position given is the top left corner of the sprite.
 
+NB for software sprites a sprite may not move on-screen immediately after this command.  A software sprite will be redrawn, reflecting it's new position, either when another drawing operation is performed, or when the `VDU 23, 27, 15` command is called.
+
+Hardware sprites will move immediately.
+
 ### `VDU 23, 27, 14, x; y;`: Move current sprite by x, y pixels
 
 This command moves the current screen location of the currently selected sprite by the given number of pixels.
 
+The same notes about when sprites will update on screen after this command apply as for `VDU 23, 27, 13` above.
+
 ### `VDU 23, 27, 15`: Update the sprites in the GPU
 
-This command will cause the sprites to be redrawn on-screen.  This is necessary if you have moved a sprite and want to see the change on-screen.  It is also necessary if you have changed the frame of a sprite, or if you have shown or hidden a sprite.
+This command will cause software sprites to be redrawn on-screen.
+
+This may be necessary after moving a sprite using `VDU 23, 27, 13` or `VDU 23, 27, 14`, as software sprites do not automatically update their position on-screen until another drawing operation is performed or this command is called.  Please note that if you are moving around several sprites you only need to call this command once after moving all of them - calling it after moving each sprite is not necessary, and would cause a lot of redrawing and possibly cause flickering.
+
+If you are using hardware sprites calling this command is not necessary.
 
 ### `VDU 23, 27, 16`: Reset bitmaps and sprites
 
