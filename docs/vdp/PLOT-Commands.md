@@ -8,11 +8,11 @@ PLOT commands sent to the VDP all require a command byte, followed by two 16-bit
 
 Most PLOT commands require additional coordinates than the single pair provided with the command.  The graphics system works using a concept of a "graphics cursor", and will keep track of the last few positions of the graphics cursor.  Every PLOT command "pushes" a copy of the current graphics cursor position onto a stack, and then moves the graphics cursor to the new position.  Commands that require additional coordinates will look at the last few positions on the stack to determine the additional coordinates.
 
-Support for PLOT commands has grown over time, but is still only a subset of those available on a BBC Micro with a GXR ROM.
+Support for PLOT commands has grown over time, and as of VDP 2.16 the Agon now supports all operations available on a BBC Micro with a GXR ROM, or on RISC OS.  The complete basic set of GCOL painting modes are also supported, but at this time pattern fills are not available.
 
 PLOT commands are essentially split into a drawing operation, and a mode that controls how the drawing operation is performed.  There are 8 different modes for each operation.  The command byte is effectively split into two parts where the lower 3 bits define the mode, and the upper 5 bits define the drawing operation.
 
-The complete set of PLOT codes supported by the Agon VDP follows.  For completeness, all commands from Acorn's command set are shown, including those that are not yet supported.
+The complete set of PLOT codes supported by the Agon VDP follows.
 
 | PLOT code | (Decimal) | Effect |
 | --------- | --------- | ------ |
@@ -32,16 +32,16 @@ The complete set of PLOT codes supported by the Agon VDP follows.  For completen
 | &68-&6F | 104-111 | Line fill left and right to foreground §§ |
 | &70-&77 | 112-119 | Parallelogram fill |
 | &78-&7F | 120-127 | Line fill right to non-foreground §§ |
-| &80-&87 | 128-135 | Not supported (Flood until non-background) |
-| &88-&8F | 136-143 | Not supported (Flood until foreground) |
+| &80-&87 | 128-135 | Flood until non-background §§§§§ |
+| &88-&8F | 136-143 | Flood until foreground §§§§§ |
 | &90-&97 | 144-151 | Circle outline |
 | &98-&9F | 152-159 | Circle fill |
 | &A0-&A7 | 160-167 | Circular arc §§§§ |
 | &A8-&AF | 168-175 | Circular segment §§§§ |
 | &B0-&B7 | 176-183 | Circular sector §§§§ |
 | &B8-&BF | 184-191 | Rectangle copy/move |
-| &C0-&C7 | 192-199 | Not supported (Ellipse outline) |
-| &C8-&CF | 200-207 | Not supported (Ellipse fill) |
+| &C0-&C7 | 192-199 | Ellipse outline §§§§§ |
+| &C8-&CF | 200-207 | Ellipse fill §§§§§ |
 | &D0-&D7 | 208-215 | Not defined |
 | &D8-&DF | 216-223 | Fill path (Experimental - Not defined on Acorn systems) §§§§ |
 | &E0-&E7 | 224-231 | Not defined |
@@ -70,6 +70,7 @@ The various "Line fill" plot commands have an additional effect, which is to adj
 §§ Support added in Agon Console8 VDP 2.2.0<br>
 §§§ Support added in Agon Console8 VDP 2.6.0<br>
 §§§§ Support added in Agon Console8 VDP 2.7.0<br>
+§§§§§ Support added in Agon Platform VDP 2.16.0<br>
 
 
 ## Interaction with GCOL paint modes
@@ -93,6 +94,8 @@ As of Console8 VDP 2.6.0, the following modes are now available for all currentl
 
 PLOT commands using an "inverse" plot code are essentially identical to setting a GCOL paint mode of 4, and will temporarily override the current GCOL paint mode if a different GCOL paint mode is set.
 
+NB the Agon does not currently support GCOL painting mode numbers outside of the range 0-7; any command sent with a greater number will be ignored.  On Acorn systems these could be used for a number of other actions, such as pattern fills.
+
 
 ## Line drawing (PLOT codes &00-&3F)
 
@@ -103,7 +106,14 @@ Support for plotting dotted lines was added in Agon Console8 VDP 2.7.0.  The def
 
 ## Line fill codes (PLOT codes &48-&4F, &58-5F, &68-6F, &78-&7F)
 
-These various PLOT codes will fill horizontal lines on the screen.  When executing "drawing" plot codes, the graphics system will scan the line to find appropriate start and end positions, depending on the PLOT code used and the screen contents.  The final calculated end position will be pushed to the graphics cursor stack.
+These various PLOT codes will fill horizontal lines on the screen.  When executing a line fill, the graphics system will scan the line to find appropriate start and end positions, depending on the PLOT code used and the screen contents.  The final calculated end position will be pushed to the graphics cursor stack.
+
+
+## Flood fill codes (PLOT codes &80-&87, &87-8F)
+
+These PLOT codes will perform a flood fill from the given seed location.
+
+NB owing to the nature of how the graphics system works on the Agon, the various line fill and flood fill PLOT codes will be executed immediately, causing any other queued drawing operations to also be performed.  This is necessary in order to ensure that the graphics cursor stack is kept properly up to date.  In the future we may provide an option to allow for the graphics cursor stack update to be skipped and allow these PLOTs to be queued.
 
 
 ## Filled triangles (PLOT codes &50-&57)
@@ -139,6 +149,15 @@ Arcs, segments, and sectors require three points to be defined.  They will there
 Arcs, segments, and sectors are all drawn anticlockwise from a start point to an end.
 
 The first point defines the start of the arc, segment, or sector, which is a point on the circumference of the circle.  The second point defines the centre of the circle that the arc, segment, or sector is part of.  The distance from the first point to the second point defines the radius of the circle.  The final point (provided with the PLOT command) defines the end of the arc, segment, or sector.  This point does not have to be on the circumference of the circle, and the graphics system will calculate the point on the circumference that the arc, segment, or sector ends at.  Instead the final point is effectively used to define the angle of the arc.
+
+
+## Ellipses (PLOT codes &C0-&C7, &C8-&CF)
+
+Ellipse drawing also require three points to be defined.  They use the last two points pushed to the graphics cursor stack, coupled with the position given with the PLOT command.
+
+The first point will be used to mark the centre of the ellipse.  The second point is an "outermost" point at the same height as the centre point of the ellipse you wish to draw.  The final point provided with the PLOT command is either the highest or lowest point of the ellipse.
+
+This allows you to draw ellipses that are not axis-aligned, i.e. it supports drawing a "sheared" ellipse.
 
 
 ## Rectangle copy/move (PLOT codes &B8-&BF)
