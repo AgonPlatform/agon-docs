@@ -121,7 +121,7 @@ For example, to set your prompt to be written in yellow on black, returning to w
 setmacro CLI$Prompt <17><128><17><11><Current$Dir> *<17><15>
 ```
 
-Note that the above prompt change relies on being in default colours, in 16 or 64 colour modes. In 2 or 4 colour modes the prompt will appear to be white on black.
+Note that the above prompt change relies on being in default colours, in 16 or 64 colour modes. In 2 or 4 colour modes the prompt will appear to be white on black. It works by taking advantage of the GSTrans mechanism interpreting the `<123>` entries as literal characters to send. This means the the first part of the new prompt is the equivalent of `vdu 17 128 17 11`, and after the `*`, the ending is the equivalent of `vdu 17 15`.
 
 
 ### `CLI$AutoPaged` {#autopaged}
