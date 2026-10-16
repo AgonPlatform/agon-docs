@@ -2078,7 +2078,7 @@ The following sysvars are available in [mos_api.inc](#rst):
 ; SysVars (System State Information) indexes for api_sysvars
 ; Index into _sysvars in globals.asm
 ;
-sysvar_time:			EQU	00h	; 4: Clock timer in centiseconds (incremented by 2 every VBLANK)
+sysvar_time:			EQU	00h	; 4: Clock counter (incremented by 2 every VBLANK)
 sysvar_vpd_pflags:		EQU	04h	; 1: Flags to indicate completion of VDP commands
 sysvar_keyascii:		EQU	05h	; 1: ASCII keycode, or 0 if no key is pressed
 sysvar_keymods:			EQU	06h	; 1: Keycode modifiers
@@ -2122,6 +2122,14 @@ Example: Reading a virtual keycode in Z80 mode (16-bit):
 		MOSCALL	mos_getkey
 		LD.LIL	A, (IX + sysvar_vkeycode)	; Load A with the virtual keycode from FabGL
 ```
+
+### Clock counter {#sysvar_time}
+
+`sysvar_time` is a 32-bit counter incremented by **2 for each VBLANK interrupt**. It is not a mode-independent centisecond clock: its rate depends on the video refresh rate. At 60 Hz it advances by 120 units per second, in steps of 2 every approximately 16.67 milliseconds. At 50 Hz it advances by 100 units per second, which is when its units correspond to centiseconds.
+
+For an unchanged refresh rate, convert a counter difference to seconds using `elapsed_units / (2 * refresh_rate_hz)`. For example, in a 60 Hz mode, advancing a frame deadline by 4 units requests 30 frames per second. A repeating 3, 3, 4-unit increment requests 36 frames per second, not 30. Code must account for the two-unit update granularity when choosing deadlines.
+
+This behaviour can be seen in the [`_vblank_handler` in MOS 3.0.2](https://github.com/AgonPlatform/agon-mos/blob/v3.0.2/src/interrupts.asm#L40-L60), which adds 2 to `_clock` on each interrupt. The counter is separate from the [real-time clock data](#sysvar_rtc).
 
 ### VDP pflags (vdpflags)
 The bits to manipulate the flags for `sysvar_vpd_pflags` are defined in the MOS `equs.inc`. They names are relatively self documenting, describing the category of update each is related to. The bits assigned are defined as follows:
